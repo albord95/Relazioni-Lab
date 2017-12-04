@@ -36,6 +36,9 @@
 \contentsline {subsection}{\numberline {4.1.5}Fibra a conservazione di polarizzazione}{13}
 \contentsline {subsection}{\numberline {4.1.6}Lente di GRIN}{13}
 \contentsline {subsection}{\numberline {4.1.7}suono}{13}
-\contentsline {chapter}{\numberline {5}Analizzatore di spettro: 27-28 Novembre2017}{14}
+\contentsline {chapter}{\numberline {5}Analizzatore di spettro: 27-28 Novembre 2017}{14}
 \contentsline {section}{\numberline {5.1}Venerd\IeC {\`\i }}{14}
 \contentsline {subsection}{\numberline {5.1.1}presa dati}{14}
+\contentsline {chapter}{\numberline {6}Visibile: 4-5 Dicembre 2017}{15}
+\contentsline {section}{\numberline {6.1}Accensione pompa}{15}
+\contentsline {section}{\numberline {6.2}Taratura attenuatore}{15}
