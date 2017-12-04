@@ -17,7 +17,6 @@
 	\begin{itemize}
 		\item Foto apparato
 		\item immagine motorino passo passo + vite micrometrica + specchio mobile
-		\item immagine esempio di una presa dati labVIEW
 		\item verificare l'effetto della luce ambientale
 	\end{itemize}
 	
@@ -34,7 +33,6 @@
 \begin{center}
 	\begin{minipage}[c]{.50\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{michelson.png}
 		\includegraphics[width=1\textwidth]{teoria_michelson.png}
 	\end{minipage}
 	\begin{minipage}[c]{.40\textwidth}
@@ -58,12 +56,35 @@
 Il principio di funzionamento è l'interferenza a divisione di ampiezza. Per avere interferenza al finito usiamo una lente che trasforma onde piane in onde sferiche. Le frange di interferenza vengono rivelate tramite un fotodiodo il cui segnale viene letto al PC tramite un VI labVIEW, che salva anche i dati.
 
 \section{Misura della lunghezza d'onda}
-Per misurare la lunghezza d'onda del laser contiamo le frange di interferenza al variare della differenza di cammino ottico. Nell'apparato che utilizziamo lo specchio M1 è fisso mentre la distanza L2 dello specchio M2 è variata lentamente tramite una vite micrometrica azionata da un motore passo passo.
-Il motorino si muove ad una velocità di 125 step/s che corrispondono ad un avanzamento della vite di circa 0.4 $\mu$m/s, quindi vediamo circa una frangia al secondo.
+Per misurare la lunghezza d'onda del laser contiamo le frange di interferenza al variare della differenza di cammino ottico. 
+
+\subsection{Presa dati}
+Per prima cosa allineiamo il fascio laser in modo da vedere delle frange di interferenza definite sul rilevatore al silicio. 
+Poi variamo la differenza di cammino ottico utilizzando un motorino passo passo collegato ad una vite micrometrica che muove lentamente uno degli specchi (M2). Il motorino si muove ad una velocità di 125 step/s che corrispondono ad un avanzamento della vite di circa 0.4 $\mu$m/s; vediamo passare circa una frangia al secondo.
+Al PC vediamo l'evoluzione delle frange di interferenza grazie ad un VI labVIEW, come in Figura \ref{fig:esempio_acquisizione}.
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{esempio_acquisizione.pdf}
-	\caption{Esempio di acquisizione delle frange di interferenza}
+	\caption{Esempio di acquisizione delle frange di interferenza.}
+	\label{fig:esempio_acquisizione}
 \end{figure}
+Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo per calcolare la lunghezza d'onda.
+
+\subsubsection{Accorgimenti sperimentali}
+\begin{itemize}
+	\item Per avere un buon segnale allineiamo il fascio laser prima di inserire la lente divergente e dopo averla inserita perfezioniamo la regolazione degli specchi in modo che le frange di interferenza siano larghe in corrispondenza del rivelatore (vedi Figura \ref{fig:frange})
+	\item Dato che il rilevatore al silicio è sensibile ad un ampio spettro verifichiamo che l'effetto della luce ambientale non disturbi il segnale.
+	\item Stimiamo che l'errore sul conteggio dei picchi derivi soprattutto dai transienti di accensione e spegnimento del motorino e del VI, quindi li facciamo partire e fermare in contemporanea. Avviamo noi la partenza simultanea del motorino e della acquisizione, mentre per la fine impostiamo un fissato numero di step del motorino passo passo (modalità F2) e una durata corrispondente nel programma di acquisizione.
+	
+	Inoltre scegliamo di impostare il massimo numero di step consentiti dal motorino (99999), questo minimizza l'errore sui transienti di accensione e spegnimento.\footnote{A parità di tempo speso in laboratorio conviene fare una simulazione lunga piuttosto che fare la media di tante brevi. Se facciamo k acquisizioni tali che la durata complessiva sia N secondi l'errore sulla media va come $\frac{1}{\sqrt{k}}$ per l'errore su una acquisizione, che va come $\frac{1}{\frac{N}{k}}$. Quindi l'errore sulla media è proporzionale a $\frac{\sqrt{k}}{N}$. Conviene $k=1$.}
+\end{itemize}
+
+\begin{figure}[H]
+	\includegraphics[width=0.3\textwidth]{frange.jpg}
+	\caption{Frange di interferenza sul rilevatore.}
+	\label{fig:frange}
+\end{figure}
+
+
 
 \section{Isteresi del piezoelettrico}
 
