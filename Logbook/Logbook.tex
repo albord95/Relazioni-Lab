@@ -1,0 +1,637 @@
+\documentclass[10pt,a4paper,openbib]{report}
+\usepackage[latin1]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[italian]{varioref}
+\usepackage[width=15.00cm, height=24.50cm]{geometry}
+\setlength\parindent{0pt}
+\setlength{\parskip}{3pt}
+\author{A. Bordin, G. Cappelli \\\\ alberto.bordin@sns.it \\ cappelligiulio06@gmail.com}
+\title{Laboratorio di Ottica Quantistica}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Interferometro di Michelson: 06-07 Novembre 2017}
+\section{Lunedì}
+
+Tolta la lente divergente si allineano i due raggi che non fanno interferenza al finito date le dimensioni dell'apparato.
+La vite micrometrica ha un errore del millesimo di millimetro. Gli errori su distanza e numero di picchi sono comparabili (prova a caso 1/35 e 1/55)
+
+\subsection{Cose che dice Tonelli}
+\begin{itemize}
+	\item camera a vuoto: $5$ cm $\pm 50 \mu m$  
+	\item valvole: antiorario per aprire
+\end{itemize}
+
+
+\subsection{Misure HeNe}
+
+picchi 1084
+d 0.346 mm
+
+Abbiamo impostato il motion controller a 125 step/sec per un totale di 99999 step per un intervallo di 13:21 min
+
+\section{Martedì}
+
+\subsection{$\lambda$}
+Abbiamo impostato il motion controller a 125 step/sec per un totale di 12500 step per un intervallo di 1:40 min
+Si notano dei transienti iniziali: 129 picchi e 41 $\mu$m
+
+Su 100 s ne abbiamo perso 1, quindi 1\%
+
+Ora impostiamo 125 step/sec per un totale di 99999 step per un intervallo di 13:33 min
+
+L'errore sulla distanza è pari alla risoluzione della vite, cioè 1 $\mu$m; mentre sul numero di picchi abbiamo considerato $\Delta m$=2 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|ccccccc}
+	& m & m* & d  $\mu$m & t mm:ss &$\lambda$ nm & $\Delta\lambda$ & direzione \\
+	\hline
+	HeNe borcapMM02 &  129 & & 41 & 1:43 & 636 & 18 &  \\ 
+	HeNe borcapMM06 &  1088 & 1087.5 & 345 & 13:33 & 634 &2& A\\ 
+	HeNe borcapMM07 & 1094 & 1091.5 &345 & 13:43 & 631 & 2 & B\\ 
+	HeNe borcapMM08 & 1092 & 1091.5 &345 & 13:36 & 632 & 2 & A\\ 
+	650nm borcapMM09 & 1065 & &345 & 13.36 &  648 & 2.2 & A\\ 
+	650nm borcapMM10 & 1054 &1052.5 &346 & 13.32 & 657 & 2 & B\\ 
+	532nm borcapMM11 & 1306 & 1305.5 &347 & 13.32 & 531 & 2 & A\\
+	532nm borcapMM12 & 1293 & 1293.5 &347 & 13.32 & 537 & 2 & B\\
+	\hline
+	
+\end{tabular}
+\end{table}
+
+\subsection{Piezo}
+Abbiamo fatto una misura della salita da 0 a 100 V e una della discesa da 100 a 0 V contando le frange visivamente e segnando il valore della tensione ogni 10 frange; poi abbiamo ripetuto queste due misure salvando gli andamenti temporali delle frange e della tensione (in ogni acquisizione abbiamo acceso prima il VI Michelson e poi quello del multimetro)
+
+\subsection{Indice di rifrazione}
+
+Per fare il vuoto abbiamo aperto la valvola di collegamento fra camera e tubo e chiuso quella fra tubo ed esterno, quindi abbiamo acceso la pompa per circa 5 min (frange ferme) poi abbiamo azionato il VI e fatto entrare aria prima nel tubo e poi nella camera. A fine acquisizione abbiamo contato i picchi presenti sul grafico.
+
+\begin{itemize}
+\item borcapMMn01: 43 picchi (HeNe)
+\item borcapMMn02: 43 picchi (HeNe)
+\item borcapMMn03: 41 picchi (650 nm)
+\item borcapMMn04: 41 picchi (650 nm)
+\item borcapMMn05: 51 picchi (532 nm)
+\item borcapMMn06: 51 picchi (532 nm)
+\end{itemize}
+
+\subsection{Osservazioni}
+
+\begin{itemize}
+\item HeNe borcapMM06: si è fermata prima la presa dati rispetto al motorino, probabilmente mancano un paio di picchi quindi aumentiamo la durata dell'acquisizione a 13:43
+\item HeNe borcapMM07: si è fermato prima il motorino di circa 10 s, probabilmente sono stati contati dei picchi in più quindi diminuiamo la durata dell'acquisizione a 13:36
+\end{itemize}
+
+\chapter{Laser a diodo: 09-10 Novembre 2017}
+\section{Giovedì}
+
+\subsection{Datasheet}
+Scarica e scrivi tutte le cose importanti dei datasheet
+
+\subsection{Cose che dice Tonelli}
+10 cm goniometro
+non superare 1.5 A peltier
+
+
+
+\subsection{Caratteristica P-I al variare di T}
+
+Misuriamo la potenza emessa dal diodo al variare della corrente a tre diverse temperature: 12°C, 25°C, 45°C 
+
+In ognuna delle tre prove scegliamo la lunghezza d'onda letta dal power meter in base a quella riportata sul datasheet del diodo laser: 784 n$\mu$, 786 n$\mu$, 790 n$\mu$
+
+I valori della potenza nei file .txt sono i $\mu$W
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	I [mA] & P [mW] & I [mA] & P [] & I [mA] & P [] &I [mA] & P [] \\
+	\hline
+	82.0 & 6.23 & 71.0 & 3.80  &   &    &   &  \\
+	81.0 & 6.03 & 69.1 & 3.38 &   &    &   &   \\
+	79.9 & 5.80  & 67.3 & 2.99 &    &   &    &   \\
+	78.8 & 5.48 & 64.8 & 2.468 &    &   &    &   \\
+	77.8 & 5.29 & 63.0 & 2.077 &    &   &    &   \\
+	76.6 & 5.05 & 60.5 & 1.544 &    &   &    &   \\
+	75.3 & 4.74  & 58.5 & 1.100 &    &   &    &   \\
+	73.9 & 4.43 &  &  &    &   &    &   \\
+	
+	\hline
+	
+\end{tabular}
+\caption{T = 12 °C}
+\end{table}
+Abbiamo fatto le altre temperature
+
+\section{Venerdì}
+\subsection{Intensità vs angolo}
+Misuriamo l'intensità relativa ai due piani della giunzione montando il diodo laser su un goniometro 
+
+Leggiamo l'intesità attraverso un rilevatore collegato ad un multimetro che leggiamo dal pc con DIGITAL MULTIMETER.
+
+Abbiamo allineato il diodo con il polarizzatore e il power meter però non eravamo soddisfatti quindi lo abbiamo fatto ad occhio usando la cartina e abbiamo controllato col filtro di essere almeno all'interno della sua precisione
+
+Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 $\mu$A
+
+\subsection{$\lambda$ vs T}
+
+Col peltier controlliamo la temperatura del laser. Passiamo lentamente da 12°C a 45°C, intanto controlliamo la lunghezza d'onda del picco letta dallo spettrometro. Abbiamo risoluzione di 1°C e 1nm. Alimentiamo il laser poco sopra soglia $\sim65 mA$
+
+\chapter{Olografia: 13-17 Novembre 2017}
+
+\section{Cose importanti}
+\begin{itemize}
+\item Cammini ottici uguali
+\item Intensità costante sulla lastra
+\item 50\% annerimento lastra per $\lambda$=633 nm quindi 50 $\mu$J/cm$^2$
+\item Taratura sensore 
+\end{itemize}
+
+\begin{equation}
+P[\mu W]=-0.16925+2.6592V[V]
+\end{equation}
+
+\begin{equation}
+t[s]=\frac{50[\frac{\mu J}{cm^2}]}{P[\mu W]}S[cm^2]
+\end{equation}
+
+\section{Olografia statica}
+\subsection{soldatino con lancia}
+
+13.12 secondi
+
+\begin{itemize}
+\item A = 60 cm
+\item B = 92.5 cm
+\item C = 78.5 cm
+\item D = 38 cm
+\item E = 36 cm
+\end{itemize}
+
+Abbiamo misurato con il rilevatore al silicio i valori dell'intensità dei fasci $I_{o}$ e $I_{r}$:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.14 &  & 1.12  \\
+	\hline
+	   & 1.48 &   \\
+	\hline
+	  1.12 &   & 1.13 \\
+	\hline
+\end{tabular}
+\label{tab:tabella1}
+\caption{Valori di $I_{r}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  56 &   & 59 \\
+	\hline
+	   & 59 &   \\
+	\hline
+	  54 &   & 59 \\
+	\hline
+\end{tabular}
+\label{tab:tabella2}
+\caption{Valori di $I_{o}$ espressi in mV con un errore di 1 mV}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.09 & 1.13  & 1.11  \\
+	\hline
+	 1.43  & 1.50 &  1.45 \\
+	\hline
+	  1.21 & 1.26 & 1.24 \\
+	\hline
+\end{tabular}
+\label{tab:tabella3}
+\caption{Valori di $I_{tot}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $P_{tot}$ espressi in $\mu$W}
+\end{table}
+
+\subsection{caccia}
+
+\begin{itemize}
+\item A = 62.5 cm
+\item B = 89.5 cm
+\item C = 77.5 cm
+\item D$_{S}$ = 34.5 cm, D$_{C}$ = 38.5 cm, D$_{P}$ = 50 cm
+\item E$_{S}$ = 39 cm, E$_{C}$ = 35.5 cm, E$_{P}$ = 46 cm
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.19 & 1.24  &  1.19 \\
+	\hline
+	  1.50 & 1.54  & 1.49  \\
+	\hline
+	  1.20 & 1.22 & 1.19  \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{r}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  67 & 69  & 70  \\
+	\hline
+	  68 & 70 &  71 \\
+	\hline
+	  69 & 68 & 71 \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{o}$ espressi in mV con un errore di 1 mV}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.25 & 1.30  & 1.25 \\
+	\hline
+	  1.56 & 1.59 & 1.52 \\
+	\hline
+	 1.25  & 1.27 & 1.24 \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $I_{tot}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $P_{tot}$ espressi in $\mu$W}
+\end{table}
+
+\section{Olografia dinamica}
+
+\subsection{Cubo con martelletto}
+Tempo stimato di 12.31 s di cui 6 con martelletto premuto e 6 senza. Abbiamo preparato la lastra, premuto il martelletto, acceso il laser, lasciato il martelletto, spento il laser.
+
+\begin{itemize}
+\item A = 62.5 cm
+\item B = 89.5 cm
+\item C = 78 cm
+\item D = 39 cm
+\item E = 35 cm
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	 1.24  & 1.29 & 1.25 \\
+	\hline
+	  1.53 & 1.55 & 1.51 \\
+	\hline
+	  1.19 & 1.24 & 1.15 \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{r}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	 51  & 51 & 51 \\
+	\hline
+	  53 & 52 & 53 \\
+	\hline
+	  50 & 50 & 50 \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{o}$ espressi in mV con un errore di 1 mV}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.23 & 1.30  & 1.25 \\
+	\hline
+	  1.55 & 1.58 & 1.54 \\
+	\hline
+	  1.25 & 1.30 & 1.22 \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $I_{tot}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $P_{tot}$ espressi in $\mu$W}
+\end{table}
+
+\subsection{Altoparlante}
+
+Abbiamo tenuto acceso l'altoparlante alla frequenza di 783 Hz (un Sol5) segnata 1.03 sul generatore di funzioni.
+
+Analogamente a quanto fatto per il martelletto abbiamo tenuto acceso l'altoparlante per le metà del tempo totale di 11.7 s stimato e 11.43 s effettivo.
+
+\begin{itemize}
+\item A = 63 cm
+\item B = 87.5 cm
+\item C = 69 cm
+\item D = 36.5 cm
+\item E = 44 cm
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.24 & 1.31 & 1.28 \\
+	\hline
+	 1.58 & 1.61 & 1.57 \\
+	\hline
+	  1.26 & 1.33 & 1.25 \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{r}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  98 & 95 & 96 \\
+	\hline
+	  94 & 97 & 100 \\
+	\hline
+	  93 & 97 & 99 \\
+	\hline
+\end{tabular}
+\caption{Valori di $I_{o}$ espressi in mV con un errore di 1 mV}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	  1.34 & 1.38 & 1.36 \\
+	\hline
+	  1.62 & 1.67 & 1.65 \\
+	\hline
+	  1.29 & 1.38 & 1.30 \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $I_{tot}$ espressi in V con un errore di 0.01 V}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+	   &   &   \\
+	\hline
+\end{tabular}
+\label{tab:tabella4}
+\caption{Valori di $P_{tot}$ espressi in $\mu$W}
+\end{table}
+
+\chapter{Fibre Ottiche: 20-24 Novembre 2017}
+
+\section{Procedimento da seguire}
+Abbiamo allineato il laser all'interno di un foro cilindrico in un cubo metallico.
+
+\begin{enumerate}
+\item Inserire coso nero
+\item Spellare la fibra meccanicamente o chimicamente
+\item Pulire la fibra con l'alcool
+\item Tagliare la fibra col taglierino
+\item Inserire il portafibra 
+\item Controllare il taglio
+\item Mettere la fibra al sicuro
+\end{enumerate}
+
+Le dimensioni del sensore del power meter sono 7 mm
+
+Abbiamo un fondo del sensore di 2 nW con un errore del 5\% confrontabile con quello dovuto alla distanza fra il sensore e l'apertura 
+che è 23.8 cm
+
+-6 = 40 nW
+
+Lo zero del goniometro è a 13°, luce ambientale 2 nW
+
+Massimo fra 13 e 14° a 2.65 muW
+
+ d$_{2}$ = 11.1 cm
+ 
+P$_{out}$(max) = 9.81 a 13°
+
+Fondo scala 4 nW a -16°
+
+P$_{out}$(max) = 12 muW fra 8 e 9 ad una distanza di 8.9 cm
+
+Abbiamo degli spot scuri e chiari sullo schermo di dimensioni tipiche di 1 cm$^2$ ad una distanza di 105 cm dalla fibra
+\subsection{Attenuazione}
+\subsubsection{HeNe}
+Abbiamo srotolato dalla bobina di fibra multimodo F-MLD 2 m di fibra ed utilizzando un lanciatore con una lente col fuoco a 2 mm abbiamo allineato il laser ad HeNe nella fibra e abbiamo letto col power meter la potenza uscente:
+
+P$_{out}$ = 598 $\mu$W
+
+Adesso tagliamo i 2 m iniziali da cui (lasciando tutto invariato) leggiamo la potenza entrante:
+
+P$_{in}$ = 1.63 mW
+
+Abbiamo utilizzato uno scramble per eliminare i modi spuri dalla fibra ad una distanza di 41 cm. 
+
+Lunghezza finale fibra = 205.3 cm
+
+Abbiamo tolto circa 210 cm
+
+Ci dimentichiamo sempre di infilare il cosino nero!
+
+\subsubsection{verde}
+
+P$_{out}$ = 156 $\mu$W
+
+Adesso tagliamo i 2 m iniziali da cui (lasciando tutto invariato) leggiamo la potenza entrante:
+
+P$_{in}$ = 1.47 mW
+
+\subsection{Attenuazione 2}
+Misuriamo la potenza uscente dai 2 m di fibra tagliati la volta scorsa P = 3.41 mW e poi stringiamo lo scramble per vedere quando si rompe la fibra. Si è rotta intorno a qualche centinaio di $\mu$W e la potenza è scesa a qualche nW (si è sentito il rumore di quando si rompe).
+
+Abbiamo inserito la fibra nel lanciatore e ottenuto una potenza uscente dai $\sim$300 m di fibra di 1.66 mW per l'He-Ne e di 830 $\mu$W per il laser verde prima dello scramble (posto a circa 30 cm dal lanciatore). Stringiamo adesso le scramble per eliminare i modi spuri e misuriamo la potenza uscente, poi tagliamo la fibra e misuriamo la potenza entrante e da questi valori otteniamo l'attenuazione della fibra definita da:
+\begin{equation}
+\Gamma = \frac{10}{L} \text{log}\left |\frac{P_{in}}{P_{out}} \right |
+\end{equation}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+	\hline
+	   & $P_{out}$ [$\mu$W]& $P_{in}$ [mW]& $\Gamma [dB]$ \\
+	\hline
+	He-Ne  & 832 & 2.44 &  \\
+	 532 nm & 320(2) & 2.80(3) &  \\
+	\hline
+\end{tabular}
+\end{table}
+
+La cosa importante è che fra le due misure non varino le condizioni sperimentali!!!
+
+\subsection{Propagazione di un modo LP$_{01}$}
+Abbiamo spellato chimicamente due metri di1 fibra a singolo modo F-SV (4,3/125/245) e le iniettiamo il laser HeNe.
+Poi attraverso il power meter con attaccato uno schermo con una fessura prendiamo le misure della potenza in funzione dell'angolo per verificare che si sia propagato il modo TEM$_{00}$ (fit ad una gaussiana).
+
+Affinché si propaghi solo il modo LP$_{01}$ si deve avere 
+\begin{equation}
+V = \frac{2\pi}{\lambda_{0}}\cdot N.A.\cdot a \le 2.405 
+\end{equation}
+
+Abbiamo una potenza massima di 550 $\mu$W senza fenditura.
+
+Luce ambientale 2 nW
+
+I dati sono salvati in $\mu$W.
+
+errori per la gaussiana: ultimo digit di errore di digitalizzazione e almeno 50 nW di sballonzoli
+
+\subsection{Propagazione modi superiori}
+Adesso vogliamo osservare la propagazione dei modi superiori e per farlo utilizziamo una fibra a singolo modo con $\lambda_{0}$=1300 nm così che si abbia 
+x
+\begin{equation}
+V = \frac{2\pi}{\lambda_{0}}\cdot N.A.\cdot a \ge 2.405 
+\end{equation}
+
+e quindi variando l'allineamento si propagano i diversi modi a seconda dell'angolo di ingresso nella fibra.
+
+Abbiamo spellato la fibra F-SMF-28 (9,3/125/245) chimicamente e una volta tagliata abbiamo allineato un capo al laser e l'altro ad un obiettivo x20 in modo da poter proiettare l'immagine dei modi su uno schermo e fotografarli.
+
+Dato che la frequenza normalizzata per il laser verde a 532 nm ha un valore molto alto e quindi un elevato numero di modi indipendenti abbiamo provato ad usare anche l'HeNe.
+
+\subsection{Fibra a conservazione di polarizzazione}
+Abbiamo spellato chimicamente alle estremità e al centro una fibra F-SPV SM (3,2/125/245) al fine di misurarne in battimenti.
+Questo tipo di fibra ha un core stressato meccanicamente che presenta una forma ellittica e a ciascun asse è associato un diverso indice di rifrazione. 
+
+Inseriamo la fibra nel lanciatore e osserviamo l'ellisse sullo schermo bianco all'uscita, in questo modo, attraverso un goniometro fissato sul portafibra fissiamo le posizione degli assi (90°-30°) e quindi scambiamo le estremità e facciamo in modo che la fibra sia a 45° così da vedere zone scure e chiare al centro della fibra.
+
+\subsection{Lente di GRIN}
+Con una lente di GRIN misuriamo l'accoppiamento  della fibra multimodo con un laser a diodo e un LED entrambi a 830 nm. Per farlo misuriamo la potenza in uscita dal diodo laser e dal LED $P_{in}$ e quella in uscita dalla fibra $P_{out}$, una volta allineato il fascio al suo interno con l'utilizzo della lente di GRIN.
+
+Il coefficiente di accoppiamento è quindi definito da:
+
+\begin{equation}
+\Gamma = 10 \text{log}\left |\frac{P_{in}}{P_{out}} \right |
+\end{equation}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+	\hline
+	   & $I_{in}$ [mA]  & $P_{in}$ [mW]& $P_{out}$ [mW]& $\Gamma [dB]$ \\
+	\hline
+	 Laser  &  78.0(1) & 2.10(1) &  6.12(10) & 4.65\\
+	 Laser  & 78.3(2) & 2.67(1) &   &\\
+	 Laser  & 78.4(2) & 3.41(1) &   &\\
+	 Laser  & 78.3(2) & 3.52(1) &   &\\
+	 Laser  & 78.0(2) & 3.48(1) &   &\\
+	 Laser  & 78.0(1) & 3.50(1) &   6.19(6) &\\
+	\hline
+	  LED & 81.0(2)  & 3.90(1) [$\mu$W] & 8.21(10) & \\
+	  LED & 81.1(2)  & 3.96(1) [$\mu$W] & 8.21(10) & \\
+	  LED & 81.1(2)  & 4.45(1) [$\mu$W] & 8.21(10) & \\
+	  LED & 81.1(2)  & 4.78(1) [$\mu$W] & 8.21(10) & \\
+	  LED & 81.1(2)  & 4.91(2) [$\mu$W] & 8.21(10) & \\
+	\hline
+\end{tabular}
+\end{table}
+
+accorgimento: notiamo che l'alimentatore di laser e led ha delle fluttuazioni 1/f non trascurabili. Quindi prestiamo attenzione, regolando la manopola, ad alimentare sempre con la stessa corrente.
+
+\subsection{suono}
+
+sentiamo i 98 Hz della luce ambientale (2*50 Hz perchè abbiamo lampade al neon) misurati con l'accordatore del telefono
+
+\chapter{Analizzatore di spettro: 27-28 Novembre2017}
+\section{Venerdì}
+generatore di funzioni:\\
+frequenza = 4.50 Hz\\
+ampiezza 4 V picco picco
+
+impostiamo ampiezza e offset del piezoelettrico circa a metà del fondoscala nella speranza di essere nella zona lineare del piezoelettrico del Fabri-Perot
+
+\subsection{presa dati}
+impostiamo l'ampiezza del piezoelettrico in modo da avere 3 ordini di interferenza del Fabri-Perot.
+In principio stiamo nel fronte di salita dell'onda triangolare del generatore di funzioni
+
+le misure seguono il seguente algoritmo:\\
+stepA) prendiamo la misura dei tre ordini per misurare la FSM\\
+stepB) zoommiamo il fondoscala dell'oscilloscopio (senza modificare nient'altro) per ingrandire il picco centrale dell'ordine centrale e misurare la finezza
+
+iteriamo gli step A e B 5 volte
+impostiamo il livello del trigger sulla rampa in modo da non dover spostare l'asse del tempo passando da step A a step B
+
+poi ci spostiamo sulla discesa della rampa e riapplichiamo l'algoritmo
+
+in caso di necessità prima dello step A aggiustiamo il setting toccando SOLO la manopola dell'offset del piezoelettrico e in caso l'allineamento degli specchi
+
+Ho cambiato l'allineamento del laser dopo ogni misura per cercare di rendere più simmetrica la curva
+
+
+\end{document}

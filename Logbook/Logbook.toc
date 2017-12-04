@@ -1,0 +1,41 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Interferometro di Michelson: 06-07 Novembre 2017}{3}
+\contentsline {section}{\numberline {1.1}Luned\IeC {\`\i }}{3}
+\contentsline {subsection}{\numberline {1.1.1}Cose che dice Tonelli}{3}
+\contentsline {subsection}{\numberline {1.1.2}Misure HeNe}{3}
+\contentsline {section}{\numberline {1.2}Marted\IeC {\`\i }}{3}
+\contentsline {subsection}{\numberline {1.2.1}$\lambda $}{3}
+\contentsline {subsection}{\numberline {1.2.2}Piezo}{4}
+\contentsline {subsection}{\numberline {1.2.3}Indice di rifrazione}{4}
+\contentsline {subsection}{\numberline {1.2.4}Osservazioni}{4}
+\contentsline {chapter}{\numberline {2}Laser a diodo: 09-10 Novembre 2017}{5}
+\contentsline {section}{\numberline {2.1}Gioved\IeC {\`\i }}{5}
+\contentsline {subsection}{\numberline {2.1.1}Datasheet}{5}
+\contentsline {subsection}{\numberline {2.1.2}Cose che dice Tonelli}{5}
+\contentsline {subsection}{\numberline {2.1.3}Caratteristica P-I al variare di T}{5}
+\contentsline {section}{\numberline {2.2}Venerd\IeC {\`\i }}{5}
+\contentsline {subsection}{\numberline {2.2.1}Intensit\`a vs angolo}{5}
+\contentsline {subsection}{\numberline {2.2.2}$\lambda $ vs T}{6}
+\contentsline {chapter}{\numberline {3}Olografia: 13-17 Novembre 2017}{7}
+\contentsline {section}{\numberline {3.1}Cose importanti}{7}
+\contentsline {section}{\numberline {3.2}Olografia statica}{7}
+\contentsline {subsection}{\numberline {3.2.1}soldatino con lancia}{7}
+\contentsline {subsection}{\numberline {3.2.2}caccia}{8}
+\contentsline {section}{\numberline {3.3}Olografia dinamica}{9}
+\contentsline {subsection}{\numberline {3.3.1}Cubo con martelletto}{9}
+\contentsline {subsection}{\numberline {3.3.2}Altoparlante}{9}
+\contentsline {chapter}{\numberline {4}Fibre Ottiche: 20-24 Novembre 2017}{11}
+\contentsline {section}{\numberline {4.1}Procedimento da seguire}{11}
+\contentsline {subsection}{\numberline {4.1.1}Attenuazione}{11}
+\contentsline {subsubsection}{HeNe}{11}
+\contentsline {subsubsection}{verde}{12}
+\contentsline {subsection}{\numberline {4.1.2}Attenuazione 2}{12}
+\contentsline {subsection}{\numberline {4.1.3}Propagazione di un modo LP$_{01}$}{12}
+\contentsline {subsection}{\numberline {4.1.4}Propagazione modi superiori}{12}
+\contentsline {subsection}{\numberline {4.1.5}Fibra a conservazione di polarizzazione}{13}
+\contentsline {subsection}{\numberline {4.1.6}Lente di GRIN}{13}
+\contentsline {subsection}{\numberline {4.1.7}suono}{13}
+\contentsline {chapter}{\numberline {5}Analizzatore di spettro: 27-28 Novembre2017}{14}
+\contentsline {section}{\numberline {5.1}Venerd\IeC {\`\i }}{14}
+\contentsline {subsection}{\numberline {5.1.1}presa dati}{14}
