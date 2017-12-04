@@ -6,6 +6,10 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[margin=2.5cm]{geometry}
+\usepackage{multirow}
+
+\newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
+
 
 
 
@@ -73,9 +77,10 @@ Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo p
 \begin{itemize}
 	\item Per avere un buon segnale allineiamo il fascio laser prima di inserire la lente divergente e dopo averla inserita perfezioniamo la regolazione degli specchi in modo che le frange di interferenza siano larghe in corrispondenza del rivelatore (vedi Figura \ref{fig:frange})
 	\item Dato che il rilevatore al silicio è sensibile ad un ampio spettro verifichiamo che l'effetto della luce ambientale non disturbi il segnale.
-	\item Stimiamo che l'errore sul conteggio dei picchi derivi soprattutto dai transienti di accensione e spegnimento del motorino e del VI, quindi li facciamo partire e fermare in contemporanea. Avviamo noi la partenza simultanea del motorino e della acquisizione, mentre per la fine impostiamo un fissato numero di step del motorino passo passo (modalità F2) e una durata corrispondente nel programma di acquisizione.
+	\item Stimiamo che l'errore sul conteggio dei picchi derivi soprattutto dai transienti di accensione e spegnimento del motorino e del VI, quindi li facciamo partire e fermare in contemporanea. Avviamo noi la partenza simultanea del motorino e della acquisizione, mentre per la fine impostiamo un fissato numero di step del motorino passo passo (modalità F2) e una durata corrispondente nel programma di acquisizione (tempo t in Tabella \ref{tab:lambda}).
 	
 	Inoltre scegliamo di impostare il massimo numero di step consentiti dal motorino (99999), questo minimizza l'errore sui transienti di accensione e spegnimento.\footnote{A parità di tempo speso in laboratorio conviene fare una simulazione lunga piuttosto che fare la media di tante brevi. Se facciamo k acquisizioni tali che la durata complessiva sia N secondi l'errore sulla media va come $\frac{1}{\sqrt{k}}$ per l'errore su una acquisizione, che va come $\frac{1}{\frac{N}{k}}$. Quindi l'errore sulla media è proporzionale a $\frac{\sqrt{k}}{N}$. Conviene $k=1$.}
+	\item Per evitare eventuali sistematiche dovute al verso di rotazione della vite alterniamo la direzione di moto del motorino (A e B in Tabella \ref{tab:lambda}).
 \end{itemize}
 
 \begin{figure}[H]
@@ -84,7 +89,45 @@ Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo p
 	\label{fig:frange}
 \end{figure}
 
+\subsection{Analisi dei dati}
+Di seguito riportiamo le misure con i relativi errori. L'errore sulla distanza è la sensibilità della vite, mentre quello sul numero di conteggi è stimato dalle differenze tra gli m misurati.\footnote{Per le misure di m di ciascun laser calcoliamo la deviazione standard, poi facciamo la media quadratica delle 3.}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|ccccc}
+		& m($\Delta$m) & d($\Delta$d) [$\mu$m] & t [mm:ss] &$\lambda(\Delta\lambda)$ [nm] & direzione \\
+		\hline
+		\multirow{3}*{\minitab[c]{laser HeNe \\ (633 nm)}}
+		& 1088(10) & 345(1) & 13:33 & 634(6) & A\\ 
+		& 1094(10) &345(1) & 13:43 & 631(6) & B\\ 
+		& 1092(10) &345(1) & 13:36 & 632(6) & A\\ 
+		\hline
+		\multirow{2}*{\minitab[c]{laser rosso \\ (650 nm)}}
+		& 1065(10) &345(1) & 13:36 &  648(6) & A\\ 
+		& 1054(10) &346(1) & 13:32 & 657(7) & B\\
+		\hline
+		\multirow{2}*{\minitab[c]{laser verde \\ (532 nm)}}
+		& 1306(10) &347(1) & 13:32 & 531(4) & A\\
+		& 1293(10) &347(1) & 13:32 & 537(4) & B\\
+		\hline
+	\end{tabular}
+\caption{Tabella con dati grezzi e calcolo della lunghezza d'onda.}
+	\label{tab:lambda}
+\end{table}
 
+\subsection{Conclusioni}
+Per ogni laser abbiamo fatto la media dei valori di $\lambda$ misurati.
+I risultati sono compatibili con quanto riportato nei datasheet. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c}
+		laser &$\lambda$ nominale [nm]& $\lambda(\Delta\lambda)$ misurata [nm]\\
+		\hline
+		HeNe & 632.8 & 632(4)\\
+		rosso & 650 & 652(5)\\
+		verde & 532 & 534(3)\\
+	\end{tabular}
+\end{table}
 
 \section{Isteresi del piezoelettrico}
 
