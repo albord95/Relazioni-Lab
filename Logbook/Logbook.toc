@@ -42,3 +42,4 @@
 \contentsline {chapter}{\numberline {6}Visibile: 4-5 Dicembre 2017}{15}
 \contentsline {section}{\numberline {6.1}Accensione pompa}{15}
 \contentsline {section}{\numberline {6.2}Taratura attenuatore}{15}
+\contentsline {section}{\numberline {6.3}V$_{emessa}$ vs P$_{pompa}$}{15}
