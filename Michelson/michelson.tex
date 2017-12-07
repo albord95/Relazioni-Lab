@@ -40,7 +40,7 @@
 		\includegraphics[width=1\textwidth]{teoria_michelson.png}
 	\end{minipage}
 	\begin{minipage}[c]{.40\textwidth}
-		In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è \[2(L_1 -L_2)n = m \lambda\] dove $n$ è l'indice di rifrazione dell'aria e $m$ é il numero di frange.
+		In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è \[2(L_1 -L_2)n = m \lambda\] dove $n$ è l'indice di rifrazione dell'aria e $m$ é il numero di frange. Nel nostro apparato variamo $L_2$ e contiamo la corrispondente variazione di $m$.
 	\end{minipage}
 \end{center}
 
@@ -65,11 +65,11 @@ Per misurare la lunghezza d'onda del laser contiamo le frange di interferenza al
 \subsection{Presa dati}
 Per prima cosa allineiamo il fascio laser in modo da vedere delle frange di interferenza definite sul rilevatore al silicio. 
 Poi variamo la differenza di cammino ottico utilizzando un motorino passo passo collegato ad una vite micrometrica che muove lentamente uno degli specchi (M2). Il motorino si muove ad una velocità di 125 step/s che corrispondono ad un avanzamento della vite di circa 0.4 $\mu$m/s; vediamo passare circa una frangia al secondo.
-Al PC vediamo l'evoluzione delle frange di interferenza grazie ad un VI labVIEW, come in Figura \ref{fig:esempio_acquisizione}.
+Al PC vediamo l'evoluzione delle frange di interferenza grazie ad un VI labVIEW, come in Figura \ref{fig:esempio_acquisizione_frange}.
 \begin{figure}[H]
-	\includegraphics[width=1\textwidth]{esempio_acquisizione.pdf}
+	\includegraphics[width=1\textwidth]{esempio_acquisizione_frange.pdf}
 	\caption{Esempio di acquisizione delle frange di interferenza.}
-	\label{fig:esempio_acquisizione}
+	\label{fig:esempio_acquisizione_frange}
 \end{figure}
 Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo per calcolare la lunghezza d'onda.
 
@@ -133,6 +133,18 @@ I risultati sono compatibili con quanto riportato nei datasheet.
 \end{table}
 
 \section{Isteresi del piezoelettrico}
+
+In questa sezione diamo per nota $\lambda = 633$ nm e usiamo la formula $2dn = m\lambda$ per calcolare la differenza di cammino ottico $d$, ottenuta variando la tensione di alimentazione di un piezoelettrico. Eseguendo una spazzata da 0 a 100 V seguita da una da 100 a 0 V il piezoelettrico mostra un ciclo di isteresi, che andiamo ad analizzare.
+
+\subsection{Presa dati}
+Misuriamo l'alimentazione del piezoelettrico con un voltmetro collegato al PC. Il programma di acquisizione ci permette di salvare la tensione in funzione del tempo $V(t)$.
+Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python leggiamo il file .txt salvato dal VI ed estraiamo il tempo t di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi})
+
+\begin{figure}[H]
+	\includegraphics[width=0.5\textwidth]{esempio_acquisizione_isteresi.pdf}
+	\caption{Esempio di acquisizione della curva del piezoelettrico.}
+	\label{fig:esempio_acquisizione_isteresi}
+\end{figure}
 
 \section{Indice di rifrazione dell'aria}
 
