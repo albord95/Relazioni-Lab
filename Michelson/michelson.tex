@@ -138,7 +138,7 @@ In questa sezione diamo per nota $\lambda = 633$ nm e usiamo la formula $2dn = m
 
 \subsection{Presa dati}
 Misuriamo l'alimentazione del piezoelettrico con un voltmetro collegato al PC. Il programma di acquisizione ci permette di salvare la tensione in funzione del tempo $V(t)$.
-Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python leggiamo il file .txt salvato dal VI ed estraiamo il tempo t di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi})
+Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python leggiamo il file .txt salvato dal VI ed estraiamo il tempo t di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi}).
 
 \begin{figure}[H]
 	\includegraphics[width=0.5\textwidth]{esempio_acquisizione_isteresi.pdf}
@@ -163,7 +163,7 @@ Ripetiamo la stessa analisi variando l'alimentazione del piezoelettrico da 30 a 
 	\caption{Isteresi del piezoelettrico: 30-70 V.}
 	\label{fig:30-70-1}
 \end{figure}
- In Figura \ref{fig:30-70-1} si nota anche che il ciclo non si chiude, cio avviene perché i 30 V dell'inizio della salita sono stati raggiunti salendo da 0 V, quindi il punto a 30 V risente dell'isteresi da 0 a 70 V. Abbiamo verificato che, finita la discesa da 70 a 30 V, risalendo, il ciclo si richuidesse a 70 V come si nota in Figura \ref{fig:30-70-2}. Naturalmente iterando il procedimento di salita e discesa i cicli resterebbero chiusi.
+ In Figura \ref{fig:30-70-1} si nota anche che il ciclo non si chiude, cio avviene perché i 30 V dell'inizio della salita sono stati raggiunti salendo da 0 V, quindi il punto a 30 V risente dell'isteresi da 0 a 70 V. Abbiamo verificato che, finita la discesa da 70 a 30 V, risalendo, il ciclo si richuidesse a 70 V come si nota in Figura \ref{fig:30-70-2}. Iterando nuovamente salita e discesa i cicli resterebbero chiusi.
  \begin{figure}[H]
  	\includegraphics[width=1\textwidth]{isteresi_30-70-2.pdf}
  	\caption{Isteresi del piezoelettrico: 30-70 V.}
@@ -171,7 +171,7 @@ Ripetiamo la stessa analisi variando l'alimentazione del piezoelettrico da 30 a 
  \end{figure}
 
 \subsection{Conclusioni}
-Abbiamo osservato il ciclo di isteresi del piezoelettrico. Abbiamo constatato che tra 30 e 70 V la non-linearità è ridotta, ma ancora visibile. 
+Abbiamo osservato il ciclo di isteresi del piezoelettrico. Abbiamo constatato che tra 30 e 70~V la non-linearità è ridotta, ma ancora visibile. 
 
 \section{Indice di rifrazione dell'aria}
 
