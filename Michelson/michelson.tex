@@ -30,7 +30,7 @@
 		 
 		 Misura di spostamenti micrometrici: isteresi di un piezoelettrico.
 		 
-		 Misura dell'indice di rifrazione dell'aria
+		 Misura dell'indice di rifrazione dell'aria.
 	\end{abstract}
 
 \section{Teoria}
@@ -75,9 +75,9 @@ Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo p
 
 \subsubsection{Accorgimenti sperimentali}
 \begin{itemize}
-	\item Per avere un buon segnale allineiamo il fascio laser prima di inserire la lente divergente e dopo averla inserita perfezioniamo la regolazione degli specchi in modo che le frange di interferenza siano larghe in corrispondenza del rivelatore (vedi Figura \ref{fig:frange})
+	\item Per avere un buon segnale allineiamo il fascio laser prima di inserire la lente divergente e dopo averla inserita perfezioniamo la regolazione degli specchi in modo che le frange di interferenza siano larghe in corrispondenza del rivelatore (vedi Figura \ref{fig:frange}).
 	\item Dato che il rilevatore al silicio è sensibile ad un ampio spettro verifichiamo che l'effetto della luce ambientale non disturbi il segnale.
-	\item Stimiamo che l'errore sul conteggio dei picchi derivi soprattutto dai transienti di accensione e spegnimento del motorino e del VI, quindi li facciamo partire e fermare in contemporanea. Avviamo noi la partenza simultanea del motorino e della acquisizione, mentre per la fine impostiamo un fissato numero di step del motorino passo passo (modalità F2) e una durata corrispondente nel programma di acquisizione (tempo t in Tabella \ref{tab:lambda}).
+	\item Stimiamo che l'errore sul conteggio dei picchi derivi soprattutto dai transienti di accensione e spegnimento del motorino e del VI, quindi li facciamo partire e fermare in contemporanea. Avviamo noi la partenza simultanea del motorino e della acquisizione, mentre per la fine impostiamo un fissato numero di step del motorino passo passo (modalità F2) e una durata corrispondente nel programma di acquisizione (tempo $t$ in Tabella \ref{tab:lambda}).
 	
 	Inoltre scegliamo di impostare il massimo numero di step consentiti dal motorino (99999), questo minimizza l'errore sui transienti di accensione e spegnimento.\footnote{A parità di tempo speso in laboratorio conviene fare una simulazione lunga piuttosto che fare la media di tante brevi. Se facciamo k acquisizioni tali che la durata complessiva sia N secondi l'errore sulla media va come $\frac{1}{\sqrt{k}}$ per l'errore su una acquisizione, che va come $\frac{1}{\frac{N}{k}}$. Quindi l'errore sulla media è proporzionale a $\frac{\sqrt{k}}{N}$. Conviene $k=1$.}
 	\item Per evitare eventuali sistematiche dovute al verso di rotazione della vite alterniamo la direzione di moto del motorino (A e B in Tabella \ref{tab:lambda}).
@@ -90,12 +90,12 @@ Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo p
 \end{figure}
 
 \subsection{Analisi dei dati}
-Di seguito riportiamo le misure con i relativi errori. L'errore sulla distanza è la sensibilità della vite, mentre quello sul numero di conteggi è stimato dalle differenze tra gli m misurati.\footnote{Per le misure di m di ciascun laser calcoliamo la deviazione standard, poi facciamo la media quadratica delle 3.}
+Di seguito riportiamo le misure con i relativi errori. L'errore sulla distanza è la sensibilità della vite, mentre quello sul numero di conteggi è stimato dalle differenze tra gli $m$ misurati.\footnote{Per le misure di $m$ di ciascun laser calcoliamo la deviazione standard, poi facciamo la media quadratica delle 3.}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|ccccc|}
 		\hline
-		& m($\Delta$m) & d($\Delta$d) [$\mu$m] & t [mm:ss] &$\lambda(\Delta\lambda)$ [nm] & direzione \\
+		& $m(\Delta m)$ & $d(\Delta d)$ [$\mu$m] & $t$ [mm:ss] &$\lambda(\Delta\lambda)$ [nm] & direzione \\
 		\hline
 		\multirow{3}*{\minitab[c]{laser HeNe \\ (633 nm)}}
 		& 1088(5) & 345(1) & 13:33 & 634(3) & A\\ 
@@ -138,7 +138,7 @@ In questa sezione diamo per nota $\lambda = 633$ nm e usiamo la formula $2dn = m
 
 \subsection{Presa dati}
 Misuriamo l'alimentazione del piezoelettrico con un voltmetro collegato al PC. Il programma di acquisizione ci permette di salvare la tensione in funzione del tempo $V(t)$.
-Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python leggiamo il file .txt salvato dal VI ed estraiamo il tempo t di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi}).
+Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python leggiamo il file .txt salvato dal VI ed estraiamo il tempo $t$ di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi}).
 
 \begin{figure}[H]
 	\includegraphics[width=0.5\textwidth]{esempio_acquisizione_isteresi.pdf}
@@ -150,6 +150,7 @@ Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramit
 
 \subsubsection{Alimentazione da 0 a 100 Volt}
 In Figura \ref{fig:0-100} vediamo il ciclo di isteresi seguito dal piezoelettrico. Per valutarne la (non)linearità abbiamo deciso di confrontare le pendenze della prima e della seconda metà di ogni rampa. Abbiamo eseguito un fit lineare: confrontando i coefficienti angolari notiamo non solo che sono statisticamente incompatibili, ma che sono diversi già alla prima cifra.
+L'errore sull'alimentazione è dato dalla fluttuazione del valore letto al multimetro (0.2 V) mentre l'errore su $d$ è la distanza tra due frange.
 \begin{figure}[H]
 	\includegraphics[width=1\textwidth]{isteresi_0-100.pdf}
 	\caption{Isteresi del piezoelettrico: 0-100 V.}
