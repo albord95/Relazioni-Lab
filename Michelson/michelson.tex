@@ -39,7 +39,12 @@
 		\includegraphics[width=1\textwidth]{teoria_michelson.png}
 	\end{minipage}
 	\begin{minipage}[c]{.40\textwidth}
-		In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è \[2(L_1 -L_2)n = m \lambda\] dove $n$ è l'indice di rifrazione dell'aria e $m$ è il numero di frange. Nel nostro apparato variamo $L_2$ e contiamo la corrispondente variazione di $m$.
+		In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è 
+		\begin{equation}
+		2(L_1 -L_2)n = m \lambda\ 
+		\label{eq:interferenza}
+		\end{equation}
+		dove $n$ è l'indice di rifrazione dell'aria e $m$ è il numero di frange. Nel nostro apparato variamo $L_2$ e contiamo la corrispondente variazione di $m$.
 	\end{minipage}
 \end{center}
 
@@ -79,7 +84,7 @@ Al PC vediamo l'evoluzione delle frange di interferenza grazie ad un VI labVIEW,
 
 \begin{multicols}{2}
 
-Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi che usiamo per calcolare la lunghezza d'onda.
+Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi e il display del vita micrometrica fornisce la distanza percorsa dallo specchio M2 che usiamo per calcolare la lunghezza d'onda tramite l'equazione \ref{eq:interferenza}.
 
 \subsubsection{Accorgimenti sperimentali}
 \begin{itemize}
