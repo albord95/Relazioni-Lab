@@ -248,9 +248,33 @@ Dal valore di $\Delta$n è quindi facile ricavare l'indice di rifrazione dell'ari
 	\label{tab:n}
 \end{table}
 
-I valori ottenuti sono compatibili fra loro entro gli errori. 
+\subsection{Confronto}
+Per poter effettuare un confronto con un modello teorico è necessario tenere presente la dipendenza dell'indice di rifrazione, oltre che dalla lunghezza d'onda della luce, dai parametri ambientali quali pressione, temperatura e umidità. Il modello da noi considerato è la versione aggiornata da Birch e Downs dell'equazione di Edlén.\footnote{ K.P. Birch and M.J. Downs, "An updated Edlén equation for the refractive index of air," Metrologia 30, 155-162 (1993)}
+Il calcolo dei valori teorici è stato effettuato attraverso un programma presente in rete al sito \texttt{http://emtoolbox.nist.gov/Wavelength/Documentation.asp}
+
+Dato che non siamo a conoscenza dei valori di temperatura, pressione e umidità all'interno del laboratorio abbiamo calcolato dei valori massimi e minimi dell'indice di rifrazione considerando degli intervalli dei parametri ambientali ragionevoli quali: $\Delta$T = 20-25 °C e $\Delta$P = 100-102 kPa.\footnote{L'umidità relativa è stata considerata del 50\% e i valori della pressione sono stati scelti in base al grafico della pressione a Pisa nel mese di Novembre 2017 riportato nel sito \texttt{https://www.woitalia.it/weather/maps/city}}
 
 \end{multicols}
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		laser & $\lambda$ & T=20°C, P=100 kPa & T=25°C, P=102 kPa & $n(\Delta n)$ \\
+		\hline
+		HeNe & 633 & 1.000268 & 1.000268 &1.000272(6)\\
+		rosso & 650 & 1.000268 & 1.000268 &1.000267(7)\\ 
+		verde & 532 & 1.000269 & 1.000270 &1.000271(5)\\
+		\hline
+	\end{tabular}
+	\caption{Indice di rifrazione dell'aria}
+	\label{tab:n}
+\end{table}
+
+\begin{multicols}{2}
+
+La precisione delle nostre misure è minore rispetto alla variazione dell'indice di rifrazione dell'aria dovuta ai parametri ambientali, otteniamo quindi dei valori compatibili con quelli teorici entro gli errori.
+
+\end{multicols}
 
 \end{document}
