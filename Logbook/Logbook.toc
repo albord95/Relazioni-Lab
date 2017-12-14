@@ -43,3 +43,6 @@
 \contentsline {section}{\numberline {6.1}Accensione pompa}{15}
 \contentsline {section}{\numberline {6.2}Taratura attenuatore}{15}
 \contentsline {section}{\numberline {6.3}V$_{emessa}$ vs P$_{pompa}$}{15}
+\contentsline {chapter}{\numberline {7}Duplicatore di frequenza: 14-15 Dicembre 2017}{16}
+\contentsline {section}{\numberline {7.1}Verifiche iniziali}{16}
+\contentsline {section}{\numberline {7.2}Taratura}{16}
