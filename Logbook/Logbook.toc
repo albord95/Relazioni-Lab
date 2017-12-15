@@ -46,3 +46,6 @@
 \contentsline {chapter}{\numberline {7}Duplicatore di frequenza: 14-15 Dicembre 2017}{16}
 \contentsline {section}{\numberline {7.1}Verifiche iniziali}{16}
 \contentsline {section}{\numberline {7.2}Taratura}{16}
+\contentsline {section}{\numberline {7.3}Segnale duplicato in funzione della potenza incidente}{16}
+\contentsline {section}{\numberline {7.4}Segnale duplicato in funzione dell'angolo di P-M}{17}
+\contentsline {section}{\numberline {7.5}Segnale duplicato in funzione della polarizzazione}{17}
