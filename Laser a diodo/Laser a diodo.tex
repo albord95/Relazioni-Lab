@@ -28,18 +28,17 @@
 \section{Teoria}
 
 \section{Apparato sperimentale}
-Per poter effettuare le varie misure abbiamo a disposizione:
-\begin{itemize}
-\item Un laser a diodo della \textit{Hitachi}: modello \textit{HL7812G}
-\item Una cella peltier
-\item Un \textit{DIGIMASTER DM102}
-\item Un supporto per il laser montato su un goniometro con la precisione di 1°
-\item
-\end{itemize}
+Come si vede in Figura \ref{fig:} per poter effettuare le varie misure abbiamo a disposizione:
 
 \section{Caratteristica P-I}
+Analizziamo la dipendenza della corrente di soglia del diodo laser dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T=12, 25, 45 °C.
 
 \subsection{Presa dati}
+Abbiamo misurato la potenza fornita dal diodo laser in funzione della corrente di alimentazione mantenendo la temperatura del diodo costante attraverso l'utilizzo della cella peltier.
+
+Il fascio laser è stato focalizzato sul fotodiodo PD300 e il valore della potenza è stato registrato utilizzando il power meter NOVA RS232.
+
+I valori misurati sono riportati in tabella \ref{tab:} in appendice.
 
 \subsection{Analisi dati}
 
@@ -56,5 +55,118 @@ Per poter effettuare le varie misure abbiamo a disposizione:
 \subsection{Analisi dati}
 
 \end{multicols}
+
+\section{Appendice}
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] &I [mA] & P [$\mu$W] \\
+	\hline
+	82.0	&	6230	&	67.3	&	2990	&	50.8	&	64.1	&	43.2	&	34.8	\\
+	81.0	&	6030	&	64.8	&	2468	&	51.3	&	69.3	&	41.8	&	32.2	\\
+	79.9	&	5800	&	63.0	&	2077	&	52.6	&	89.8	&	39.7	&	28.5	\\
+	78.8	&	5480	&	60.5	&	1544	&	49.9	&	57.5	&	38.1	&	26.10 \\
+	77.8  &	5290	&	58.5	&	1100	&	49.4	&	54.8	&	36.5	&	23.96 \\
+	76.6	&	5050	&	57.3	&	848	&	48.8	&	51.9	&	34.4	&	21.34 \\
+	75.3	&	4740	&	56.1	&	578	&	48.01&	48.6	&	31.8	&	18.53  \\
+	73.9	&	4430	&	55.1	&	385	&	47.0	&	44.8	&	29.5	&	16.25 \\
+	71.0	&	3800	&	54.3	&	218.9&	45.9	&	41.4	&	26.7	&	13.82 \\
+	69.1	&	3380	&	53.7	&	142.3&	44.5	&	37.8	&	25.1	&	12.56 \\
+	\hline
+\end{tabular}
+\caption{T = 12°C}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] &I [mA] & P [$\mu$W] \\
+	\hline
+81.9	&	5180	&	72.1	&	3090	&	60.5	&	655	&	47.2	&	38.2	\\
+80.8	&	4940	&	71.3	&	2907	&	59.7	&	497	&	45.8	&	35.3	\\
+80.3	&	4830	&	69.7	&	2585	&	58.6	&	270.9	&	43.3	&	31.0	\\
+79.2	&	4610	&	68.3	&	2267	&	57.6	&	138.5	&	40.5	&	26.80	\\
+78.4	&	4420	&	67.2	&	2082	&	56.8	&	101.3	&	38	&	23.61	\\
+77.7	&	4280	&	66.3	&	1836	&	55.2	&	72.2	&	35.6	&	20.91	\\
+77.2	&	4170	&	65.5	&	1675	&	54.6	&	67.4	&	32.5	&	17.83	\\
+76.1	&	3950	&	64.5	&	1471	&	53.6	&	60.3	&	30.6	&	16.14	\\
+75.2	&	3750	&	63.1	&	1190	&	52.7	&	55.5	&	28.3	&	14.20	\\
+74.7	&	3640	&	62.5	&	1098	&	50.4	&	46.5	&	26.8	&	13.04	\\
+73.7	&	3430	&	61.7	&	924	&	48.4	&	40.9	&	25.1	&	11.80	\\
+	\hline
+\end{tabular}
+\caption{T = 25°C}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] & I [mA] & P [$\mu$W] &I [mA] & P [$\mu$W] \\
+	\hline
+82.4	&	3760	&	72.8	&	1659	&	64.4	&	128.5	&	52.7	&	40.8	\\
+81.1	&	3480	&	71.1	&	1314	&	63.8	&	106.8	&	50.2	&	36.2	\\
+80.4	&	3330	&	70.0	&	1077	&	62.9	&	90.0	&	48.8	&	33.9	\\
+79.5	&	3130	&	68.8	&	839	&	61.1	&	71.3	&	45.3	&	28.9	\\
+77.8	&	2772	&	68.2	&	695	&	60.3	&	66.1	&	43.9	&	27.2	\\
+77.4	&	2679	&	67.5	&	558	&	59.5	&	61.4	&	37.8	&	20.63	\\
+76.3	&	2431	&	66.8	&	423	&	58.2	&	55.9	&	33.9	&	17.09	\\
+75.4	&	2228	&	65.6	&	338	&	57.2	&	52.2	&	29.9	&	13.98	\\
+74.5	&	2027	&	65.0	&	168.5	&	55.7	&	48.0	&	25.2	&	10.77	\\
+	\hline
+\end{tabular}
+\caption{T = 43°C}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	$\theta_{//}$& P [$\mu$W] &$\theta_{//}$& P [$\mu$W] & $\theta_{//}$& P [$\mu$W] &$\theta_{//}$& P [$\mu$W] \\
+	\hline
+0	&	4.30	&	11	&	0.57	&	-3.5	&	2.38	&	-1.5	&	3.56	\\
+1	&	4.53	&	12	&	0.33	&	-4	&	2.16	&	-0.5	&	4.10	\\
+2	&	4.83	&	14	&	0.16	&	-4.5	&	1.85	&	0.5	&	4.69	\\
+3	&	4.59	&	16	&	0.06	&	-5	&	1.54	&	0	&	4.64	\\
+4	&	4.26	&	19	&	0.04	&	-5.5	&	1.20	&	1.5	&	4.52	\\
+5	&	3.75	&	23	&	0.03	&	-6	&	1.05	&	2.5	&	4.82	\\
+5.5	&	3.38	&	30	&	0.02	&	-7	&	0.71	&	2	&	4.95	\\
+6	&	2.99	&	45	&	0.02	&	-8	&	0.44	&	2	&	4.96	\\
+6.5	&	2.58	&	90	&	0.02	&	-10	&	0.17	&	3.5	&	4.37	\\
+7	&	2.30	&	0	&	4.40	&	-12	&	0.07	&	4.5	&	3.89	\\
+7.5	&	1.98	&	-1	&	3.73	&	-15	&	0.03	&	-2.5	&	3.19	\\
+8	&	1.79	&	-2	&	3.42	&	-30	&	0.03	&	1.5	&	4.44	\\
+9	&	1.25	&	-2.5	&	3.05	&	-45	&	0.02	&	2	&	4.61	\\
+10	&	0.86	&	-3	&	2.66	&	-85	&	0.02	&	2.5	&	4.27	\\
+	\hline
+\end{tabular}
+\caption{P vs angolo di incidenza parallelo}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc|cc|cc}
+	$\theta_{\perp}$& P [$\mu$W] &$\theta_{\perp}$& P [$\mu$W] & $\theta_{\perp}$& P [$\mu$W] &$\theta_{\perp}$& P [$\mu$W] \\
+	\hline
+-85	&	0.02	&	-17	&	1.73	&	-1	&	4.27	&	14	&	2.51	\\
+-70	&	0.02	&	-16	&	1.92	&	0	&	4.71	&	15	&	2.27	\\
+-60	&	0.03	&	-15	&	2.08	&	1	&	4.22	&	16	&	2.05	\\
+-50	&	0.03	&	-14	&	2.37	&	2	&	4.31	&	17	&	1.82	\\
+-45	&	0.10	&	-13	&	2.58	&	3	&	4.38	&	18	&	1.87	\\
+-40	&	0.15	&	-12	&	2.73	&	4	&	4.47	&	19	&	1.45	\\
+-37	&	0.20	&	-11	&	3.01	&	5	&	4.16	&	21	&	1.21	\\
+-34	&	0.28	&	-10	&	2.99	&	6	&	4.15	&	23	&	0.96	\\
+-31	&	0.35	&	-11	&	3.04	&	7	&	3.90	&	25	&	0.87	\\
+-28	&	0.51	&	-10	&	2.99	&	8	&	3.31	&	27	&	0.62	\\
+-25	&	0.70	&	-8	&	3.39	&	9	&	3.72	&	30	&	0.44	\\
+-23	&	0.88	&	-6	&	4.12	&	10	&	3.21	&	35	&	0.10	\\
+-21	&	1.13	&	-4	&	4.15	&	11	&	3.13	&	45	&	0.11	\\
+-19	&	1.37	&	-3	&	3.98	&	12	&	2.88	&	40	&	0.17	\\
+-18	&	1.55	&	-2	&	4.23	&	13	&	2.70	&	50	&	0.04	\\
+60	&	0.02	&	90	&	0.02	&		&		&		&		\\
+	\hline
+\end{tabular}
+\caption{P vs angolo di incidenza perpendicolare}
+\end{table}
+
 
 \end{document}
