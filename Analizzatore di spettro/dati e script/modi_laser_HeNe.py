@@ -1,3 +1,4 @@
+"""script che analizza il segnale di trasmittivitĂ Â  di un Fabry-Perot letto da 
 un fotodiodo"""
 
 from pylab import *
@@ -272,6 +273,7 @@ sigma_destra_salita = sigma_m(nu_destra[indici_salita])
 sigma_destra_discesa = sigma_m(nu_destra[indici_discesa])
 sigma_sinistra = sigma_m(nu_sinistra)
 sigma_destra = sigma_m(nu_destra)
+tutto = concatenate((nu_sinistra, nu_destra))
 sigma_tutto = sigma_m(tutto)
 
 print('\nStimo le deviazioni standard sulle medie direttamente dai dati:')
@@ -295,3 +297,4 @@ print('alto-basso     :', media_nu_basso-media_nu_alto, '   p_value = %.2g%%' %(
 params = {'axes.labelsize': 'medium',
          'xtick.labelsize':'medium',
          'ytick.labelsize':'medium'}
+rcParams.update(params)
