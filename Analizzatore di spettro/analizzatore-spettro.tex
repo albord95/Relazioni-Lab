@@ -67,7 +67,10 @@ In Figura \ref{fig:un_ordine.png} è riportato un'ordine dell'analizzatore.
 
 \subsubsection{Accorgimenti sperimentali}
 \begin{itemize}
-	\item 
+	\item Regoliamo il generatore di funzioni e il fondo scala dell'oscilloscopio in modo da vedere poco più di una rampa dell'onda triangolare. Così facendo massimizziamo la risoluzione e possiamo misurare a posteriori l'ampiezza dell'onda triangolare.
+	\item Come consigliato dal professore\footnote{onniscente} impostiamo l'onda triangolare con $V_{pp} \leq$ 5~V e $f \leq$ 18~Hz per evitare effetti di non linearità del generatore e del piezoelettrico. Abbiamo scelto $V_{pp} \simeq$ 4~V e $f \simeq$ 9~Hz oppure $f =$ 4.50~Hz.
+	\item La regione lineare del piezoelettrico si trova a metà del range di funzionamento, i cui estremi sono però sconosciuti.\footnote{Dall'esperienza sull'interferometro di Michelson sappiamo che il range di funzionamento è dell'ordine dei 100 V, tuttavia non abbiamo dati precisi sullo specifico piezoelettrico dell'analizzatore. Inoltre è laborioso stabilire quale sia la tensione effettiva a cui il piezoelettrico viene sottoposto in quanto è la composizione dell'onda triangolare e di \textit{amplitude} e \textit{offset} del controller.} Sul controller del piezoelettrico possiamo regolare i valori di \textit{amplitude} e \textit{offset} e ci aspettiamo che gli estremi del range di funzionamento del piezoelettrico si raggiungano con ampiezza alta e offset massimo oppure minimo. Quindi impostiamo entrambi su valori intermedi.\footnote{In verità per le prese dati 1, 4, 5, 10, 11 visibili in nelle Figure \ref{fig:24picchi} e \ref{fig:24fit} l'\textit{amplitude} (ma non l'\textit{offset}) è stata aumentata. Poichè i risultati di queste misure sono compatibili con i restanti li abbiamo lasciati}
+	\item Per evitare eventuali sistematiche per circa metà delle prese dati utilizziamo la rampa in salita, per le restanti la rampa in discesa.
 \end{itemize}
 
 \end{multicols}
@@ -75,7 +78,7 @@ In Figura \ref{fig:un_ordine.png} è riportato un'ordine dell'analizzatore.
 \begin{figure}[H]
 		\def\svgwidth{1\textwidth}
 		\input{un_ordine.pdf_tex}
-		\caption{Un ordine dell'analizzatore.}
+		\caption{Un ordine dell'analizzatore. Per la rampa in discesa i $\Delta\nu$ sono invertiti: $\Delta\nu_{12}$ è a destra e $\Delta\nu_{23}$ è a sinistra del picco principale.}
 		\label{fig:un_ordine.png}
 \end{figure}
 
@@ -94,13 +97,31 @@ Quindi ricaviamo $\Delta\nu$ con la formula
 \[ \Delta\nu \textrm{ [Hz]}= 1500 \frac{\Delta\nu\textrm{ [ms]}}{FSR\textrm{ [ms]}}\]
 Per ridurre ulteriormente l'errore, nel caso in cui le rette non fossero esattamente parallele, per la FSR prendiamo la media dei 3 coefficienti angolari misurati e la differenza tra le intercette la prendiamo a metà delle rette.
 
-Fit e calcoli sono stati eseguiti con python 3, per brevità riportiamo solo il valore di $\Delta\nu$ e lasciamo a disposizione il codice dello script al link in nota.\footnote{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Scaricare tutta la cartella ed eseguire il file modi\_laser\_HeNe.py. \'E necessario python 3 con i pacchetti pylab, scipy, uncertainties e gvar.}
+Fit e calcoli sono stati eseguiti con python 3, per brevità riportiamo solo il valore di $\Delta\nu$ e lasciamo a disposizione il codice dello script al link in nota.\footnote{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Scaricare tutta la cartella ed eseguire il file modi\_laser\_HeNe.py. \'E necessario python 3 con i pacchetti pylab, scipy, uncertainties e gvar.\label{ftn:link}}
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{esempio_deltanu.pdf}
 	\caption{Esempio di analisi. In appendice sono riportate anche le restanti prese dati. La rampa del plot in alto è riscalata per questioni estetiche.}
 	\label{fig:esempio_deltanu}
+\end{figure}
+
+\subsubsection{Discussione dei risultati}
+La media pesata delle 24 prese dati eseguite dà
+\[\Delta\nu_{12} = 436.0 \pm 1.0 \textrm{ Hz} \]
+\[\Delta\nu_{23} = 433.0 \pm 1.0 \textrm{ Hz} \]
+dove $\Delta\nu_{12}$ e $\Delta\nu_{23}$ sono definiti come nella didascalia di Figura \ref{fig:un_ordine.png}.
+La loro differenza è 
+\[\Delta\nu_{12}-\Delta\nu_{23} = 2.9 \pm 1.4 \textrm{ Hz}\footnote{La differenza riportata non è 3.0 ma 2.9 perché i calcoli sono stati eseguiti con più cifre di quelle mostrate. Lo script modi\_laser\_HeNe.py citato in nota \ref{ftn:link} stampa sul terminale anche le cifre aggiutive. La propagazione degli errori è gestita col pacchetto gvar di python.}\]
+ed è compatibile con 0 entro poco più di 2 sigma (p\_value = 3 \%). La differenza riscontrata è da imputarsi al solo errore sperimentale perché dal punto di vista teorico $|\Delta\nu_{12}-\Delta\nu_{23}| \sim 10^{-5}\Delta\nu_{12}$, che è trascurabile. Pertanto ha senso calcolare la media di $\Delta\nu_{12}$ e $\Delta\nu_{23}$: \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet ($\Delta\nu_{nominale}$ = 435 Hz).
+
+\subsubsection{Discussione degli errori}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{confronto_salita_discesa.pdf}
+	\caption{Confronto tra le misure di $\Delta\nu$ tra prese dati con la rampa in salita e con la rampa in discesa. Per ogni presa dati è graficata la media tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$.}
+	\label{fig:salita_discesa}
 \end{figure}
 	
 \end{multicols}

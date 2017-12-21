@@ -79,8 +79,9 @@ legend(loc=4)
 ##trovo i deltanu con un fit    
 subplot(212)
 n_ordini = int(len(picchi)/3)
+print(n_ordini)
 ordini = linspace(0, n_ordini-1, n_ordini)
-ordini_fit = ordini - (n_ordini)/2
+ordini_fit = ordini - (n_ordini-1)/2
 """con questo trucco fitto una retta simmetrica rispetto all'asse y per
 avere un miglior q e per non doverne propagare l'errore"""
 
