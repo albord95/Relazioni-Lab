@@ -8,6 +8,8 @@
 \usepackage[margin=2 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
+\usepackage{textcomp}
+\usepackage{caption}
 
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Laser a diodo}
@@ -23,6 +25,9 @@
 \end{abstract}
 
 \section{To do}
+\begin{itemize}
+\item Trovare informazioni fotodiodo
+\end{itemize}
 
 \begin{multicols}{2}
 
@@ -30,6 +35,77 @@
 
 \section{Apparato sperimentale}
 Come si vede in Figura per poter effettuare le varie misure abbiamo a disposizione:
+\begin{itemize}
+\item Un laser a diodo modello \texttt{HL7812G} prodotto dalla \texttt{Hitachi}.
+\item Un circuito di controllo in corrente del laser.
+\item Una cella peltier, controllata in corrente, che utilizziamo per variare la temperatura del laser.
+\item Un sensore ti temperatura \texttt{DIGIMASTER DM102}
+\item Un monocromatore per analizzare lo spettro del laser.
+\item Una fibra ottica utilizzata per portare il segnale del laser al monocromatore.
+\item Un piccolo ventilatore montato in modo tale da evitare la formazione di gocce d'acqua all'interno del laser durante i processi di riscaldamento e/o raffreddamento del laser.
+\item Una lente utilizzata per focalizzare il laser nella misura della caratteristica P-I.
+\item Un supporto per il laser montato su un goniometro con una precisione di 0.5°.
+\item Un fotodiodo \texttt{PD300} della \texttt{Ophir}.
+\item Un altro fotodiodo di cui non sappiamo niente.
+\item Un power meter \texttt{NOVA} della \texttt{Ophir}.
+\item Un rilevatore IR per poter osservare il fascio laser ed allinearlo.
+\end{itemize}
+
+\subsection{Laser a diodo}
+Il laser a diodo a nostra disposizione è il modello \texttt{HL7812G} della \texttt{Hitachi} ed è una giunzione di GaAlAs. 
+
+Sul datasheet sono riportate le seguenti caratteristiche:
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+	 & Min & Tipico & Max \\
+	\hline
+	I$_{th}$ [mA] & \textthreequartersemdash & 50 & 90 \\ 
+	$\lambda_{p}$ [nm] & 770 & 785 & 795 \\
+	$\theta_{//}$ [deg] & 7 & 11 & 18 \\
+	$\theta_{\perp}$ [deg] & 20 & 30 & 40 \\
+	\hline
+
+\end{tabular}
+\caption{Caratteristiche laser a diodo \texttt{HL7812G} misurate a T=25°C}
+\end{table}
+dove I$_{th}$ è la corrente di soglia oltre la quale si è in regime laser, $\lambda_{p}$ è la lunghezza d'onda della luce in uscita dal laser e $\theta_{//}$ e $\theta_{\perp}$ sono gli angoli di emissione del laser rispetto agli assi della giunzione e sono calcolati misurando l'intensità ad una distanza di 10 cm dal diodo.
+
+Sono inoltre presenti sul datasheet i seguenti grafici:
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.24\textwidth}
+\centering
+\includegraphics[width=\textwidth]{I_soglia}
+\caption{}
+\label{fig:I_soglia}
+\end{minipage}
+\begin{minipage}[c]{0.24\textwidth}
+\centering
+\includegraphics[width=\textwidth]{LambdavsT}
+\caption{}
+\label{fig:LambdavsT}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{IvsAng}
+\caption{}
+\label{fig:IvsAng}
+\end{figure}
+
+che mostrano le caratteristiche principali di dispositivi di questo tipo come la dipendenza della corrente di soglia dalla temperatura, l'astigmatismo e la dipendenza della lunghezza d'onda dalla temperatura.
+
+\subsection{Monocromatore}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{monocromatore}
+\caption{}
+\label{fig:monocromatore}
+\end{figure}
+
 
 \section{Caratteristica P-I}
 Analizziamo la dipendenza della corrente di soglia del diodo laser dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T=12, 25, 45 °C.
