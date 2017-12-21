@@ -1,4 +1,4 @@
-"""script che analizza il segnale di trasmittivitĂ Â  di un Fabry-Perot letto da 
+"""script che analizza il segnale di trasmittività di un Fabry-Perot letto da
 un fotodiodo"""
 
 from pylab import *
@@ -47,7 +47,7 @@ larghezza = 3
 ##funzioncina che cerca gli indici dei massimi di un vettore
 def massimi(array):
     """Se i massimi sono il primo e l'ultimo elemento non li prende.
-       Se ci sono piĂš valori uguali prende l'indice del primo."""
+       Se ci sono più valori uguali prende l'indice del primo."""
     massimi = []
     for i in range(1, len(array)-1):
         if (array[i-1] < array[i]) & (array[i] >= array[i+1]):
