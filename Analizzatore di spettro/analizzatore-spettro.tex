@@ -93,6 +93,8 @@ Come si deduce dalla presenza di tre rette parallele in Figura \ref{fig:esempio_
 Quindi ricaviamo $\Delta\nu$ con la formula 
 \[ \Delta\nu \textrm{ [Hz]}= 1500 \frac{\Delta\nu\textrm{ [ms]}}{FSR\textrm{ [ms]}}\]
 Per ridurre ulteriormente l'errore, nel caso in cui le rette non fossero esattamente parallele, per la FSR prendiamo la media dei 3 coefficienti angolari misurati e la differenza tra le intercette la prendiamo a metà delle rette.
+
+Fit e calcoli sono stati eseguiti con python 3, per brevità riportiamo solo il valore di $\Delta\nu$ e lasciamo a disposizione il codice dello script al link in nota\footnote{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Scaricare tutta la cartella ed eseguire il file modi\_laser\_HeNe.py. \'E necessario python 3 con i pacchetti pylab, scipy e gvar.}
 	
 \begin{figure}[H]
 	\centering
@@ -108,6 +110,23 @@ Per ridurre ulteriormente l'errore, nel caso in cui le rette non fossero esattam
 \begin{multicols}{2}
 
 \end{multicols}
+
+\newpage
+\centering
+\section*{Appendice}
+
+\begin{figure}[H]
+	\makebox[\textwidth]{\includegraphics[width=1.18\linewidth]{24picchi.pdf}}
+	\caption{Selezione dei tempi per i fit di Figura \ref{fig:24fit}.}
+	\label{fig:24picchi}
+\end{figure}
+
+\begin{figure}[H]
+	\makebox[\textwidth]{\includegraphics[width=1.18\linewidth]{24fit.pdf}}
+	\caption{Fit e calcolo dei $\Delta\nu$.}
+	\label{fig:24fit}
+\end{figure}
+
 	
 \end{document}
 

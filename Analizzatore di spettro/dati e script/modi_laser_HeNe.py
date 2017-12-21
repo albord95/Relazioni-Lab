@@ -1,8 +1,7 @@
-"""script che analizza il segnale di trasmittivitĂ Â  di un Fabri-Perot letto da 
+"""script che analizza il segnale di trasmittivitĂ Â  di un Fabry-Perot letto da 
 un fotodiodo"""
 
 from pylab import *
-from glob import glob
 from scipy.optimize import curve_fit
 from lab import fit_curve, xe
 from gvar import gvar
@@ -36,10 +35,14 @@ files = ['borcapasm01.txt',
 
 figure(2).set_tight_layout(True)
 clf()
+params = {'axes.labelsize': 'small',
+         'xtick.labelsize':'x-small',
+         'ytick.labelsize':'x-small'}
+rcParams.update(params)
 figure(1).set_tight_layout(True)
 clf()
-altezza = int(ceil(sqrt(len(files)+1)))
-larghezza = int(ceil((len(files)+1)/altezza))
+altezza = 8
+larghezza = 3
 
 ##funzioncina che cerca gli indici dei massimi di un vettore
 def massimi(array):
@@ -73,22 +76,11 @@ indici_salita = []
 indici_discesa = []
 numero_ordini = []
 for i in range(len(files)):
-    ##cambio virgole in punti del file che voglio importare
     filename= files[i]
-    f = open(filename,'r')
-    filedata = f.read()
-    f.close()
-    newdata = filedata.replace(",",".")
-    f = open(filename,'w')
-    f.write(newdata)
-    f.close()
-    
-    ##carico il file ripulito dalle virgole
     t, volt, _, __, rampa, ___ = loadtxt(filename, comments='"', unpack=True)
     t = t*1000 #millisecondi
     volt = volt*1000 #millivolt
     rampa = rampa*1000 #millivolt
-    
     
     ##stimo il fattore di scala tra rampa e segnale
     hvolt = abs(max(volt) - min(volt))
@@ -100,9 +92,11 @@ for i in range(len(files)):
     figure(1)
     subplot(altezza, larghezza, i+1)
     plot(t, volt)
-    plot(t, scale*rampa - offset*ones(len(rampa))) #riscalo la rampa
-    #ylabel('tensione fotodiodo [mV]')
-    #xlabel('t [ms]')
+    plot(t, scale*rampa - 1.2*offset*ones(len(rampa))) #riscalo la rampa
+    if i%larghezza == 0:
+        ylabel('segnale [mV]')
+    if i >= len(files)-larghezza:
+        xlabel('t [ms]')
     
     maxindex = argmax(rampa)
     minindex = argmin(rampa)
@@ -153,20 +147,7 @@ for i in range(len(files)):
             print('numero ordini =', p//3)        
         
         figure(1)
-        #plot(t, voltmean*ones(len(t)), label='media')
-        #plot(t, (voltmean-voltstd)*ones(len(t)), label='media - sigma')
-        plot(t, triggerlevel*ones(len(t)), '--', label='livello taglio')
-        plot(t[picchi], volt[picchi], 'o', label='picchi selezionati')
-        
-        if i == 0:
-            subplot(altezza, larghezza, altezza*larghezza)
-            plot(t, voltmean*ones(len(t)), label='media')
-            plot(t, (voltmean-voltstd)*ones(len(t)), label='media - sigma')
-            plot(t, triggerlevel*ones(len(t)), '--', label='livello taglio')
-            plot(t[picchi], volt[picchi], 'o', label='picchi selezionati')
-            ylabel('segnale fotodiodo [mV]')
-            xlabel('t [ms]')
-            legend()
+        plot(t[picchi], volt[picchi], 'o', color='tab:red', markersize=4)
         
         ##trovo i deltanu con un fit    
         figure(2)
@@ -184,10 +165,10 @@ for i in range(len(files)):
         nomipicchi = ['sinistra', 'centro  ', 'destra  ']
         for k in range(3):
             piccoinquestione = picchi[k::3]
-            plot(ordini, t[piccoinquestione], 'o')
+            plot(ordini, t[piccoinquestione], 'o', color='tab:red', markersize='4')
             """come errore metto (1/2)*sensibilità*0.68,
             scelta discutibile ma giustificata a spanne dal confidence level"""
-            out = fit_curve(retta, ordini_fit, t[piccoinquestione], dy=0.68*(t[1]-t[0]), p0=[1,1], absolute_sigma=True)
+            out = fit_curve(retta, ordini_fit, t[piccoinquestione], dy=0.5*0.68*(t[1]-t[0]), p0=[1,1], absolute_sigma=True)
             par = out.par
             cov = out.cov
             m_fit = par[0]
@@ -198,20 +179,17 @@ for i in range(len(files)):
             q.append(q_fit)
             dm.append(dm_fit)
             dq.append(dq_fit)
-            plot(ordini, retta(ordini_fit, *par))
+            plot(ordini, retta(ordini_fit, *par), linewidth=1)
+        
+        if i%larghezza == 0:
+            ylabel('t [ms]')
+        if i >= len(files)-larghezza:
+            xlabel('ordini')
         #xlabel('numero ordine interferenza')
         #ylabel('t [ms]')
         xticks(arange(1, n_ordini+1, 1))
+        ylim(ylim(min(t)-0.2*(max(t)-min(t)),max(t)))
         xlim(0.5, n_ordini+0.5)
-        if i == 0:
-            subplot(altezza, larghezza, altezza*larghezza)
-            for k in range(3):
-                piccoinquestione = picchi[k::3]
-                plot(ordini, t[piccoinquestione], 'o')
-            xlabel('numero ordine interferenza')
-            ylabel('t [ms]')
-            xticks(arange(1, n_ordini+1, 1))
-            xlim(0.5, n_ordini+0.5)
         
         ##calcolo i deltanu
         m = array(m)
@@ -230,19 +208,34 @@ for i in range(len(files)):
         dnu_sinistra.append(udeltanu_sinistra.sdev)
         nu_destra.append(udeltanu_destra.mean)
         dnu_destra.append(udeltanu_destra.sdev)
+        if maxindex > minindex: #cioe se la rampa è in salita
+            plot(ordini, t[picchi[1::3]], 'o', color='tab:red', markersize='0', label='{} = {} Hz \n{} = {} Hz'.format('$\Delta\\nu_{12}$', xe(udeltanu_sinistra.mean, udeltanu_sinistra.sdev), '$\Delta\\nu_{23}$', xe(udeltanu_destra.mean, udeltanu_destra.sdev)))
+        else:
+            plot(ordini, t[picchi[1::3]], 'o', color='tab:red', markersize='0', label='{} = {} Hz \n{} = {} Hz'.format('$\Delta\\nu_{23}$', xe(udeltanu_sinistra.mean, udeltanu_sinistra.sdev), '$\Delta\\nu_{12}$', xe(udeltanu_destra.mean, udeltanu_destra.sdev)))
+        legend(fontsize='x-small', framealpha=0, loc=4)
 
 nu_sinistra = array(nu_sinistra)
 dnu_sinistra = array(dnu_sinistra)
 nu_destra = array(nu_destra)
 dnu_destra = array(dnu_destra)
 numero_ordini = array(numero_ordini)
-figure('sinistra')
+figure('deltanu12(basso)')
+clf()
+errorbar(indici_salita, nu_sinistra[indici_salita], yerr=dnu_sinistra[indici_salita], fmt='o')
+errorbar(indici_discesa, nu_destra[indici_discesa], yerr=dnu_destra[indici_discesa], fmt='o')
+
+figure('deltanu23(alto)')
+clf()
+errorbar(indici_salita, nu_destra[indici_salita], yerr=dnu_destra[indici_salita], fmt='o')
+errorbar(indici_discesa, nu_sinistra[indici_discesa], yerr=dnu_sinistra[indici_discesa], fmt='o')
+
+figure('deltanu sinistra')
 clf()
 errorbar(indici_salita, nu_sinistra[indici_salita], yerr=dnu_sinistra[indici_salita], fmt='o')
 errorbar(indici_discesa, nu_sinistra[indici_discesa], yerr=dnu_sinistra[indici_discesa], fmt='o')
 
-#figure('destra')
-#clf()
+figure('deltanu destra')
+clf()
 errorbar(indici_salita, nu_destra[indici_salita], yerr=dnu_destra[indici_salita], fmt='o')
 errorbar(indici_discesa, nu_destra[indici_discesa], yerr=dnu_destra[indici_discesa], fmt='o')
 
@@ -300,3 +293,8 @@ def p_value(start, s):
 print('\ntest compatibilità')
 print('sinistra-destra:', media_nu_sinistra-media_nu_destra, '   p_value = %.2g%%' %(100*p_value((media_nu_sinistra-media_nu_destra).mean, (media_nu_sinistra-media_nu_destra).sdev)))
 print('alto-basso     :', media_nu_basso-media_nu_alto, '   p_value = %.2g%%' %(100*p_value((media_nu_basso-media_nu_alto).mean, (media_nu_basso-media_nu_alto).sdev)))
+
+params = {'axes.labelsize': 'medium',
+         'xtick.labelsize':'medium',
+         'ytick.labelsize':'medium'}
+rcParams.update(params)
