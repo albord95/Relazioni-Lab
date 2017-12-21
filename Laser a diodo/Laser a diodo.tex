@@ -8,6 +8,7 @@
 \usepackage[margin=2 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
+
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Laser a diodo}
 \date{7-8 novembre 2017}
@@ -38,7 +39,7 @@ Abbiamo misurato la potenza fornita dal diodo laser in funzione della corrente d
 
 Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232.
 
-Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; i valori misurati sono riportati nelle rispettive tabelle in appendice.
+Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutti le misure effettuate sono riportati nelle rispettive tabelle in appendice.
 
 \subsection{Analisi dati}
 
@@ -56,9 +57,9 @@ Abbiamo effettuato questa misura per tre valori diversi della temperatura del la
 
 \end{multicols}
 
-\appendix 
+\newpage
 
-\section{Tabelle}
+\section*{Appendice}
 
 \begin{table}[H]
 \centering
@@ -124,7 +125,7 @@ Abbiamo effettuato questa misura per tre valori diversi della temperatura del la
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
-	$\theta_{//}$& P [$\mu$W] &$\theta_{//}$& P [$\mu$W] & $\theta_{//}$& P [$\mu$W] &$\theta_{//}$& P [$\mu$W] \\
+	$\theta_{//}$ [°]& I [$\mu$A] &$\theta_{//}$ [°]& I [$\mu$A] & $\theta_{//}$ [°]& I [$\mu$A] &$\theta_{//}$ [°]& I [$\mu$A] \\
 	\hline
 0.0(5)	&	4.30	&	11.0(5)	&	0.57	&	-3.5(5)	&	2.38	&	-1.5(5)	&	3.56	\\
 1.0(5)	&	4.53	&	12.0(5)	&	0.33	&	-4.0(5)	&	2.16	&	-0.5(5)	&	4.10	\\
@@ -147,7 +148,7 @@ Abbiamo effettuato questa misura per tre valori diversi della temperatura del la
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
-	$\theta_{\perp}$& P [$\mu$W] &$\theta_{\perp}$& P [$\mu$W] & $\theta_{\perp}$& P [$\mu$W] &$\theta_{\perp}$& P [$\mu$W] \\
+	$\theta_{\perp}$ [°]& I [$\mu$A] &$\theta_{\perp}$ [°]& I [$\mu$A] & $\theta_{\perp}$ [°]& I [$\mu$A] &$\theta_{\perp}$ [°]& I [$\mu$A] \\
 	\hline
 -85.0(5)	&	0.02	&	-17.0(5)	&	1.73	&	-1.0(5)	&	4.27	&	14.0(5)	&	2.51	\\
 -70.0(5)	&	0.02	&	-16.0(5)	&	1.92	&	0.0(5)	&	4.71	&	15.0(5)	&	2.27	\\
@@ -168,6 +169,5 @@ Abbiamo effettuato questa misura per tre valori diversi della temperatura del la
 \end{tabular}
 \caption{P vs angolo di incidenza perpendicolare}
 \end{table}
-
 
 \end{document}
