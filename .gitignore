@@ -5,6 +5,7 @@
 *.synctex.gz
 
 *.DS_Store
+lab.cpython-36.pyc
 Michelson\michelson.pdf
 Michelson/michelson.pdf
 Laser a diodo/Laser a diodo.pdf
