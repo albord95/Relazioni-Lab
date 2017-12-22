@@ -27,25 +27,26 @@
 \contentsline {subsection}{\numberline {3.3.2}Altoparlante}{9}
 \contentsline {chapter}{\numberline {4}Fibre Ottiche: 20-24 Novembre 2017}{11}
 \contentsline {section}{\numberline {4.1}Procedimento da seguire}{11}
-\contentsline {subsection}{\numberline {4.1.1}Attenuazione}{11}
-\contentsline {subsubsection}{HeNe}{11}
-\contentsline {subsubsection}{verde}{12}
-\contentsline {subsection}{\numberline {4.1.2}Attenuazione 2}{12}
-\contentsline {subsection}{\numberline {4.1.3}Propagazione di un modo LP$_{01}$}{12}
-\contentsline {subsection}{\numberline {4.1.4}Propagazione modi superiori}{12}
-\contentsline {subsection}{\numberline {4.1.5}Fibra a conservazione di polarizzazione}{13}
-\contentsline {subsection}{\numberline {4.1.6}Lente di GRIN}{13}
-\contentsline {subsection}{\numberline {4.1.7}suono}{13}
-\contentsline {chapter}{\numberline {5}Analizzatore di spettro: 27-28 Novembre 2017}{14}
-\contentsline {section}{\numberline {5.1}Venerd\IeC {\`\i }}{14}
-\contentsline {subsection}{\numberline {5.1.1}presa dati}{14}
-\contentsline {chapter}{\numberline {6}Visibile: 4-5 Dicembre 2017}{15}
-\contentsline {section}{\numberline {6.1}Accensione pompa}{15}
-\contentsline {section}{\numberline {6.2}Taratura attenuatore}{15}
-\contentsline {section}{\numberline {6.3}V$_{emessa}$ vs P$_{pompa}$}{15}
-\contentsline {chapter}{\numberline {7}Duplicatore di frequenza: 14-15 Dicembre 2017}{16}
-\contentsline {section}{\numberline {7.1}Verifiche iniziali}{16}
-\contentsline {section}{\numberline {7.2}Taratura}{16}
-\contentsline {section}{\numberline {7.3}Segnale duplicato in funzione della potenza incidente}{16}
-\contentsline {section}{\numberline {7.4}Segnale duplicato in funzione dell'angolo di P-M}{17}
-\contentsline {section}{\numberline {7.5}Segnale duplicato in funzione della polarizzazione}{17}
+\contentsline {section}{\numberline {4.2}Apertura numerica}{11}
+\contentsline {section}{\numberline {4.3}Attenuazione}{12}
+\contentsline {subsection}{\numberline {4.3.1}HeNe}{12}
+\contentsline {subsection}{\numberline {4.3.2}verde}{12}
+\contentsline {section}{\numberline {4.4}Attenuazione 2}{12}
+\contentsline {section}{\numberline {4.5}Propagazione di un modo LP$_{01}$}{12}
+\contentsline {section}{\numberline {4.6}Propagazione modi superiori}{13}
+\contentsline {section}{\numberline {4.7}Fibra a conservazione di polarizzazione}{13}
+\contentsline {section}{\numberline {4.8}Lente di GRIN}{13}
+\contentsline {section}{\numberline {4.9}suono}{14}
+\contentsline {chapter}{\numberline {5}Analizzatore di spettro: 27-28 Novembre 2017}{15}
+\contentsline {section}{\numberline {5.1}Venerd\IeC {\`\i }}{15}
+\contentsline {subsection}{\numberline {5.1.1}presa dati}{15}
+\contentsline {chapter}{\numberline {6}Visibile: 4-5 Dicembre 2017}{16}
+\contentsline {section}{\numberline {6.1}Accensione pompa}{16}
+\contentsline {section}{\numberline {6.2}Taratura attenuatore}{16}
+\contentsline {section}{\numberline {6.3}V$_{emessa}$ vs P$_{pompa}$}{16}
+\contentsline {chapter}{\numberline {7}Duplicatore di frequenza: 14-15 Dicembre 2017}{17}
+\contentsline {section}{\numberline {7.1}Verifiche iniziali}{17}
+\contentsline {section}{\numberline {7.2}Taratura}{17}
+\contentsline {section}{\numberline {7.3}Segnale duplicato in funzione della potenza incidente}{17}
+\contentsline {section}{\numberline {7.4}Segnale duplicato in funzione dell'angolo di P-M}{18}
+\contentsline {section}{\numberline {7.5}Segnale duplicato in funzione della polarizzazione}{18}
