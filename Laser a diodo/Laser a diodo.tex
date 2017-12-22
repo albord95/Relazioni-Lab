@@ -26,6 +26,7 @@
 
 \section{To do}
 \begin{itemize}
+\item Foto apparato
 \item Trovare informazioni fotodiodo
 \end{itemize}
 
@@ -98,7 +99,10 @@ Sono inoltre presenti sul datasheet i seguenti grafici:
 che mostrano le caratteristiche principali di dispositivi di questo tipo come la dipendenza della corrente di soglia dalla temperatura, l'astigmatismo e la dipendenza della lunghezza d'onda dalla temperatura.
 
 \subsection{Monocromatore}
-L'analizzatore di spettro è costituito da un monocromatore, ovvero un apparato in grado di sfruttare un reticolo di diffrazione in riflessione per separare le lunghezze d'onda della luce incidente.Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} mostrato in Figura \ref{fig:monocromatore}, a cui la luce laser viene portata tramite una fibra ottica.
+L'analizzatore di spettro è costituito da un monocromatore, ovvero un apparato in grado di sfruttare un reticolo di diffrazione (costituito da $\sim$1000 specchi $\forall$ mm) in riflessione per separare angolarmente le lunghezze d'onda della luce incidente. 
+Prendendo come riferimento la Figura \ref{fig:monocromatore} si nota la presenza di due specchi (4 e 6) che servono, rispettivamente, a collimare il fascio sul reticolo di diffrazione e a focalizzare il primo ordine dello spettro sull'array di fotodiodi (8) che permettono di rilevare l'intensità delle varie lunghezze d'onda che compongono la luce incidente.
+
+Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} mostrato in Figura \ref{fig:monocromatore}, a cui la luce laser viene portata tramite una fibra ottica.
 
 \begin{figure}[H]
 \centering
@@ -106,7 +110,6 @@ L'analizzatore di spettro è costituito da un monocromatore, ovvero un apparato i
 \caption{}
 \label{fig:monocromatore}
 \end{figure}
-
 
 \section{Caratteristica P-I}
 Analizziamo la dipendenza della corrente di soglia del diodo laser dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T=12, 25, 45 °C.
