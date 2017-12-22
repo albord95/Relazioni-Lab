@@ -9,6 +9,7 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{color}
+\usepackage{mathtools}
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Analizzatore di spettro}
 \date{27-28 novembre 2017}
@@ -39,8 +40,11 @@
 \section{Apparato sperimentale}
 
 \end{multicols}
-	
+
+\newpage	
 \section{Modi del laser HeNe}
+
+Analizziamo la separazione in frequenza dei modi del laser HeNe a nostra disposizione.
 
 \begin{figure}[H]
 	\centering
@@ -50,20 +54,17 @@
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{due_ordini.pdf}
+	\includegraphics[width=\textwidth]{due_ordini.pdf}
 	\caption{Due ordini dell'analizzatore. Segnale di trasmittività salvato nel file .txt.}
 	\label{fig:due_ordini.pdf}
 \end{figure}
 
 \begin{multicols}{2}
-Analizziamo la separazione in frequenza dei modi del laser HeNe a nostra disposizione.
 
 \subsection{Presa dati}
 
-In Figura \ref{fig:due_ordini.png} vediamo un esempio del segnale letto dall'oscilloscopio e visualizzato al PC, e che salviamo anche in formato .txt. Sia per la trasmittività che per la rampa il file di testo riporta due diversi valori di tensione (vedi Figura \ref{fig:due_ordini.pdf}). Notiamo che il segnale visualizzato all'oscilloscopio è la media dei due. Inoltre, confrontando varie prese dati, notiamo che la discrepanza tra i due valori di tensione diminuisce notevolmente all'aumentare della larghezza del picco. Poichè per la misura della separazione in frequenza dei modi è importante la precisione sul tempo di ogni picco scegliamo di utilizzare il segnale più ampio al posto della media dei due.
-
-In Figura \ref{fig:un_ordine.png} è riportato un'ordine dell'analizzatore.
+In Figura \ref{fig:due_ordini.png} vediamo un esempio del segnale letto dall'oscilloscopio e visualizzato al PC, e che salviamo anche in formato .txt. Sia per la trasmittività che per la rampa il file di testo riporta due diversi valori di tensione (vedi Figura \ref{fig:due_ordini.pdf}). Notiamo che il segnale visualizzato all'oscilloscopio è la media dei due. Inoltre, confrontando varie prese dati, notiamo che la discrepanza tra i due valori di tensione diminuisce notevolmente all'aumentare della larghezza del picco. Poichè per la misura della separazione in frequenza dei modi è importante la precisione sul tempo di ogni picco scegliamo di utilizzare il segnale più ampio al posto della media dei due.\\
+In Figura \ref{fig:un_ordine.png} è riportato un ordine dell'analizzatore.
 
 \subsubsection{Accorgimenti sperimentali}
 \begin{itemize}
@@ -117,12 +118,40 @@ ed è compatibile con 0 entro poco più di 2 sigma (p\_value = 3 \%). La differenz
 
 \subsubsection{Discussione degli errori}
 
+La compatibilità tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$ e tra $\Delta\nu_{medio}$ e $\Delta\nu_{nominale}$ dipende fortemente dalla scelta degli errori utilizzati per i fit di Figura \ref{fig:24fit}. Un fit di minimi quadrati ha senso se gli errori sulle $y$ sono delle deviazioni standard.\\
+Possiamo ragionevolmente supporre che l'errore sui tempi dell'oscilloscopio derivi dalla sola digitalizzazione.\footnote{Il datasheet dell'oscilloscopio indica una risoluzione massima di 0.4 ns, quindi la supposizione fatta è ragionevole poiché per le frequenze da noi utilizzate la digitalizzazione è $0.2 \div 0.4$ ms.} Supponiamo quindi che se la risoluzione dell'oscilloscopio è 1 ms un valore 0.49 viene letto 0 e il valore 0.51 viene letto 1, quindi l'errore assoluto è metà della risoluzione. Inoltre avrà una distrubuzione uniforme tra $- 0.5\cdot \textit{risoluzione}$ e $+ 0.5\cdot \textit{risoluzione}$: quindi la deviazione standard sarà 
+\begin{equation}
+	\tag{*}
+	\sigma = 0.68 \cdot 0.5\cdot \textit{risoluzione}
+	\label{eq:sigma}
+\end{equation}
+Usando la \ref{eq:sigma} per gli errori sulle $y$ nei fit di Figura \ref{fig:24fit} e propagando gli errori sui parametri fittati si ottiene l'errore su $\Delta\nu$.
+
+Per testare la validità della \ref{eq:sigma} abbiamo anche calcolato a posteriori la deviazione standard tra i valori misurati nelle 24 diverse prese dati. In Figura \ref{fig:deviazioni_standard} è graficato il confronto tra i due approcci. L'accordo è ottimo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.55\textwidth]{deviazioni_standard.pdf}
+	\caption{Confronto tra gli errori stimati dal fit (barre blu) per ciascuna presa dati e deviazione standard calcolata tra i valori delle 24 prese dati (banda rossa).}
+	\label{fig:deviazioni_standard}
+\end{figure}
+
+Per verificare che non ci fossero evidenti sistematiche tra i $\Delta\nu$ calcolati con la rampa in salita e quelli calcolati con la rampa in discesa abbiamo graficato entrambi in Figura \ref{fig:salita_discesa}. Non si osservano discrepanze.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{confronto_salita_discesa.pdf}
 	\caption{Confronto tra le misure di $\Delta\nu$ tra prese dati con la rampa in salita e con la rampa in discesa. Per ogni presa dati è graficata la media tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$.}
 	\label{fig:salita_discesa}
 \end{figure}
+
+\subsection{Conclusioni}
+Abbiamo ottenuto 
+\[\Delta\nu_{12} = 436.0 \pm 1.0 \textrm{ Hz} \]
+\[\Delta\nu_{23} = 433.0 \pm 1.0 \textrm{ Hz} \]
+la cui media è \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet del laser HeNe ($\Delta\nu_{nominale}$ = 435 Hz).\\
+Non sono state osservate incompatibilità né tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$ né tra i $\Delta\nu$ con rampa in salita e con rampa in discesa.\\
+Gli errori statistici, discussi ampiamente nella sezione dedicata, seguono la distribuzione attesa.
 	
 \end{multicols}
 	
