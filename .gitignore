@@ -1,14 +1,12 @@
 *.log
-
 *.aux
-
 *.synctex.gz
-
 *.DS_Store
 lab.cpython-36.pyc
 Michelson\michelson.pdf
-Michelson/michelson.pdf
-Laser a diodo/Laser a diodo.pdf
-Laser a diodo\Laser a diodo.pdf
+Laser a diodo\Laser-diodo.pdf
+Olografia\olografia.pdf
+Fibre ottiche\fibre-ottiche.pdf
 Analizzatore di spettro\analizzatore-spettro.pdf
-Analizzatore di spettro/analizzatore-spettro.pdf
+Visibile\visibile.pdf
+Duplicatore\duplicatore.pdf
