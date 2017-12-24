@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{color}
 \usepackage{mathtools}
+\usepackage{amsmath}
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Analizzatore di spettro}
 \date{27-28 novembre 2017}
@@ -70,7 +71,7 @@ In Figura \ref{fig:un_ordine.png} è riportato un ordine dell'analizzatore.
 \begin{itemize}
 	\item Regoliamo il generatore di funzioni e il fondo scala dell'oscilloscopio in modo da vedere poco più di una rampa dell'onda triangolare. Così facendo massimizziamo la risoluzione e possiamo misurare a posteriori l'ampiezza dell'onda triangolare.
 	\item Come consigliato dal professore\footnote{onniscente} impostiamo l'onda triangolare con $V_{pp} \leq$ 5~V e $f \leq$ 18~Hz per evitare effetti di non linearità del generatore e del piezoelettrico. Abbiamo scelto $V_{pp} \simeq$ 4~V e $f \simeq$ 9~Hz oppure $f =$ 4.50~Hz.
-	\item La regione lineare del piezoelettrico si trova a metà del range di funzionamento, i cui estremi sono però sconosciuti.\footnote{Dall'esperienza sull'interferometro di Michelson sappiamo che il range di funzionamento è dell'ordine dei 100 V, tuttavia non abbiamo dati precisi sullo specifico piezoelettrico dell'analizzatore. Inoltre è laborioso stabilire quale sia la tensione effettiva a cui il piezoelettrico viene sottoposto in quanto è la composizione dell'onda triangolare e di \textit{amplitude} e \textit{offset} del controller.} Sul controller del piezoelettrico possiamo regolare i valori di \textit{amplitude} e \textit{offset} e ci aspettiamo che gli estremi del range di funzionamento del piezoelettrico si raggiungano con ampiezza alta e offset massimo oppure minimo. Quindi impostiamo entrambi su valori intermedi.\footnote{In verità per le prese dati 1, 4, 5, 10, 11 visibili in nelle Figure \ref{fig:24picchi} e \ref{fig:24fit} l'\textit{amplitude} (ma non l'\textit{offset}) è stata aumentata. Poichè i risultati di queste misure sono compatibili con i restanti li abbiamo lasciati}
+	\item La regione lineare del piezoelettrico si trova a metà del range di funzionamento, i cui estremi sono però sconosciuti.\footnote{Dall'esperienza sull'interferometro di Michelson sappiamo che il range di funzionamento è dell'ordine dei 100 V, tuttavia non abbiamo dati precisi sullo specifico piezoelettrico dell'analizzatore. Inoltre è laborioso stabilire quale sia la tensione effettiva a cui il piezoelettrico viene sottoposto in quanto è la composizione dell'onda triangolare e di \textit{amplitude} e \textit{offset} del controller.} Sul controller del piezoelettrico possiamo regolare i valori di \textit{amplitude} e \textit{offset} e ci aspettiamo che gli estremi del range di funzionamento del piezoelettrico si raggiungano con ampiezza alta e offset massimo oppure minimo. Quindi impostiamo entrambi su valori intermedi.\footnote{In verità per le prese dati 1, 4, 5, 10, 11 visibili nelle Figure \ref{fig:24picchi} e \ref{fig:24fit} l'\textit{amplitude} (ma non l'\textit{offset}) è stata aumentata. Poichè i risultati di queste misure sono compatibili con i restanti li abbiamo lasciati}
 	\item Per evitare eventuali sistematiche per circa metà delle prese dati utilizziamo la rampa in salita, per le restanti la rampa in discesa.
 \end{itemize}
 
@@ -97,8 +98,7 @@ Come si deduce dalla presenza di tre rette parallele in Figura \ref{fig:esempio_
 Quindi ricaviamo $\Delta\nu$ con la formula 
 \[ \Delta\nu \textrm{ [Hz]}= 1500 \frac{\Delta\nu\textrm{ [ms]}}{FSR\textrm{ [ms]}}\]
 Per ridurre ulteriormente l'errore, nel caso in cui le rette non fossero esattamente parallele, per la FSR prendiamo la media dei 3 coefficienti angolari misurati e la differenza tra le intercette la prendiamo a metà delle rette.
-
-Fit e calcoli sono stati eseguiti con python 3, per brevità riportiamo solo il valore di $\Delta\nu$ e lasciamo a disposizione il codice dello script al link in nota.\footnote{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Scaricare tutta la cartella ed eseguire il file modi\_laser\_HeNe.py. \'E necessario python 3 con i pacchetti pylab, scipy, uncertainties e gvar.\label{ftn:link}}
+Fit e calcoli sono stati eseguiti con python 3, per brevità riportiamo solo il valore di $\Delta\nu$ e lasciamo a disposizione il codice dello script al link in nota.\footnote{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Scaricare tutta la cartella ed eseguire modi\_laser\_HeNe.py. Serve python 3 con i pacchetti pylab, scipy, uncertainties e gvar.\label{ftn:link}}
 	
 \begin{figure}[H]
 	\centering
@@ -113,25 +113,23 @@ La media pesata delle 24 prese dati eseguite dà
 \[\Delta\nu_{23} = 433.0 \pm 1.0 \textrm{ Hz} \]
 dove $\Delta\nu_{12}$ e $\Delta\nu_{23}$ sono definiti come nella didascalia di Figura \ref{fig:un_ordine.png}.
 La loro differenza è 
-\[\Delta\nu_{12}-\Delta\nu_{23} = 2.9 \pm 1.4 \textrm{ Hz}\footnote{La differenza riportata non è 3.0 ma 2.9 perché i calcoli sono stati eseguiti con più cifre di quelle mostrate. Lo script modi\_laser\_HeNe.py citato in nota \ref{ftn:link} stampa sul terminale anche le cifre aggiutive. La propagazione degli errori è gestita col pacchetto gvar di python.}\]
+\[\Delta\nu_{12}-\Delta\nu_{23} = 2.9 \pm 1.4 \textrm{ Hz}\footnote{La differenza riportata non è 3.0 ma 2.9 perché i calcoli sono stati eseguiti con più cifre di quelle mostrate. Lo script modi\_laser\_HeNe.py (nota \ref{ftn:link}) stampa anche le cifre aggiutive. La propagazione degli errori è gestita col pacchetto gvar di python.}\]
 ed è compatibile con 0 entro poco più di 2 sigma (p\_value = 3 \%). La differenza riscontrata è da imputarsi al solo errore sperimentale perché dal punto di vista teorico $|\Delta\nu_{12}-\Delta\nu_{23}| \sim 10^{-5}\Delta\nu_{12}$, che è trascurabile. Pertanto ha senso calcolare la media di $\Delta\nu_{12}$ e $\Delta\nu_{23}$: \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet ($\Delta\nu_{nominale}$ = 435 Hz).
 
 \subsubsection{Discussione degli errori}
 
-La compatibilità tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$ e tra $\Delta\nu_{medio}$ e $\Delta\nu_{nominale}$ dipende fortemente dalla scelta degli errori utilizzati per i fit di Figura \ref{fig:24fit}. Un fit di minimi quadrati ha senso se gli errori sulle $y$ sono delle deviazioni standard.\\
-Possiamo ragionevolmente supporre che l'errore sui tempi dell'oscilloscopio derivi dalla sola digitalizzazione.\footnote{Il datasheet dell'oscilloscopio indica una risoluzione massima di 0.4 ns, quindi la supposizione fatta è ragionevole poiché per le frequenze da noi utilizzate la digitalizzazione è $0.2 \div 0.4$ ms.} Supponiamo quindi che se la risoluzione dell'oscilloscopio è 1 ms un valore 0.49 viene letto 0 e il valore 0.51 viene letto 1, quindi l'errore assoluto è metà della risoluzione. Inoltre avrà una distrubuzione uniforme tra $- 0.5\cdot \textit{risoluzione}$ e $+ 0.5\cdot \textit{risoluzione}$: quindi la deviazione standard sarà 
+La compatibilità tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$ e con $\Delta\nu_{nominale}$ dipende fortemente dalla scelta degli errori utilizzati per i fit di Figura \ref{fig:24fit}. Un fit di minimi quadrati ha senso se gli errori sulle $y$ sono delle deviazioni standard.\\
+Possiamo ragionevolmente supporre che l'errore sui tempi dell'oscilloscopio derivi dalla sola digitalizzazione.\footnote{Il datasheet dell'oscilloscopio indica una risoluzione precisa fino a 0.4 ns, quindi la supposizione fatta è ragionevole poiché per le frequenze da noi utilizzate la digitalizzazione è $0.2 \div 0.4$ ms.} Supponiamo quindi che se la risoluzione dell'oscilloscopio è 1 ms un valore 0.49 viene letto 0 e il valore 0.51 viene letto 1, quindi l'errore assoluto è metà della risoluzione. Inoltre avrà una distrubuzione uniforme tra $- 0.5\cdot \textit{risoluzione}$ e $+ 0.5\cdot \textit{risoluzione}$: quindi la deviazione standard sarà 
 \begin{equation}
 	\tag{*}
 	\sigma = 0.68 \cdot 0.5\cdot \textit{risoluzione}
 	\label{eq:sigma}
 \end{equation}
 Usando la \ref{eq:sigma} per gli errori sulle $y$ nei fit di Figura \ref{fig:24fit} e propagando gli errori sui parametri fittati si ottiene l'errore su $\Delta\nu$.
-
 Per testare la validità della \ref{eq:sigma} abbiamo anche calcolato a posteriori la deviazione standard tra i valori misurati nelle 24 diverse prese dati. In Figura \ref{fig:deviazioni_standard} è graficato il confronto tra i due approcci. L'accordo è ottimo.
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.55\textwidth]{deviazioni_standard.pdf}
+	\includegraphics[width=0.5\textwidth]{deviazioni_standard.pdf}
 	\caption{Confronto tra gli errori stimati dal fit (barre blu) per ciascuna presa dati e deviazione standard calcolata tra i valori delle 24 prese dati (banda rossa).}
 	\label{fig:deviazioni_standard}
 \end{figure}
@@ -158,6 +156,28 @@ Gli errori statistici, discussi ampiamente nella sezione dedicata, seguono la di
 \section{Finezza del Fabry-Perot}
 
 \begin{multicols}{2}
+	
+Ricaviamo la finezza con la formula
+\[\mathcal{F} = \frac{FSR}{FWHM}\]
+dove $FWHM$ è la larghezza a metà altezza di un picco.
+	
+\subsection{Procedura e accorgimenti}
+$FWHM$ è due ordini di grandezza più piccola del $FSR$, quindi è necessario cambiare la scala temporale dell'oscilloscopio senza alterare le restanti condizioni sperimentali. Adottiamo il seguente algoritmo:
+\begin{itemize}
+	\item Impostiamo la rampa in modo da vedere 3 picchi principali.
+	\item Aggiustiamo il trigger dell'oscilloscopio in modo che il picco centrale stia a metà rampa e a metà schermo. In questo modo diminuendo la scala temporale il picco centrale si allarga rimanendo centrato sullo schermo.
+	\item Alterniamo misure di $FSR$ a misure di $FWHM$.
+\end{itemize}
+
+Per assicurarci la stabilità delle condizioni sperimentali non cambiamo mai l'onda del generatore di funzioni né l'\textit{amplitude} del controller del piezo. Ritocchiamo solo l'\textit{offset} e l'allieneamento dell'ultimo specchio, solo se necessario e soltanto dopo una misura di $FWHM$.
+
+Oltre a quelli appena sottolineati adottiamo gli stessi accorgimenti della misura di $\Delta\nu$, in particolare eseguiamo metà delle prese dati con la rampa in salita e metà in discesa e, per evitare nonlinearità, adottiamo le seguenti condizioni sperimentali:
+\begin{align*}
+V_{pp} &= 3.8(1) \textrm{ V} \\
+f &= 4.50(1) \textrm{ Hz}\\
+\textit{amplitude} &\sim\textrm{circa a metà} \\
+\textit{offset} &\sim\textrm{circa a metà}
+\end{align*}
 
 \end{multicols}
 
