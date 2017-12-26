@@ -152,14 +152,11 @@ Non sono state osservate incompatibilità né tra $\Delta\nu_{12}$ e $\Delta\nu_{2
 Gli errori statistici, discussi ampiamente nella sezione dedicata, seguono la distribuzione attesa.
 	
 \end{multicols}
-	
+
+\newpage
 \section{Finezza del Fabry-Perot}
 
 \begin{multicols}{2}
-	
-Ricaviamo la finezza con la formula
-\[\mathcal{F} = \frac{FSR}{FWHM}\]
-dove $FWHM$ è la larghezza a metà altezza di un picco.
 	
 \subsection{Procedura e accorgimenti}
 $FWHM$ è due ordini di grandezza più piccola del $FSR$, quindi è necessario cambiare la scala temporale dell'oscilloscopio senza alterare le restanti condizioni sperimentali. Adottiamo il seguente algoritmo:
@@ -179,6 +176,93 @@ f &= 4.50(1) \textrm{ Hz}\\
 \textit{offset} &\sim\textrm{circa a metà}
 \end{align*}
 
+\subsection{Analisi dati}
+
+$FSR$ è ricavata con lo stesso algoritmo della sezione precedente. Al variare della presa dati il valore di $FSR$ è stabile, quindi nel'analisi che segue è stata utilizzata la media:
+\[FSR = 35.96(5) \textrm{ ms}\]
+
+\subsubsection{\textit{FWHM}}
+In prima analisi ricaviamo la finezza con la formula
+\[\mathcal{F} = \frac{FSR}{FWHM}\]
+dove $FWHM$ è la larghezza a metà altezza di un picco.\\
+Come si nota in Figura \ref{fig:06c_FWHM} per migliorare la precisione è stata fatta un'interpolazione dei punti intorno alla metà altezza.\\
+Il valore della metà altezza ulilizzato è semplicemente la media dei valori di massimo e minimo: il vantaggio è che supponendo simmetriche le fluttuazioni intorno al vero massimo e al vero minimo queste si cancellano, lo svantaggio è che la misura è molto sensibile al valore del picco, che non è stabile al variare della presa dati.\\
+Il segnale utilizzato è la media dei due valori dati dal file di testo, che corrisponde al valore visualizzato a schermo dal software dell'oscilloscopio. Poichè i picchi sono larghi rispetto a quelli di Figura \ref{fig:due_ordini.pdf} i valori dei due segnali sono molto vicini tra loro e la scelta dell'uno, dell'altro o della media non influisce significativamente sul risultato.\\
+In Figura \ref{fig:06c_FWHM} è riportato un'esempio di analisi, in appendice (Figura \ref{fig:36FWHM}) l'analisi delle restanti prese dati.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{06c_FWHM.pdf}
+	\caption{Esempio di calcolo della finezza con $\mathcal{F} = \frac{FSR}{FWHM}$. In azzurro l'interpolazione dei punti intorno alla metà altezza, in rosso la \textit{FWHM}. In appendice (Figura \ref{fig:36FWHM}) è riportata la stessa analisi fatta per le restanti 36 prese dati.}
+	\label{fig:06c_FWHM}
+\end{figure}
+\subsubsection*{Discussione dei risultati}
+Mediando sulle 37 prese dati otteniamo
+\[\mathcal{F} = 217 \pm 3 \textrm{ (err. statistico)} \pm 14 \textrm{ (err. sistematico)}\]
+quindi, sommando in quadratura gli errori,
+\[\mathcal{F} = 217 \pm 15\]
+che è compatibile con quanto riportato nel datasheet del Fabry-Perot ($\mathcal{F}_{nominale} = 212$)
+\subsubsection*{Discussione degli errori}
+\'E stato necessario distinguere errore statistico da errore sistematico, infatti l'errore statistico, calcolato con la deviazione standard sulla media, non tiene conto di errori intrinseci al metodo di analisi. In particolare si potrebbe arbitrariamente decidere di
+\begin{enumerate}
+	\item prendere la media dei $\sim5$ valori più grandi e dei $\sim5$ valori più bassi al posto dei valori di massimo e minimo,
+	\item utilizzare solo uno dei due segnali dati dal file di testo,
+	\item interpolare diversamente (ad esempio con una retta),
+	\item ecc...
+\end{enumerate}
+ Avendo mediato su 37 prese dati l'errore statistico è già abbastanza piccolo da rendere non trascurabili le sistematiche introdotte dall'arbitrarietà nel procedimento di analisi.
+
+Per stimare l'errore sistematico usiamo la seguente osservazione: le prese dati contrassegnate dallo stesso numero in Figura \ref{fig:36FWHM} (come '02a', '02b', '02c') sono svolte nelle stesse identiche condizioni sperimentali, ma cambiando occasionalmente la scala temporale dell'oscilloscopio. Nell'oscilloscopio è fissato il numero di campionature al secondo (20 MS/s), quindi cambiare la scala temporale equivale ad eseguire una media mobile, che alza o abbassa il valore del picco. Pertanto tra quste prese dati non cambia la forma del picco, ma cambia il valore dell'altezza massima. Questa variazione è una stima dell'incertezza introdotta dalla scelta 1, che è la più influente. Quindi stimiamo l'errore sistematico con la media delle deviazioni standard sulle prese contrassegnate dallo stesso numero: il $\pm 14$ è ottenuto così.
+
+Abbiamo verificato che le scelte 2 e 3 comportassero una variazione entro il $\pm 14$ calcolato sopra. In particolare $\mathcal{F}$ varia tra 209 e 219.
+
+\subsubsection{Fit}
+
+Abbiamo calcolato la finezza anche mediante un fit con la formula teorica
+\[\text{trasmittività} = \frac{1}{1 + F^2\sin^2(\frac{\delta}{2})}\]
+a cui è stato aggiunto un parametro di scala  e un offset su tensioni e tempi. Quindi 
+\[\text{trasmittività} = \frac{A}{1 + F^2\sin^2(\frac{t - D}{C})} + B\]
+Di questi parametri $B$ e $C$ sono fissati da misure indipendenti, infatti $C = \frac{FSR}{\pi}$ e per $B$ è stata usata la moda del vettore della tensione delle misure di $FSR$. $A$, $D$ ed $F$ sono invece parametri liberi.
+
+La finezza $\mathcal{F}$ è ricavata da $F$:
+\[\mathcal{F} = \frac{\pi}{2}F \]
+
+In Figura \ref{fig:06c_fit} è riportato il fit per una delle prese dati, in appendice i fit per le restanti.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{06c_fit.pdf}
+	\caption{Esempio di calcolo della finezza con un fit. In appendice (Figura \ref{fig:36fit}) è riportata la stessa analisi fatta per le restanti 36 prese dati.}
+	\label{fig:06c_fit}
+\end{figure}
+
+\subsubsection*{Discussione dei risultati}
+
+Mediando sulle 37 prese dati otteniamo
+\[\mathcal{F} = 204 \pm 3 \textrm{ (err. statistico)} \pm 3 \textrm{ (err. sistematico)}\]
+quindi, sommando in quadratura gli errori,
+\[\mathcal{F} = 204 \pm 4\]
+che è ancora compatibile (entro 2 sigma) con quanto riportato nel datasheet.
+
+\subsubsection*{Discussione degli errori}
+
+L'errore statistico è ancora la deviazione standard sulla media delle 37 prese dati.\\
+Un'errore sistematico è di nuovo presente e riusciamo a stimarlo in parte, considerando
+\begin{enumerate}
+	\item la propagazione dell'errore sull'offset $B$ inserito ($\Delta\mathcal{F}\sim\pm2$),
+	\item la variazione della $F$ fittata in funzione degli errori scelti su tensione e tempo ($\Delta\mathcal{F}\sim\pm1$).
+\end{enumerate}
+Gli errori utilizzati nei fit di cui riportiamo i risultati sono $10 \textrm{ ns}$ per i tempi e $10 \textrm{ mV}$ per le tensioni. Abbiamo usato la regressione ortogonale come metodo di fit (pacchetto odrpack di python).\\
+Dato che le forme delle curve sperimentali presentano asimmetrie e deformazioni rispetto alla curva teorica, sono sicuramente presenti altre sistematiche di difficile valutazione.\\
+Per semplicità il calcolo dell'errore sistematico è stato eseguito con lo stesso metodo della sezione precedente, questo dà il $\pm 3$ riportato. I $\Delta\mathcal{F}$ delle sistematiche 1 e 2 sono compatibili con questo valore.
+
+\subsection{Conclusioni}
+Dalla misura della larghezza a metà altezza otteniamo
+\[\mathcal{F} = 217 \pm 15\]
+Con un fit della formula teorica per la trasmittività di un Fabry-Perot otteniamo
+\[\mathcal{F} = 204 \pm 4\]
+Entrambi i risultati sono compatibili con quanto riportato nel datasheet ($\mathcal{F}_{nominale} = 212$) e tra di loro.\\
+Gli errori sono stati ampiamente discussi nelle sezioni dedicate anche distinguendo errore statistico ed errore sistematico.
+
+
 \end{multicols}
 
 \newpage
@@ -195,6 +279,18 @@ f &= 4.50(1) \textrm{ Hz}\\
 	\makebox[\textwidth]{\includegraphics[width=1.18\linewidth]{24fit.pdf}}
 	\caption{Fit e calcolo dei $\Delta\nu$.}
 	\label{fig:24fit}
+\end{figure}
+
+\begin{figure}[H]
+	\makebox[\textwidth]{\includegraphics[width=1.18\linewidth]{finezza_36FWHM.pdf}}
+	\caption{Calcolo della finezza con $\mathcal{F} = \frac{FSR}{FWHM}$. In azzurro l'interpolazione dei punti intorno alla metà altezza. In rosso la \textit{FWHM}.}
+	\label{fig:36FWHM}
+\end{figure}
+
+\begin{figure}[H]
+	\makebox[\textwidth]{\includegraphics[width=1.18\linewidth]{finezza_36fit.pdf}}
+	\caption{Finezza ricavata con un fit.}
+	\label{fig:36fit}
 \end{figure}
 
 	
