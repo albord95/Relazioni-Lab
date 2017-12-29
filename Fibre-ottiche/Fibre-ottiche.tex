@@ -81,13 +81,13 @@
 
 1 figura
 
-\section{Lente di GRIN}
+\section{Lente GRIN}
 
 \begin{multicols}{2}
 
 
 \subsection{Teoria}
-Una lente GRIN è un cilindro fatto di materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
+Una lente GRIN (da GRadient-INdex) è un cilindro fatto di materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Grin-lens.png}
@@ -100,9 +100,10 @@ Il coefficiente di accoppiamento si ottiene con la formula
 \[\Gamma = 10 \log\left |\frac{P_{in}}{P_{out}} \right|\]
 \subsubsection*{Procedura e accorgimenti}
 $P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.\\
-$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare, al variare dell'allineamento, il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.\\
+$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.\\
 La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/f$) quindi ci siamo assicurati che le misure di $P_{in}$ e $P_{out}$ avvenissero con la stessa alimentazione. La misura che richiede più pazienza è quella di $P_{out}$, quindi l'abbiamo misurata per prima e immediatamente dopo abbiamo misurato $P_{in}$, verificando che l'alimentatore fornisse la stessa corrente.
 
+\subsubsection*{Risultati}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|cccc|}
@@ -114,7 +115,7 @@ La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/
 		LED & 81.1(2) & 8.21(10) & 0.00491(2) & 32.23(6)\\
 		\hline
 	\end{tabular}
-	\caption{Coefficiente di accoppiamento}
+	\caption{Coefficiente di accoppiamento. L'errore sulla corrente è la digitalizzazione, gli errori sulle potenze una nostra stima in base alle fluttuazioni delle misure.}
 	\label{tab:GRIN}
 \end{table}
 
@@ -124,10 +125,47 @@ In Tabella \ref{tab:GRIN} ci sono i dati raccolti ed il coefficiente di accoppia
 	\Gamma_{LED} &= 32.23(6) \textrm{ dB}
 \end{align*}
 
-\subsection{Trasmissione di un segnale acustico}
+\subsection{Trasmissione di un segnale}
 Modulando l'intensità della luce lanciata in fibra è possibile trasmettere un segnale.
-\subsubsection{Apparato sperimentale}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{apparato_segnale_acustico.pdf}
+	\caption{Apparato sperimentale per la trasmissone di un segnale.}
+	\begin{enumerate}
+		\item Diodo laser
+		\item Lanciatore (con lente GRIN)
+		\item Fibra ottica
+		\item Uscita della fibra
+		\item Rilevatore al silicio
+	\end{enumerate}
+	\label{fig:apparato_segnale}
+\end{figure}
 
+In Figura \ref{fig:apparato_segnale} è rappresentato l'apparato sperimentale che utilizziamo. Il diodo laser è alimentato da una corrente modulata con un piccolo segnale prodotto da un generatore di funzioni.\\
+Il rilevatore, che trasforma il segnale ottico in una tensione, è collegato ad un amplificatore che trasforma la tensione in segnale acustico, che sentiamo ad orecchio.
+
+Registriamo il segnale acustico grazie ad un'app gratuita per cellulare per accordare gli strumenti musicali.
+In Figura \ref{fig:segnale_acustico} sono riportati gli screenshot delle 3 misure effettuate:
+\begin{enumerate}
+	\item Segnale dato dalla luce ambientale. La stanza è illuminata da lampade al neon, che viene eccitato al doppio della frequenza della corrente alternata, quindi circa a 100-120 Hz. Misuriamo 98 Hz.
+	\item Segnale del generatore di funzioni: regoliamo la frequenza fino ad intonare un la5 (880 Hz).
+	\item Segnale del generatore di funzioni: regoliamo la frequenza fino ad intonare un la4 (440 Hz).
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.148\textwidth}
+		\includegraphics[width=\textwidth]{sol2.png}
+	\end{minipage}
+	\begin{minipage}{0.16\textwidth}
+		\includegraphics[width=\textwidth]{la5.png}
+	\end{minipage}
+	\begin{minipage}{0.16\textwidth}
+		\includegraphics[width=\textwidth]{la4.png}
+	\end{minipage}
+	\caption{Screenshot del cellulare che misura la frequenza, cerchiata in rosso.}
+	\label{fig:segnale_acustico}
+\end{figure}
 
 \end{multicols}
 	
