@@ -10,6 +10,8 @@
 \usepackage{multicol}
 \usepackage{textcomp}
 \usepackage{caption}
+\usepackage{units}
+\usepackage{amsmath}
 \author{A. Bordin, G. Cappelli}
 \title{Fibre ottiche}
 \date{20-24 Novembre 2017}
@@ -79,18 +81,42 @@
 
 1 figura
 
-\section{Lente di GRIN - albe}
+\section{Lente di GRIN}
+
+\begin{multicols}{2}
+
 
 \subsection{Teoria}
+Una lente GRIN è un cilindro fatto di un materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Grin-lens.png}
+\end{figure}
+Una lente GRIN tagliata a $\lambda/4$ focalizza assi parassiali sulla superficie e viceversa. La lente GRIN a nostra disposizione è tagliata a 0.29$\lambda$ quindi focalizza onde sferiche ad una certa distanza dalla superficie.
 
 \subsection{Coefficiente di accoppiamento}
+L'idea è usare la lente GRIN per lanciare luce in fibra. Misuriamo quindi il coefficiente di accoppiamento di una sorgente laser o LED a una fibra ottica multimodo attraverso una lente GRIN.
+Il coefficiente di accoppiamento si ottiene con la formula
+\[\Gamma = 10 \log\left |\frac{P_{in}}{P_{out}} \right|\] 
+dove $P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.
 
-\subsubsection{Presa dati}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|cccc|}
+		\hline
+		& $I_{in}$ [mA]  & $P_{in}$ [mW]& $P_{out}$ [mW]& $\Gamma [dB]$ \\
+		\hline
+		laser  & 78.0(1) & 6.19(6) & 3.50(1) & 2.48(4)\\
 
-1 tabella
+		LED & 81.1(2) & 8.21(10) & 0.00491(2) & 32.23(6)\\
+		\hline
+	\end{tabular}
+\end{table}
 
-\subsubsection{Analisi dati}
+
 
 \subsection{Trasmissione di un segnale}
+
+\end{multicols}
 	
 \end{document}

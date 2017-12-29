@@ -2,11 +2,12 @@
 *.aux
 *.synctex.gz
 *.DS_Store
+*.toc
 lab.cpython-36.pyc
 Michelson\michelson.pdf
-Laser a diodo\Laser-diodo.pdf
+Laser-a-diodo\Laser-diodo.pdf
 Olografia\olografia.pdf
-Fibre ottiche\fibre-ottiche.pdf
-Analizzatore di spettro\analizzatore-spettro.pdf
+Fibre-ottiche\fibre-ottiche.pdf
+Analizzatore-di-spettro\analizzatore-spettro.pdf
 Visibile\visibile.pdf
 Duplicatore\duplicatore.pdf
