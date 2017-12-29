@@ -12,7 +12,7 @@
 \usepackage{caption}
 \usepackage{units}
 \usepackage{amsmath}
-\author{A. Bordin, G. Cappelli}
+\author{Alberto Bordin, Giulio Cappelli}
 \title{Fibre ottiche}
 \date{20-24 Novembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
@@ -41,15 +41,79 @@
 
 2 plot con interpolazione quadratica o al massimo cubica
 
-\section{Attenuazione - albe}
+\newpage
+\section{Attenuazione}
+
+\begin{multicols}{2}
 
 \subsection{Teoria}
+In una fibra ottica si ha dissipazione dovuta allo scattering Rayleigh con le impurità della fibra. La potenza dissipata è proporzionale a $\lambda^{-4}$, scopo dell'esperienza è verificare questa legge di potenza.\\
+L'attenuazione $\alpha$, che è proporzionale alla potenza dissipata, è definita come 
+\[\alpha = \frac{10}{L} \log \left | \frac{ P_{in}}{P_{out}} \right | \quad\textrm{     [dB/km]}\]
+dove $P_{in}$ e $P_{out}$ sono, rispettivamente, la potenza in ingresso e la potenza in uscita ad un tratto di fibra di lunghezza $L$.
+
+\subsection{Apparato sperimentale}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{apparato_attenuazione.pdf}
+	\caption{Apparato sperimentale per la misura di attenuazione.}
+	\begin{enumerate}
+		\item Laser
+		\item Lanciatore (con obiettivo 20x)
+		\item Fibra ottica multimodo F-MLD
+		\item \textit{Scrambler}: una sorta di piccola morsa ondulata che serve ad eliminare i modi spuri.
+		\item Uscita della fibra
+		\item Sensore del \textit{power meter}
+		\item Schermo del \textit{power meter}
+		\item Rotolo da $\sim300$ m di fibra ottica
+	\end{enumerate}
+	\label{fig:apparato_attenuazione}
+	\begin{minipage}{0.23\textwidth}
+		\includegraphics[width=\textwidth]{bobina_rossa.pdf}
+	\end{minipage}
+\begin{minipage}{0.24\textwidth}
+	\includegraphics[width=\textwidth]{bobina_verde.pdf}
+\end{minipage}
+\end{figure}
 
 \subsection{Presa dati}
+La misura è svolta in due passaggi.
+\begin{enumerate}
+	\item Si lancia in fibra un fascio laser e si misura la potenza in uscita: $P_{out}$.
+	\item Si taglia la fibra a 2 metri dal lanciatore e si misura di nuovo la potenza in uscita: $P_{in}$.
+\end{enumerate}
+Quindi $L$ è la lunghezza del rotolo meno i 2 m tagliati.
 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|cccc|}
+		\hline
+		$\lambda$ [nm] & $L$ [m]  & $P_{out}$ [mW]& $P_{in}$ [mW]& $\alpha [dB/km]$ \\
+		\hline
+		633  & 293.5(5)? & 0.598(?) & 1.63(?) & \\
+		
+		532 & 291.3(5)? & 0.156(?) & 1.47(?) & \\
+		\hline
+		\hline
+		633  & 289.2(5)? & 0.832(?) & 2.44(?) & \\
+		
+		532 & 287.1(5)? & 0.320(2) & 2.80(3) & \\
+		\hline
+		
+		
+	\end{tabular}
+	\caption{.}
+	\label{tab:alpha}
+\end{table}
+	
 \subsection{Analisi dati}
-
+	
 4 plot: 1 normale e 1 loglog per 2 volte
+	
+\end{multicols}
+
+
 
 \section{Propagazione modo LP$_{01}$ in una fibra SM}
 
@@ -99,8 +163,10 @@ L'idea è usare la lente GRIN per lanciare luce in fibra. Misuriamo quindi il coe
 Il coefficiente di accoppiamento si ottiene con la formula
 \[\Gamma = 10 \log\left |\frac{P_{in}}{P_{out}} \right|\]
 \subsubsection*{Procedura e accorgimenti}
-$P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.\\
-$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.\\
+$P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.
+
+$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.
+
 La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/f$) quindi ci siamo assicurati che le misure di $P_{in}$ e $P_{out}$ avvenissero con la stessa alimentazione. La misura che richiede più pazienza è quella di $P_{out}$, quindi l'abbiamo misurata per prima e immediatamente dopo abbiamo misurato $P_{in}$, verificando che l'alimentatore fornisse la stessa corrente.
 
 \subsubsection*{Risultati}
@@ -108,11 +174,11 @@ La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/
 	\centering
 	\begin{tabular}{|c|cccc|}
 		\hline
-		& $I_{in}$ [mA]  & $P_{in}$ [mW]& $P_{out}$ [mW]& $\Gamma [dB]$ \\
+		& $I_{in}$ [mA]  & $P_{out}$ [mW]& $P_{in}$ [mW]& $\Gamma [dB]$ \\
 		\hline
-		laser  & 78.0(1) & 6.19(6) & 3.50(1) & 2.48(4)\\
+		laser  & 78.0(1) & 3.50(1) & 6.19(6) & 2.48(4)\\
 
-		LED & 81.1(2) & 8.21(10) & 0.00491(2) & 32.23(6)\\
+		LED & 81.1(2) & 0.00491(2) & 8.21(10) & 32.23(6)\\
 		\hline
 	\end{tabular}
 	\caption{Coefficiente di accoppiamento. L'errore sulla corrente è la digitalizzazione, gli errori sulle potenze una nostra stima in base alle fluttuazioni delle misure.}
