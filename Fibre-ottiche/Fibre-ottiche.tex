@@ -87,7 +87,7 @@
 
 
 \subsection{Teoria}
-Una lente GRIN è un cilindro fatto di un materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
+Una lente GRIN è un cilindro fatto di materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Grin-lens.png}
@@ -97,8 +97,11 @@ Una lente GRIN tagliata a $\lambda/4$ focalizza assi parassiali sulla superficie
 \subsection{Coefficiente di accoppiamento}
 L'idea è usare la lente GRIN per lanciare luce in fibra. Misuriamo quindi il coefficiente di accoppiamento di una sorgente laser o LED a una fibra ottica multimodo attraverso una lente GRIN.
 Il coefficiente di accoppiamento si ottiene con la formula
-\[\Gamma = 10 \log\left |\frac{P_{in}}{P_{out}} \right|\] 
-dove $P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.
+\[\Gamma = 10 \log\left |\frac{P_{in}}{P_{out}} \right|\]
+\subsubsection*{Procedura e accorgimenti}
+$P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.\\
+$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare, al variare dell'allineamento, il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.\\
+La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/f$) quindi ci siamo assicurati che le misure di $P_{in}$ e $P_{out}$ avvenissero con la stessa alimentazione. La misura che richiede più pazienza è quella di $P_{out}$, quindi l'abbiamo misurata per prima e immediatamente dopo abbiamo misurato $P_{in}$, verificando che l'alimentatore fornisse la stessa corrente.
 
 \begin{table}[H]
 	\centering
@@ -111,11 +114,20 @@ dove $P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a d
 		LED & 81.1(2) & 8.21(10) & 0.00491(2) & 32.23(6)\\
 		\hline
 	\end{tabular}
+	\caption{Coefficiente di accoppiamento}
+	\label{tab:GRIN}
 \end{table}
 
+In Tabella \ref{tab:GRIN} ci sono i dati raccolti ed il coefficiente di accoppiamento ricavato:
+\begin{align*}
+	\Gamma_{laser} &= 2.48(4) \textrm{ dB}\\
+	\Gamma_{LED} &= 32.23(6) \textrm{ dB}
+\end{align*}
 
+\subsection{Trasmissione di un segnale acustico}
+Modulando l'intensità della luce lanciata in fibra è possibile trasmettere un segnale.
+\subsubsection{Apparato sperimentale}
 
-\subsection{Trasmissione di un segnale}
 
 \end{multicols}
 	
