@@ -12,6 +12,7 @@
 \usepackage{caption}
 \usepackage{units}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Fibre ottiche}
 \date{20-24 Novembre 2017}
@@ -24,7 +25,16 @@
 	\begin{abstract}
 		 
 	\end{abstract}
-	
+
+\section{To do}
+\begin{itemize}
+	\item scegliere errori attenuazione
+	\item verificare valori $L$ attenuazione
+	\item fit con errori asimmetrici per l'attenuazione?
+	\item sintetizzare supercazzola sugli errori dell'attenuazione
+	\item errore su b nell'attenuazione
+	\item discutere livello scrambler
+\end{itemize}
 \section{Teoria}
 
 \section{Apparato sperimentale}
@@ -85,33 +95,102 @@ La misura è svolta in due passaggi.
 \end{enumerate}
 Quindi $L$ è la lunghezza del rotolo meno i 2 m tagliati.
 
+In Tabella \ref{tab:alpha} riportiamo le potenze misurate.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|cccc|}
 		\hline
-		$\lambda$ [nm] & $L$ [m]  & $P_{out}$ [mW]& $P_{in}$ [mW]& $\alpha [dB/km]$ \\
+		$\lambda$ [nm] & $L$ [m]  & $P_{out}$ [mW]& $P_{in}$ [mW]& $\alpha$ [dB/km] \\
 		\hline
-		633  & 293.5(5)? & 0.598(?) & 1.63(?) & \\
+		633  & 293.5(5) & 0.598(18) & 1.63(5) & 14.8(6)\\
 		
-		532 & 291.3(5)? & 0.156(?) & 1.47(?) & \\
+		532 & 291.3(5) & 0.156(5) & 1.47(4) & 33.4(6)\\
 		\hline
 		\hline
-		633  & 289.2(5)? & 0.832(?) & 2.44(?) & \\
+		633  & 289.2(5) & 0.83(2) & 2.44(7) & 16.2(6)\\
 		
-		532 & 287.1(5)? & 0.320(2) & 2.80(3) & \\
+		532 & 287.1(5) & 0.320(10) & 2.80(8) & 32.8(6)\\
 		\hline
-		
-		
 	\end{tabular}
-	\caption{.}
+	\caption{Misure di $P_{in}$ e $P_{out}$ e calcolo dell'attenuazione.}
 	\label{tab:alpha}
 \end{table}
-	
+Come si nota in Tabella \ref{tab:alpha} per ogni laser abbiamo fatto 2 misure di $\alpha$. Infatti gli $\alpha$ ricavati alla prima presa dati (prime 2 righe della Tabella \ref{tab:alpha}) risultano incompatibili, a detta del professore, con quanto misurato dai nostri colleghi predecessori. Quindi a fine settimana, sotto la testimonianza oculare del tecnico di laboratorio, abbiamo ripetuto le misure di attenuazione (ultime 2 righe di Tabella \ref{tab:alpha}) ritrovando dei valori simili a quelli misurati ad inizio settimana. Pertanto non riusciamo a spiegare la discrepanza con quanto misurato negli anni passati.
+
+\subsubsection*{Discussone degli errori}
+Gli errori su $L$ sono relativamente piccoli (abbiamo scelto 0.5 m) perchè siamo appena il secondo gruppo che utilizza il rotolo di fibra. Ogni misura aggiunge un errore di $\sim5$ cm a causa dello spellamento della fibra, quindi gli ultimi gruppi avranno un errore di qualche metro.
+
+In Tabella \ref{tab:alpha} l'errore sulla potenza è il 3\% indicato sul datasheet del \textit{power meter}, questa scelta è discutibile, quindi merita un approfondimento. Infatti nel datasheet il sudetto 3\% è indicato come errore sull'accuratezza, cioè errore di calibrazione. Tuttavia nel calcolo di $\alpha$ entra il rapporto di $P_{in}$ e $P_{out}$, pertanto l'errore di calibrazione, che è un errore sistematico, si cancella: conta solo l'errore statistico. Quindi in prima analisi avevamo scelto per $P$ gli errori di digitalizzazione (sommati a quello che sul datasheet è indicato come \textit{Power Noise Level} = 2 $\mu$W nel caso che quest'ultimo non fosse trascurabile). Ma tale scelta portava a degli errori su $\alpha$ di 0.02 dB, che rende le 2 misure dell'$\alpha$ relativo alla stessa $\lambda$ del tutto incompatibili.\\
+Dato che eccezionalmente abbiamo due misure di $\alpha$, per ogni $\lambda$ possiamo stimare l'errore a posteriori con la deviazione standard sperimentale:
+\begin{equation}
+\begin{aligned}
+\sigma_{(\lambda = 633)} = 0.9 \textrm{ dB/km}\\
+\sigma_{(\lambda = 532)} = 0.5 \textrm{ dB/km}
+\end{aligned}
+\label{eq:sigma}
+\end{equation}
+Il valore di tale stima è simile a quello che si ottiene utilizzando il 3\% come errore sulle potenze (l'errore così ottenuto è 0.6 dB/km) ed è molto diverso dai 0.02 dB discussi sopra. La discrepanza potrebbe avere diverse origini e probabilmente viene da piccole e casuali alterazioni delle condizioni sperimentali, difficili da stimare. In ogni caso utilizzando il 3\% come errore sulle potenze l'errore su $\alpha$ viene sensato, quindi tanto vale lasciare quello, anche perchè
+\begin{itemize}
+	\item l'errore di calibrazione si cancella nel rapporto solo se $P_{in}$ e $P_{out}$ sono misurate nelle stesse identiche condizioni, che non è del tutto vero dato che tra una misura e l'altra cambia il fondo scala (da mW a $\mu$W), questo può comportare una differente calibrazione;
+	\item gli errori di calibrazione indicati nei datasheet sono validi per qualche anno, e dato che i nostri strumenti sono preistorici non sappiamo veramente quale sia l'errore di calibrazione.
+\end{itemize}
+Nella Tabella 1 abbiamo lasciato gli errori di calibrazione del datasheet e la consegente propagazione, nell'analisi che segue abbiamo usato la deviazione standard dell'equazione \ref{eq:sigma}.
 \subsection{Analisi dati}
-	
-4 plot: 1 normale e 1 loglog per 2 volte
+Alle nostre misure si aggiungono i valori del datasheet della fibra, che riporta quanto segue:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$\lambda$ [nm] & $\alpha$ [dB/km] \\
+		\hline
+		850  & $\leq$ 4.0\\
+		1300 & $\leq$ 1.5\\
+		\hline
+	\end{tabular}
+	\caption{Attenuazione riportata nel datasheet.}
+	\label{tab:alpha_n}
+\end{table}
+I valori di Tabella \ref{tab:alpha_n} sono problematici in quanto
+\begin{enumerate}
+	\item non riportano l'errore,
+	\item indicano un $\leq$, che fa pensare ad un errore asimmetrico.
+\end{enumerate}
+Probabilmente il vero valore misurato dal rivenditore sarà stato di poco inferiore ai valori di Tabella \ref{tab:alpha_n}, ma non sappiamo di quanto né con che errore.
+Sperando che il rivenditore abbia riportato il corretto numero di cifre significative l'errore dovrebbe essere compreso tra 0.1 e 1 dB: in prima analisi scegliamo 0.1 dB.
+Per i problemi appena discussi scegliamo, innanzitutto, di analizzare separatamente le nostre misure e i valori del datasheet (vedi Figura \ref{fig:attenuazione_coppie}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{attenuazione_coppie.pdf}
+	\caption{Grafico dell'attenuazione in fibra ottica sia in scala lineare che bilogaritmica. In blu e arancione le nostre misure, in verde i valori del datasheet.}
+	\label{fig:attenuazione_coppie}
+\end{figure}
+
+Per verificare la legge di potenza dello scattering Rayleigh secondo cui $\alpha \propto \lambda^{-4}$ eseguiamo 2 fit con funzioni di diverso tipo:
+\begin{enumerate}
+	\item $y = a \cdot x^4$ e guardiamo il $\chi^2$ per stabilire se il modello è valido,
+	\item $y = a \cdot x^b$ e guardiamo se $b$ è compatibile con 4.
+\end{enumerate}
+Come si vede dalla legenda di Figura \ref{fig:attenuazione_coppie} le nostre misure non sono incompatibili con $\alpha \propto \lambda^{-4}$ mentre i valori del datasheet sì. In particolare dal grafico bilogaritmico si nota come i valori del datasheet non seguano la pendenza corrispondente a un $\lambda^{-4}$ (curva marrone in Figura \ref{fig:attenuazione_coppie}). Dobbiamo quindi concludere che o i valori riportati dal datasheet (per le problematiche sopra indicate) o gli errori da noi scelti sono incompatibili con il modello dello scattering Rayleigh. Non sappiamo se il problema sta negli errori o nelle carenze del modello, in ogni caso non riteniamo utile aggiungere altri parametri (come un offset) alla funzione di fit perchè non abbiamo abbastanza dati per eseguire un'appropriata analisi statistica.
+
+Nonostante le incompatibilità discusse sopra riportiamo per completezza gli stessi fit eseguiti per l'unione delle nostre misure e dei valori del datasheet. I risultati sono nella legenda di Figura \ref{fig:attenuazione_tutti}.
+
+\subsection{Conclusioni}
+
+Le nostre misure di attenuazione non sono incompatibili con il modello dello scattering Rayleig ($\alpha \propto \lambda^{-4}$), tuttavia abbiamo riscontrato le seguenti problematiche:
+\begin{itemize}
+	\item A detta del professore le nostre misure sono incompatibili con quanto misurato dai nostri predecessori. A scanso di equivoci abbiamo ripetuto le misure, ritrovando valori simili alla prima presa dati, quindi non sappiamo spiegare la discrepanza con le misure degli anni passati. L'unica differenza rispetto agli anni scorsi è il nuovo rotolo di fibra. Siamo curiosi di confrontare le nostre misure con quelle dei nostri colleghi di quest'anno.
+	\item I dati riportati dal datasheet hanno molteplici problemi: non hanno un errore e sono riportati con un ambiguo $\leq$. Inoltre risultano incompatibili con $\alpha \propto \lambda^{-4}$.
+\end{itemize}
 	
 \end{multicols}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{attenuazione_tutti.pdf}
+	\caption{Grafico dell'attenuazione in fibra ottica sia in scala lineare che bilogaritmica. In blu e arancione le nostre misure, in verde i valori del datasheet.}
+	\label{fig:attenuazione_tutti}
+\end{figure}
 
 
 
