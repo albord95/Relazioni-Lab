@@ -1,10 +1,7 @@
+'''fit lineare per calcolo corrente di soglia del diodo laser'''
 
 import pylab as py
-from scipy.optimize import curve_fit
 from lab import fit_curve, xe
-from gvar import gvar
-from scipy.special import erf
-from scipy.integrate import quad
 
 files = ['borcapLDG12PvsI.txt',
          'borcapLDG25PvsI.txt',
@@ -15,6 +12,8 @@ py.clf()
 
 ##[I]=mA e [P]=muA
 
+T = [12, 25, 43]
+
 for i in range(len(files)):
     filename= files[i]
     I, P = py.loadtxt(filename, unpack=True)
@@ -23,20 +22,12 @@ for i in range(len(files)):
     
     ##faccio il grafico P-I
     py.figure(1)
-    py.plot(I, P, '.', color='tab:red', markersize='3')  
+    py.plot(I, P, '.', markersize='3')
     
     ##estraggo i dati da fittare
-    i=0
-    while P12[i]>100:
-        i=i+1
-        
-        '''j=0
-        while P25[j]>100:
-            j=j+1
-            
-        k=0
-        while P43[k]>100:
-            k=k+1'''
+    j=0
+    while P[j]>100:
+        j=j+1
             
     ##funzione di fit
     def retta(x, a, b):
@@ -47,7 +38,7 @@ for i in range(len(files)):
     dm = []
     q = []
     dq = []
-    out = fit_curve(retta, I12[0:i-1], P12[0:i-1], dy=1, p0=[1,1], absolute_sigma=True)
+    out = fit_curve(retta, I[0:j-1], P[0:j-1], dy=1, p0=[1,1], absolute_sigma=True)
     par = out.par
     cov = out.cov
     m_fit = par[0]
@@ -61,8 +52,8 @@ for i in range(len(files)):
     q.append(q_fit)
     dm.append(dm_fit)
     dq.append(dq_fit)
-    
-    py.plot(I12[0:i-1], retta(I12[0:i-1], *par), linewidth=1, label='$I_{th} (T = 12°C) = 53.4(2) mA$')
+    x = py.linspace(I[j-1], I[0]+1, 100)
+    py.plot(x, retta(x, *par), linewidth=1, label='{} = {} mA, T = {} °C'.format('$I_{th}$', xe(I_th, dI), T[i]))
     py.legend(fontsize='large')
     py.ylabel('P [$\mu$W]')
     py.xlabel('I [mA]')
