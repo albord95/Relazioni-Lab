@@ -119,7 +119,7 @@ Abbiamo misurato la potenza fornita dal diodo laser in funzione della corrente d
 
 Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232.
 
-Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutte le misure effettuate sono riportate nelle rispettive tabelle in appendice.
+Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutte le misure effettuate sono riportate nelle rispettive tabelle in appendice. 
 
 Per ogni valore della temperatura è stato impostato sul power meter il valore previsto della lunghezza d'onda del laser a diodo come riportato sul datasheet (Figura \ref{fig:LambdavsT}).
 
@@ -137,6 +137,22 @@ Per ogni valore della temperatura è stato impostato sul power meter il valore pr
 
 
 \subsection{Analisi dati}
+Al fine di trovare il valore della corrente di $\textit{threshold}$ abbiamo eseguito un fit della parte lineare dei dati misurati.
+Questi valori sono stati scelti a posteriori una volta visualizzato l'andamento delle misure e sono stati quindi considerati valori di P maggiori di 300 $\mu$W così da avere un andamento lineare ben definito.
+Sui valori della potenza è stato considerato un errore relativo del 5$\%$ come riportato sul datasheet.
+
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{corrente_soglia}
+\caption{}
+\label{fig:I_th}
+\end{figure}
+
+\begin{multicols}{2}
+
+I valori di $I_{th}$ sono stati ricavati trovando l?intercetta con l?asse delle ascisse una volta ottenuti tramite il fit lineare i valori di coefficiente angolare e intercetta con l'asse delle ordinate. 
 
 \section{Divergenza del fascio}
 
