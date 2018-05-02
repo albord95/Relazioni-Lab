@@ -28,6 +28,8 @@
 \begin{itemize}
 \item Foto apparato
 \item Trovare informazioni fotodiodo
+\item Sistemare errori sui grafici
+\item Eventuale stima teorica dell'andamento $\lambda$ vs T
 \end{itemize}
 
 \begin{multicols}{2}
@@ -201,9 +203,35 @@ I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con q
 
 \section{Dipendenza $\lambda$ da T}
 
+In quest'ultima sezione studiamo l'andamento della lunghezza d'onda del laser a diodo in funzione della temperatura.
+
 \subsection{Presa dati}
 
+La temperatura del diodo laser è stata controllata utilizzando la cella peltier ed è stato esplorato l'intervallo da 12°C a 45°C così da evitare danni dovuti alla condensazione o al surriscaldamento del diodo. La lunghezza d'onda è stata invece misurata utilizzando il monocromatore a cui è stato portato il segnale attraverso una fibra ottica.
+Abbiamo una risoluzione di 1°C sulla temperatura e di 1 nm sulla lunghezza d'onda. 
+Abbiamo alimentato il laser poco sopra soglia $\sim$65 mA.
+
+Per permettere al laser di arrivare all'equilibrio termico con la cella abbiamo variato la temperatura molto lentamente e aspettato che il picco visibile sullo spettrometro fosse stabile prima di prendere ogni misura. 
+I valori ottenuti sono riportati in Tabella \ref{tab:lambdaT} in appendice.
+
 \subsection{Analisi dati}
+
+\'E stato eseguito un fit lineare considerando un errore di $\pm$1 nm sui valori misurati della lunghezza d'onda come riportato sul datasheet del monocromatore. 
+
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{lambdaT}
+\caption{}
+\label{fig:lambdaT}
+\end{figure}
+
+\begin{multicols}{2}
+
+Come mostrato in Figura \ref{fig:lambdaT} si ha un andamento lineare di $\lambda(T)$ compatibile con quanto riportato sul datasheet (vedi Figura \ref{fig:LambdavsT}) con un coefficiente angolare di 0.22(2) nm/°C. 
+
+L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spettrometro, non sono infatti misurabili variazioni di $\lambda$ al di sotto del nanometro.
 
 \end{multicols}
 
@@ -319,10 +347,39 @@ I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con q
 -21.0(5)	&	1.13	&	-4.0(5)	&	4.15	&	11.0(5)	&	3.13	&	45.0(5)	&	0.11	\\
 -19.0(5)	&	1.37	&	-3.0(5)	&	3.98	&	12.0(5)	&	2.88	&	40.0(5)	&	0.17	\\
 -18.0(5)	&	1.55	&	-2.0(5)	&	4.23	&	13.0(5)	&	2.70	&	50.0(5)	&	0.04	\\
-60.0(5)	&	0.02	&	90.0(5)	&	0.02	&		&		&		&		\\	\hline
+60.0(5)	&	0.02	&	90.0(5)	&	0.02	&		&		&		&		\\	
+\hline
 \end{tabular}
 \caption{P vs angolo di incidenza perpendicolare}
 \label{tab:ang_per} 
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cc|cc|}
+	T [°C] & $\lambda$ [nm] & T [°C] & $\lambda$ [nm] \\
+	\hline
+12	&	778	&	29	&	781	\\
+13	&	778	&	30	&	782	\\
+14	&	778	&	31	&	782	\\
+15	&	779	&	32	&	782	\\
+16	&	779	&	33	&	783	\\
+17	&	779	&	34	&	783	\\
+18	&	780	&	35	&	783	\\
+19	&	780	&	36	&	783	\\
+20	&	780	&	37	&	784	\\
+21	&	780	&	38	&	784	\\
+22	&	781	&	39	&	784	\\
+23	&	781	&	40	&	785	\\
+24	&	781	&	41	&	785	\\
+25	&	781	&	42	&	785	\\
+26	&	781	&	43	&	785	\\
+27	&	781	&	44	&	785	\\
+28	&	781	&	45	&	785	\\
+\hline
+\end{tabular}
+\caption{Valori misurati di temperatura e lunghezza d'onda}
+\label{tab:lambdaT} 
 \end{table}
 
 \end{document}
