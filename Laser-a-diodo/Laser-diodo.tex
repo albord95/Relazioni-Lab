@@ -69,6 +69,7 @@ Sul datasheet sono riportate le seguenti caratteristiche:
 
 \end{tabular}
 \caption{Caratteristiche laser a diodo \texttt{HL7812G} misurate a T=25°C}
+\label{tab:datasheet}
 \end{table}
 dove I$_{th}$ è la corrente di soglia oltre la quale si è in regime laser, $\lambda_{p}$ è la lunghezza d'onda della luce in uscita dal laser e $\theta_{//}$ e $\theta_{\perp}$ sono gli angoli di emissione del laser rispetto agli assi della giunzione e sono calcolati misurando l'intensità ad una distanza di 10 cm dal diodo.
 
@@ -111,6 +112,13 @@ Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} m
 \label{fig:monocromatore}
 \end{figure}
 
+\subsection{Fotodiodi}
+Entrambi i fotodiodi a nostra disposizione sono al silicio in quanto la sua responsività in funzione della lunghezza d'onda incidente ha un massimo intorno ad 800 nm.
+
+FOTO FOTODIODI
+
+I due fotodiodi hanno però una superficie attiva diversa, infatti il \texttt{PD300} della \texttt{Ophir} ha una superficie di 1 cm$^2$ mentre l'altro di 1 mm$^2$; per questo il primo lo utilizziamo per misurare la caratteristica P-I, mentre il secondo per valutare l'allargamento angolare.
+
 \section{Caratteristica P-I}
 Analizziamo la dipendenza della corrente di soglia del diodo laser dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T=12, 25, 45 °C.
 
@@ -119,7 +127,9 @@ Abbiamo misurato la potenza fornita dal diodo laser in funzione della corrente d
 
 Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232.
 
-Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutte le misure effettuate sono riportate nelle rispettive tabelle in appendice. 
+FOTO APPARATO
+
+Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutte le misure effettuate sono riportate nelle Tabelle \ref{tab:T12}, \ref{tab:T25}, \ref{tab:T43} in appendice. 
 
 Per ogni valore della temperatura è stato impostato sul power meter il valore previsto della lunghezza d'onda del laser a diodo come riportato sul datasheet (Figura \ref{fig:LambdavsT}).
 
@@ -132,13 +142,12 @@ Per ogni valore della temperatura è stato impostato sul power meter il valore pr
 	\hline
 
 \end{tabular}
-\caption{}
 \end{table}
 
 
 \subsection{Analisi dati}
 Al fine di trovare il valore della corrente di $\textit{threshold}$ abbiamo eseguito un fit della parte lineare dei dati misurati.
-Questi valori sono stati scelti a posteriori una volta visualizzato l'andamento delle misure e sono stati quindi considerati valori di P maggiori di 300 $\mu$W così da avere un andamento lineare ben definito.
+Sono stati considerati valori di P maggiori di 300 $\mu$W così da avere un andamento lineare ben definito.
 Sui valori della potenza è stato considerato un errore relativo del 5$\%$ come riportato sul datasheet.
 
 \end{multicols}
@@ -152,23 +161,43 @@ Sui valori della potenza è stato considerato un errore relativo del 5$\%$ come r
 
 \begin{multicols}{2}
 
-I valori di $I_{th}$ sono stati ricavati trovando l?intercetta con l?asse delle ascisse una volta ottenuti tramite il fit lineare i valori di coefficiente angolare e intercetta con l'asse delle ordinate. 
+I valori ottenuti di $I_{th}$ sono riportati in Figura \ref{fig:I_th} e sono stati ricavati trovando l'intercetta con l'asse delle ascisse una volta ottenuti tramite il fit lineare i valori di coefficiente angolare e intercetta con l'asse delle ordinate. 
+
+Come si può vedere in Figura \ref{fig:I_th} il comportamento della caratteristica P-I all'aumentare della temperatura è quello aspettato (vedi Figura \ref{fig:I_soglia}) e i valori ottenuti della corrente di soglia sono in accordo con quanto riportato sul datasheet (vedi Tabella \ref{tab:datasheet}).
 
 \section{Divergenza del fascio}
 
-In questa seconda sezione calcoliamo un'altra caratteristica importante di un diodo laser; i valori dell'allargamento angolare lungo i due assi della giunzione così da poterli confrontare con quelli riportati sul datasheet. Per farlo abbiamo misurato l'andamento della potenza emessa dal diodo laser in funzione dell'angolo di emissione.
+In questa seconda sezione valutiamo un'altra importante caratteristica di un diodo laser; i valori dell'allargamento angolare lungo i due assi della giunzione. Per farlo abbiamo misurato l'andamento della potenza emessa dal diodo laser in funzione dell'angolo di emissione.
 
 \subsection{Presa dati}
 
-Per queste misure utilizziamo un fotodiodo collegato ad un multimetro, configurato come amperometro, con una risoluzione del nA. I valori misurati sono stati letti sul monitor del pc attraverso il programma DIGITAL MULTIMETER.
+Per queste misure utilizziamo un fotodiodo collegato ad un multimetro, configurato come amperometro. I valori misurati sono stati letti sul monitor del pc attraverso il programma $\textit{DIGITAL MULTIMETER}$.
 
 Le misure di allargamento angolare sono comunemente eseguite ad una distanza di 10 cm dal diodo laser, quindi per poter effettuare un confronto con quanto riportato sul datasheet ci siamo adeguati a questo standard.
 
-Abbiamo fissato il laser su di un sostegno alla cui base è presente un goniometro, con una risoluzione del mezzo grado, e l'abbiamo posizionato in modo tale che l'allargamento angolare misurato sia quello relativo ad uno degli assi dell?ellisse di emissione. Per fare ciò abbiamo sfruttato il polarizzatore e il power meter dato che la luce emessa dal diodo laser è polarizzata per circa il 90$\%$ lungo il semiasse minore dell'ellisse di emissione. Questo procedimento non ci ha soddisfatto, quindi abbiamo utilizzato il rivelatore IR osservando la forma del fascio e poi abbiamo controllato col polarizzatore di essere entro la sua precisione.
+FOTO APPARATO
 
-Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati ottenuti sono riportati nella rispettive tabelle in appendice.
+Abbiamo fissato il laser su di un sostegno alla cui base è presente un goniometro con una risoluzione del mezzo grado e l'abbiamo posizionato in modo tale che l'allargamento angolare misurato fosse quello relativo ad uno degli assi dell'ellisse di emissione. Per fare ciò abbiamo sfruttato il polarizzatore e il power meter dato che la luce emessa dal diodo laser è polarizzata, per circa il 90$\%$, lungo il semiasse minore dell'ellisse di emissione. Questo procedimento non ci ha soddisfatto, quindi abbiamo utilizzato il rivelatore IR osservando la forma del fascio e poi abbiamo controllato col polarizzatore di essere entro la sua precisione.
+
+Le misure sono state fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati ottenuti sono riportati nelle Tabelle \ref{tab:ang_per} e \ref{tab:ang_par} in appendice.
 
 \subsection{Analisi dati}
+
+Per stimate i valori di $\theta_{\perp}$ e $\theta_{//}$ con una migliore precisione è stata fatta un'interpolazione dei punti intorno alla metà altezza. Questa è stata calcolata come la media dei valori di massimo e minimo: il vantaggio è che supponendo simmetriche le fluttuazioni intorno al vero massimo e al vero minimo queste si cancellano, lo svantaggio è che la misura è molto sensibile al valore del picco.
+
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{apertura_angolare}
+\caption{}
+\label{fig:ang}
+\end{figure}
+
+\begin{multicols}{2}
+
+I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con quanto riportato nel datasheet (vedi Tabella \ref{tab:datasheet}).
+
 
 \section{Dipendenza $\lambda$ da T}
 
@@ -200,6 +229,7 @@ Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati o
 	\hline
 \end{tabular}
 \caption{Valori misurati di corrente e potenza alla temperatura di T = 12°C}
+\label{tab:T12}
 \end{table}
 
 
@@ -222,6 +252,7 @@ Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati o
 	\hline
 \end{tabular}
 \caption{Valori misurati di corrente e potenza alla temperatura di T = 25°C}
+\label{tab:T25}
 \end{table}
 
 \begin{table}[H]
@@ -241,6 +272,7 @@ Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati o
 	\hline
 \end{tabular}
 \caption{Valori misurati di corrente e potenza alla temperatura di T = 43°C}
+\label{tab:T43}
 \end{table}
 
 \begin{table}[H]
@@ -264,6 +296,7 @@ Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati o
 10.0(5)	&	0.86	&	-3.0(5)	&	2.66	&	-85.0(5)	&	0.02	&	2.5(5)	&	4.27	\\	\hline
 \end{tabular}
 \caption{P vs angolo di incidenza parallelo}
+\label{tab:ang_par}
 \end{table}
 
 \begin{table}[H]
@@ -289,6 +322,7 @@ Le misure sono fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati o
 60.0(5)	&	0.02	&	90.0(5)	&	0.02	&		&		&		&		\\	\hline
 \end{tabular}
 \caption{P vs angolo di incidenza perpendicolare}
+\label{tab:ang_per} 
 \end{table}
 
 \end{document}

@@ -1,14 +1,14 @@
 '''script che calcola l'allargamento angolare del diodo laser'''
 
 import pylab as py
-from lab import fit_curve, xe
+from lab import fit_curve
 
 files = ['borcapLDVangPER.txt',
          'borcapLDVangPAR.txt']
 
 py.figure(1).set_tight_layout(True)
 py.clf()
-ang_p = ['$angolo_{\perp}$', '$angolo_{//}$']
+ang_p = ['$θ_{\perp}$', '$θ_{//}$']
 
 for i in range(len(files)):
     filename= files[i]
@@ -56,13 +56,11 @@ for i in range(len(files)):
     ang_dopo = parabola(HM, *par2)
     FWHM = ang_dopo - ang_prima
     
-    ylabel('segnale [$\mu$A]', fontsize='large')
-    xlabel('{} [°]'.format(ang_p[i]), fontsize='large')
-    py.plot(parabola(sort(I[indici_prima]), *par1), sort(I[indici_prima]), '-c', linewidth=2)
-    py.plot(parabola(sort(I[indici_dopo]), *par2), sort(I[indici_dopo]), '-c', linewidth=2)
+    py.ylabel('segnale [$\mu$A]', fontsize='large')
+    py.xlabel('θ [deg]', fontsize='large')
+    py.plot(parabola(py.sort(I[indici_prima]), *par1), py.sort(I[indici_prima]), '-c', linewidth=2)
+    py.plot(parabola(py.sort(I[indici_dopo]), *par2), py.sort(I[indici_dopo]), '-c', linewidth=2)
     
     py.plot([ang_prima, ang_dopo], [HM, HM], '-', linewidth=2, color='tab:red', label='{} = {}°'.format(ang_p[i], round(FWHM,1)))
-    legend(fontsize='large')
-    
-    print('FWHM = ', FWHM)
+    py.legend(fontsize='large')
     
