@@ -68,6 +68,7 @@ for pmax in range(5,20):
     chisq = out.chisq
     p_value = out.chisq_pvalue
     dof = out.chisq_dof
+    chidof = chisq/dof
     print('a = %s' %xe(par, err))
     print('chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
     print('p_value = %.3f\n' % out.chisq_pvalue)
@@ -76,7 +77,7 @@ for pmax in range(5,20):
     subplot(altezza, larghezza, pmax-4)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabola(xx, *par), color='tab:green', label='{} = {} \n {} = {}/{} \qquad p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq, dof, p_value))
+    plot(xx, parabola(xx, *par), color='tab:green', label='{} = {} \n {} = {}/{} = {} \n p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq, dof, chidof, p_value))
     '''legend(fontsize='large')
     subplot(griglia[1])
     indici = argsort(power[indici_bassi])[::-1]
