@@ -15,6 +15,8 @@ tgrad, tpower = loadtxt('borcapVLtaratura01.txt', unpack= True)
 
 figure('potenza_allab').set_tight_layout(True)
 clf()
+figure('potenza_alla2').set_tight_layout(True)
+clf()
 
 power = zeros(len(Vpp))
 for i in range(len(power)):
@@ -53,37 +55,51 @@ for pmax in range(5,20):
     indici_bassi = array(indici_bassi)
     p_max.append(max(power[indici_bassi]))
 
-
-    '''def parabola(x, a):
+##fit bassa potenza 
+    def parabola(x, a):
         return a*x**2
     
     out = fit_curve(parabola, power[indici_bassi], Vpp[indici_bassi], dy=dy[indici_bassi], p0=[1], absolute_sigma=True)
     par = out.par
     cov = out.cov
     err = sqrt(diag(cov))
+    a_fit.append(par[0])
+    da_fit.append(err[0])
+    chisq = out.chisq
+    p_value = out.chisq_pvalue
+    dof = out.chisq_dof
     print('a = %s' %xe(par, err))
     print('chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
     print('p_value = %.3f\n' % out.chisq_pvalue)
     
-    figure('potenza_alla2').set_tight_layout(True)
-    clf()
-    griglia = GridSpec(2, 1, height_ratios=[2,1])
-    subplot(griglia[0])
+    figure('potenza_alla2')
+    subplot(altezza, larghezza, pmax-4)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabola(xx, *par), color='tab:green', label='\n$y = ax^2 \qquad a_{fit} = 0.4085(9) \; \\frac{V}{W^2}$\n$\\frac{\chi^2}{dof} = 1.27 \qquad p\_value = 8.2\%$ ')
-    xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
-    ylabel('intensità [mV]')
-    xlabel('potenza [mW]')
-    legend(fontsize='large')
+    plot(xx, parabola(xx, *par), color='tab:green', label='{} = {} \n {} = {}/{} \qquad p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq, dof, p_value))
+    '''legend(fontsize='large')
     subplot(griglia[1])
     indici = argsort(power[indici_bassi])[::-1]
     plot(power[indici_bassi], (Vpp[indici_bassi]-parabola(power[indici_bassi], *par))/dy[indici_bassi], '.-k', markersize=4, linewidth=1)
     ylabel('residui normalizzati')
-    xlabel('potenza [mW]')
-    xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))'''
+    xlabel('potenza [mW]')'''
+    xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
+    ylim(0, 0.5+max(Vpp[indici_bassi]))
+    if pmax == 5:
+        ylabel('intensità [mV]')
+    if pmax == 8:
+        ylabel('intensità [mV]')
+    if pmax == 11:
+        ylabel('intensità [mV]')
+    if pmax == 14:
+        ylabel('intensità [mV]')
+    if pmax == 17:
+        ylabel('intensità [mV]')
+    if (pmax-4) >= 13:
+        xlabel('potenze [mW]')
+    legend(fontsize='x-small', framealpha=0, loc=0)
     
-##fit bassa potenza
+##fit bassa potenza esponente 
     def parabolab(x, a, b):
         return a*x**b
     

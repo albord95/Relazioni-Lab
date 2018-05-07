@@ -39,7 +39,7 @@ errorbar(arange(len(tgrad)), tpower, fmt='.k', yerr=tpower*0.03, elinewidth=2, l
 #errorbar(arange(len(prettygrad)), prettypower, fmt='.k', yerr=prettypower*0.01, elinewidth=3, markersize=7, label='errore statistico (1%)')
 xlabel('angolo [grad]', fontsize='large')
 ylabel('potenza [mW]', fontsize='large')
-#xticks(arange(len(tgrad)), tgrad.astype(int), rotation=70, fontsize='small')
+xticks(arange(len(tgrad)), tgrad.astype(int), rotation=70, fontsize='x-small')
 legend(fontsize='x-large')
 
 derivataseconda = diff(diff(tpower))
