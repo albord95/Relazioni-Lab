@@ -13,9 +13,9 @@ def correlazione(m):
 grad, Vpp, dVpp = loadtxt('borcapVLTvsAng01.txt', unpack= True)
 tgrad, tpower = loadtxt('borcapVLtaratura01.txt', unpack= True)
 
-figure('potenza_allab').set_tight_layout(True)
-clf()
 figure('potenza_alla2').set_tight_layout(True)
+clf()
+figure('potenza_allab').set_tight_layout(True)
 clf()
 
 power = zeros(len(Vpp))
@@ -42,6 +42,8 @@ dy = sqrt((0.68*0.5*dV)**2 + (0.68*0.5*dpower)**2)
 ##estraggo indici misure a bassa potenza
 altezza = 5
 larghezza = 3
+a1_fit = []
+da1_fit = []
 a_fit = []
 b_fit = []
 da_fit = []
@@ -63,27 +65,22 @@ for pmax in range(5,20):
     par = out.par
     cov = out.cov
     err = sqrt(diag(cov))
-    a_fit.append(par[0])
-    da_fit.append(err[0])
+    a1_fit.append(par[0])
+    da1_fit.append(err[0])
     chisq = out.chisq
-    p_value = out.chisq_pvalue
+    chisq1 = '{0:.3f}'.format(out.chisq)
+    p_value = '{0:.3f}'.format(out.chisq_pvalue)
     dof = out.chisq_dof
-    chidof = chisq/dof
+    chidof = '{0:.3f}'.format(chisq/dof)
     print('a = %s' %xe(par, err))
-    print('chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
+    print('chisq/dof = %d/%d = %.3f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
     print('p_value = %.3f\n' % out.chisq_pvalue)
     
     figure('potenza_alla2')
     subplot(altezza, larghezza, pmax-4)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabola(xx, *par), color='tab:green', label='{} = {} \n {} = {}/{} = {} \n p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq, dof, chidof, p_value))
-    '''legend(fontsize='large')
-    subplot(griglia[1])
-    indici = argsort(power[indici_bassi])[::-1]
-    plot(power[indici_bassi], (Vpp[indici_bassi]-parabola(power[indici_bassi], *par))/dy[indici_bassi], '.-k', markersize=4, linewidth=1)
-    ylabel('residui normalizzati')
-    xlabel('potenza [mW]')'''
+    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} \t {} = {}/{} = {} \n p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof, p_value))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if pmax == 5:
@@ -98,7 +95,7 @@ for pmax in range(5,20):
         ylabel('intensità [mV]')
     if (pmax-4) >= 13:
         xlabel('potenze [mW]')
-    legend(fontsize='x-small', framealpha=0, loc=0)
+    legend(fontsize='x-small', framealpha=0, loc=2)
     
 ##fit bassa potenza esponente 
     def parabolab(x, a, b):
@@ -135,7 +132,10 @@ for pmax in range(5,20):
         ylabel('intensità [mV]')
     if (pmax-4) >= 13:
         xlabel('potenze [mW]')
-    legend(fontsize='x-small', framealpha=0, loc=0)
+    legend(fontsize='x-small', framealpha=0, loc=2)
+
+a1_fit = array(a1_fit)
+da1_fit = array(da1_fit)
 
 ##andamento di b in funzione del cut
 figure(3).set_tight_layout(True)
@@ -150,6 +150,15 @@ plot(arange(4,21), ones(17)*2, '--', color='tab:red', label='{}'.format('$b_{att
 xlabel('potenza [mW]')
 ylabel('$b_{fit}$')
 legend(fontsize='large', framealpha=0)
+
+##fluttuazioni relative di b_fit rispetto a b_atteso in funzione del cut
+figure(4).set_tight_layout(True)
+clf()
+res = (b_fit-2)/db_fit
+plot(p_max, res, '.', color = 'black', markersize=4)
+plot(arange(4,21), zeros(17), '--', color='tab:red')
+xlabel('potenza [mW]')
+ylabel('fluttuazioni relative')
 
 ##estraggo indici misure ad alta potenza
 indici_alti = []
