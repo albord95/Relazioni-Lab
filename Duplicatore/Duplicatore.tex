@@ -64,7 +64,7 @@ Riportiamo i dati raccolti in appendice (Tabella \ref{tab:potenza}).
 
 \subsection{Analisi dati}
 
-	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo eseguito un fit con la funzione $y = ax^2$ e guardato il $\chi^2$. Ovviamente il $\chi^2$ dipende dagli errori scelti per y: l'errore di misura indicato in Tabella \ref{label} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit bisogna moltiplicarlo per $0.68 \cdot 0.5$, a questo è stato sommato in quadratura l'errore statistico della taratura dell'attenuatore (ottenuto sempre moltiplicando $0.68 \cdot 0.5$ per la sensibilità del \textit{power meter}).
+	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo eseguito un fit con la funzione $y = ax^2$ e guardato il $\chi^2$. Ovviamente il $\chi^2$ dipende dagli errori scelti per y: l'errore di misura indicato in Tabella \ref{tab:potenza} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit bisogna moltiplicarlo per $0.68 \cdot 0.5$, a questo è stato sommato in quadratura l'errore statistico della taratura dell'attenuatore (ottenuto sempre moltiplicando $0.68 \cdot 0.5$ per la sensibilità del \textit{power meter}).
 	Questa scelta dà
 	\begin{align*}
 	\frac{\chi^2}{dof} &= 1.27 \\
@@ -104,15 +104,31 @@ Le misure di intensità della seconda armonica generata in funzione della potenza
 \subsection{Presa dati}
 Il goniometro di precisione che abbiamo a disposizione si può girare normalmente oppure attraverso una vite sensibile ai primi, ma con una portata limitata: 5°. Dopo aver rilevato la portata delle vite di precisione giriamo il goniometro in modo da avere circa 2°30' prima e 2°30' dopo l'angolo a cui si ha il massimo di intensità del segnale della seconda armonica generata. In questo modo le misure che registriamo sono simmetriche intorno all'angolo di \textit{phase matching}.
 
-
-
 Riportiamo i dati raccolti in appendice (Tabella \ref{tab:PM}).
 
 \subsection{Analisi dati}
+Abbiamo eseguito un \textit{best fit} dei dati con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.
 
 1 fit a tutti a dati, 1 fit con un cut sulle code e 2 fit con gaussiana e parabola
 
 \end{multicols}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{phase_matching.pdf}
+	\caption{Fit della campana attorno all'angolo di \textit{phase-matching} con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.}
+	\label{fig:sinc}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{sinc_gaussiana.pdf}
+	\caption{Confronto tra i fit con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ e con una gaussiana.}
+	\label{fig:gaussiana}
+\end{figure}
+
+
+
+
 
 \section{Polarizzazione}
 \label{sec:pol}
