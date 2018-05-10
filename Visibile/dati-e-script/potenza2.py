@@ -163,7 +163,7 @@ ylabel('fluttuazioni relative')
 ##estraggo indici misure ad alta potenza
 indici_alti = []
 for i in range(len(power)):
-    if power[i] > 80 and power[i] < 300:
+    if power[i] > 180 and power[i] < 400:
         indici_alti.append(i)
 indici_alti = array(indici_alti)
     
