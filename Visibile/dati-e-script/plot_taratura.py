@@ -2,7 +2,7 @@
 
 from pylab import *
 
-grad, Vpp, dVpp = loadtxt('borcapVLTvsAng01.txt', unpack= True)
+grad, Vpp, dVpp = loadtxt('borcapVLTvsAng02.txt', unpack= True)
 tgrad, tpower = loadtxt('borcapVLtaratura01.txt', unpack= True)
 
 power = zeros(len(Vpp))
@@ -25,17 +25,18 @@ for i in range(len(power)):
         dpower[i] = 0.1
     
 dy = sqrt((0.68*0.5*dV)**2 + (0.68*0.5*dpower)**2)
+dy = dV
 
 figure(1).set_tight_layout(True)
 clf()
-errorbar(power, Vpp, fmt='.k', yerr=dVpp, markersize=4)
+errorbar(power, Vpp, fmt='.', yerr=dVpp, xerr=power*0.03, markersize=4)
 xlim(0, 1.05*max(power))
 ylabel('intensità [mV]')
 xlabel('potenza [mW]')
 
 figure(2).set_tight_layout(True)
 clf()
-errorbar(arange(len(tgrad)), tpower, fmt='.k', yerr=tpower*0.03, elinewidth=2, label='errore di calibrazione (3%)', markersize=7)
+errorbar(arange(len(tgrad)), tpower, fmt='.', yerr=tpower*0.03, elinewidth=2, label='errore di calibrazione (3%)', markersize=3)
 #errorbar(arange(len(prettygrad)), prettypower, fmt='.k', yerr=prettypower*0.01, elinewidth=3, markersize=7, label='errore statistico (1%)')
 xlabel('angolo [grad]', fontsize='large')
 ylabel('potenza [mW]', fontsize='large')
