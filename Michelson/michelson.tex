@@ -8,7 +8,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
-\author{A. Bordin, G. Cappelli}
+\author{Alberto Bordin, Giulio Cappelli}
 \title{Interferometro di Michelson}
 \date{6-7 novembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
@@ -25,23 +25,22 @@
 		 Misura dell'indice di rifrazione dell'aria.
 	\end{abstract}
 
+\begin{multicols}{2}
+
 \section{Teoria}
 \begin{center}
 	\begin{minipage}[c]{.50\textwidth}
 		\centering
 		\includegraphics[width=1\textwidth]{teoria_michelson.png}
 	\end{minipage}
-	\begin{minipage}[c]{.40\textwidth}
-		In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è 
-		\begin{equation}
-		2(L_1 -L_2)n = m \lambda\ 
-		\label{eq:interferenza}
-		\end{equation}
-		dove $n$ è l'indice di rifrazione dell'aria e $m$ è il numero di frange. Nel nostro apparato variamo $L_2$ e contiamo la corrispondente variazione di $m$.
-	\end{minipage}
 \end{center}
+In un interferometro di Michelson come quello in figura la condizione per avere interferenza costruttiva è 
+\begin{equation}
+2(L_1 -L_2)n = m \lambda\ 
+\label{eq:interferenza}
+\end{equation}
+dove $n$ è l'indice di rifrazione dell'aria e $m$ è il numero di frange. Nel nostro apparato variamo $L_2$ e contiamo la corrispondente variazione di $m$.
 
-\begin{multicols}{2}
 
 \section{Apparato sperimetale}
 
@@ -49,16 +48,22 @@
 	\begin{itemize}
 		\item Tre laser di diversa lunghezza d'onda: 633 nm (laser HeNe), 650 nm, 532 nm.
 		\item Un interferometro di Michelson a divisione di ampiezza.
-		\item Un motorino passo passo che mette in rotazione una vite micrometrica.
 		\item Un rilevatore al silicio (fotodiodo) per misurare l'intensità luminosa.
 		\item Un piezoelettrico.
 		\item Un multimetro digitale.
 		\item Una camera a vuoto lunga 5 cm $\pm$ 50 $\mu$m.
 		\item Una pompa a vuoto.
+		\item Un motorino passo passo che mette in rotazione una vite micrometrica.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\textwidth]{vite_micrometrica.JPG}
+		\end{figure}
+
+
 	\end{itemize}
 Il principio di funzionamento è l'interferenza a divisione di ampiezza. Per avere interferenza al finito usiamo una lente, che trasforma onde piane in onde sferiche. Le frange di interferenza vengono rivelate tramite un fotodiodo il cui segnale viene letto al PC tramite un VI labVIEW, che salva anche i dati.
 
-\section{Misura della lunghezza d'onda}
+\section{Misura della lunghezza \\d'onda}
 Per misurare la lunghezza d'onda del laser contiamo le frange di interferenza al variare della differenza di cammino ottico. 
 
 \subsection{Presa dati}
@@ -77,7 +82,7 @@ Al PC vediamo l'evoluzione delle frange di interferenza grazie ad un VI labVIEW,
 
 \begin{multicols}{2}
 
-Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi e il display del vita micrometrica fornisce la distanza percorsa dallo specchio M2 che usiamo per calcolare la lunghezza d'onda tramite l'equazione \ref{eq:interferenza}.
+Al termine dell'acquisizione il VI fornisce il numero $m$ di picchi e il display digitale della vite micrometrica fornisce la distanza percorsa dallo specchio M2 che usiamo per calcolare la lunghezza d'onda tramite l'equazione \ref{eq:interferenza}.
 
 \subsubsection{Accorgimenti sperimentali}
 \begin{itemize}
