@@ -10,7 +10,7 @@
 \usepackage{multicol}
 \usepackage{textcomp}
 \usepackage{caption}
-\author{A. Bordin, G. Cappelli}
+\author{Alberto Bordin, Giulio Cappelli}
 \title{Olografia}
 \date{13-17 Novembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
@@ -22,10 +22,43 @@
 	\begin{abstract}
 		 
 	\end{abstract}
-	
-\section{Teoria}
 
+\begin{multicols}{2}	
+\section{Teoria}
+L'olografia è basata sulla registrazione di fase e ampiezza di un'onda elettromagnetica $a(x,y)= |a(x, y)|e^{i\phi(x,y)}$ su di un supporto che giace nel piano x-y, in modo da poter poi ricostruire l'immagine. Il supporto in questione è una lastra fotografica sensibile all'intensità incidente, quindi è necessaria un'onda di riferimento $A(x,y)= |A(x, y)|e^{i\psi(x,y)}$. Infatti l'interferenza tra il fascio di riferimento e il fascio diffuso dall'oggetto provoca un pattern d'interferenza che contiene tutta l'informazione su ampiezza e fase in quanto l'intensità incidente sulla lastra risulta essere:
+\begin{equation}
+I(x,y)=|A(x,y)+a(x,y)|^2= |A(x, y)|^2+|a(x, y)|^2+|a|^2+aA^*+Aa^*
+\end{equation}
+Assumendo che la trasmettività della lastra sia lineare con l'intensità incidente, $t=\gamma I$, si ha:
+\begin{equation}
+t(x,y)=t_{ref}+\gamma(|a|^2+aA^*+Aa^*)
+\end{equation}
+dove $t_{ref} = \gamma|A|^2$ è la trasmettività di background dovuta all'onda di riferimento. 
+
+\'E quindi possibile ricostruire l'immagine registrata utilizzando in trasmissione un'onda di ricostruzione $B(x,y)$, infatti il campo trasmesso è:
+\begin{equation}
+E_{trasm}=Bt=Bt_{ref}+\gamma(B|a|^2+BaA^*+BAa^*)=U_1+U_2+U_3+U_4
+\end{equation}
+
+Utilizzando come fascio di ricostruzione lo stesso fascio di luce usato per il riferimento e assumendo che $|A|^2$ sia costante su tutta la lastra, si hanno due termini lineari rispettivamente in $a$ e $a^*$ che contengono tutta l'informazione sull'oggetto in esame:
+\begin{equation}
+U_3=\gamma|A|^2a \qquad U_4=\gamma A^2a^*
+\end{equation}
+Se vogliamo quindi ricostruire e osservare l'immagine occorre separare spazialmente queste due componenti del campo trasmesso e per farlo si utilizza uno schema mostrato in Figura \ref{fig:schema} che riprende l'ologramma di Leith-Uptanieks.
+ 
+ \newpage
 \section{Apparato sperimentale}
+L'apparato a disposizione è riportato in Figura \ref{fig:apparato} ed è composto da:
+\begin{enumerate}
+\item Laser He-Ne ($\lambda$=633 nm) di potenza $\sim$15 mW
+\item Shutter
+\item Obbiettivo e filtro spaziale (\emph{pin-hole})
+\item Beam splitter
+\item Specchi
+\item Oggetto
+\item Supporto per la lastra fotografica
+\item Rivelatore al silicio
+\end{enumerate}
 
 \section{Olografia statica}
 
@@ -40,5 +73,7 @@
 \subsection{Altoparlante}
 
 \section{Lampada spettrale}
+
+\end{multicols}
 	
 \end{document}
