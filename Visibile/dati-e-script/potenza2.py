@@ -30,14 +30,10 @@ dV = dVpp
 for i in range(len(dVpp)):
     dV[i] = max(dVpp[i], minerr)
 
-dpower = zeros(len(power))
-for i in range(len(power)):
-    if power[i] >= 100:
-        dpower[i] = 1
-    else:
-        dpower[i] = 0.1
+dpower = power*0.03
     
-dy = sqrt((0.68*0.5*dV)**2 + (0.68*0.5*dpower)**2)
+dy = 0.68*0.5*dV 
+dx = dpower
 
 ##estraggo indici misure a bassa potenza
 altezza = 5
@@ -61,7 +57,7 @@ for pmax in range(5,20):
     def parabola(x, a):
         return a*x**2
     
-    out = fit_curve(parabola, power[indici_bassi], Vpp[indici_bassi], dy=dy[indici_bassi], p0=[1], absolute_sigma=True)
+    out = fit_curve(parabola, power[indici_bassi], Vpp[indici_bassi], dy=dy[indici_bassi], dx=dx[indici_bassi], p0=[1], absolute_sigma=True)
     par = out.par
     cov = out.cov
     err = sqrt(diag(cov))
@@ -78,7 +74,7 @@ for pmax in range(5,20):
     
     figure('potenza_alla2')
     subplot(altezza, larghezza, pmax-4)
-    errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi], markersize=4)
+    errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
     plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} \t {} = {}/{} = {} \n p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof, p_value))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
@@ -101,7 +97,7 @@ for pmax in range(5,20):
     def parabolab(x, a, b):
         return a*x**b
     
-    out = fit_curve(parabolab, power[indici_bassi], Vpp[indici_bassi], dy=dy[indici_bassi], p0=[1,2], absolute_sigma=True)
+    out = fit_curve(parabolab, power[indici_bassi], Vpp[indici_bassi], dy=dy[indici_bassi], dx=dx[indici_bassi], p0=[1,2], absolute_sigma=True)
     par = out.par
     cov = out.cov
     err = sqrt(diag(cov))
@@ -115,7 +111,7 @@ for pmax in range(5,20):
     
     figure('potenza_allab')
     subplot(altezza, larghezza, pmax-4)
-    errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi], markersize=4)
+    errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
     plot(xx, parabolab(xx, *par), color='tab:red', label='{} = {} \n{} = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$b_{fit}$', xe(par[1], err[1])))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))

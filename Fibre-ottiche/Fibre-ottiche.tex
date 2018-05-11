@@ -39,17 +39,57 @@
 
 \section{Apparato sperimentale}
 
+\newpage
+\begin{multicols}{2}
 \section{Apertura numerica}
 
 \subsection{Teoria}
+L'apertura numerica di una fibra ottica è definita a partire dall'angolo di accettazione $\theta_{m}$, corrispondente all'angolo limite per cui può essere iniettata un'onda nella fibra in modo che si propaghi. 
+
+Se $n_1$ e $n_2$ con $n_1 < n_2$ sono gli indici di rifrazione, rispettivamente, di core e cladding e considerando, per semplicità, l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
+\begin{equation}
+sin\theta_{m}=n_{1}cos\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
+\end{equation}
+dove $\theta_{c}$ è l'angolo di incidenza sul cladding per cui si ha riflessione totale e quindi propagazione dell'onda all'interno della fibra.
+
+L'apertura numerica è quindi definita come:
+\begin{equation}
+NA=sin\theta_{m}=\sqrt{n_{1}^{2}-n_{2}^{2}}
+\end{equation}
+
+\subsection{Apparato sperimentale}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{apparato_NA.pdf}
+	\caption{Apparato sperimentale per la misura dell'apertura numerica NA.}
+	\begin{enumerate}
+		\item Laser HeNe
+		\item Lanciatore
+		\item Uscita della fibra montata su un supporto dotato di goniometro.
+		\item Sensore del \textit{power meter}
+		\item Schermo del \textit{power meter}
+	\end{enumerate}
+	\label{fig:apparato_NA}
+\end{figure}
+
 
 \subsection{Presa dati}
 
-2 tabelle
+Per poter calcolare l'apertura numerica della fibra ottica multimodo a nostra disposizione abbiamo posto le sue estremità, una volta spellate e pulite, sul lanciatore e sul supporto dotato di goniometro visibili in Figura \ref{fig:apparato_NA}. Abbiamo quindi misurato la potenza in uscita dalla fibra variando l'angolo di incidenza sul power meter per due diverse distanze $d$ fra power meter e uscita della fibra.
+
+I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}.
+
+
 
 \subsection{Analisi dati}
+L'apertura numerica di una fibra è calcolata sperimentalmente come il seno dell'angolo al quale la potenza emessa è il 5\% della potenza massima. 
 
-2 plot con interpolazione quadratica o al massimo cubica
+Per ottenere una migliore precisione abbiamo allora interpolato i dati intorno al 5\% della potenza massima sia a destra che a sinistra del massimo, per entrambe le serie di dati.
+Dalle curve ottenute abbiamo quindi ricavato il valore dell'angolo a cui queste assumono il valore corrispondente al 5\% della potenza massima.
+
+I risultati ottenuti sono mostrati in Figura \ref{fig:} e in Tabella \ref{tab:}
+
+\end{multicols}
 
 \newpage
 \section{Attenuazione}
