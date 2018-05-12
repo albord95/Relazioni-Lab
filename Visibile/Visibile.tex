@@ -62,9 +62,12 @@ Per farlo abbiamo utilizzato un oscilloscopio leggendo, attraverso i cursori, l'
 Prima di registrare le misure ci siamo preoccupati di spegnere la luce ambientale in quanto si vedevano i battimenti con la 50 Hz. Abbiamo quindi utilizzato una pila per illuminare il goniometro presente sull'attenuatore; la luce proveniente dalla pila era irrilevante in quando produceva solamente un offset costante al segnale.
 
 Durante la prima presa dati abbiamo notato che, mentre il massimo restava costante, il minimo del segnale proveniente dal chopper si spostava a causa di effetti 1/f non trascurabili che portavano a variazioni anche del 10\%.
+
 I valori ottenuti sono riportati nella Tabella \ref{tab:primo} in Appendice e in Figura \ref{fig:primo}.
 
-Abbiamo quindi cambiato l'alimentatore del laser per risolvere questo problema e ripetuto le misure senza ottenere però miglioramenti visibili. I dati relativi a questa seconda presa dati sono riportati nella Tabella \ref{tab:secondo} in Appendice e in Figura \ref{fig:secondo}.
+Abbiamo quindi cambiato l'alimentatore del laser per risolvere questo problema e ripetuto le misure senza ottenere però miglioramenti visibili. 
+
+I dati relativi a questa seconda presa dati sono riportati nella Tabella \ref{tab:secondo} in Appendice e in Figura \ref{fig:secondo}.
 
 \end{multicols}
 
@@ -86,10 +89,9 @@ Abbiamo quindi cambiato l'alimentatore del laser per risolvere questo problema e
 
 \begin{multicols}{2}
 
-In entrambe le figure si hanno degli andamenti non regolari soprattuto nella zona di medio-alta potenza ed è evidente come la sostituzione dell'alimentatore non abbia portato alcun miglioramento. 
+In entrambe le figure si hanno degli andamenti non regolari soprattuto nella zona di medio-alta potenza ed è evidente come la sostituzione dell'alimentatore non abbia portato alcun miglioramento; per questo abbiamo svolto l'analisi esclusivamente sulla prima presa dati. 
 
 \subsubsection{Discussione degli errori}
-In tutte le precedenti figure abbiamo riportato l'errore di calibrazione sulla potenza, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico, in tal caso verrà usata la sigma relativa all'errore di digitalizzazione.
 
 \subsection{Acquisizione spettro}
 
@@ -110,13 +112,57 @@ Per evitare la saturazione e quindi l'impossibilità di visualizzare il picco abb
 
 \section{Analisi dati}
 
+Facendo riferimento alla Figura \ref{fig:primo}, possiamo identificare due regimi corrispondenti a quello di basso e alto pompaggio.
+Analizziamo separatamente questi due regimi cercando di identificarne gli intervalli di validità.
+
+Osservando invece la Figura \ref{fig:spettro} si notato molti picchi a diverse lunghezze d'onda. Cerchiamo quindi di identificare quali di essi corrispondono alle transizioni aspettate.
+
 \subsection{Bassa potenza}
 
-2 fit: ax$^b$ e ax$^2$
+Come discusso nella sezione di teoria in regime di bassa potenza di pompaggio ci aspettiamo, al limite $P \rightarrow 0$, un'andamento quadratico. 
+
+Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata eseguendo un fit con la funzione $y = ax^b$ aumentando di 1 mW l'intervallo di dati considerato partendo da $P_{max}$=5 mW fino a $P_{max}$=30 mW.
+
+I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab}:
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{potenza_allab}
+\caption{}
+\label{fig:potenza_allab}
+\end{figure}
+
+\begin{multicols}{2}
+
+\subsubsection{Discussione errori}
 
 \subsubsection{Analisi del cut}
+Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fit è in accordo con quello atteso finché $P_{max} < 25 mW$. 
 
-grafico di b in funzione del cut
+\'E possibile comprendere in modo migliore l'intervallo in cui è valido il regime di basso pompaggio se si osservano i grafici in Figura \ref{fig:andamento_cut} e in Figura \ref{fig:fluttuazioni_cut}.
+
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{andamento_cut.pdf}
+\caption{}
+\label{fig:andamento_cut}
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fluttuazioni_cut.pdf}
+\caption{}
+\label{fig:fluttuazioni_cut}
+\end{minipage}
+\end{figure}
+
+\begin{multicols}{2}
+
+In Figura \ref{fig:andamento_cut} è mostrato l'andamento dei risultati ottenuti dal fit per b in funzione della potenza massima fino a cui è stato eseguito il rispettivo fit.
 
 \subsection{Alta potenza}
 

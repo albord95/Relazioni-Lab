@@ -37,7 +37,7 @@ dx = dpower
 
 ##estraggo indici misure a bassa potenza
 altezza = 5
-larghezza = 3
+larghezza = 5
 a1_fit = []
 da1_fit = []
 a_fit = []
@@ -45,7 +45,9 @@ b_fit = []
 da_fit = []
 db_fit = []
 p_max = []
-for pmax in range(5,20):
+p_i = 5
+p_f = 30
+for pmax in range(p_i,p_f):
     indici_bassi = []
     for i in range(len(power)):
         if power[i] < pmax:
@@ -64,10 +66,10 @@ for pmax in range(5,20):
     a1_fit.append(par[0])
     da1_fit.append(err[0])
     chisq = out.chisq
-    chisq1 = '{0:.3f}'.format(out.chisq)
-    p_value = '{0:.3f}'.format(out.chisq_pvalue)
+    chisq1 = '{0:.2f}'.format(out.chisq)
+    p_value = '{0:.1f}'.format(out.chisq_pvalue)
     dof = out.chisq_dof
-    chidof = '{0:.3f}'.format(chisq/dof)
+    chidof = '{0:.2f}'.format(chisq/dof)
     print('a = %s' %xe(par, err))
     print('chisq/dof = %d/%d = %.3f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
     print('p_value = %.3f\n' % out.chisq_pvalue)
@@ -76,20 +78,20 @@ for pmax in range(5,20):
     subplot(altezza, larghezza, pmax-4)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} \t {} = {}/{} = {} \n p_value = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof, p_value))
+    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} \n {} = {}/{} = {} \n {} = {}% '.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof, '$p_{value}$', p_value))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if pmax == 5:
         ylabel('intensità [mV]')
-    if pmax == 8:
+    if pmax == 10:
         ylabel('intensità [mV]')
-    if pmax == 11:
+    if pmax == 15:
         ylabel('intensità [mV]')
-    if pmax == 14:
+    if pmax == 20:
         ylabel('intensità [mV]')
-    if pmax == 17:
+    if pmax == 25:
         ylabel('intensità [mV]')
-    if (pmax-4) >= 13:
+    if (pmax) >= 25:
         xlabel('potenze [mW]')
     legend(fontsize='x-small', framealpha=0, loc=2)
     
@@ -107,7 +109,7 @@ for pmax in range(5,20):
     db_fit.append(err[1])
     print('[a b] = %s' %xe(par, err))
     print('chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
-    print('p_value = %.3f' % out.chisq_pvalue)
+    print('$p_{value}$ = %.2f' % out.chisq_pvalue)
     
     figure('potenza_allab')
     subplot(altezza, larghezza, pmax-4)
@@ -118,15 +120,15 @@ for pmax in range(5,20):
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if pmax == 5:
         ylabel('intensità [mV]')
-    if pmax == 8:
+    if pmax == 10:
         ylabel('intensità [mV]')
-    if pmax == 11:
+    if pmax == 15:
         ylabel('intensità [mV]')
-    if pmax == 14:
+    if pmax == 20:
         ylabel('intensità [mV]')
-    if pmax == 17:
+    if pmax == 25:
         ylabel('intensità [mV]')
-    if (pmax-4) >= 13:
+    if pmax >= 25:
         xlabel('potenze [mW]')
     legend(fontsize='x-small', framealpha=0, loc=2)
 
@@ -142,7 +144,7 @@ da_fit = array(da_fit)
 db_fit = array(db_fit)
 p_max = array(p_max)
 errorbar(p_max, b_fit, fmt='.k', yerr=db_fit, markersize=4)
-plot(arange(4,21), ones(17)*2, '--', color='tab:red', label='{}'.format('$b_{atteso}$ = 2'))
+plot(arange(p_i-1,p_f+1), ones(27)*2, '--', color='tab:red', label='$b_{atteso}$ = 2')
 xlabel('potenza [mW]')
 ylabel('$b_{fit}$')
 legend(fontsize='large', framealpha=0)
@@ -152,11 +154,11 @@ figure(4).set_tight_layout(True)
 clf()
 res = (b_fit-2)/db_fit
 plot(p_max, res, '.', color = 'black', markersize=4)
-plot(arange(4,21), zeros(17), '--', color='tab:red')
+plot(arange(p_i-1,p_f+1), zeros(27), '--', color='tab:red')
 xlabel('potenza [mW]')
 ylabel('fluttuazioni relative')
 
-##estraggo indici misure ad alta potenza
+'''##estraggo indici misure ad alta potenza
 indici_alti = []
 for i in range(len(power)):
     if power[i] > 180 and power[i] < 400:
@@ -185,5 +187,5 @@ x = linspace(min(power[indici_alti]), max(power[indici_alti]), 2000)
 plot(x, retta(x, *par), color='tab:red', label='m = {} \n q = {}'.format(xe(m_fit, dm_fit), xe(q_fit, dq_fit)))
 legend(fontsize='large')
 ylabel('intensità [mV]')
-xlabel('potenze [mW]')
+xlabel('potenze [mW]')'''
 
