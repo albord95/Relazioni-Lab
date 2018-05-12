@@ -11,6 +11,7 @@
 \usepackage{color}
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{tipa}
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Analizzatore di spettro}
 \date{27-28 novembre 2017}
@@ -25,21 +26,89 @@
 	
 \end{abstract}
 
-\section{To do}
+\bigskip
 
-\begin{itemize}
-	\item dire nella teoria che FSR e $\Delta\nu$ li riportiamo per semplicità in unità di tempo
-\end{itemize}
+%\section{To do}
+%
+%\begin{itemize}
+%	\item dire nella teoria che FSR e $\Delta\nu$ li riportiamo per semplicità in unità di tempo
+%\end{itemize}
 
-\begin{multicols}{2}
+
 
 \section{Teoria}
 
+\begin{multicols}{2}
+
 \subsection{Laser HeNe}
 
-\subsection{Fabry-Perot}
+Poichè un laser è una cavità risonante di lunghezza ($L$) finita, questi seleziona dei modi discreti con separazione in frequenza $\Delta \nu = \dfrac{c}{2L}$. Il primo scopo di questa esperienza è misurare tale separazione.
 
+\subsection{Interferometro di Fabry-Pérot}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fabri-perot.JPG}
+	\caption{Schema esemplificativo di un interferometro Fabry-Pérot.}
+\end{figure}
+
+Un interferometro di Fabry-Pérot è una cavità risonante basata sulla riflessione multipla tra i suoi due specchi. \\I coefficienti di riflettività $\mathbf{R}$ e trasmittività $\mathbf{T}$ della cavità sono espressi in funzione della riflettività \textit{R} di un singolo specchio secondo le formule di Airy:
+\begin{equation}
+\mathbf{R} = \dfrac{F sen^2(\frac{\delta}{2})}{1 + F sen^2(\frac{\delta}{2})}
+\label{eq:R}
+\end{equation}
+\begin{equation}
+\mathbf{T} = \dfrac{1}{1 + F sen^2(\frac{\delta}{2})}
+\label{eq:T}
+\end{equation}
+dove $\; F = \dfrac{4R}{(1-R)^2}$ e $\delta$ è lo sfasamento dovuto alla distanza $d$ tra i due specchi.
+
+$\mathbf{T}(\delta)$ è una funzione periodica: il periodo viene indentificato con la $FSR$, che sta per \textit{Free Spectral Range}\footnote{La $FSR$ viene solitamente indicata in Hz: $FSR = \frac{c}{2 n d}$ [Hz] se gli specchi della cavità Fabry-Pérot sono piani, $FSR = \frac{c}{4 n d}$ [Hz] se sono sferici ($n$ è l'indice di rifrazione del mezzo presente tra gli specchi del Fabry-Pérot)}.
+\begin{figure}[H]
+	\centering
+	\def\svgwidth{0.4\textwidth}
+	\input{periodo-fabri-perot.pdf_tex}
+	\caption{Grafico della trasmittività di un Fabry-Pérot con un'onda monocromatica in ingresso.}
+\end{figure}
+
+
+La \emph{finezza} $\mathcal{F}$ di un Fabry-Pérot è definita come
+\[\mathcal{F} = \frac{FSR}{FWHM}\]
+e dall'equazione \ref{eq:T} si ottiene
+\[\mathcal{F} \simeq \dfrac{\pi}{2}\sqrt{F} \]
+
+Il secondo scopo di questa esperienza è misurare la finezza del Fabry-Pérot in dotazione.
+
+\end{multicols}
+
+
+\newpage
 \section{Apparato sperimentale}
+
+\begin{multicols}{2}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{apparato.pdf}
+	\caption{Banco ottico.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{controllers.pdf}
+	\caption{Strumenti di controllo e oscilloscopio.}
+\end{figure}
+\begin{enumerate}
+	\item Laser HeNe ($\lambda = 633$ nm, $\Delta \nu_{nominale} = 435$ Hz)
+	\item Specchi:\\
+	hanno lo scopo di diminuire l'accoppiamento tra laser e interferometro Fabry-Pérot, che influenza i modi del laser provocando risonanze indesiderate (è come se il laser vedesse anche una cavità più grande).
+	\item Fabry-Pérot ($FSR = 1.5$ GHz, $\mathcal{F}_{nominale} = 212$)
+	\item Generatore di funzioni
+	\item Controller del piezoelettrico del Fabry-Pérot:\\
+	utilizza il segnale del generatore di funzioni (scelto ad onda triangolare) per controllare in tensione lo spostamento del piezoelettrico del Fabry-Pérot; in questo modo la distanza tra gli specchi dell'interferometro varia periodicamente nel tempo con rampe lineari.
+	\item Oscilloscopio:\\
+	rileva il segnale del fotodiodo del Fabry-Pérot, proporzionale alla trasmittività $\mathbf{T}$.
+\end{enumerate}
 
 \end{multicols}
 
@@ -219,13 +288,13 @@ Abbiamo verificato che le scelte 2 e 3 comportassero una variazione entro il $\p
 \subsubsection{Fit}
 
 Abbiamo calcolato la finezza anche mediante un fit con la formula teorica
-\[\text{trasmittività} = \frac{1}{1 + F^2\sin^2(\frac{\delta}{2})}\]
+\[\text{trasmittività} = \frac{1}{1 + F\sin^2(\frac{\delta}{2})}\]
 a cui è stato aggiunto un parametro di scala  e un offset su tensioni e tempi. Quindi 
-\[\text{trasmittività} = \frac{A}{1 + F^2\sin^2(\frac{t - D}{C})} + B\]
+\[\text{trasmittività} = \frac{A}{1 + F\sin^2(\frac{t - D}{C})} + B\]
 Di questi parametri $B$ e $C$ sono fissati da misure indipendenti, infatti $C = \frac{FSR}{\pi}$ e per $B$ è stata usata la moda del vettore della tensione delle misure di $FSR$. $A$, $D$ ed $F$ sono invece parametri liberi.
 
 La finezza $\mathcal{F}$ è ricavata da $F$:
-\[\mathcal{F} = \frac{\pi}{2}F \]
+\[\mathcal{F} = \frac{\pi}{2}\sqrt{F} \]
 
 In Figura \ref{fig:06c_fit} è riportato il fit per una delle prese dati, in appendice i fit per le restanti.
 \begin{figure}[H]
