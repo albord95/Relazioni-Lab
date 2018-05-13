@@ -17,6 +17,10 @@ figure('potenza_alla2').set_tight_layout(True)
 clf()
 figure('potenza_allab').set_tight_layout(True)
 clf()
+figure('potenza_alla2_esempio').set_tight_layout(True)
+clf()
+figure('potenza_allab_esempio').set_tight_layout(True)
+clf()
 figure('potenza_lineare').set_tight_layout(True)
 clf()
 
@@ -42,9 +46,9 @@ db_fit = []
 p_max = []
 p_i = 5
 p_f = 41
-step = 3
+step = 2
 altezza = 6
-larghezza = 2
+larghezza = 3
 j = 1
 for pmax in range(p_i,p_f,step):
     indici_bassi = []
@@ -76,8 +80,8 @@ for pmax in range(p_i,p_f,step):
     figure('potenza_alla2')
     subplot(altezza, larghezza, j)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
-    xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} \t {} = {}% \n {} = {}/{} = {}'.format('$a_{fit}$', xe(par[0], err[0]), '$p_{value}$', p_value, '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof))
+    xx = linspace(min(power[indici_bassi])-6, max(power[indici_bassi])+6, 2000)
+    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$] \t {} = {}% \n {} = {}/{} = {}'.format('$a_{fit}$', xe(par[0], err[0]), '$p_{value}$', p_value, '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if j == 1:
@@ -96,6 +100,17 @@ for pmax in range(p_i,p_f,step):
         xlabel('potenze [mW]')
     legend(fontsize='x-small', framealpha=0, loc=2)
     
+    if j == 6:
+        figure('potenza_alla2_esempio')
+        errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
+        xx = linspace(min(power[indici_bassi])-6, max(power[indici_bassi])+6, 2000)
+        plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$] \t {} = {}% \n {} = {}/{} = {}'.format('$a_{fit}$', xe(par[0], err[0]), '$p_{value}$', p_value, '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof))
+        xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
+        ylim(0, 0.5+max(Vpp[indici_bassi]))
+        ylabel('intensità [mV]')
+        xlabel('potenze [mW]')
+        legend(fontsize='large', framealpha=0, loc=2)
+        
 ##fit bassa potenza esponente 
     def parabolab(x, a, b):
         return a*x**b
@@ -115,8 +130,8 @@ for pmax in range(p_i,p_f,step):
     figure('potenza_allab')
     subplot(altezza, larghezza, j)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
-    xx = linspace(min(power[indici_bassi]), max(power[indici_bassi]), 2000)
-    plot(xx, parabolab(xx, *par), color='tab:red', label='{} = {} \n{} = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$b_{fit}$', xe(par[1], err[1])))
+    xx = linspace(min(power[indici_bassi])-6, max(power[indici_bassi])+6, 2000)
+    plot(xx, parabolab(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$]\n{} = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$b_{fit}$', xe(par[1], err[1])))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if j == 1:
@@ -135,12 +150,23 @@ for pmax in range(p_i,p_f,step):
         xlabel('potenze [mW]')
     legend(fontsize='x-small', framealpha=0, loc=2)
     j = j + 1
+    
+    if j == 6:
+        figure('potenza_allab_esempio')
+        errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
+        xx = linspace(min(power[indici_bassi])-6, max(power[indici_bassi])+6, 2000)
+        plot(xx, parabolab(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$]\n{} = {} '.format('$a_{fit}$', xe(par[0], err[0]), '$b_{fit}$', xe(par[1], err[1])))
+        xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
+        ylim(0, 0.5+max(Vpp[indici_bassi]))
+        ylabel('intensità [mV]')
+        xlabel('potenze [mW]')
+        legend(fontsize='large', framealpha=0, loc=2)
 
 a1_fit = array(a1_fit)
 da1_fit = array(da1_fit)
 
 ##andamento di b in funzione del cut
-figure(3).set_tight_layout(True)
+figure(5).set_tight_layout(True)
 clf()  
 a_fit = array(a_fit)
 b_fit = array(b_fit)
@@ -154,7 +180,7 @@ ylabel('$b_{fit}$')
 legend(fontsize='large', framealpha=0)
 
 ##fluttuazioni relative di b_fit rispetto a b_atteso in funzione del cut
-figure(4).set_tight_layout(True)
+figure(6).set_tight_layout(True)
 clf()
 res = (b_fit-2)/db_fit
 plot(p_max, res, '.', color = 'black', markersize=4)
