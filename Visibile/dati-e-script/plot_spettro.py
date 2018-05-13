@@ -10,7 +10,7 @@ files = ['borcapVMspettro01.txt',
 
 l_fondo1, a_fondo1 = loadtxt('borcapVMspettro02fondo.txt', unpack=True)
 l_fondo2, a_fondo2 = loadtxt('borcapVMspettro06fondo.txt', unpack=True)
-l1, a1 = loadtxt('borcapVMspettro04_550.txt', unpack=True)
+l1, a1 = loadtxt('borcapVMspettro10_551_290ms.txt', unpack=True)
 
 figure(1).set_tight_layout(True)
 clf()
@@ -44,6 +44,15 @@ ylabel('segnale [a.u.]')
 xlabel('$\lambda$ [nm]')
 
 figure(3)
+x = ones(4500)*800
+x1 = ones(4500)*670
+x2 = ones(4500)*850
+y = linspace(0, 4500, 4500)
+plot(x, y, color = 'tab:pink', label='$\lambda$ = 800 nm')
+plot(x1, y, color = 'tab:red', label='$\lambda$ = 670 nm')
+plot(x2, y, color = 'm', label='$\lambda$ = 850 nm')
 plot(l1, a1)
 ylabel('segnale [a.u.]')
 xlabel('$\lambda$ [nm]')
+ylim(0, 4500)
+legend()

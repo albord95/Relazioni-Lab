@@ -2,35 +2,41 @@
 
 from pylab import *
 
-grad, Vpp, dVpp = loadtxt('borcapVLTvsAng02.txt', unpack= True)
+grad1, Vpp1, dVpp1 = loadtxt('borcapVLTvsAng01.txt', unpack= True)
+grad2, Vpp2, dVpp2 = loadtxt('borcapVLTvsAng02.txt', unpack= True)
 tgrad, tpower = loadtxt('borcapVLtaratura01.txt', unpack= True)
 
-power = zeros(len(Vpp))
-for i in range(len(power)):
+'''grad = concatenate((grad2, grad1))
+Vpp = concatenate((Vpp2, Vpp1))
+dVpp = concatenate((dVpp2, dVpp1))
+grad = grad[argsort(grad)]
+Vpp = Vpp[argsort(grad)]
+dVpp = dVpp[argsort(grad)]'''
+
+power1 = zeros(len(Vpp1))
+for i in range(len(power1)):
     for j in range(len(tpower)):
-        if grad[i] == tgrad[j]:
-            power[i] = tpower[j]
+        if grad1[i] == tgrad[j]:
+            power1[i] = tpower[j]
             break
-        
-minerr = 0.8
-dV = dVpp
-for i in range(len(dVpp)):
-    dV[i] = max(dVpp[i], minerr)
+
+power2 = zeros(len(Vpp2))
+for i in range(len(power2)):
+    for j in range(len(tpower)):
+        if grad2[i] == tgrad[j]:
+            power2[i] = tpower[j]
+            break
+
+dpower1 = power1*0.03
     
-dpower = zeros(len(power))
-for i in range(len(power)):
-    if power[i] >= 100:
-        dpower[i] = 1
-    else:
-        dpower[i] = 0.1
-    
-dy = sqrt((0.68*0.5*dV)**2 + (0.68*0.5*dpower)**2)
-dy = dV
+dy = 0.68*0.5*dVpp 
+dx = dpower
 
 figure(1).set_tight_layout(True)
 clf()
-errorbar(power, Vpp, fmt='.', yerr=dVpp, xerr=power*0.03, markersize=4)
-xlim(0, 1.05*max(power))
+errorbar(power1, Vpp1, fmt='.', yerr=dVpp1, xerr=power1*0.03, markersize=4)
+errorbar(power2, Vpp2, fmt='.', yerr=dVpp2, xerr=power2*0.03, markersize=4)
+xlim(0, 1.05*max(power1))
 ylabel('intensità [mV]')
 xlabel('potenza [mW]')
 
@@ -43,7 +49,7 @@ ylabel('potenza [mW]', fontsize='large')
 xticks(arange(len(tgrad)), tgrad.astype(int), rotation=70, fontsize='x-small')
 legend(fontsize='x-large')
 
-derivataseconda = diff(diff(tpower))
+'''derivataseconda = diff(diff(tpower))
 figure(3).set_tight_layout(True)
 clf()
 plot(derivataseconda)
@@ -70,5 +76,5 @@ for i in range(len(buoni)-10):
     
 figure(5)
 clf()
-plot(stdmobile)
+plot(stdmobile)'''
     

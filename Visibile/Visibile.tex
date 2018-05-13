@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{textcomp}
 \usepackage{caption}
+\usepackage{amsmath}
 \author{A. Bordin, G. Cappelli}
 \title{Visibile}
 \date{4-5 Dicembre 2017}
@@ -27,11 +28,62 @@
 	
 \section{Teoria}
 
+Se si droga un cristallo con delle terre rare si può avere il fenomeno dell'up-conversion. Questo è un meccanismo di $\emph{energy-transfer}$, cioè un cambio di stato senza emissione o assorbimento di fotoni, causato dalle interazioni di tipo $\emph{Van der Waals}$ (dipolo-dipolo, dipolo - quadrupolo, ecc..) fra gli ioni di terre rare presenti nel cristallo. Questo effetto è quindi molto sensibile alla percentuale del drogaggio dato che le interazioni avvengono fra ioni vicini. 
+
+In quest'esperienza utilizziamo un cristallo di LiY F$_4$ drogato al 30\% con ioni di Er$^{3+}$.
+
+Facendo riferimento alla Figura \ref{fig:teoria} eccitando la transizione dell'Er$^{3+}$ da |0$\rangle$ a |1$\rangle$ con un laser di pompa si ha, per $\emph{up-conversion}$, un decadimento al fondamentale |0$\rangle$ e la conseguente eccitazione del livello |3$\rangle$ per la conservazione dell'energia.  Quest'ultimo livello eccitato decade rapidamente nel livello |2$\rangle$ in modo non radiativo. A questo punto si ha il decadimento per emissione spontanea dominante è |2$\rangle \longrightarrow$ |0$\rangle$ (corrispondente a $\lambda$=551 nm).
+
+Scrivendo le equazioni di rate per i livelli |1$\rangle$ e |2$\rangle$, in condizioni stazionarie, si ha:
+\begin{equation}
+\begin{cases} 0=\frac{dN_2}{dt}=\alpha N_1^2-\beta\frac{N_2}{\tau_2}-(1-\beta)\frac{N_2}{\tau_2} \\ \\ 0=\frac{dN_1}{dt}=P-\frac{N_1}{\tau_1}+\beta\frac{N_2}{\tau_2}-2\alpha N_1^2 \end{cases}
+\end{equation}
+
+dove $N_{1,2}$ e $\tau_{1,2}$ sono le popolazioni e le vite medie dei livelli |1$\rangle$ e |2$\rangle$, P è il pompaggio, $\beta$ è il branching ratio del decadimento |2$\rangle \longrightarrow$ |1$\rangle$ e  $\alpha$ è il coefficiente di up-conversion.
+
+Consideriamo ora due regimi in cui risolvere queste equazioni, cioè di basso e alto pompaggio.
+
+Nel primo caso si ha che il livello |1$\rangle$ è poco popolato, cioè $\alpha N^2 << \frac{N_1}{\tau_1}$ e si ricava, nel limite per  $P \rightarrow 0$:
+\begin{equation}
+N_2 = \alpha\tau_2\tau_1^2P^2
+\end{equation}
+
+Nel caso di alto pompaggio invece si ha che il livello |1$\rangle$ è molto popolato e il fenomeno dell'up-conversion è dominante sull'emissione spontanea, cioè $\alpha N^2 >> \frac{N_1}{\tau_1}$ e si ricava:
+\begin{equation}
+N_2 = \frac{\tau_2}{\beta+2}P
+\end{equation}
+
+Assumendo che l'intensità della luce verde sia proporzionale ad $N_2$ abbiamo ci aspettiamo un andamento quadratico per bassa potenza di pompa e un andamento lineare nel regime di alta potenza di pompa.
+
 \section{Apparato sperimentale}
+\end{multicols}
 
-\section{Presa dati}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{apparato}
+\caption{Apparato sperimentale}
+\label{fig:apparato}
+\end{figure}
 
-\subsection{Taratura attenuatore}
+\begin{multicols}{2}
+
+In quest'esperienza avevamo a disposizione:
+\begin{enumerate}
+\item Un laser a diodo con una lunghezza d'onda di 976 nm e di potenze $\sim$1 W
+\item Un attenuatore variabile dotato di goniometro sessagesimale
+\item Due lenti convergenti
+\item Un cristallo di (LiY F$_4$ : Er$^{3+}$)
+\item Un chopper ottico utilizzato per eliminare dalle misure qualsiasi tipo di background osservando il segnale come un'onda quadra 
+\item Un supporto per la fibra ottica per portare il segnale all'analizzatore di spettro
+\item Un rivelatore collegato all'oscilloscopio
+\item Un power meter al silicio
+\end{enumerate}
+
+Come si può vedere in Figura \ref{fig:apparato} il fascio proveniente dal laser attraversa l'attenuatore e viene focalizzato sul cristallo che emette così luce verde in modo isotropo. Questo ci permette di rilevare la luce emessa dal cristallo a 90° rispetto alla direzione di propagazione del laser di pompa così da poterlo escludere dalle misure. 
+
+La luce emessa dal cristallo attraversa quindi il chopper ottico e viene focalizzata sul rilevatore collegato all'oscilloscopio dove leggiamo l'ampiezza picco-picco di un'onda quadra.
+
+\section{Taratura attenuatore}
 
 Per prima cosa eseguiamo la taratura dell'attenuatore variabile. in modo tale da avere la curva di conversione fra angolo e potenza. 
 Sull'attenuatore è montato un goniometro così da permetterci di registrare, attraverso il power meter, la potenza del fascio laser di pompaggio una volta attraversato l'attenuatore. Abbiamo registrato le misure variando l'angolo ogni volta di 2° coprendo i 360° dell'attenuatore.
@@ -51,13 +103,15 @@ Dato che il laser a nostra disposizione è nell'infrarosso, $\lambda$=975.9(2.9) 
 \label{fig:taratura}
 \end{figure}
 
-\begin{multicols}{2}
+\section{Potenza emessa in funzione del pompaggio}
 
-\subsection{Acquisizione segnale}
+\begin{multicols}{2}
 
 Una volta effettuata la taratura abbiamo misurato la tensione relativa alla luce emessa dal cristallo in funzione della potenza incidente. 
 
-Per farlo abbiamo utilizzato un oscilloscopio leggendo, attraverso i cursori, l'ampiezza picco picco dell'onda quadra ottenuta utilizzando il chopper impostato ad una frequenza di $\sim$75 Hz.
+\subsection{Acquisizione dati}
+
+Per fare queste misure abbiamo utilizzato un oscilloscopio leggendo, attraverso i cursori, l'ampiezza picco picco dell'onda quadra ottenuta utilizzando il chopper impostato ad una frequenza di $\sim$75 Hz.
 
 Prima di registrare le misure ci siamo preoccupati di spegnere la luce ambientale in quanto si vedevano i battimenti con la 50 Hz. Abbiamo quindi utilizzato una pila per illuminare il goniometro presente sull'attenuatore; la luce proveniente dalla pila era irrilevante in quando produceva solamente un offset costante al segnale.
 
@@ -91,25 +145,6 @@ I dati relativi a questa seconda presa dati sono riportati nella Tabella \ref{ta
 
 In entrambe le figure si hanno degli andamenti non regolari soprattuto nella zona di medio-alta potenza ed è evidente come la sostituzione dell'alimentatore non abbia portato alcun miglioramento; per questo abbiamo svolto l'analisi esclusivamente sulla prima presa dati. 
 
-\subsubsection{Discussione degli errori}
-
-\subsection{Acquisizione spettro}
-
-Infine, tramite una fibra ottica, abbiamo portato la luce emessa dal cristallo all'analizzatore di spettro e acquisito lo spettro della radiazione. 
-
-Per evitare la saturazione e quindi l'impossibilità di visualizzare il picco abbiamo attenuato il laser di pompa. Le misure sono state effettuate con un'integrazione sullo spettrometro di 500 ms e sono riportate in Figura \ref{fig:spettro}.
-
-\end{multicols}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{spettro}
-\caption{Spettro di emissione del cristallo}
-\label{fig:spettro}
-\end{figure}
-
-\begin{multicols}{2}
-
 \section{Analisi dati}
 
 Facendo riferimento alla Figura \ref{fig:primo}, possiamo identificare due regimi corrispondenti a quello di basso e alto pompaggio.
@@ -121,7 +156,25 @@ Osservando invece la Figura \ref{fig:spettro} si notato molti picchi a diverse l
 
 Come discusso nella sezione di teoria in regime di bassa potenza di pompaggio ci aspettiamo, al limite $P \rightarrow 0$, un'andamento quadratico. 
 
-Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata eseguendo un fit con la funzione $y = ax^b$ aumentando di 1 mW l'intervallo di dati considerato partendo da $P_{max}$=5 mW fino a $P_{max}$=30 mW.
+Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata.
+
+In prima analisi abbiamo eseguito un fit con la funzione $y=ax^2$ variando il numero di dati considerato partendo da $P_{max}$=5 mW fino a $P_{max}$=41 mW aumentando ad ogni iterazione di 2 mW. 
+
+I risultati ottenuti sono riportati in Figura \ref{fig:potenza_alla2}:
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{potenza_alla2}
+\caption{}
+\label{fig:potenza_alla2}
+\end{figure}
+
+\begin{multicols}{2}
+
+I valori di $\chi^2$ e $p_{value}$ ottenuti ci indicano una stima della potenza fino alla quale l'andamento quadratico è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_alla2} si deduce che l'approssimazione di bassa potenza è verificata fino a $\sim$30 mW.
+
+In seconda analisi abbiamo eseguito un fit con la funzione $y=ax^b$ con le stesse modalità precedenti.
 
 I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab}:
 \end{multicols}
@@ -138,9 +191,9 @@ I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab}:
 \subsubsection{Discussione errori}
 
 \subsubsection{Analisi del cut}
-Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fit è in accordo con quello atteso finché $P_{max} < 25 mW$. 
+Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fit è in accordo con quello atteso finché $P_{max}$ è minori di $\sim$20/25 mW. 
 
-\'E possibile comprendere in modo migliore l'intervallo in cui è valido il regime di basso pompaggio se si osservano i grafici in Figura \ref{fig:andamento_cut} e in Figura \ref{fig:fluttuazioni_cut}.
+\'E possibile comprendere in modo migliore l'intervallo in cui è valido il regime di basso pompaggio se si osservano i grafici in Figura \ref{fig:andamento_cut} e in Figura \ref{fig:residui}.
 
 \end{multicols}
 
@@ -154,23 +207,86 @@ Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fi
 \end{minipage}
 \begin{minipage}[c]{0.45\textwidth}
 \centering
-\includegraphics[width=\textwidth]{fluttuazioni_cut.pdf}
+\includegraphics[width=\textwidth]{residui.pdf}
 \caption{}
-\label{fig:fluttuazioni_cut}
+\label{fig:residui}
 \end{minipage}
 \end{figure}
 
 \begin{multicols}{2}
 
-In Figura \ref{fig:andamento_cut} è mostrato l'andamento dei risultati ottenuti dal fit per b in funzione della potenza massima fino a cui è stato eseguito il rispettivo fit.
+In Figura \ref{fig:andamento_cut} è mostrato l'andamento dell'esponente b ottenuto dai fit in funzione della potenza massima fino a cui è stato eseguito il corrispondente fit. I valori di $b_{fit}$ si discostano sempre più dal valore atteso all'aumentare della potenza come previsto dal fatto che l'equazione \ref{eq:bassa} è valida per $P \rightarrow 0$.
+
+Nel grafico in Figura \ref{fig:residui} sono invece mostrati i residui normalizzati $\frac{(b_{fit}-2)}{\Delta b_{fit}}$. I valori ottenuti sono compatibili con zero, entro due sigma, fino ad una potenza di 23 mW. Oltre questo valore la legge quadratica non è più rispettata.
 
 \subsection{Alta potenza}
 
-1 fit lineare
+In regime di alta potenza di pompaggio ci aspettiamo una dipendenza lineare dell'intensità emessa dal cristallo da P.
+Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata.
+Per fare questo abbiamo eseguito un fit con la funzione $y=mx+q$ variando il numero di dati considerato partendo da $P_{min}$=40 mW aumentando ad ogni iterazione di 40 mW. 
 
-\subsection{Spettro di emissione}
+I risultati ottenuti sono riportati in Figura \ref{fig:potenza_lineare}:
+\end{multicols}
 
-plot spettro
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{potenza_lineare}
+\caption{}
+\label{fig:potenza_lineare}
+\end{figure}
+
+\begin{multicols}{2}
+
+I valori di $\chi^2$ e $p_{value}$ ottenuti ci indicano una stima della potenza fino alla quale l'andamento lineare è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_lineare} si deduce che l'inizio del regime di alta potenza può essere considerato intorno a 200 mW.
+
+\section{Spettro di emissione}
+
+\subsection{Acquisizione spettro}
+
+Tramite una fibra ottica, abbiamo portato la luce emessa dal cristallo all'analizzatore di spettro e acquisito lo spettro della radiazione. 
+
+Per evitare la saturazione e quindi l'impossibilità di visualizzare il picco abbiamo attenuato il laser di pompa. Le misure sono state effettuate con un'integrazione sullo spettrometro di 500 ms e sono riportate in Figura \ref{fig:spettro}.
+
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{spettro}
+\caption{Spettro di emissione del cristallo}
+\label{fig:spettro}
+\end{figure}
+
+\begin{multicols}{2}
+
+Abbiamo quindi misurato le lunghezze d'onda relative ai picchi visibili sullo schermo del pc. 
+
+In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalentemente nel verde alla lunghezza d?onda di 551$\pm$1 nm, che è la lunghezza d'onda corrispondente alla transizione 4S$_{3/2} \rightarrow$ 4I$_{15/2}$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{spettro_300}
+\caption{}
+\label{fig:spettro_300}
+\end{figure}
+
+\'E inoltre presente anche il picco corrispondente alla transizione causata dal laser di pompa corrispondente a $\lambda$=976 nm. Però si notano anche altri picchi; quindi per evidenziarli abbiamo acquisito lo spettro una seconda volta attenuando meno il laser di pompa e impostando il tempo di integrazione a 300 ms ottenendo quanto mostrato in Figura \ref{fig:spettro_290}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{spettro_290}
+\caption{}
+\label{fig:spettro_290}
+\end{figure}
+
+La presenza di questi picchi è probabilmente dovuta a fenomeni che abbiamo trascurato nello studiare l'up-conversion e che portano all'eccitazione di altri livelli.
+
+Abbiamo quindi cercato in letteratura trovando che alcune lunghezze d'onda evidenziate in Figura \ref{fig:spettro_290} possono essere associate a quelle relative alle transizioni dello ione Er$^{3+}$ come mostrato in Figura \ref{fig:erbio}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{erbio}
+\caption{}
+\label{fig:erbio}
+\end{figure}
 	
 \end{multicols}
 
