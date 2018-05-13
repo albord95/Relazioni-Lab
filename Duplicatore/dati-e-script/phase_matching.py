@@ -39,7 +39,7 @@ errc = sqrt(diag(covc))
 print(out.par)
 print('FIT SENZA CODE')
 print('sinc: chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
-out = fit_curve(gaussiana, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], p0=[500,50,150])
+out = fit_curve(gaussiana, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], dx=dx[cutindex1:cutindex2], p0=[500,50,150])
 parg = out.par
 covg = out.cov
 print('gauss: chisq/dof = %d/%d = %.2f\n' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
@@ -48,31 +48,31 @@ print('gauss: chisq/dof = %d/%d = %.2f\n' %tuple((out.chisq, out.chisq_dof, out.
 
 figure('phase_matching').set_tight_layout(True)
 clf()
-errorbar(primi, Vpp, yerr=dy, xerr=dx, fmt='.')
+errorbar(primi, Vpp, yerr=dy, xerr=dx, fmt='.k')
 xx = linspace(min(primi), max(primi), 2000)
-plot(xx, PM(xx, *par), label='fit con tutte le misure')
+plot(xx, PM(xx, *par), label='fit con tutte le misure', color='tab:orange')
 #$y = \\alpha \\frac{\sin^2(\\beta (\\theta - \\theta_m))}{[\\beta (\\theta - \\theta_m)]^2}$
 xxx = linspace(min(primi[cutindex1:cutindex2]), max(primi[cutindex1:cutindex2]), 2000)
-plot(xxx, PM(xxx, *parc), label='fit senza le code')
+plot(xxx, PM(xxx, *parc), label='fit senza le code', color='tab:green')
 plot(xx, PM(xx, *parc), '--', color='tab:green', label='estrapolazione')
 #plot(xxx, gaussiana(xxx, *parg))
 bbox_props = dict(boxstyle="round", fc="w", ec="0.5", alpha=0.5)
 text(313, 505, '$y = \\alpha \\frac{\sin^2(\\beta (\\theta - \\theta_m))}{[\\beta (\\theta - \\theta_m)]^2}$ \n $\\beta_{fit} = 1.377(2)\;gradi^{-1}$' %xe(parc[1]*60, errc[1]*60), fontsize='large', verticalalignment='top', horizontalalignment='right', bbox=bbox_props)
 xlabel('angolo [\']')
-ylabel('intensità seconda armonica [V]')
+ylabel('intensità seconda armonica [mV]')
 legend(fontsize='large', loc=2)
 
 figure('sinc_gaussiana').set_tight_layout(True)
 clf()
-errorbar(primi, Vpp, yerr=dy, xerr=dx, fmt='.')
+errorbar(primi, Vpp, yerr=dy, xerr=dx, fmt='.k')
 xx = linspace(min(primi), max(primi), 2000)
 xxx = linspace(min(primi[cutindex1:cutindex2]), max(primi[cutindex1:cutindex2]), 2000)
-plot(xxx, PM(xxx, *parc), color='tab:green', label='fit con $y = \\alpha \\frac{\sin^2(\\beta (\\theta - \\theta_m))}{[\\beta (\\theta - \\theta_m)]^2}$')
+plot(xxx, PM(xxx, *parc), color='tab:green', label='$y = \\alpha \\frac{\sin^2(\\beta (\\theta - \\theta_m))}{[\\beta (\\theta - \\theta_m)]^2}$:    $\\frac{\chi^2}{dof} = 2.38$')
 plot(xx, PM(xx, *parc), '--', color='tab:green')
-plot(xxx, gaussiana(xxx, *parg), color='tab:red', label='fit con una gaussiana')
+plot(xxx, gaussiana(xxx, *parg), color='tab:red', label='gaussiana:    $\\frac{\chi^2}{dof} = 1.32$')
 plot(xx, gaussiana(xx, *parg), '--', color='tab:red')
 xlabel('angolo [\']')
-ylabel('intensità seconda armonica [V]')
+ylabel('intensità seconda armonica [mV]')
 legend(fontsize='large', loc=2)
 
 quanti = 10
@@ -85,13 +85,13 @@ for k in range(quanti):
             cutindex1 = i
         if (cutlevel < Vpp[i]) & (cutlevel >= Vpp[i+1]):
             cutindex2 = i+1
-    out = fit_curve(PM, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], p0=[500,0.1,150])
+    out = fit_curve(PM, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], dx=dx[cutindex1:cutindex2], p0=[500,0.1,150])
     parc = out.par
     covc = out.cov
     #print('FIT SENZA CODE')
     print('cut level =', cutlevel)
     print('sinc: chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))
-    out = fit_curve(gaussiana, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], p0=[500,10,150])
+    out = fit_curve(gaussiana, primi[cutindex1:cutindex2], Vpp[cutindex1:cutindex2], dy=dy[cutindex1:cutindex2], dx=dx[cutindex1:cutindex2], p0=[500,10,150])
     parg = out.par
     covg = out.cov
     print('gauss: chisq/dof = %d/%d = %.2f' %tuple((out.chisq, out.chisq_dof, out.chisq/out.chisq_dof)))

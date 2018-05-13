@@ -5,7 +5,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[margin=2 cm]{geometry}
+\usepackage[margin=2.4 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{textcomp}
@@ -27,9 +27,18 @@
 \section{To do}
 	
 \section{Teoria}
+\begin{multicols}{2}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{sinc_yariv.PNG}
+		\caption{Campana attorno all'angolo di \textit{phase matching}. Immagine dal libro "Photonics" di Yariv e Yeh (pagina 367 della sesta edizione). }
+		\label{fig:sinc_yariv}
+	\end{figure}
+	
 
 \[V_{pp} = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}\]
-
+\end{multicols}
 \section{Apparato sperimentale}
 
 \section{Taratura dell'attenuatore}
@@ -38,7 +47,7 @@
 	Per prima cosa abbiamo tarato l'attenuatore regolabile. Abbiamo misurato la potenza ogni 5 gradi centesimali. I dati raccolti sono riportati in appendice (Tabella \ref{tab:taratura}) e graficati in Figura \ref{fig:taratura}.
 	
 \subsubsection*{Discussione degli errori}
-In Figura \ref{fig:taratura} abbiamo riportato errore di calibrazione, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico, in tal caso verrà usata la sigma relativa all'errore di digitalizzazione.
+In Figura \ref{fig:taratura} abbiamo riportato l'errore di calibrazione, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico. Abbiamo provato a stimare l'errore statistico guardando le fluttuazioni della derivata del grafico della taratura: risultano essere dell'1-2\%, sono quindi confrontabili con l'errore di calibrazione del \textit{power meter} (3\%).
 
 \end{multicols}
 
@@ -49,11 +58,14 @@ In Figura \ref{fig:taratura} abbiamo riportato errore di calibrazione, che è un 
 	\label{fig:taratura}
 \end{figure}
 
+\newpage
 \section{Segnale duplicato in funzione della potenza incidente}
+\label{sec:quadro}
 
-\begin{multicols}{2}
+\begin{multicols}{2}	
 	
 \subsection{Presa dati}
+\label{sec:ellisse}
 
 Il professore ci ha rivelato che un buon segnale all'oscilloscopio è di $\sim600$ $V_{pp}$ quindi abbiamo speso le prime ore disponibili ad allineare al meglio l'apparato nella ricerca di un buon segnale, trovando al massimo $\sim400$ $V_{pp}$. Infine il professore stesso ha provato ad allineare arrivando ad un segnale di $\sim500$ $V_{pp}$. Non capiamo perché sia stato impossibile fare di meglio.
 
@@ -64,13 +76,14 @@ Riportiamo i dati raccolti in appendice (Tabella \ref{tab:potenza}).
 
 \subsection{Analisi dati}
 
-	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo eseguito un fit con la funzione $y = ax^2$ e guardato il $\chi^2$. Ovviamente il $\chi^2$ dipende dagli errori scelti per y: l'errore di misura indicato in Tabella \ref{tab:potenza} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit bisogna moltiplicarlo per $0.68 \cdot 0.5$, a questo è stato sommato in quadratura l'errore statistico della taratura dell'attenuatore (ottenuto sempre moltiplicando $0.68 \cdot 0.5$ per la sensibilità del \textit{power meter}).
+	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo fatto un fit con la funzione $y = ax^2$ ed eseguito il test del $\chi^2$. Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:potenza} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$, per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
 	Questa scelta dà
 	\begin{align*}
-	\frac{\chi^2}{dof} &= 1.27 \\
-	\textrm{p-value} &= 8.2\%
+	\frac{\chi^2}{dof} &= 0.12 \\
+	\textrm{p-value} &= 100\%
 	\end{align*}
 	che conferma l'ipotesi di legge quadratica.
+	Osserviamo che il $\chi^2$ è molto piccolo, ciò è probabilmente dovuto ad una sovrastima degli errori sulle $x$. Abbiamo provato a variare l'errore sulle $x$  tra 1 e 3\%, ottenendo sempre $\chi^2$ accettabili ($\textrm{p-value} \geq 5\%$)
 \end{multicols}
 \begin{figure}[H]
 	\centering
@@ -80,14 +93,17 @@ Riportiamo i dati raccolti in appendice (Tabella \ref{tab:potenza}).
 \end{figure}
 \begin{multicols}{2}
 	In seconda analisi abbiamo eseguito un fit con la funzione $y = ax^b$ (vedi Figura \ref{fig:potenza_allab}). La potenza fittata è
-	\[b = 1.979(4)\]	
+	\[b = 1.986(11)\]	
+	che è compatibile con 2.
 	
-	Dal punto di vista statistico $b$ risulta incompatibile con 2 perchè l'errore dato dal fit è molto piccolo, inoltre il parametro di fit $a$ risulta incompatibile con quello risultante dal fit precedente. Tuttavia probabilmente non siamo di fronte ad una inconsistenza di risultati ma ad una sottostima degli errori. Trattare l'errore più accuratamente richiederebbe un analisi non banale dato che non è corretto nemmeno utilizzare l'errore di calibrazione del \textit{power meter} in quanto è errore sistematico costante.
-	Pertanto ci accontentiamo del risultato trovato, che è buono all'1\%.
+	Il parametro $a$ risulta compatibile con quello ottenuto dal fit precedente.
+	
+%	Dal punto di vista statistico $b$ risulta incompatibile con 2 perchè l'errore dato dal fit è molto piccolo, inoltre il parametro di fit $a$ risulta incompatibile con quello risultante dal fit precedente. Tuttavia probabilmente non siamo di fronte ad una inconsistenza di risultati ma ad una sottostima degli errori. Trattare l'errore più accuratamente richiederebbe un analisi non banale dato che non è corretto nemmeno utilizzare l'errore di calibrazione del \textit{power meter} in quanto è errore sistematico costante.
+%	Pertanto ci accontentiamo del risultato trovato, che è buono all'1\%.
 	
 \subsection{Conclusioni}
 
-Le misure di intensità della seconda armonica generata in funzione della potenza di pompa sono in accordo con la legge di potenza quadratica $I_{2\omega} \propto I_{pompa}^2$. Tale risultato è stato confermato da un test del $\chi^2$ e da un fit con legge $y = ax^b$ con risultato $b = 1.98$, che 2 all'1\%.
+Le misure di intensità della seconda armonica generata in funzione della potenza di pompa sono in accordo con la legge di potenza quadratica $I_{2\omega} \propto I_{pompa}^2$. Tale risultato è stato confermato da un test del $\chi^2$ e da un fit con legge $y = ax^b$ con risultato $b = 1.986(11)$, che è compatibile con 2.
 \end{multicols}
 
 \begin{figure}[H]
@@ -97,7 +113,9 @@ Le misure di intensità della seconda armonica generata in funzione della potenza
 	\label{fig:potenza_allab}
 \end{figure}
 
+\newpage
 \section{Angolo di\textit{ phase-matching}}
+\label{sec:campana}
 
 \begin{multicols}{2}
 	
@@ -107,11 +125,11 @@ Il goniometro di precisione che abbiamo a disposizione si può girare normalmente
 Riportiamo i dati raccolti in appendice (Tabella \ref{tab:PM}).
 
 \subsection{Analisi dati}
-Abbiamo eseguito un \textit{best fit} dei dati con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.
-
-1 fit a tutti a dati, 1 fit con un cut sulle code e 2 fit con gaussiana e parabola
-
+Abbiamo eseguito un fit a tutti dati raccolti con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ (vedi Figura \ref{fig:sinc}, curva arancione) riscontrando una notevole discrepanza tra dati e fit. Il motivo sta nel fatto che il fit è pesantemente influenzato dalle code della campana. Infatti la curva teorica prevede che le code si annullino per certi valori di $\theta$ (vedi Figura \ref{fig:sinc_yariv}) ma questo non accade per i nostri dati.
+Dunque abbiamo scelto di eseguire un fit senza le code della campana (vedi Figura \ref{fig:sinc}, curva verde) riscontrando un accordo visibilmente migliore.
 \end{multicols}
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{phase_matching.pdf}
@@ -119,39 +137,117 @@ Abbiamo eseguito un \textit{best fit} dei dati con la funzione $y = \alpha\frac{
 	\label{fig:sinc}
 \end{figure}
 
+\begin{multicols}{2}
+
+Per verificare che i dati siano ben riprodotti dalla curva $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ abbiamo eseguito un test del $\chi^2$ ottenendo
+\[\dfrac{\chi^2}{dof} = 2.38\]
+Il valore del $\chi^2$ è molto sensibile sia alla stima degli errori che alla scelta del taglio sulle code. Il valore riportato è stato ottenuto prendendo, al solito, 
+$\sigma_y = 0.68 \cdot 0.5$ per l'errore di digitalizzazione e tagliando le code sotto 100 mV.
+
+Il test del $\chi^2$ non ha smentito l'ipotesi di una legge del tipo $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$, tuttavia per ottenere un accordo ragionevole con la teoria è stato necessario tagliare le code della campana. Purtroppo sono proprio le code di una distribuzione a campana che discriminano facilmente tra una legge e l'altra, quindi ci è venuto il sospetto che altre campane possano riprodurre bene i dati. In effetti è così: abbiamo fatto un fit dei dati (senza le code) con una campana gaussiana ottenendo un $\chi^2$ ancora migliore: $$\dfrac{\chi^2_{gaussiana}}{dof} = 1.32$$
+Infatti, come si nota in Figura \ref{fig:gaussiana}, la gaussiana sembra riprodurre i dati ancora meglio della funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$. Ancor più nettamente se si considerano le code.\footnote{Ovviamente il fit gaussiano è stato eseguito nelle stesse condizioni del fit con $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$: errore $\sigma_y$ e taglio sotto 100 mV, quindi il fatto che l'estrapolazione della gaussiana riproduca bene i dati anche sulle code è abbastanza sorprendente.}
+
+Per verificare che questo comportamento non sia influenzato della scelta del livello di taglio delle code la stessa analisi è stata ripetuta variandone il valore tra 0 e 500 mV. Per qualunque livello di taglio superiore a 100 mV l'accordo tra dati a curve teoriche è accettabile (e via via migliore al crescere del livello) e la gaussiana mostra sempre un accordo (di poco) migliore rispetto alla curva $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.
+\end{multicols}
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{sinc_gaussiana.pdf}
-	\caption{Confronto tra i fit con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ e con una gaussiana.}
+	\caption{Confronto tra i fit con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ e con una gaussiana. I fit sono stati eseguiti tagliando i dati con $y \leq$ 100 mV.}
 	\label{fig:gaussiana}
 \end{figure}
 
+\begin{multicols}{2}
+\subsection{Conclusioni}
+
+I dati sono in accordo con la legge $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ se si trascurano le code della campana, che non vanno a 0 come previsto dalla teoria.
+
+Tuttavia se non si considerano le code non è possibile discriminare tra la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ e una gaussiana, perchè entrambe superano il test statistico del $\chi^2$ e a vista riproducono bene i dati. Anzi, l'accordo con la gaussiana sembra addirittura migliore.
+\end{multicols}
 
 
 
 
+
+
+
+
+
+\newpage
 \section{Polarizzazione}
 \label{sec:pol}
 
-\subsection{Presa dati}
 
-\subsubsection{Polarizzazione in ingresso}
 
-1 tabella
+\begin{multicols}{2}
 
-\subsubsection{Polarizzazione in uscita}
 
-1 tabella
+\subsection{Un polarizzatore}
+\label{sec:1pol}
+Lo scopo di questa misura è verificare che è solo una polarizzazione della luce di pompa a generare la seconda armonica.
+Abbiamo inserito un filtro polarizzatore\footnote{Il polarizzatore, tra i due a disposizione, dotato di un filtro attenuatore che previene il deterioramento dovuto alla potenza elevata del laser di pompa.} tra pompa e cristallo di $\text{LiIO}_3$.
+Abbiamo quindi studiato l'intensità della seconda armonica generata in funzione dell'angolo $\varphi$ a cui è ruotato il filtro polarizzatore. Ci aspettiamo che valga la legge di Malus per la potenza incidente e quindi che la potenza in uscita sia proporzionale a $cos^4(\varphi)$.
 
-\subsection{Analisi dati}
+\subsubsection{Presa dati}
+Come emerge dall'analisi della sezione \ref{sec:campana} sono le code di una distribuzione a campana a discriminare tra un andamento o un altro. Quindi al fine di verificare esplicitamente che la legge corretta sia un $cos^4(\varphi)$ non ci accontentiamo di prendere solamente i punti attorno al massimo di intensità ma cerchiamo di variare l'angolo $\varphi$ in modo da coprire più possibile di tutto l'angolo giro.
 
-\subsubsection{Polarizzazione in ingresso}
+Riportiamo i dati in appendice (Tabella \ref{tab:1pol}).
 
-1 fit
+\subsubsection{Analisi dati}
+La legge di proporzionalità a $cos^4(\varphi)$ vale solo se la luce di pompa non è polarizzata. Tuttavia, come osservato nella sezione \ref{sec:ellisse}, la nostra sorgente è parzialmente polarizzata. \'E molto importante tenere conto di questo effetto perchè ignorarlo comporta
+\begin{enumerate}
+	\item una distorsione dall'andamento $ \propto cos^4(\varphi)$,
+	\item uno spostamento del punto a cui si ha il massimo dell'intensità della seconda armonica generata (la correzione di questo effetto sarà fondamentale per la sezione \ref{sec:2pol}).
+\end{enumerate}
+Quindi abbiamo tenuto conto di questa anomalia inserendo il \textit{power meter} tra filtro polarizzatore e cristallo e misurando l'intensità $I(\varphi)$ della pompa in funzione dell'angolo. Dunque per ogni angolo $\varphi$ abbiamo riscalato la misura (e l'errore) dell'intensità della seconda armonica misurata di un fattore \[\left(\dfrac{I_{max}}{I(\varphi)}\right)^2\]
+(il quadrato è necessario perchè, come mostrato nella sezione \ref{sec:quadro}, $I_{pompa} \propto I_{seconda-armonica}^2$).\\
 
-\subsubsection{Polarizzazione in uscita}
+Infine, abbiamo fatto un fit dell'intensità della seconda armonica generata con la legge $y = a \cdot \cos^4(x - b)$ ottenendo \[\dfrac{\chi^2}{dof} = 1.80 \qquad b_{fit} = -2.2 \pm 0.4 \text{°}\]
 
-1 fit
+
+\subsubsection{Conclusioni}
+\'E stato necessario tenere conto della parziale polarizzazione della pompa e riscalare opportunamente le misure. Come si vede da Figura \ref{fig:1polarizzatore} i dati sono in accordo abbastanza buono con la teoria, ciò è stato confermato da un fit con la legge $y = a \cdot \cos^4(x - b)$. Abbiamo ottenuto \[\dfrac{\chi^2}{dof} = 1.80 \qquad b_{fit} = -2.2 \pm 0.4 \text{°}\]
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{1polarizzatore.pdf}
+\caption{Fit dell'intensita della seconda armonica in funzione dell'angolo della polarizzazione incidente.}
+\label{fig:1polarizzatore}
+\end{figure}
+
+\begin{multicols}{2}
+
+\subsection{Due polarizzatori}
+\label{sec:2pol}
+
+Lo scopo di questa misura è verificare che la polarizzazione della seconda armonica è ortogonale alla polarizzazione della pompa.
+
+\subsubsection{Presa dati}
+
+Lasciamo il primo polarizzatore tra pompa e cristallo all'angolo in cui si ha il massimo di intensità della seconda armonica generata e inseriamo un secondo filtro polarizzatore tra cristallo e rilevatore.
+Prendiamo i dati allo stesso modo della sezione \ref{sec:1pol}, di nuovo con l'accortezza di coprire più possibile di tutto l'angolo giro.
+
+\subsubsection{Analisi dati}
+
+Facciamo un fit con la legge di Malus: $y = a \cdot \cos^2(x-b)$ (vedi Figura \ref{fig:2polarizzatori}, curva arancione). Osserviamo una discrepanza tra fit e dati dovuta al fatto che la potenza misurata resta sempre strettamente sopra 0. \'E possibile che sia presente qualche piccolo offset dovuto ad un filtraggio non perfetto della luce della pompa . Oppure è possibile che la polarizzazione della seconda armonica non sia perfettamente definita ma abbia un piccolo allargamento.\footnote{L'origine di questo "allargamento" potrebbe venire da vari motivi: diffrazione, piccoli difetti nelle interfacce del campione cristallino, difetti cristallini all'interno del $\text{LiIO}_3$, dal fatto che il cristallo è finito...}
+Quindi ha senso provare ad aggiungere un piccolo offset alla legge di Malus per tenere conto di questi effetti (vedi figura \ref{fig:2polarizzatori}, curva verde).
+\paragraph{Discussione degli errori\\}
+Questa volta non è stato utilizzata la consueta $\sigma_y = 0.68 \cdot 0.5$ per l'errore di digitalizzazione (tipicamente $0.68 \cdot 0.5\cdot 1$ mV, vedi Tabella \ref{tab:2pol}) perchè talmente piccola da risultare trascurabile in confronto alle fluttuazioni del segnale dell'oscilloscopio. Abbiamo misurato tali fluttuazioni rilevando un valore di $3$ mV picco-picco, quindi per il fit abbiamo usato $\sigma_y = 1.5$ mV.
+
+\subsubsection{Conclusioni}
+I dati sono in accordo con la legge di Malus, come si vede in Figura \ref{fig:2polarizzatori} (vedi anche $\frac{\chi^2}{dof}$ nella legenda).
+La differenza tra gli angoli a cui si ha il massimo di intensità (confronta $b_{fit}$ in Figura \ref{fig:1polarizzatore} e Figura \ref{fig:2polarizzatori}) è pari a \[92 \text{°}\] che è perfettamente compatibile con 90° considerando l'errore ($\sim$ 1° - 5°) nella calibrazione dell'orientamento dei polarizzatori. Ciò dimostra che la polarizzazione della seconda armonica generata è ortogonale alla polarizzazione della pompa.
+
+
+\end{multicols}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{2polarizzatori.pdf}
+	\caption{Fit con la legge di Malus. Gli errori indicati sono una stima della}
+	\label{fig:2polarizzatori}
+\end{figure}
 
 \newpage
 \section*{Appendice}
@@ -237,6 +333,103 @@ Abbiamo eseguito un \textit{best fit} dei dati con la funzione $y = \alpha\frac{
 	\end{tabular}
 	\caption{Angolo di \textit{phase matching}. L'errore sull'angolo è inferiore a 0.5', quindi è trascurabile. $\theta_m$ dipende dall'orientazione del cristallo rispetto all'asse ottico e dal montaggio del goniometro quindi varia in modo non ripetibile tra le misure dei diversi gruppi di laboratorio. Pertanto non riteniamo rilevante misurare il nostro preciso $\theta_m$ e partiamo a contare l'angolo $\theta$ da un arbitrario 0.}
 	\label{tab:PM}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|cc|cc|cc|cc|cc|}
+		\hline
+		$\phi$ [grad] & P [mW] & $\phi$ [grad] & P [mW] & $\phi$ [grad] & P [mW] & $\phi$ [grad] & P [mW] & $\phi$ [grad] & P [mW] \\
+		\hline
+		260 & 1086 & 345 & 625 & 30 & 238 & 115 & 116 & 200 & 63.1 \\
+		265 & 1087 & 350 & 589 & 35 & 229 & 120 & 113 & 205 & 61.5 \\
+		270 & 1083 & 355 & 557 & 40 & 219 & 125 & 107 & 210 & 59.5 \\
+		275 & 1081 & 360 & 519 & 45 & 212 & 130 & 105 & 215 & 56.9 \\
+		280 & 1080 & 365 & 490 & 50 & 203 & 135 & 99.4 & 220 & 55.1 \\
+		285 & 1080 & 370 & 463 & 55 & 191 & 140 & 96.7 & 225 & 53.3 \\
+		290 & 1080 & 375 & 439 & 60 & 184 & 145 & 94.0 & 230 & 51.5 \\
+		295 & 1081 & 380 & 407 & 65 & 177 & 150 & 91.1 & 235 & 50.5 \\
+		300 & 1085 & 385 & 383 & 70 & 169 & 155 & 87.7 & 240 & 237.4 \\
+		305 & 1087 & 390 & 367 & 75 & 161 & 160 & 83.7 & 245 & 1075 \\
+		310 & 1067 & 395 & 348 & 80 & 157 & 165 & 80.2 & 250 & 1080 \\
+		315 & 1004 & 0 & 326 & 85 & 149 & 170 & 77.8 & 255 & 1080 \\
+		320 & 923 & 5 & 314 & 90 & 143 & 175 & 74.9 & 260 & 1082 \\
+		325 & 847 & 10 & 300 & 95 & 138 & 180 & 72.4 &  &  \\
+		330 & 787 & 15 & 283 & 100 & 133 & 185 & 70.3 &  &  \\
+		335 & 720 & 20 & 266 & 105 & 127 & 190 & 67.1 &  &  \\
+		340 & 668 & 25 & 256 & 110 & 121 & 195 & 64.6 &  &  \\
+		\hline
+	\end{tabular}
+	\caption{Taratura dell'attenuatore regolabile. Gli errori di calibrazione sulle potenze sono del 3\%. L'errore sull'angolo è inferiore a 0.5 gradi centesimali, quindi è trascurabile.}
+	\label{tab:taratura}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|ccc|ccc|ccc|}
+		\hline
+$\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV]& $\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV] &$\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV] \\
+		\hline
+140&18&1&45&4&1&-50&9&1\\
+135&12.5&1&40&6&1&-55&5.5&1\\
+130&7.5&1&35&7.5&1&-60&2.5&1\\
+125&4&1&30&10&1&-65&1.5&1\\
+120&2&1&25&14&1&-70&0.5&1\\
+115&1&1&20&21.5&1&-75&0.5&1\\
+110&0&1&15&28&1&-80&0&1\\
+105&0&1&10&36&1&-85&0&1\\
+100&0&1&5&44&2&-90&0&1\\
+95&0.5&1&0&52&2&-95&0.5&1\\
+90&0.5&1&-5&58&2&-100&0.5&1\\
+85&0.5&1&-10&60&2&-105&1&1\\
+80&1&1&-15&58&2&-110&1&1\\
+75&1.5&1&-20&52&2&-115&1.5&1\\
+70&1.5&1&-25&46&2&-120&1.5&1\\
+65&2&1&-30&38&1&-125&2&1\\
+60&2&1&-35&30&1&-130&2.5&1\\
+55&2&1&-40&22.5&1&-135&3.5&1\\
+50&3&1&-45&15&1&-140&5&1\\
+
+		\hline
+	\end{tabular}
+	\caption{Un solo polarizzatore tra pompa e cristallo. Intensità della seconda armonica in funzione dell'angolo del polarizzatore. $\varphi$ è espressa in gradi, $V_{pp}$ e $\Delta V$ in mV.}
+	\label{tab:1pol}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|ccc|ccc|ccc|}
+		\hline
+		$\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV]& $\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV] &$\varphi$ [°] & $V_{pp}$ [mV] & $\Delta V$ [mV] \\
+		\hline
+160&5&1&50&28&1&-60&32&1\\
+155&7&1&45&25&1&-65&35&1\\
+150&9.5&1&40&21.5&1&-70&37&1\\
+145&12&1&35&18&1&-75&39&1\\
+140&15&1&30&15&1&-80&41&2\\
+135&18&1&25&12&1&-85&42&2\\
+130&21&1&20&9.5&1&-90&43&2\\
+125&24&1&15&7&1&-95&43&2\\
+120&27.5&1&10&5&1&-100&42&2\\
+115&30&1&5&4&1&-105&42&2\\
+110&33.5&1&0&3.5&1&-110&40&2\\
+105&36.5&1&-5&3.5&1&-115&38&1\\
+100&40&1&-10&4&1&-120&35.5&1\\
+95&41&2&-15&5&1&-125&32.5&1\\
+90&42&2&-20&7&1&-130&29.5&1\\
+85&42&2&-25&9&1&-135&26&1\\
+80&42&2&-30&12&1&-140&23&1\\
+75&40&2&-35&15&1&-145&19&1\\
+70&38.5&1&-40&18&1&-150&15.5&1\\
+65&37&1&-45&22&1&-155&12.5&1\\
+60&34&1&-50&25&1&-160&10&1\\
+55&31&1&-55&28.5&1&&&\\
+
+
+		\hline
+	\end{tabular}
+	\caption{Due polarizzatori: uno tra pompa e cristallo e uno tra cristallo e rilevatore. Intensità della seconda armonica in funzione dell'angolo del secondo polarizzatore.}
+	\label{tab:2pol}
 \end{table}
 
 
