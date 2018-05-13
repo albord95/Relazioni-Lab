@@ -9,6 +9,7 @@ files = ['borcapLDVangPER.txt',
 py.figure(1).set_tight_layout(True)
 py.clf()
 ang_p = ['$θ_{\perp}$', '$θ_{//}$']
+FWHM = py.ones(2)
 
 for i in range(len(files)):
     filename= files[i]
@@ -54,13 +55,13 @@ for i in range(len(files)):
     out = fit_curve(parabola, I[indici_dopo], ang[indici_dopo], p0=[1,1,1], absolute_sigma=False)
     par2 = out.par
     ang_dopo = parabola(HM, *par2)
-    FWHM = ang_dopo - ang_prima
+    FWHM[i] = ang_dopo - ang_prima
     
     py.ylabel('segnale [$\mu$A]', fontsize='large')
     py.xlabel('θ [deg]', fontsize='large')
     py.plot(parabola(py.sort(I[indici_prima]), *par1), py.sort(I[indici_prima]), '-c', linewidth=2)
     py.plot(parabola(py.sort(I[indici_dopo]), *par2), py.sort(I[indici_dopo]), '-c', linewidth=2)
     
-    py.plot([ang_prima, ang_dopo], [HM, HM], '-', linewidth=2, color='tab:red', label='{} = {}°'.format(ang_p[i], round(FWHM,1)))
+    py.plot([ang_prima, ang_dopo], [HM, HM], '-', linewidth=2, color='tab:red', label='{} = {}°$\pm$0.5°'.format(ang_p[i], round(FWHM[i],1)))
     py.legend(fontsize='large')
     

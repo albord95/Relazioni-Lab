@@ -13,6 +13,8 @@ py.clf()
 ##[I]=mA e [P]=muA
 
 T = [12, 25, 43]
+c_fit = ['r','g','b']
+c_dati = ['y','c','m']
 
 for i in range(len(files)):
     filename= files[i]
@@ -20,12 +22,12 @@ for i in range(len(files)):
     dI = py.ones(len(I))*0.1
     dP = py.ones(len(P))
     for k in range(len(P)):
-        dP[k] = (5*P[k])/100
+        dP[k] = P[k]*0.05
     
     
     ##faccio il grafico P-I
     py.figure(1)
-    py.errorbar(I, P, dP, dI, '.', markersize='3')
+    py.errorbar(I, P, dP, dI, '.', color = c_dati[i], markersize='3')
     
     ##estraggo i dati da fittare
     j=0
@@ -56,7 +58,7 @@ for i in range(len(files)):
     dm.append(dm_fit)
     dq.append(dq_fit)
     x = py.linspace(I[j]-2, I[0]+1, 100)
-    py.plot(x, retta(x, *par), linewidth=1, label='{} = {} mA, T = {} °C'.format('$I_{th}$', xe(I_th, dI), T[i]))
+    py.plot(x, retta(x, *par), linewidth=1, color = c_fit[i], label='{} = {} mA, T = {} °C'.format('$I_{th}$', xe(I_th, dI), T[i]))
     py.legend(fontsize='large')
     py.ylabel('P [$\mu$W]')
     py.xlabel('I [mA]')
