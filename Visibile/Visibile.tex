@@ -27,19 +27,22 @@
 	\begin{multicols}{2}
 	
 \section{Teoria}
+L'$\emph{up-conversion}$ è un meccanismo di $\emph{energy-transfer}$, cioè un cambio di stato senza emissione o assorbimento di fotoni.
 
-Se si droga un cristallo con delle terre rare si può avere il fenomeno dell'up-conversion. Questo è un meccanismo di $\emph{energy-transfer}$, cioè un cambio di stato senza emissione o assorbimento di fotoni, causato dalle interazioni di tipo $\emph{Van der Waals}$ (dipolo-dipolo, dipolo - quadrupolo, ecc..) fra gli ioni di terre rare presenti nel cristallo. Questo effetto è quindi molto sensibile alla percentuale del drogaggio dato che le interazioni avvengono fra ioni vicini. 
+\'E possibile spiegare questo fenomeno considerando un cristallo drogato con degli ioni di una terra rara e studiandone la struttura dei livelli energetici. In quest'esperienza utilizziamo un cristallo di LiY F$_4$ drogato al 30\% con ioni di Er$^{3+}$ i cui livelli sono mostrati in Figura \ref{fig:livelli}.
 
-In quest'esperienza utilizziamo un cristallo di LiY F$_4$ drogato al 30\% con ioni di Er$^{3+}$.
+FIGURA LIVELLI ENERGETICI
 
-Facendo riferimento alla Figura \ref{fig:teoria} eccitando la transizione dell'Er$^{3+}$ da |0$\rangle$ a |1$\rangle$ con un laser di pompa si ha, per $\emph{up-conversion}$, un decadimento al fondamentale |0$\rangle$ e la conseguente eccitazione del livello |3$\rangle$ per la conservazione dell'energia.  Quest'ultimo livello eccitato decade rapidamente nel livello |2$\rangle$ in modo non radiativo. A questo punto si ha il decadimento per emissione spontanea dominante è |2$\rangle \longrightarrow$ |0$\rangle$ (corrispondente a $\lambda$=551 nm).
+I meccanismi $\emph{energy-transfer}$, come quello in esame, sono causati dalle interazioni di tipo $\emph{Van der Waals}$ (dipolo-dipolo, dipolo - quadrupolo, ecc..) fra gli ioni della terra rara. Questo effetto è quindi molto sensibile alla percentuale del drogaggio dato che le interazioni avvengono fra ioni vicini. 
+
+Facendo riferimento alla Figura \ref{fig:livelli} eccitando la transizione dell'Er$^{3+}$ da |0$\rangle$ a |1$\rangle$ con un laser di pompa si ha, per $\emph{up-conversion}$, un decadimento al fondamentale |0$\rangle$ e la conseguente eccitazione del livello |3$\rangle$ per la conservazione dell'energia.  Quest'ultimo livello eccitato decade rapidamente nel livello |2$\rangle$ in modo non radiativo. A questo punto si ha che il decadimento per emissione spontanea dominante è |2$\rangle \longrightarrow$ |0$\rangle$ che corrispondente a $\lambda$=551 nm. In questo modo si riesce a convertire luce infrarossa in in luce visibile.
 
 Scrivendo le equazioni di rate per i livelli |1$\rangle$ e |2$\rangle$, in condizioni stazionarie, si ha:
 \begin{equation}
 \begin{cases} 0=\frac{dN_2}{dt}=\alpha N_1^2-\beta\frac{N_2}{\tau_2}-(1-\beta)\frac{N_2}{\tau_2} \\ \\ 0=\frac{dN_1}{dt}=P-\frac{N_1}{\tau_1}+\beta\frac{N_2}{\tau_2}-2\alpha N_1^2 \end{cases}
 \end{equation}
 
-dove $N_{1,2}$ e $\tau_{1,2}$ sono le popolazioni e le vite medie dei livelli |1$\rangle$ e |2$\rangle$, P è il pompaggio, $\beta$ è il branching ratio del decadimento |2$\rangle \longrightarrow$ |1$\rangle$ e  $\alpha$ è il coefficiente di up-conversion.
+dove $N_{i}$ e $\tau_{i}$ sono la popolazione e la vita media del livello |i$\rangle$, P è il pompaggio, $\beta$ è il branching ratio del decadimento |2$\rangle \longrightarrow$ |1$\rangle$ e  $\alpha$ è il coefficiente di up-conversion.
 
 Consideriamo ora due regimi in cui risolvere queste equazioni, cioè di basso e alto pompaggio.
 
@@ -48,7 +51,7 @@ Nel primo caso si ha che il livello |1$\rangle$ è poco popolato, cioè $\alpha N^
 N_2 = \alpha\tau_2\tau_1^2P^2
 \end{equation}
 
-Nel caso di alto pompaggio invece si ha che il livello |1$\rangle$ è molto popolato e il fenomeno dell'up-conversion è dominante sull'emissione spontanea, cioè $\alpha N^2 >> \frac{N_1}{\tau_1}$ e si ricava:
+Nel caso di alto pompaggio, invece si ha che il livello |1$\rangle$ è molto popolato e il fenomeno dell'up-conversion è dominante sull'emissione spontanea, cioè $\alpha N^2 >> \frac{N_1}{\tau_1}$ e si ricava:
 \begin{equation}
 N_2 = \frac{\tau_2}{\beta+2}P
 \end{equation}
