@@ -26,10 +26,16 @@
 
 \begin{multicols}{2}
 
-\section{Teoria}
-Il laser a diodo considerato può essere schematizzato come in Figura \ref{fig:giunzione}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{giunzione}
+\caption{Schema costruttivo giunzione GaAs}
+\label{fig:giunzione}
+\end{figure}
 
-IMMAGINE GIUNZIONE
+\section{Teoria}
+
+Il laser a diodo considerato può essere schematizzato come in Figura \ref{fig:giunzione}.
 
 \'E una giunzione p-n di GaAs al cui interno è presente un canale puro. Il drogaggio comporta uno shift delle bande con conseguente equalizzazione del livello di Fermi; applicando quindi una differenza di potenziale si ha l'inversione di popolazione che permette quindi l'emissione laser.
 
@@ -39,16 +45,20 @@ La presenza del canale di GaAs puro porta alcuni vantaggi:
 \item Ha un indice di rifrazione maggiore delle componenti drogate quindi si comporta con una guida d'onda e viene dissipata meno energia
 \end{enumerate}
 
-IMMAGINE DIVERGENZA FASCIO
-
 La geometria del sistema porta ad un allargamento non isotropo del fascio come mostrato in Figura \ref{fig:divergenza}; infatti il canale intrinseco è rettangolare con un lato più piccolo della lunghezza d'onda di emissione ($\lambda\sim$780 nm) comportando un allargamento per diffrazione.
 
 Il funzionamento di questo dispositivo è sensibile alla temperatura di operazione in quanto aumentando T si aumentano la interazioni coi fononi e la probabilità di ricombinazione termica; ci aspettiamo quindi un aumento di $I_{th}$ e di $\lambda$.
 
-\section{Apparato sperimentale}
-FOTO APPARATO
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{divergenza}
+\caption{Schema divergenza del fascio}
+\label{fig:divergenza}
+\end{figure}
 
-Come si vede in Figura \ref{fig:apparato} per poter effettuare le varie misure abbiamo a disposizione:
+\section{Apparato sperimentale}
+
+Per poter effettuare le varie misure abbiamo a disposizione:
 \begin{itemize}
 \item Un laser a diodo modello \texttt{HL7812G} prodotto dalla \texttt{Hitachi}.
 \item Un circuito di controllo in corrente del laser.
@@ -128,8 +138,6 @@ Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} m
 \subsection{Fotodiodi}
 Entrambi i fotodiodi a nostra disposizione sono al silicio in quanto la sua responsività in funzione della lunghezza d'onda incidente ha un massimo intorno ad 800 nm.
 
-FOTO FOTODIODI
-
 I due fotodiodi hanno però una superficie attiva diversa, infatti il \texttt{PD300} della \texttt{Ophir} ha una superficie di 1 cm$^2$ mentre l'altro di 1 mm$^2$; per questo il primo lo utilizziamo per misurare la caratteristica P-I, mentre il secondo per valutare l'allargamento angolare.
 
 \section{Caratteristica P-I}
@@ -138,9 +146,14 @@ Analizziamo la dipendenza della corrente di soglia del diodo laser dalla tempera
 \subsection{Presa dati}
 Abbiamo misurato la potenza emessa dal diodo laser in funzione della corrente di alimentazione mantenendo la temperatura del diodo costante attraverso l'utilizzo della cella peltier.
 
-Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232.
+Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232 come mostrato in Figura \ref{fig:I_soglia_schema}.
 
-FOTO APPARATO
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{I_soglia_schema}
+\caption{}
+\label{fig:I_soglia_schema}
+\end{figure}
 
 Abbiamo effettuato questa misura per tre valori diversi della temperatura del laser a diodo; tutte le misure effettuate sono riportate nelle Tabelle \ref{tab:T12}, \ref{tab:T25}, \ref{tab:T43} in appendice. 
 
@@ -188,7 +201,12 @@ Per queste misure utilizziamo il fotodiodo, con una superficie attiva di 1 mm$^2
 
 Le misure di allargamento angolare sono comunemente eseguite ad una distanza di 10 cm dal diodo laser, quindi per poter effettuare un confronto con quanto riportato sul datasheet ci siamo adeguati a questo standard.
 
-FOTO APPARATO
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{divergenza_schema}
+\caption{}
+\label{fig:divergenza_schema}
+\end{figure}
 
 Abbiamo fissato il laser su di un sostegno alla cui base è presente un goniometro con una risoluzione del mezzo grado e l'abbiamo posizionato in modo tale che l'allargamento angolare misurato fosse quello relativo ad uno degli assi dell'ellisse di emissione. Per fare ciò abbiamo sfruttato il polarizzatore e il power meter; infatti la luce emessa dal diodo laser è polarizzata, per circa il 90$\%$, lungo il semiasse minore dell'ellisse di emissione quindi ruotando il polarizzatore e cercando il massimo della potenza lo si riesce a trovare. Questo procedimento non ci ha soddisfatto, quindi abbiamo utilizzato il rivelatore IR osservando la forma del fascio e poi abbiamo controllato col polarizzatore di essere entro la sua precisione.
 
@@ -198,19 +216,18 @@ Le misure sono state fatte a 23°C e con una corrente di controllo di 82.1 mA. I 
 
 Per stimate i valori di $\theta_{\perp}$ e $\theta_{//}$ con una migliore precisione è stata fatta un'interpolazione dei punti intorno alla metà altezza. Questa è stata calcolata come la media dei valori di massimo e minimo: il vantaggio è che supponendo simmetriche le fluttuazioni intorno al vero massimo e al vero minimo queste si cancellano, lo svantaggio è che la misura è molto sensibile al valore del picco.
 
+I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con quanto riportato nel datasheet e in Tabella \ref{tab:datasheet}.
+
 \end{multicols}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{apertura_angolare}
+\includegraphics[width=0.75\textwidth]{apertura_angolare}
 \caption{}
 \label{fig:ang}
 \end{figure}
 
 \begin{multicols}{2}
-
-I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con quanto riportato nel datasheet e in Tabella \ref{tab:datasheet}.
-
 
 \section{Dipendenza $\lambda$ da T}
 
