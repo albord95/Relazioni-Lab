@@ -1,5 +1,5 @@
-\select@language {italian}
-\select@language {italian}
+\babel@toc {italian}{}
+\babel@toc {italian}{}
 \contentsline {chapter}{\numberline {1}Interferometro di Michelson: 06-07 Novembre 2017}{3}
 \contentsline {section}{\numberline {1.1}Luned\IeC {\`\i }}{3}
 \contentsline {subsection}{\numberline {1.1.1}Cose che dice Tonelli}{3}
@@ -50,3 +50,4 @@
 \contentsline {section}{\numberline {7.3}Segnale duplicato in funzione della potenza incidente}{17}
 \contentsline {section}{\numberline {7.4}Segnale duplicato in funzione dell'angolo di P-M}{18}
 \contentsline {section}{\numberline {7.5}Segnale duplicato in funzione della polarizzazione}{18}
+\contentsline {section}{\numberline {7.6}14/05/2018}{18}

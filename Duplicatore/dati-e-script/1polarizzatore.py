@@ -4,6 +4,17 @@ from pylab import *
 from lab import fit_curve, xe
 
 angolo, Vpp, dVpp = loadtxt('borcapDVTvs1P01.txt', unpack= True) #gradi, mV, mV
+ancal, cal = loadtxt('borcap_calibrazione_polarizzazione_parziale.txt', unpack= True) #gradi, mW
+
+figure(0).set_tight_layout(True)
+clf()
+plot(ancal, cal)
+imax = 264
+imin = 134
+rapporto = imin / imax
+ancal0 = -125
+func = imin / (cos((ancal - ancal0)*pi/180)**2 + rapporto*sin((ancal - ancal0)*pi/180)**2)
+plot(ancal, func)
 
 figure('1polarizzatore').set_tight_layout(True)
 clf()
@@ -51,7 +62,7 @@ par2 = out.par
 cov2 = out.cov
 err2 = sqrt(diag(cov2))
 chi2norm2 = out.chisq / out.chisq_dof
-print('chi2norm = ', chi2norm)
+print('chi2norm = ', chi2norm2)
 print('p-value = ', out.chisq_pvalue)
 print('parameters = ', par2)
 print('errors     = ', err2)
