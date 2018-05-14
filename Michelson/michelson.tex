@@ -9,6 +9,7 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{url}
+\usepackage[bottom]{footmisc}
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Interferometro di Michelson}
 \date{6-7 novembre 2017}
@@ -156,7 +157,7 @@ In questa sezione diamo per nota $\lambda = 633$ nm e usiamo la formula $2dn = m
 
 \subsection{Presa dati}
 Misuriamo l'alimentazione del piezoelettrico con un voltmetro collegato al PC. Il programma di acquisizione ci permette di salvare la tensione in funzione del tempo $V(t)$.
-Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python\footnote{Tutti i dati grezzi e gli script di analisi sono reperibili su https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Analizzatore\%20di\%20spettro/dati\%20e\%20script \\ Per eseguire gli script scaricare tutta la cartella dati-e-script. Serve python 3 con i pacchetti pylab, scipy, uncertainties, gvar e glob.\label{ftn:link}} leggiamo il file .txt salvato dal VI ed estraiamo il tempo $t$ di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi}).
+Simultaneamente avviamo il VI che conta le frange rilevate dal fotodiodo. Tramite uno script in python\footnote{Tutti i dati grezzi e gli script di analisi sono reperibili su\\ \url{https://github.com/albord95/relazioni-lab-ottica-quantistica/tree/master/Michelson/dati-e-script}\\ Per eseguire gli script scaricare tutta la cartella. Serve python 3 con i pacchetti pylab, scipy, uncertainties, gvar e glob.\label{ftn:link}} leggiamo il file .txt salvato dal VI ed estraiamo il tempo $t$ di ogni massimo e minimo. Infine inseriamo tali tempi nella curva $V(t)$ ottenendo un grafico $d-V$ con 2 punti ogni frangia (vedi Figura \ref{fig:esempio_acquisizione_isteresi}).
 
 \begin{figure}[H]
 	\centering
@@ -226,16 +227,16 @@ Per farlo inseriamo nel percorso del fascio laser, fra il beam splitter e lo spe
  	\label{fig:cv}
  \end{figure}
 
-Dopodiché apriamo la camera così che si ristabilisca lentamente la pressione atmosferica al suo interno e contiamo il numero di frange dovute alla variazione dell'indice di rifrazione: il conteggio è stato effettuato osservando il numero di picchi presenti sul grafico mostratoci dal VI sullo schermo del PC. Abbiamo ripetuto le misure due volte per ognuno dei tre laser a nostra disposizione ottenendo entrambe le volte lo stesso numero di picchi; abbiamo quindi riportato tale valore una volta soltanto in Tabella \ref{tab:n}.
+Dopodiché apriamo la camera così che si ristabilisca lentamente la pressione atmosferica al suo interno e contiamo il numero di frange dovute alla variazione dell'indice di rifrazione: il conteggio è stato effettuato osservando il numero di picchi presenti sul grafico mostratoci dal VI sullo schermo del PC. Abbiamo ripetuto le misure due volte per ognuno dei tre laser a nostra disposizione ottenendo entrambe le volte lo stesso numero di picchi; abbiamo quindi riportato tale valore una volta soltanto in Tabella \ref{tab:2}.
 
 \subsection{Analisi dati}
-Noto il numero di frange e nota la lunghezza d'onda del laser utilizzato è possibile ricavare la differenza $\Delta$n fra l'indice di rifrazione del vuoto (n=1) e quello dell'aria a pressione atmosferica e a temperatura ambiente tramite la relazione
+Noto il numero di frange e nota la lunghezza d'onda del laser utilizzato è possibile ricavare la differenza $\Delta$n fra l'indice di rifrazione del vuoto ($n=1$) e quello dell'aria a pressione atmosferica e a temperatura ambiente tramite la relazione
 \begin{equation}
 \Delta n = \frac{m\lambda}{2d}
 \end{equation}
-dove d è la lunghezza della camera a vuoto.
+dove $d$ è la lunghezza della camera a vuoto.
 
-Dal valore di $\Delta$n è quindi facile ricavare l'indice di rifrazione dell'aria presente nella stanza assumendo di essere riusciti a raggiungere all'interno della camera un vuoto tale da avere come condizione iniziale n=1. Abbiamo ottenuto i seguenti valori:
+Dal valore di $\Delta n$ è quindi facile ricavare l'indice di rifrazione dell'aria presente nella stanza assumendo di essere riusciti a raggiungere all'interno della camera un vuoto tale da avere come condizione iniziale $n=1$. Abbiamo ottenuto i seguenti valori:
 
 \begin{table}[H]
 	\centering
@@ -249,7 +250,7 @@ Dal valore di $\Delta$n è quindi facile ricavare l'indice di rifrazione dell'ari
 		\hline
 	\end{tabular}
 	\caption{Indice di rifrazione dell'aria}
-	\label{tab:n}
+	\label{tab:2}
 \end{table}
 
 \subsection{Conclusioni}
