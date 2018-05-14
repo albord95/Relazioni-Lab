@@ -16,7 +16,7 @@ errorbar(xdata, tem00, yerr=yerr, xerr=xerr, fmt='.')
 def gauss(x, mu, sigma, norma):
     return norma*exp(-(x-mu)**2/(2*sigma**2))
 
-xlabel('gradi')
+xlabel('$\\theta$ [°]')
 ylabel('P [$\mu$W]')
 
 par0 = [194, 3, 50]
@@ -33,6 +33,6 @@ print('chi2 = ', chi2)
 print('dof = ', dof)
 print('chi2norm = ',chi2norm)
 print('pvalue = ', pvalue)
-
+xx = py.linspace(min(xdata)-1, max(xdata)+1, 1000)
 plot(xx, gauss(xx,*par), color = 'tab:green',label='p$_0$ = 50.2(4) $\mu$W \n p$_1$ = 193.59(8) ° \n p$_2$ = 3.12(4) °')
 legend()
