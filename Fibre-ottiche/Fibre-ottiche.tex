@@ -23,21 +23,42 @@
 	\maketitle
 	
 	\begin{abstract}
-		 
+		 Misura apertura numerica NA e attenuazione di una fibra multimodo.\\
+		 Studio della propagazione del modo LP$_{01}$ e dei modi superiori in due diverse fibre SM.\\
+		 Misura dei battimenti e del beat length L$_p$ in una fibra a conservazione di polarizzazione.\\
+		 Studio dell'accoppiamento di una fibra con la lente di GRIN.
 	\end{abstract}
 
 \section{Teoria}
-
-\section{Apparato sperimentale}
-
-\newpage
 \begin{multicols}{2}
+Le fibre ottiche sono guide d'onda caratterizzate da una struttura a molti strati.
+
+Come mostrato in Figura \ref{fig:struttura}, una fibra ottica è costituita da da tre regioni: $\emph{core}$, $\emph{cladding}$ e $\emph{coating}$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{struttura}
+	\caption{}
+	\label{fig:struttura}
+\end{figure}
+
+Il funzionamento delle fibre ottiche è basato sul fenomeno della riflessione totale infatti il $\emph{core}$, che è la regione in cui avviene la propagazione della radiazione elettromagnetica, presenta un indice di rifrazione $n_1$ minore di quello del $\emph{cladding}$ $n_2$.
+
+Il $\emph{coating}$ è invece una guaina di plastica o di metallo che assorbe gli stress meccanici.
+
 \section{Apertura numerica}
 
 \subsection{Teoria}
 L'apertura numerica di una fibra ottica è definita a partire dall'angolo di accettazione $\theta_{m}$, corrispondente all'angolo limite per cui può essere iniettata un'onda nella fibra in modo che si propaghi. 
 
-Se $n_1$ e $n_2$ con $n_1 < n_2$ sono gli indici di rifrazione, rispettivamente, di core e cladding e considerando, per semplicità, l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{fibra}
+	\caption{}
+	\label{fig:fibra}
+\end{figure}
+
+Facendo riferimento alla Figura \ref{fig:fibra} si ha che se $n_1$ e $n_2$ con $n_1 < n_2$ sono gli indici di rifrazione, rispettivamente, di core e cladding e considerando, per semplicità, l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
 \begin{equation}
 sin\theta_{m}=n_{1}cos\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \end{equation}
@@ -171,7 +192,6 @@ Facendo la media dei due valori ottenuti si ha $NA = 0.30 \pm 0.04$, valore in p
 	\caption{}
 	\label{fig:NA}
 \end{figure}
-
 
 \newpage
 \section{Attenuazione}
