@@ -11,36 +11,136 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{amsmath}
+\usepackage{color}
 \author{Alberto Bordin, Giulio Cappelli}
-\title{Duplicatore di frequenza}
+\title{\vspace{-1.1cm}Duplicatore di frequenza}
 \date{14-15 Dicembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
 
 
 \begin{document}
+	\vspace{-1cm}
 	\maketitle
 	
 	\begin{abstract}
+		 Calibrazione dell'attenuatore regolabile a disposizione.
 		 
+		 Misura di intensità del segnale duplicato in frequenza in funzione della potenza del laser di pompa.
+		 
+		 Stima dell'angolo di \textit{phase matching}.
+		 
+		 Studio della polarizzazione in ingresso e in uscita dal cristallo.
 	\end{abstract}
 
-\section{To do}
-	
 \section{Teoria}
-\begin{multicols}{2}
+\begin{multicols}{2}	
+
+	\subsection{Generazione di seconda armonica}
+In un cristallo non lineare la polarizzazione può essere sempre espressa come serie di potenze\footnote{Utilizziamo la convenzione di Einstein (indici ripetuti sono sommati) e il sistema di unità di misura CGS, dove $\varepsilon_0 = 1$.} nelle componenti del campo elettrico:
+\[P_i = \chi^{(1)}_{ij}E_j + \chi^{(2)}_{ijk}E_jE_k + \chi^{(3)}_{ijkl}E_jE_kE_l + \dots\]
+In laboratorio disponiamo di un campione di $\text{LiIO}_3$, che non è centrosimmetrico\footnote{Nel caso di un cristallo centrosimmetrico (dove a livello atomico il potenziale è pari: $V(\vec{x}) = V(-\vec{x})$) la $\chi^{(2)}$ è nulla.} e mostra effetti non lineari già al second'ordine.
+
+Consideriamo un'onda piana $\vec{E}(t) = \vec{E}_0 \cos(\omega t)$ e mostriamo che la risposta non lineare del mezzo può generare un segnale duplicato in frequenza:
+\[\chi^{(2)}_{ijk}E_jE_k\cos^2(\omega t) = \dfrac{1}{2}(\chi^{(2)}_{ijk}E_jE_k)(1 + \cos(2\omega t))\]
+Poichè si tratta di un effetto al second'ordine l'intensità della seconda armonica dipenderà dal quadrato dell'intensità della fondamentale:
+\begin{equation}
+I_{2\omega} \propto |\vec{P}(2\omega)|^2 \propto |\vec{E}(\omega)|^4 \propto I^2_{\omega}
+\end{equation}
+
+\subsection{\textit{Phase matching}}
+Il problema della generazione di seconda armonica nasce dal fatto che l'indice di rifrazione dipende dalla frequenza.\\
+Posto $\Delta k := 2k(\omega) - k(2\omega)$ l'efficienza del processo di duplicazione per un cristallo di lunghezza $L$ è
+\begin{equation}
+\eta := \dfrac{P(2\omega)}{P(\omega)} \propto \dfrac{\sin^2(\Delta k \frac{L}{2})}{(\Delta k \frac{L}{2})^2}
+\label{eq:P}
+\end{equation}
+L'efficienza massima si ottiene nella condizione di \textit{phase matching}: $\Delta k = 0$ o, equivalentemente,
+\begin{equation}
+n(2\omega) = n(\omega)
+\label{eq:n}
+\end{equation}
+
+Per ottenere la condizione \ref{eq:n} l'idea del nostro apparato sperimentale è di utilizzare un cristallo birifrangente uniassiale, il $\text{LiIO}_3$, che ha indici di rifrazione diversi per assi diversi
+\[ n_{ij} =
+\begin{bmatrix}
+	n_o & 0 & 0\\
+	0 & n_o & 0\\
+	0 & 0 & n_e\\
+\end{bmatrix}
+\]
+L'asse corrispondente a $n_e$ verrà chiamato asse ottico.
+
+Cercando in letteratura\footnote{https://refractiveindex.info/?shelf=main\&book=LiIO3\&page=Herbst-e\\S. Umegaki, S.-I. Tanaka, T. Uchiyama, S. Yabumoto,
+	Refractive indices of lithium iodate between 0.4 and 2.2 $\mu$,
+	Optics Communications,
+	Volume 3, Issue 4,
+	1971,
+	Pages 244-245,
+	ISSN 0030-4018,
+	https://doi.org/10.1016/0030-4018(71)90013-7.}
+i valori degli indici di rifrazione del $\text{LiIO}_3$ per le lunghezza d'onda del laser IR a nostra disposizione ($\lambda = 808$ nm) constatiamo che la condizione \[n_o - n_e > n_i(2\omega) - n_i(\omega)\] è soddisfatta, quindi è possibile avere la condizione di \textit{phase matching} come indicato in Figura \ref{fig:n}
+\begin{figure}[H]
+	\centering
+	\def\svgwidth{0.48\textwidth}
+	\input{n.pdf_tex}
+	\caption{Andamento dell'indice di rifrazione in funzione della frequenza. I numeri riportati sono validi per un cristallo di $\text{LiIO}_3$. Il primo e il secondo punto blu sono, rispettivamente, l'effettivo indice di rifrazione valido per il laser di pompa e per il segnale duplicato.}
+	\label{fig:n}
+\end{figure}
+
+Non è banale visualizzare la mutua posizione di asse ottico, direzione di propagazione dell'onda e polarizzazione della pompa e della seconda armonica generata che permettono di soddisfare il match di indice di rifrazione indicato in Figura \ref{fig:n}. A questo scopo vengono in aiuto le Figure \ref{fig:assi} e \ref{fig:ellissi}.
+
+\begin{figure}[H]
+	\centering
+	\def\svgwidth{0.48\textwidth}
+	\input{assi.pdf_tex}
+	\caption{Assi dentro al cristallo. $z$ è la direzione di propagazione. In rosso è indicata la polarizzazione della pompa, in verde quella della seconda armonica, entrambe giaciono nel piano $x$-$y$. In blu è indicato l'asse ottico del cristallo uniassiale, quello ad indice di rifrazione più basso ($n_e$). L'ellisse rossa (che giace nel piano $x$-$y$) rappresenta la luce non polarizzata (parzialmente, vedi dopo) della pompa: l'idea è che di tutta la luce incidente conta solo quella con polarizzazione ortogonale all'asse ottico, evidenziata dalla freccia rossa. Infatti data una polarizzazione dell'onda incidente sul campione la possiamo sempre scomporla nelle due componenti lungo l'asse ordinario (quello della freccia rossa, ortogonale all'asse ottico) e lungo l'asse straordinario (quello della freccia verde) tuttavia quest'ultima polarizzazione di pompa non sarà mai in grado di soddisfare la condizione di \textit{phase matching} perchè avente indice di rifrazione già troppo basso (vedi Figura \ref{fig:n}). Quindi conta solo\textsuperscript{4} la polarizzazione lungo l'asse ordinario, che corrisponde al primo punto blu di Figura \ref{fig:n}.}
+	\label{fig:assi}
+\end{figure}
+
+\setcounter{footnote}{4}
+
+\footnotetext{In realtà se $n_o - n_e > 2(n_i(2\omega) - n_i(\omega))$ è possibile che una mistura di polarizzazione lungo l'asse ordinario e polarizzazione lungo l'asse straordinario porti a soddisfare la condizione di \textit{phase matching}. Questa eventualità prende il nome di \textit{tipe~\textnormal{II} phase matching}, vedi il libro "Photonics" di Yariv e Yeh (pagina365 della sesta edizione) per approfondire.}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{ellissi.PNG}
+	\caption{Angolo di \textit{phase matching} ($\theta_m$). Qui con $z$ è indicato l'asse ottico e con $\mathbf{k}^\omega$ la direzione di propagazione. Dall'intersezione dell'ellisse, descritta dall'equazione $\dfrac{1}{n^2(\theta)} = \dfrac{\cos^2(\theta)}{n_o^2(2\omega)} + \dfrac{\sin^2(\theta)}{n_e^2(2\omega)}$, con la circonferenza si evince che esiste un angolo a cui avviene il \textit{phase matching}. Immagine tratta dal libro "Photonics" di Yariv e Yeh (pagina 365 della sesta edizione). }
+	\label{fig:ellissi}
+\end{figure}
 	
+	In mancanza di esatto \textit{phase matching} l'intensità della seconda armonica generata segue l'andamento dell'equazione \ref{eq:P}:
+	\[P(2\omega) \propto \frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}\]
+	come si nota in Figura \ref{fig:sinc_yariv}.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.5\textwidth]{sinc_yariv.PNG}
-		\caption{Campana attorno all'angolo di \textit{phase matching}. Immagine dal libro "Photonics" di Yariv e Yeh (pagina 367 della sesta edizione). }
+		\caption{Campana di'intensità della seconda armonica attorno all'angolo di \textit{phase matching}. Immagine tratta dal libro "Photonics" di Yariv e Yeh (pagina 367 della sesta edizione). }
 		\label{fig:sinc_yariv}
 	\end{figure}
-	
-
-\[V_{pp} = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}\]
 \end{multicols}
-\section{Apparato sperimentale}
 
+\newpage
+\begin{multicols}{2}
+\section{Apparato sperimentale}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{apparato.pdf}
+	\caption{Foto del banco ottico}
+\end{figure}
+
+\begin{enumerate}
+	\item Sorgente del laser di pompa ($\lambda = 808$ nm)
+	\item Attenuatore regolabile montato su un goniometro (in gradi centesimali).
+	\item Lenti
+	\item Campione di $\text{LiIO}_3$ seguito da un filtro che blocca l'IR.
+	\item Filtri polarizzatori
+	\item Chopper:\\
+	necessario alla rivelazione del segnale tramite oscilloscopio. Abbiamo l'accortezza di settarlo ad una frequenza non multipla di 50-60 Hz.
+	\item Rilevatore collegato all'oscilloscopio.
+	\item \textit{Power meter}
+\end{enumerate}
+
+\end{multicols}
 \section{Taratura dell'attenuatore}
 
 \begin{multicols}{2}
@@ -212,7 +312,7 @@ Infine, abbiamo fatto un fit dell'intensità della seconda armonica generata con 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{1polarizzatore.pdf}
-\caption{Fit dell'intensita della seconda armonica in funzione dell'angolo della polarizzazione incidente.}
+\caption{Fit dell'intensità della seconda armonica in funzione dell'angolo della polarizzazione incidente.}
 \label{fig:1polarizzatore}
 \end{figure}
 
