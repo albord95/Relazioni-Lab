@@ -26,9 +26,11 @@
 	Misurare lo spettro di emissione del cristallo LiY F$_4$ drogato con ioni di Er$^{3+}$.
 	\end{abstract}
 	
-	\begin{multicols}{2}
+	
 	
 \section{Teoria}
+	
+	\begin{multicols}{2}
 L'$\emph{up-conversion}$ è un meccanismo di $\emph{energy-transfer}$, cioè un cambio di stato senza emissione o assorbimento di fotoni.
 
 \'E possibile spiegare questo fenomeno considerando un cristallo drogato con degli ioni di una terra rara e studiandone la struttura dei livelli energetici. In quest'esperienza utilizziamo un cristallo di LiY F$_4$ drogato al 30\% con ioni di Er$^{3+}$ i cui livelli sono mostrati in Figura \ref{fig:livelli}.
@@ -116,9 +118,12 @@ Dato che il laser a nostra disposizione è nell'infrarosso, utilizziamo una carti
 \label{fig:taratura}
 \end{figure}
 
-\section{Potenza emessa in funzione del pompaggio}
-
 \begin{multicols}{2}
+\subsubsection*{Discussione degli errori}
+In Figura \ref{fig:taratura} abbiamo riportato l'errore di calibrazione, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico. Abbiamo provato a stimare l'errore statistico guardando le fluttuazioni della derivata del grafico della taratura: risultano essere dell'1-2\%, sono quindi confrontabili con l'errore di calibrazione del \textit{power meter} (3\%).
+
+
+\section{Potenza emessa in funzione del pompaggio}
 
 Una volta effettuata la taratura abbiamo misurato la tensione relativa alla luce emessa dal cristallo in funzione della potenza incidente. 
 
@@ -128,7 +133,7 @@ Per fare queste misure abbiamo letto sull'oscilloscopio, utilizzando i cursori, 
 
 Prima di registrare le misure ci siamo preoccupati di spegnere la luce ambientale in quanto si vedevano i battimenti con la 50 Hz. Abbiamo quindi utilizzato una pila per illuminare il goniometro presente sull'attenuatore; la luce proveniente dalla pila era irrilevante in quando produceva solamente un offset costante al segnale.
 
-Durante la prima presa dati abbiamo notato che, mentre il massimo restava costante, il minimo del segnale proveniente dal chopper si spostava a causa di effetti 1/f non trascurabili che portavano a variazioni anche del 10\%.
+Durante la presa dati abbiamo notato che, mentre il massimo restava costante, il minimo del segnale proveniente dal chopper si spostava a causa di effetti 1/f non trascurabili che portavano a variazioni anche del 10\%.
 
 I valori ottenuti sono riportati nella Tabella \ref{tab:primo} in Appendice e in Figura \ref{fig:primo}.
 
@@ -136,7 +141,7 @@ I valori ottenuti sono riportati nella Tabella \ref{tab:primo} in Appendice e in
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{primo}
+\includegraphics[width=0.7\textwidth]{primo}
 \caption{Come errore sulla tensione è riportata la digitalizzazione dell'oscilloscopio, mentre sulla potenza è indicato il 3\% della calibrazione.}
 \label{fig:primo}
 \end{figure}
@@ -154,7 +159,9 @@ Osservando invece la Figura \ref{fig:spettro} si notato molti picchi a diverse l
 
 Come discusso nella sezione di teoria in regime di bassa potenza di pompaggio ci aspettiamo, al limite per $P \rightarrow 0$, un'andamento quadratico. 
 
-Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata.
+Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata facendo dei fit e guardando i $\chi^2$.
+
+Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:primo} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$, per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
 
 In prima analisi abbiamo eseguito un fit con la funzione $y=ax^2$ variando il numero di dati considerati per il fit, partendo da $P_{max}$=5 mW fino a $P_{max}$=41 mW e aumentando ad ogni iterazione di 2 mW. 
 

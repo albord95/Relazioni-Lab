@@ -26,15 +26,6 @@
 		 
 	\end{abstract}
 
-\section{To do}
-\begin{itemize}
-	\item scegliere errori attenuazione
-	\item verificare valori $L$ attenuazione
-	\item fit con errori asimmetrici per l'attenuazione?
-	\item sintetizzare supercazzola sugli errori dell'attenuazione
-	\item errore su b nell'attenuazione
-	\item discutere livello scrambler
-\end{itemize}
 \section{Teoria}
 
 \section{Apparato sperimentale}
@@ -60,7 +51,7 @@ NA=sin\theta_{m}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \subsection{Apparato sperimentale}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{apparato_NA.pdf}
+	\includegraphics[width=0.52\textwidth]{apparato_NA.pdf}
 	\caption{Apparato sperimentale per la misura dell'apertura numerica NA.}
 	\begin{enumerate}
 		\item Laser HeNe
@@ -148,14 +139,39 @@ I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}.
 \end{table}
 
 \subsection{Analisi dati}
-L'apertura numerica di una fibra è calcolata sperimentalmente come il seno dell'angolo al quale la potenza emessa è il 5\% della potenza massima. 
+L'apertura numerica di una fibra è calcolata come il seno dell'angolo al quale la potenza emessa è il 5\% della potenza massima. 
 
 Per ottenere una migliore precisione abbiamo allora eseguito un'interpolazione dei dati intorno a tale valore sia a destra che a sinistra del massimo, per entrambe le serie di dati.
 Dalle curve ottenute abbiamo quindi ricavato l'angolo a cui queste assumono il valore corrispondente al 5\% della potenza massima.
 
-I risultati ottenuti sono mostrati in Figura \ref{fig:} e in Tabella \ref{tab:}
+I risultati ottenuti sono mostrati in Figura \ref{fig:NA} e in Tabella \ref{tab:NA}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cc}
+		\hline
+		d [cm] & NA  \\
+		\hline
+		\hline
+		23.8  &  0.29(5)\\
+		11.1 & 0.31(2)\\
+		\hline
+	\end{tabular}
+	\caption{}
+	\label{tab:NA}
+\end{table}
+
+Facendo la media dei due valori ottenuti si ha $NA = 0.30 \pm 0.04$, valore in pieno accordo con quello dichiarato $NA_{atteso} = 0.29$.
 
 \end{multicols}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{NA}
+	\caption{}
+	\label{fig:NA}
+\end{figure}
+
 
 \newpage
 \section{Attenuazione}
@@ -299,36 +315,301 @@ Le nostre misure di attenuazione non sono incompatibili con il modello dello sca
 \end{figure}
 
 
+\newpage
 
 \section{Propagazione modo LP$_{01}$ in una fibra SM}
 
+\begin{multicols}{2}
+
 \subsection{Teoria}
+Per studiare la propagazione dei modi della radiazione elettromagnetica all'interno di una fibra ottica è necessario risolvere l'equazione di Helmholtz in coordinate cilindriche:
+\begin{equation}
+\frac{\partial^2E}{\partial r^2}+\frac{1}{r}\frac{\partial^2E}{\partial r}+ \frac{1}{r^2}\frac{\partial^2E}{\partial\theta^2}+\frac{\partial^2E}{\partial z^2}+n^2k^2E=0
+\label{eq:H}
+\end{equation}
+dove $n$ è l'indice di rifrazione del mezzo. 
+
+Risolvendo l'equazione \ref{eq:H} troviamo come soluzioni le armoniche cilindriche (o funzioni di Bessel) $J_l$ e  $K_l$.
+
+Inoltre, per definizione, si ha \[(NA)^{2}k^{2}a^{2} \equiv V^{2} = costante\]
+
+dove $a$ è il raggio del $\emph{core}$.
+
+Si trova allora che il numero di modi permessi all'interno della fibra è uguale al numero di zeri delle funzioni di Bessel $J_{l\pm1}$ che sono minori di V. Quindi se il valore di V è minore del primo zero della funzione $J_0$ ($\sim$ 2.4), possiamo essere certi che all?interno della fibra si propaghi un solo modo.
+
+Dunque, affinché la fibra possa essere considerata SM, si deve avere 
+\begin{equation}
+V = \frac{2\pi}{\lambda_{0}}\cdot NA\cdot a \le 2.405 
+\label{eq:V}
+\end{equation}
+
+\subsection{Apparato sperimentale}
+
+L'apparato sperimentale per questa misura è praticamente equivalente a quello mostrato in Figura \ref{fig:apparato_NA} con la differenza che la fibra utilizzata è una fibra a singolo modo F-SV (4,3/125/245) e che sul power meter è stato attaccato uno schermo con una fenditura molto sottile.
 
 \subsection{Presa dati}
 
-1 tabella
+Abbiamo spellato chimicamente due metri di fibra immergendola in una soluzione di diclorometano CL$_{2}$CH$_{2}$ per $\sim$10 minuti e facendo così ammorbidire il $\emph{coating}$ che è stato quindi rimosso.
+Quindi dopo averla tagliata e posizionata sul lanciatore abbiamo iniettato il laser HeNe. 
+ 
+Per verificare teoricamente che la fibra sia SM per la lunghezza d'onda della radiazione che si propaga al suo interno, deve essere vera l'equazione \ref{eq:V}.
+Nel nostro caso, leggendo sul datasheet della fibra in questione,  si ha $NA = 0.11$ , $\lambda_0 = 633$ nm e $a \simeq 2$ $ \mu$m; quindi $V = 2.184$ e possiamo essere certi che la fibra propaghi solamente il modo LP$_{01}$.
+
+Data la perdita della simmetria cilindrica, il modo, una volta uscito dalla fibra, deve essere considerato un TEM$_00$ e non un LP$_{01}$.
+
+Per verificare sperimentalmente che la fibra sia SM è dunque necessario ricostruire il profilo del modo TEM$_00$ che ci aspettiamo essere gaussiano.
+Per fare ciò abbiamo montato l'uscita della fibra su di un supporto dotato di goniometro e abbiamo misurato con il power meter la potenza emessa in funzione dell'angolo.
+
+Abbiamo misurato una potenza massima di 550 $\mu$W senza fenditura e che l'impatto della luce ambientale residua, una volta spente tutte le luci e chiusa la porta, era dell'ordine di 2 nW.
+
+I valori ottenuti sono riportati in Tabella \ref{tab:LP0}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cc|cc}
+	 $\theta$ [deg] & P [$\mu$W] &  $\theta$ [deg] & P [$\mu$W] \\
+	\hline
+178	&	0.005	&	194	&	50.1	\\
+180	&	0.033	&	195	&	44.4	\\
+182	&	0.168	&	196	&	33.6	\\
+184	&	0.830	&	197	&	22.1	\\
+185	&	1.40	&	198	&	13.7	\\
+186	&	2.49	&	199	&	8.30	\\
+187	&	4.85	&	200	&	5.53	\\
+188	&	8.00	&	201	&	2.97	\\
+189	&	13.1	&	202	&	1.48	\\
+190	&	20.1	&	203	&	0.785	\\
+191	&	30.3	&	205	&	0.190	\\
+192	&	42.5	&	207	&	0.032	\\
+193	&	49.5	&	209	&	0.012	\\
+	&		&	211	&	0.008	\\
+	\hline
+
+\end{tabular}
+\caption{}
+\label{tab:LP0}
+\end{table}
 
 \subsection{Analisi dati}
 
-1 plot
+Come detto il modo che abbiamo misurato è il TEM$_{00}$ che ha un profilo gaussiano; per verificare quindi che all'interno della fibra si propagasse il solo modo LP$_{01}$ è necessario fare un fit con la funzione:
+
+\begin{equation}
+f(x) = p_0e^{-(x-p_1)^2/2p_2^2}
+\end{equation}
+
+Non è stato inserito un quarto parametro come offset in quanto è stato scalato dai dati il valore della luce ambientale di 2 nW. 
+
+L'ipotesi fatta è stata quindi verificata attraverso un test del $\chi^2$.
+
+ L'errore sulla potenza è stato scelto tenendo a mente che, durante le misure, il valore letto sul power meter variava di $\sim$50 nW. Inoltre è presente un errore di digitalizzazione che va moltiplicato per 0.68$\cdot$0.5 per ottenere la corretta sigma per il fit. A questo è stato sommato in quadratura l?errore di 50 nW dovuto alla variazione della lettura. 
+ Come errore sull'angolo è stato considerata la risoluzione del goniometro moltiplicata per 0.68$\cdot$0.5. 
+ In questo modo si ha un errore sugli angoli maggiore di un ordine di grandezza rispetto a quello sulle potenze, quindi abbiamo eseguito il fit tenendo conto di entrambi.
+ 
+Queste scelte hanno portato ai risultati:
+\begin{align*}
+	\frac{\chi^2}{dof} &= 1.49 \\
+	\textrm{p-value} &= 5.7\%
+\end{align*}
+
+che confermano l'ipotesi di profilo gaussiano. 
+
+I risultati del fit sono riportati, invece, in Figura \ref{fig:LP0}.
+
+\end{multicols}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{LP0}
+	\caption{}
+	\label{fig:LP0}
+\end{figure}
 
 \section{Propagazione modi superiori}
 
+\begin{multicols}{2}
+
 \subsection{Teoria}
+Come spiegato nella sezione precedente la propagazione di uno o più modi all'interno di una fibra ottica è determinata dal valore della frequenza normalizzata $V$ secondo l'equazione \ref{eq:V}.
+
+Se vogliamo che si propaghino più modi della radiazione elettromagnetica si deve avere:
+
+\begin{equation}
+V = \frac{2\pi}{\lambda_{0}}\cdot NA\cdot a \ge 2.405 
+\end{equation}
+
+Il valore di $V$ determina quindi il numero di modi che si possono propagare nella fibra che sono identificati dalla sigla $LP_{lm}$ come si può vedere in Figura \ref{fig:modi}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{modi}
+	\caption{Modi LP$_{lm}$}
+	\label{fig:modi}
+\end{figure}
+
+\subsection{Apparato sperimentale}
+
+L'apparato sperimentale per questa parte dell'esperienza era composto da:
+\begin{itemize}
+\item Una fibra ottica F-SMF-28 (9,3/125/245) dichiarata SM per $\lambda_0 = 1300$ nm e con \\$NA = 0.13$
+\item Un laser verde con  $\lambda_V=532$ nm
+\item Un laser HeNe con $\lambda_{HeNe}$=633 nm
+\item Un lanciatore
+\item Un obiettivo x20
+\item Uno schermo bianco di grandi dimensioni
+\item Uno schermo bianco più piccolo
+\item Una macchina fotografica digitale
+\end{itemize}
+
+Usando il laser verde si ha \[V_{532} = 7.139 \ge 2.405\] questo ci assicura la propagazione di più modi all'interno della fibra.
 
 \subsection{Presa dati}
 
-\subsection{Analisi dati}
+Abbiamo spellato la fibra chimicamente e dopo averla tagliata l'abbiamo posta sul lanciatore per poter iniettare il laser al suo interno. L'altro capo della fibra è stato posto su un supporto e allineato ad un obiettivo x20 così poter proiettare la luce uscente dalla fibra su uno schermo e fotografarli. Purtroppo l'obiettivo presentava alcuni graffi che impedivano la corretta visione dei modi, quindi lo abbiamo tolto e invece di proiettare il segnale su uno schermo di grandi dimensioni l'abbiamo proiettato su quello piccolo. 
+
+Abbiamo posizionato lo schermo e la fotocamera digitale sul banco ottico e variando l'allineamento, cioè l'angolo di ingresso nella fibra, abbiamo eccitato i vari modi e li abbiamo fotografati.
+
+Dato che la frequenza normalizzata per il laser verde ($V_{532} = 7.139$) ha un valore molto alto si propagano un elevato numero di modi indipendenti che sono quindi più difficili da rivelare. Allora per riuscire ad osservare meglio i primi modi indipendenti dopo il $LP_{01}$ abbiamo provato ad usare anche il laser HeNe; infatti $\lambda_{HeNe}$=633 nm quindi \[V_{HeNe} = 6.000 \ge 2.405\]
+
+Siamo riusciti ad osservare cinque modi fondamentali col laser verde  e quattro col laser HeNe; li abbiamo classificati rifacendoci alla Figura \ref{fig:modi}.
+\end{multicols}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP01_verde}
+	\caption{Modo LP$_{01}$}
+	\label{fig:LP01_verde}
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP02_verde}
+	\caption{Modo LP$_{02}$}
+	\label{fig:LP02_verde}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP11_verde}
+	\caption{Modo LP$_{11}$}
+	\label{fig:LP11_verde}
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP21_verde}
+	\caption{Modo LP$_{21}$}
+	\label{fig:LP21_verde}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP12_verde}
+	\caption{Modo LP$_{12}$}
+	\label{fig:LP02_verde}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP01_rosso}
+	\caption{Modo LP$_{01}$}
+	\label{fig:LP01_rosso}
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP02_rosso}
+	\caption{Modo LP$_{02}$}
+	\label{fig:LP02_rosso}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP11_rosso}
+	\caption{Modo LP$_{11}$}
+	\label{fig:LP11_rosso}
+\end{minipage}
+\begin{minipage}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{LP21_rosso}
+	\caption{Modo LP$_{21}$}
+	\label{fig:LP21_rosso}
+\end{minipage}
+\end{figure}
+
+\newpage
 
 \section{Fibra a conservazione di polarizzazione}
 
+\begin{multicols}{2}
+
 \subsection{Teoria}
 
+Una fibra ottica a conservazione di polarizzazione ha un core stressato meccanicamente che presenta una forma ellittica e a ciascuno dei due assi dell'ellisse è associato un diverso indice di rifrazione $n_1 \ne n_2$; la radiazione si propaga quindi con velocità diversa lungo i due assi. 
+
+Rifacendoci all'immagine in Figura \ref{fig:schema_pol} si ha che, iniettando nella fibra radiazione polarizzata a 45° rispetto agli assi dell'ellisse, si genera uno sfasamento \[\Delta\phi = \frac{2\pi}{\lambda_0}\Delta nL\]
+dove $\Delta n = |n_2-n_1|$, $\lambda_0$ è la lunghezza d'onda della radiazione ed $L$ è il percorso fatto dalla radiazione all'interno del mezzo birifrangente lungo l'asse z.
+
+Questo sfasamento porta alla rotazione della polarizzazione che passa dall'essere lineare ad essere circolare e poi ancora lineare come mostrato in Figura \ref{fig:schema_pol}. Si ha quindi un cambiamento anche nella luminosità emessa, infatti quando la polarizzazione è circolare si ha emissione isotropa, mentre quando è lineare a si ha emissioni di dipolo. Quest'alternanza della polarizzazione produce quindi il fenomeno dei battimenti.
+
+\'E quindi possibile definire il $\emph{beat length}$ L$_p$ come la lunghezza dopo la quale si recupera la polarizzazione in ingresso: \[ L_p = \frac{\lambda_0}{\Delta n}\]
+
+\subsection{Apparato sperimentale}
+Per questa misura l'apparato sperimentale era composto da quanto mostrato in Figura \ref{fig:apparato_NA} con alcune differenze:
+\begin{itemize}
+\item La fibra F-SPV SM (3,2/125/245)
+\item Lo schermo bianco più piccolo
+\item Un polaroid
+\item Un microscopio dotato di carta millimetrata collegato ad una televisione e al pc
+\end{itemize}
+
 \subsection{Presa dati}
+Abbiamo spellato chimicamente alle estremità e al centro la fibra per poter così osservare i battimenti. 
+Dopo aver tagliato le due estremità, avendo cura di non rovinare la porzione spellata al centro, ne posta nel lanciatore e le abbiamo iniettato il laser HeNe. L'altra estremità è stata posta su di un supporto dotato di goniometro e la luce uscente da essa è stata proiettata sullo schermo bianco. Così abbiamo osservato l'ellisse emessa dalla fibra e attraverso il goniometro posto sul portafibra abbiamo fissato le posizioni degli assi (90° - 30°). A questo punto abbiamo scambiamo le due estremità e abbiamo sistemato gli assi della fibra a 45° rispetto alla direzione di propagazione del fascio. 
+
+Infine abbiamo posto, con molta cura, la parte spellata al centro della fibra sopra la carta millimetrata del miscroscopio e abbiamo variato l'allineamento fino  a che non abbiamo visto i battimenti sullo schermo della televisione. L'immagine è stata quindi salvata sul pc.
+
+Abbiamo modificato l'allineamento più volte ottenendo come risultati migliori quelli mostrati in Figura \ref{fig:battimenti}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[c]{0.5\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{battimenti_1}
+	\label{fig:battimenti_1}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{battimenti_2}
+	\label{fig:battimenti_2}
+\end{minipage}
+	\caption{Battimenti fibra a conservazione di polarizzazione}
+	\label{fig:battimenti}
+\end{figure}
+
 
 \subsection{Analisi dati}
 
-1 figura
+Contando il numero di massimi o minimi presenti in una determinata distanza è possibile determinare il valore di L$_p$.
+
+Abbiamo quindi calcolato la distanza contando i quadretti della carta millimetrata e il numero di variazioni di polarizzazione contando i minimi di luminosità presenti nelle immagini in Figura \ref{fig:battimenti} ottenendo 15 minimi in 16.0(5) mm.
+
+%Per calcolare correttamente L$_p$ è necessario tenere presente che il numero di minimi corrispondenti alla polarizzazione in ingresso sono la metà di quelli presenti nell'immagine, dato che due minimi successivi corrispondono a polarizzazioni lineari ruotate fra loro di 90°. 
+
+Dunque otteniamo \[L_p^{misurato} = \frac{16.0(5) \text{[mm]}}{15(1)} = 1.1(1) \text{mm}\] che è in accordo con quanto dichiarato sul datasheet della fibra utilizzata, infatti \[L_p^{atteso} \le 2 \text{mm}\].
+
+\end{multicols}
 
 \section{Lente GRIN}
 
