@@ -5,16 +5,17 @@
 \usepackage[latin1]{inputenc}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[margin=2 cm]{geometry}
+\usepackage[margin=2.2 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{textcomp}
+\usepackage[bottom]{footmisc}
 \usepackage{caption}
 \usepackage{units}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \author{Alberto Bordin, Giulio Cappelli}
-\title{Fibre ottiche}
+\title{\vspace{-1 cm}Fibre ottiche}
 \date{20-24 Novembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
 
@@ -23,23 +24,44 @@
 	\maketitle
 	
 	\begin{abstract}
-		 
+		 Misura apertura numerica NA e attenuazione di una fibra multimodo.\\
+		 Studio della propagazione del modo LP$_{01}$ e dei modi superiori in due diverse fibre SM.\\
+		 Misura dei battimenti e del beat length L$_p$ in una fibra a conservazione di polarizzazione.\\
+		 Studio dell'accoppiamento di una fibra con la lente di GRIN.
 	\end{abstract}
 
 \section{Teoria}
-
-\section{Apparato sperimentale}
-
-\newpage
 \begin{multicols}{2}
+Le fibre ottiche sono guide d'onda caratterizzate da una struttura a molti strati.
+
+Come mostrato in Figura \ref{fig:struttura}, una fibra ottica è costituita da da tre regioni: $\emph{core}$, $\emph{cladding}$ e $\emph{coating}$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{struttura}
+	\caption{}
+	\label{fig:struttura}
+\end{figure}
+
+Il funzionamento delle fibre ottiche è basato sul fenomeno della riflessione totale infatti il $\emph{core}$, che è la regione in cui avviene la propagazione della radiazione elettromagnetica, presenta un indice di rifrazione $n_1$ minore di quello del $\emph{cladding}$ $n_2$.
+
+Il $\emph{coating}$ è invece una guaina di plastica protettiva che assorbe gli stress meccanici.
+
 \section{Apertura numerica}
 
 \subsection{Teoria}
-L'apertura numerica di una fibra ottica è definita a partire dall'angolo di accettazione $\theta_{m}$, corrispondente all'angolo limite per cui può essere iniettata un'onda nella fibra in modo che si propaghi. 
+L'apertura numerica di una fibra ottica è definita a partire dall'angolo limite $\theta_{m}$ tale che può essere iniettata un'onda nella fibra in modo che si propaghi. 
 
-Se $n_1$ e $n_2$ con $n_1 < n_2$ sono gli indici di rifrazione, rispettivamente, di core e cladding e considerando, per semplicità, l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\textwidth]{fibra}
+	\caption{}
+	\label{fig:fibra}
+\end{figure}
+
+Facendo riferimento alla Figura \ref{fig:fibra} si ha che, considerando l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
 \begin{equation}
-sin\theta_{m}=n_{1}cos\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
+\text{sin}\theta_{m}=n_{1}\text{cos}\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \end{equation}
 dove $\theta_{c}$ è l'angolo di incidenza sul cladding per cui si ha riflessione totale e quindi propagazione dell'onda all'interno della fibra.
 
@@ -51,28 +73,24 @@ NA=sin\theta_{m}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \subsection{Apparato sperimentale}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.52\textwidth]{apparato_NA.pdf}
+	\includegraphics[width=0.52\textwidth]{apparato_NA}
 	\caption{Apparato sperimentale per la misura dell'apertura numerica NA.}
-	\begin{enumerate}
-		\item Laser HeNe
-		\item Lanciatore
-		\item Uscita della fibra montata su un supporto dotato di goniometro.
-		\item Sensore del \textit{power meter}
-		\item Schermo del \textit{power meter}
-	\end{enumerate}
 	\label{fig:apparato_NA}
 \end{figure}
-
-
-\subsection{Presa dati}
-
-Per poter calcolare l'apertura numerica della fibra ottica multimodo a nostra disposizione abbiamo posto le sue estremità, una volta spellate e pulite, sul lanciatore e sul supporto dotato di goniometro visibili in Figura \ref{fig:apparato_NA}. Abbiamo quindi misurato la potenza in uscita dalla fibra variando l'angolo di incidenza sul power meter per due diverse distanze $d$ fra power meter e uscita della fibra.
-
-I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}.
+\begin{enumerate}
+		\item Laser HeNe
+		\item Lanciatore
+		\item Supporto dotato di goniometro
+		\item Sensore del \textit{power meter}
+		\item Schermo del \textit{power meter}
+		\item Schermo bianco
+\end{enumerate}
 
 \begin{table}[H]
 \centering
-\begin{tabular}{cc|cc}
+\begin{minipage}[c]{.40\textwidth}
+\begin{tabular}{|cc|cc|}
+	\hline
 	 $\theta$ [deg] & P [$\mu$W] &  $\theta$ [deg] & P [$\mu$W] \\
 	\hline
 	37 	&	0.006	&	13	&	9.72		\\
@@ -95,15 +113,16 @@ I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}.
 	15	&	9.00		&	-8	&	0.006	\\
 	14	&	9.23		&		&			\\	
 	\hline
-
 \end{tabular}
 \caption{Dati registrati con d = 23.8 cm}
 \label{tab:d1}
-\end{table}
+\end{minipage}
 
-\begin{table}[H]
-\centering
-\begin{tabular}{cc|cc}
+\bigskip
+
+\begin{minipage}[c]{.40\textwidth}
+\begin{tabular}{|cc|cc|}
+	\hline
 	 $\theta$ [deg] & P [$\mu$W] &  $\theta$ [deg] & P [$\mu$W] \\
 	\hline
 	-15	&	23	&	10	&	11.9	\\
@@ -132,16 +151,23 @@ I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}.
 	8	&	11.8	&	33	&	22	\\
 	9	&	11.7	&	34	&	5	\\	
 	\hline
-
 \end{tabular}
 \caption{Dati registrati con d = 11.1 cm}
 \label{tab:d2}
+\end{minipage}
 \end{table}
+
+\columnbreak
+\subsection{Presa dati}
+
+Abbiamo posto le estremità della fibra multimodo a nostra disposizione, una volta spellate e pulite, una sul lanciatore e una sul supporto dotato di goniometro visibili in Figura \ref{fig:apparato_NA}. Abbiamo quindi misurato la potenza in uscita dalla fibra variando l'angolo per due diverse distanze $d$ fra power meter e uscita della fibra.
+
+I dati ottenuti sono riportati nelle Tabelle \ref{tab:d1} e \ref{tab:d2}: abbiamo un errore di 1° sugli angoli e un errore di calibrazione del 3\% sulla potenza.
 
 \subsection{Analisi dati}
 L'apertura numerica di una fibra è calcolata come il seno dell'angolo al quale la potenza emessa è il 5\% della potenza massima. 
 
-Per ottenere una migliore precisione abbiamo allora eseguito un'interpolazione dei dati intorno a tale valore sia a destra che a sinistra del massimo, per entrambe le serie di dati.
+Per ottenere una migliore precisione abbiamo eseguito un'interpolazione dei dati intorno a tale valore sia a destra che a sinistra del massimo, per entrambe le serie di dati.
 Dalle curve ottenute abbiamo quindi ricavato l'angolo a cui queste assumono il valore corrispondente al 5\% della potenza massima.
 
 I risultati ottenuti sono mostrati in Figura \ref{fig:NA} e in Tabella \ref{tab:NA}.
@@ -163,26 +189,21 @@ I risultati ottenuti sono mostrati in Figura \ref{fig:NA} e in Tabella \ref{tab:
 
 Facendo la media dei due valori ottenuti si ha $NA = 0.30 \pm 0.04$, valore in pieno accordo con quello dichiarato $NA_{atteso} = 0.29$.
 
-\end{multicols}
-
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{NA}
+\hspace{-1 cm}
+	\includegraphics[width=0.6\textwidth]{NA}
 	\caption{}
 	\label{fig:NA}
 \end{figure}
 
-
 \newpage
 \section{Attenuazione}
 
-\begin{multicols}{2}
-
 \subsection{Teoria}
-In una fibra ottica si ha dissipazione dovuta allo scattering Rayleigh con le impurità della fibra. La potenza dissipata è proporzionale a $\lambda^{-4}$, scopo dell'esperienza è verificare questa legge di potenza.\\
+In una fibra ottica si ha dissipazione dovuta allo scattering Rayleigh con le impurità della fibra. La potenza dissipata è proporzionale a $\lambda^{-4}$, lo scopo dell'esperienza è verificare questa legge di potenza.\\
 L'attenuazione $\alpha$, che è proporzionale alla potenza dissipata, è definita come 
 \[\alpha = \frac{10}{L} \log \left | \frac{ P_{in}}{P_{out}} \right | \quad\textrm{     [dB/km]}\]
-dove $P_{in}$ e $P_{out}$ sono, rispettivamente, la potenza in ingresso e la potenza in uscita ad un tratto di fibra di lunghezza $L$.
+dove $P_{in}$ e $P_{out}$ sono, rispettivamente, la potenza in ingresso e la potenza in uscita relative ad un tratto di fibra di lunghezza $L$.
 
 \subsection{Apparato sperimentale}
 
@@ -212,8 +233,8 @@ dove $P_{in}$ e $P_{out}$ sono, rispettivamente, la potenza in ingresso e la pot
 \subsection{Presa dati}
 La misura è svolta in due passaggi.
 \begin{enumerate}
-	\item Si lancia in fibra un fascio laser e si misura la potenza in uscita: $P_{out}$.
-	\item Si taglia la fibra a 2 metri dal lanciatore e si misura di nuovo la potenza in uscita: $P_{in}$.
+	\item Si lancia in fibra un fascio laser e si misura la potenza in uscita $P_{out}$.
+	\item Si taglia la fibra a 2 metri dal lanciatore e si misura di nuovo la potenza in uscita, che ora chiamiamo $P_{in}$.
 \end{enumerate}
 Quindi $L$ è la lunghezza del rotolo meno i 2 m tagliati.
 
@@ -242,7 +263,7 @@ Come si nota in Tabella \ref{tab:alpha} per ogni laser abbiamo fatto 2 misure di
 \subsubsection*{Discussone degli errori}
 Gli errori su $L$ sono relativamente piccoli (abbiamo scelto 0.5 m) perchè siamo appena il secondo gruppo che utilizza il rotolo di fibra. Ogni misura aggiunge un errore di $\sim5$ cm a causa dello spellamento della fibra, quindi gli ultimi gruppi avranno un errore di qualche metro.
 
-In Tabella \ref{tab:alpha} l'errore sulla potenza è il 3\% indicato sul datasheet del \textit{power meter}, questa scelta è discutibile, quindi merita un approfondimento. Infatti nel datasheet il sudetto 3\% è indicato come errore sull'accuratezza, cioè errore di calibrazione. Tuttavia nel calcolo di $\alpha$ entra il rapporto di $P_{in}$ e $P_{out}$, pertanto l'errore di calibrazione, che è un errore sistematico, si cancella: conta solo l'errore statistico. Quindi in prima analisi avevamo scelto per $P$ gli errori di digitalizzazione (sommati a quello che sul datasheet è indicato come \textit{Power Noise Level} = 2 $\mu$W nel caso che quest'ultimo non fosse trascurabile). Ma tale scelta portava a degli errori su $\alpha$ di 0.02 dB, che rende le 2 misure dell'$\alpha$ relativo alla stessa $\lambda$ del tutto incompatibili.\\
+In Tabella \ref{tab:alpha} l'errore sulla potenza è il 3\% indicato sul datasheet del \textit{power meter} ed è un'incertezza sull'accuratezza. Questa scelta è discutibile e merita un approfondimento dato che si tratta di un errore di calibrazione, cioè un errore sistematico. Nel calcolo di $\alpha$ è presente infatti il rapporto di $P_{in}$ e $P_{out}$ e pertanto l'errore di calibrazione si cancella: conta solo l'errore statistico. Quindi in prima analisi avevamo scelto per $P$ gli errori di digitalizzazione (sommati a quello che sul datasheet è indicato come \textit{Power Noise Level} = 2 $\mu$W nel caso che quest'ultimo non fosse trascurabile). Ma tale scelta portava a degli errori su $\alpha$ di 0.02 dB/km, che rende le 2 misure dell'$\alpha$ relativo alla stessa $\lambda$ del tutto incompatibili.\\
 Dato che eccezionalmente abbiamo due misure di $\alpha$, per ogni $\lambda$ possiamo stimare l'errore a posteriori con la deviazione standard sperimentale:
 \begin{equation}
 \begin{aligned}
@@ -251,12 +272,12 @@ Dato che eccezionalmente abbiamo due misure di $\alpha$, per ogni $\lambda$ poss
 \end{aligned}
 \label{eq:sigma}
 \end{equation}
-Il valore di tale stima è simile a quello che si ottiene utilizzando il 3\% come errore sulle potenze (l'errore così ottenuto è 0.6 dB/km) ed è molto diverso dai 0.02 dB discussi sopra. La discrepanza potrebbe avere diverse origini e probabilmente viene da piccole e casuali alterazioni delle condizioni sperimentali, difficili da stimare. In ogni caso utilizzando il 3\% come errore sulle potenze l'errore su $\alpha$ viene sensato, quindi tanto vale lasciare quello, anche perchè
+Il valore di tale stima è simile a quello che si ottiene utilizzando il 3\% come errore sulle potenze (l'errore così ottenuto è 0.6 dB/km) ed è molto diverso dai 0.02 dB/km discussi sopra. La discrepanza potrebbe avere diverse origini e probabilmente viene da piccole e casuali alterazioni delle condizioni sperimentali, difficili da stimare. In ogni caso utilizzando il 3\% come errore sulle potenze l'errore su $\alpha$ viene sensato, quindi tanto vale lasciare quello, anche perchè
 \begin{itemize}
-	\item l'errore di calibrazione si cancella nel rapporto solo se $P_{in}$ e $P_{out}$ sono misurate nelle stesse identiche condizioni, che non è del tutto vero dato che tra una misura e l'altra cambia il fondo scala (da mW a $\mu$W), questo può comportare una differente calibrazione;
-	\item gli errori di calibrazione indicati nei datasheet sono validi per qualche anno, e dato che i nostri strumenti sono preistorici non sappiamo veramente quale sia l'errore di calibrazione.
+	\item l'errore di calibrazione si cancella nel rapporto solo se $P_{in}$ e $P_{out}$ sono misurate nelle stesse identiche condizioni, che non è del tutto vero dato che tra una misura e l'altra cambia il fondo scala (da mW a $\mu$W); questo può comportare una differente calibrazione;
+	\item gli errori di calibrazione indicati nei datasheet sono validi per qualche anno, e dato che i nostri strumenti sono preistorici\footnote{Infatti i gruppi successivi a noi hanno avuto la fortuna di utilizzare un $\emph{power meter}$ nuovo di zecca.} non sappiamo veramente quale sia l'errore di calibrazione.
 \end{itemize}
-Nella Tabella 1 abbiamo lasciato gli errori di calibrazione del datasheet e la consegente propagazione, nell'analisi che segue abbiamo usato la deviazione standard dell'equazione \ref{eq:sigma}.
+Nella Tabella 1 abbiamo lasciato gli errori di calibrazione del datasheet e la consegente propagazione, mentre nell'analisi che segue abbiamo usato la deviazione standard dell'equazione \ref{eq:sigma}.
 \subsection{Analisi dati}
 Alle nostre misure si aggiungono i valori del datasheet della fibra, che riporta quanto segue:
 \begin{table}[H]
@@ -275,10 +296,10 @@ Alle nostre misure si aggiungono i valori del datasheet della fibra, che riporta
 I valori di Tabella \ref{tab:alpha_n} sono problematici in quanto
 \begin{enumerate}
 	\item non riportano l'errore,
-	\item indicano un $\leq$, che fa pensare ad un errore asimmetrico.
+	\item indicano un $\leq$ che fa pensare ad un errore asimmetrico.
 \end{enumerate}
 Probabilmente il vero valore misurato dal rivenditore sarà stato di poco inferiore ai valori di Tabella \ref{tab:alpha_n}, ma non sappiamo di quanto né con che errore.
-Sperando che il rivenditore abbia riportato il corretto numero di cifre significative l'errore dovrebbe essere compreso tra 0.1 e 1 dB: in prima analisi scegliamo 0.1 dB.
+Sperando che il rivenditore abbia riportato il corretto numero di cifre significative l'errore dovrebbe essere compreso tra 0.1 e 1 dB: in prima analisi scegliamo 0.1 dB.\\
 Per i problemi appena discussi scegliamo, innanzitutto, di analizzare separatamente le nostre misure e i valori del datasheet (vedi Figura \ref{fig:attenuazione_coppie}).
 
 \begin{figure}[H]
@@ -345,22 +366,22 @@ V = \frac{2\pi}{\lambda_{0}}\cdot NA\cdot a \le 2.405
 
 \subsection{Apparato sperimentale}
 
-L'apparato sperimentale per questa misura è praticamente equivalente a quello mostrato in Figura \ref{fig:apparato_NA} con la differenza che la fibra utilizzata è una fibra a singolo modo F-SV (4,3/125/245) e che sul power meter è stato attaccato uno schermo con una fenditura molto sottile.
+L'apparato sperimentale per questa misura è praticamente equivalente a quello mostrato in Figura \ref{fig:apparato_NA}. con La fibra utilizzata è però una fibra a singolo modo F-SV (4,3/125/245) e sul power meter è stato attaccato uno schermo con una fenditura molto sottile.
 
 \subsection{Presa dati}
 
-Abbiamo spellato chimicamente due metri di fibra immergendola in una soluzione di diclorometano CL$_{2}$CH$_{2}$ per $\sim$10 minuti e facendo così ammorbidire il $\emph{coating}$ che è stato quindi rimosso.
-Quindi dopo averla tagliata e posizionata sul lanciatore abbiamo iniettato il laser HeNe. 
+Abbiamo spellato chimicamente due metri di fibra immergendola in una soluzione di diclorometano CL$_{2}$CH$_{2}$ per $\sim$10 minuti. In questo modo si ammorbidisce il $\emph{coating}$ che può quindi essere rimosso senza danneggiare la fibra.
+Dopo averla tagliata e posizionata sul lanciatore abbiamo iniettato il laser HeNe. 
  
-Per verificare teoricamente che la fibra sia SM per la lunghezza d'onda della radiazione che si propaga al suo interno, deve essere vera l'equazione \ref{eq:V}.
-Nel nostro caso, leggendo sul datasheet della fibra in questione,  si ha $NA = 0.11$ , $\lambda_0 = 633$ nm e $a \simeq 2$ $ \mu$m; quindi $V = 2.184$ e possiamo essere certi che la fibra propaghi solamente il modo LP$_{01}$.
+Perchè la fibra sia SM per la lunghezza d'onda della radiazione che si propaga al suo interno, deve essere vera l'equazione \ref{eq:V}.
+Nel nostro caso, leggendo sul datasheet,  si ha $NA = 0.11$ , $\lambda_0 = 633$ nm e $a \simeq 2$ $ \mu$m; quindi $V = 2.184$ e possiamo essere certi che la fibra propaghi solamente il modo LP$_{01}$.
 
-Data la perdita della simmetria cilindrica, il modo, una volta uscito dalla fibra, deve essere considerato un TEM$_00$ e non un LP$_{01}$.
+Data la perdita della simmetria cilindrica, il modo, una volta uscito dalla fibra, deve essere considerato un TEM$_00$.
 
 Per verificare sperimentalmente che la fibra sia SM è dunque necessario ricostruire il profilo del modo TEM$_00$ che ci aspettiamo essere gaussiano.
-Per fare ciò abbiamo montato l'uscita della fibra su di un supporto dotato di goniometro e abbiamo misurato con il power meter la potenza emessa in funzione dell'angolo.
+Allora abbiamo montato l'uscita della fibra su di un supporto dotato di goniometro e abbiamo misurato con il power meter la potenza emessa in funzione dell'angolo.
 
-Abbiamo misurato una potenza massima di 550 $\mu$W senza fenditura e che l'impatto della luce ambientale residua, una volta spente tutte le luci e chiusa la porta, era dell'ordine di 2 nW.
+Abbiamo misurato che l'impatto della luce ambientale residua, una volta spente tutte le luci e chiusa la porta, era dell'ordine di 2 nW.
 
 I valori ottenuti sono riportati in Tabella \ref{tab:LP0}.
 
@@ -392,7 +413,7 @@ I valori ottenuti sono riportati in Tabella \ref{tab:LP0}.
 
 \subsection{Analisi dati}
 
-Come detto il modo che abbiamo misurato è il TEM$_{00}$ che ha un profilo gaussiano; per verificare quindi che all'interno della fibra si propagasse il solo modo LP$_{01}$ è necessario fare un fit con la funzione:
+Per verificare l'ipotesi di fibra a singolo modo è quindi necessario fare un fit con la funzione:
 
 \begin{equation}
 f(x) = p_0e^{-(x-p_1)^2/2p_2^2}
@@ -402,7 +423,7 @@ Non è stato inserito un quarto parametro come offset in quanto è stato scalato d
 
 L'ipotesi fatta è stata quindi verificata attraverso un test del $\chi^2$.
 
- L'errore sulla potenza è stato scelto tenendo a mente che, durante le misure, il valore letto sul power meter variava di $\sim$50 nW. Inoltre è presente un errore di digitalizzazione che va moltiplicato per 0.68$\cdot$0.5 per ottenere la corretta sigma per il fit. A questo è stato sommato in quadratura l?errore di 50 nW dovuto alla variazione della lettura. 
+ L'errore sulla potenza è stato scelto tenendo a mente che, durante le misure, il valore letto sul power meter variava di $\sim$50 nW. Inoltre è presente un errore di digitalizzazione che va moltiplicato per 0.68$\cdot$0.5 per ottenere la corretta sigma per il fit. A questo è stato sommato in quadratura l'errore di 50 nW dovuto alla variazione della lettura. 
  Come errore sull'angolo è stato considerata la risoluzione del goniometro moltiplicata per 0.68$\cdot$0.5. 
  In questo modo si ha un errore sugli angoli maggiore di un ordine di grandezza rispetto a quello sulle potenze, quindi abbiamo eseguito il fit tenendo conto di entrambi.
  
@@ -414,7 +435,7 @@ Queste scelte hanno portato ai risultati:
 
 che confermano l'ipotesi di profilo gaussiano. 
 
-I risultati del fit sono riportati, invece, in Figura \ref{fig:LP0}.
+I risultati del fit sono riportati, invece, in Figura~\ref{fig:LP0}.
 
 \end{multicols}
 
@@ -432,13 +453,13 @@ I risultati del fit sono riportati, invece, in Figura \ref{fig:LP0}.
 \subsection{Teoria}
 Come spiegato nella sezione precedente la propagazione di uno o più modi all'interno di una fibra ottica è determinata dal valore della frequenza normalizzata $V$ secondo l'equazione \ref{eq:V}.
 
-Se vogliamo che si propaghino più modi della radiazione elettromagnetica si deve avere:
+Se vogliamo che si propaghino più modi si deve avere:
 
 \begin{equation}
 V = \frac{2\pi}{\lambda_{0}}\cdot NA\cdot a \ge 2.405 
 \end{equation}
 
-Il valore di $V$ determina quindi il numero di modi che si possono propagare nella fibra che sono identificati dalla sigla $LP_{lm}$ come si può vedere in Figura \ref{fig:modi}.
+Il valore di $V$ determina il numero di modi che si possono propagare nella fibra e che sono identificati dalla sigla LP$_{lm}$ come mostrato in Figura \ref{fig:modi}.
 
 \begin{figure}[H]
 	\centering
@@ -465,11 +486,11 @@ Usando il laser verde si ha \[V_{532} = 7.139 \ge 2.405\] questo ci assicura la 
 
 \subsection{Presa dati}
 
-Abbiamo spellato la fibra chimicamente e dopo averla tagliata l'abbiamo posta sul lanciatore per poter iniettare il laser al suo interno. L'altro capo della fibra è stato posto su un supporto e allineato ad un obiettivo x20 così poter proiettare la luce uscente dalla fibra su uno schermo e fotografarli. Purtroppo l'obiettivo presentava alcuni graffi che impedivano la corretta visione dei modi, quindi lo abbiamo tolto e invece di proiettare il segnale su uno schermo di grandi dimensioni l'abbiamo proiettato su quello piccolo. 
+Abbiamo spellato la fibra chimicamente e, dopo averla tagliata, l'abbiamo posta sul lanciatore per poter iniettare il laser al suo interno. L'altro capo della fibra è stato posto su un supporto e allineato ad un obiettivo x20 così da poter proiettare la luce uscente dalla fibra su uno schermo. Purtroppo l'obiettivo presentava alcuni graffi che impedivano la corretta visione dei modi, quindi lo abbiamo tolto e abbiamo proiettato il segnale sullo schermo più piccolo. 
 
 Abbiamo posizionato lo schermo e la fotocamera digitale sul banco ottico e variando l'allineamento, cioè l'angolo di ingresso nella fibra, abbiamo eccitato i vari modi e li abbiamo fotografati.
 
-Dato che la frequenza normalizzata per il laser verde ($V_{532} = 7.139$) ha un valore molto alto si propagano un elevato numero di modi indipendenti che sono quindi più difficili da rivelare. Allora per riuscire ad osservare meglio i primi modi indipendenti dopo il $LP_{01}$ abbiamo provato ad usare anche il laser HeNe; infatti $\lambda_{HeNe}$=633 nm quindi \[V_{HeNe} = 6.000 \ge 2.405\]
+Dato che la frequenza normalizzata per il laser verde ($V_{532} = 7.139$) ha un valore molto alto si ha un elevato numero di modi indipendenti che sono quindi più difficili da rivelare. \\ Allora per riuscire ad osservare meglio i primi modi indipendenti abbiamo provato ad usare anche il laser HeNe; infatti $\lambda_{HeNe}$=633 nm quindi \[V_{HeNe} = 6.000 \ge 2.405\]
 
 Siamo riusciti ad osservare cinque modi fondamentali col laser verde  e quattro col laser HeNe; li abbiamo classificati rifacendoci alla Figura \ref{fig:modi}.
 \end{multicols}
@@ -556,14 +577,14 @@ Siamo riusciti ad osservare cinque modi fondamentali col laser verde  e quattro 
 
 \subsection{Teoria}
 
-Una fibra ottica a conservazione di polarizzazione ha un core stressato meccanicamente che presenta una forma ellittica e a ciascuno dei due assi dell'ellisse è associato un diverso indice di rifrazione $n_1 \ne n_2$; la radiazione si propaga quindi con velocità diversa lungo i due assi. 
+Una fibra ottica a conservazione di polarizzazione ha un $\emph{core}$ stressato meccanicamente che presenta una forma ellittica. A ciascuno dei due assi dell'ellisse è associato un diverso indice di rifrazione $n_1 \ne n_2$. 
 
-Rifacendoci all'immagine in Figura \ref{fig:schema_pol} si ha che, iniettando nella fibra radiazione polarizzata a 45° rispetto agli assi dell'ellisse, si genera uno sfasamento \[\Delta\phi = \frac{2\pi}{\lambda_0}\Delta nL\]
-dove $\Delta n = |n_2-n_1|$, $\lambda_0$ è la lunghezza d'onda della radiazione ed $L$ è il percorso fatto dalla radiazione all'interno del mezzo birifrangente lungo l'asse z.
+Allora iniettando nella fibra radiazione polarizzata a 45° rispetto agli assi dell'ellisse si genera uno sfasamento \[\Delta\phi = \frac{2\pi}{\lambda_0}\Delta nL\]
+dove $\Delta n = |n_2-n_1|$, $\lambda_0$ è la lunghezza d'onda della radiazione ed $L$ è il percorso fatto dalla radiazione all'interno del mezzo birifrangente lungo l'asse della fibra.
 
-Questo sfasamento porta alla rotazione della polarizzazione che passa dall'essere lineare ad essere circolare e poi ancora lineare come mostrato in Figura \ref{fig:schema_pol}. Si ha quindi un cambiamento anche nella luminosità emessa, infatti quando la polarizzazione è circolare si ha emissione isotropa, mentre quando è lineare a si ha emissioni di dipolo. Quest'alternanza della polarizzazione produce quindi il fenomeno dei battimenti.
+Questo sfasamento porta alla rotazione della polarizzazione che passa dall'essere lineare ad essere circolare, poi ancora lineare, ma ruotata di 90° e infine di nuovo circolare. Si ha quindi un cambiamento nella luminosità emessa: quando la polarizzazione è circolare si ha emissione isotropa, mentre quando è lineare a si ha emissione di dipolo. Quest'alternanza della polarizzazione produce quindi il fenomeno dei battimenti.
 
-\'E quindi possibile definire il $\emph{beat length}$ L$_p$ come la lunghezza dopo la quale si recupera la polarizzazione in ingresso: \[ L_p = \frac{\lambda_0}{\Delta n}\]
+\'E possibile definire il $\emph{beat length}$ $L_p$ come la lunghezza dopo la quale si recupera la polarizzazione in ingresso: \[ L_p = \frac{\lambda_0}{\Delta n}\]
 
 \subsection{Apparato sperimentale}
 Per questa misura l'apparato sperimentale era composto da quanto mostrato in Figura \ref{fig:apparato_NA} con alcune differenze:
@@ -575,12 +596,10 @@ Per questa misura l'apparato sperimentale era composto da quanto mostrato in Fig
 \end{itemize}
 
 \subsection{Presa dati}
-Abbiamo spellato chimicamente alle estremità e al centro la fibra per poter così osservare i battimenti. 
-Dopo aver tagliato le due estremità, avendo cura di non rovinare la porzione spellata al centro, ne abbiamo una posta nel lanciatore e le abbiamo iniettato il laser HeNe. L'altra estremità è stata posta su di un supporto dotato di goniometro e la luce uscente da essa è stata proiettata sullo schermo bianco. Così abbiamo osservato l'ellisse emessa dalla fibra e attraverso il goniometro posto sul portafibra abbiamo fissato le posizioni degli assi (90° - 30°). A questo punto abbiamo scambiamo le due estremità e abbiamo sistemato gli assi della fibra a 45° rispetto alla direzione di propagazione del fascio. 
+Abbiamo spellato chimicamente la fibra alle estremità e al centro. 
+Dopo aver tagliato le due estremità, avendo cura di non rovinare la porzione spellata al centro, ne abbiamo una posta nel lanciatore e le abbiamo iniettato il laser HeNe. L'altra estremità è stata posta su di un supporto dotato di goniometro e la luce uscente da essa è stata proiettata sullo schermo bianco. Così abbiamo osservato l'ellisse emessa dalla fibra e attraverso il goniometro posto sul portafibra abbiamo fissato le posizioni degli assi (90° - 30°). A questo punto abbiamo scambiato le due estremità e abbiamo sistemato gli assi della fibra a 45° rispetto alla direzione di propagazione del fascio. 
 
-Infine abbiamo posto, con molta cura, la parte spellata al centro della fibra sopra la carta millimetrata del miscroscopio e abbiamo variato l'allineamento fino a che non abbiamo visto i battimenti sullo schermo della televisione. L'immagine è stata quindi salvata sul pc.
-
-Abbiamo modificato l'allineamento più volte ottenendo come risultati migliori quelli mostrati in Figura \ref{fig:battimenti}
+Infine abbiamo posto il centro spellato della fibra sopra la carta millimetrata del miscroscopio e abbiamo variato l'allineamento fino a che non abbiamo visto i battimenti sullo schermo della televisione. L'immagine è stata salvata sul pc. \\Abbiamo modificato l'allineamento più volte ottenendo come risultati migliori quelli mostrati in Figura~\ref{fig:battimenti}.
 
 \begin{figure}[H]
 \centering
@@ -603,7 +622,7 @@ Abbiamo modificato l'allineamento più volte ottenendo come risultati migliori qu
 	\label{fig:battimenti}
 \end{figure}
 
-Contando il numero di massimi o minimi presenti in una determinata distanza è possibile determinare il valore di L$_p$. Per ottenere però una migliore precisione abbiamo sovrapposto un righello alla foto dei battimenti allineandolo con i quadretti della carta millimetrata e abbiamo estratto le posizioni l dei minimi in funzione di un indice $N$. 
+Contando il numero di massimi o minimi presenti in una determinata distanza è possibile determinare il valore di L$_p$. Per avere un risultato più preciso abbiamo sovrapposto un righello alla foto dei battimenti allineandolo con i quadretti della carta millimetrata come mostrato in Figura \ref{fig:battimenti}. Abbiamo quindi estratto le posizioni l dei minimi in funzione di un indice~$N$. \\
 I valori ottenuti sono riportati in Tabella \ref{tab:Npol}.
 
 \begin{table}[H]
@@ -634,15 +653,8 @@ I valori ottenuti sono riportati in Tabella \ref{tab:Npol}.
 
 \subsection{Analisi dati}
 
-Abbiamo eseguito un fit lineare alle tre serie di dati riportati in Tabella \ref{tab:Npol} e riportiamo i risultati in Figura \ref{fig:lp}.
-
-Per calcolare correttamente L$_p$ è necessario tenere presente che il numero di minimi corrispondenti alla polarizzazione in ingresso sono la metà di quelli presenti nell'immagine, dato che due minimi successivi corrispondono a polarizzazioni lineari ruotate fra loro di 90°. 
-
-Il valore di L$_p$ si ottiene quindi moltiplicando per due m$_{fit}$.
-
-Abbiamo quindi mediato i tre risultati dei fit ottenendo \[\text{m}_{fit}^{medio} = 1.09(8)\; \text{mm}\].
-
-Da cui si ricava \[\text{L}_p^{misurato} = 2.18(16) \;\text{mm}\] che non è in accordo con quanto dichiarato sul datasheet della fibra utilizzata, infatti \\L$_p^{atteso} \le$ 2 mm.
+Abbiamo eseguito un fit lineare alle tre serie di dati riportati in Tabella \ref{tab:Npol}. \\
+Riportiamo i risultati in Figura~\ref{fig:lp}.
 
 \begin{figure}[H]
 	\centering
@@ -651,12 +663,15 @@ Da cui si ricava \[\text{L}_p^{misurato} = 2.18(16) \;\text{mm}\] che non è in a
 	\label{fig:lp}
 \end{figure}
 
-\end{multicols}
+Per calcolare correttamente L$_p$ è necessario tenere a mente che i minimi, corrispondenti alla polarizzazione in ingresso, sono la metà di quelli presenti nell'immagine: due minimi successivi corrispondono a polarizzazioni lineari ruotate fra loro di 90°. 
+
+Il valore di L$_p$ si ottiene quindi moltiplicando per due m$_{fit}$.
+
+Abbiamo quindi mediato i tre risultati dei fit ottenendo \[\text{m}_{fit}^{medio} = 1.09(8)\; \text{mm}\].
+
+Da cui si ricava \[\text{L}_p^{misurato} = 2.18(16) \;\text{mm}\] che non è in accordo con quanto dichiarato sul datasheet della fibra utilizzata, infatti L$_p^{atteso} \le$~2~mm.
 
 \section{Lente GRIN}
-
-\begin{multicols}{2}
-
 
 \subsection{Teoria}
 Una lente GRIN (da GRadient-INdex) è un cilindro fatto di materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
@@ -673,7 +688,7 @@ Il coefficiente di accoppiamento si ottiene con la formula
 \subsubsection*{Procedura e accorgimenti}
 $P_{in}$ è la potenza in ingresso, misurata con il \textit{power meter} a diretto contatto con la sorgente, e $P_{out}$ è la potenza in uscita, misurata, con lo stesso \textit{power meter}, all'uscita della fibra ottica.
 
-$P_{out}$ dipende dall'allineamento l'apparato, la sua misura non è quindi ripetibile a meno di non ottenere lo stesso identico allineamento. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.
+$P_{out}$ dipende dall'allineamento dell'apparato; la sua misura non è quindi ripetibile a meno di non ottenere le stesse identiche condizioni. Pertanto abbiamo scelto, per convenzione, di variare l'allineamento fino a registrare il massimo valore di $P_{out}$, in questo modo altri studenti che utilizzino il nostro apparato e seguano la stessa procedura devono trovare il medesimo valore. Allo stesso modo $P_{in}$ è la massima potenza registrata con la sorgente a diretto contatto con il sensore.
 
 La corrente di alimentazione varia lentamente in funzione del tempo (effetti $1/f$) quindi ci siamo assicurati che le misure di $P_{in}$ e $P_{out}$ avvenissero con la stessa alimentazione. La misura che richiede più pazienza è quella di $P_{out}$, quindi l'abbiamo misurata per prima e immediatamente dopo abbiamo misurato $P_{in}$, verificando che l'alimentatore fornisse la stessa corrente.
 
