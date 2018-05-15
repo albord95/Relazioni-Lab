@@ -5,10 +5,11 @@
 \usepackage[latin1]{inputenc}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[margin=2 cm]{geometry}
+\usepackage[margin=2.1 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{textcomp}
+\usepackage[bottom]{footmisc}
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{mathtools}
@@ -22,41 +23,48 @@
 	\maketitle
 	
 	\begin{abstract}
-		 
+		\centering\hspace{-1.92cm}
+	Ologramma di una figura statica.
+	
+	Ologramma di una figura che viene mossa.
 	\end{abstract}
 
 \begin{multicols}{2}	
 \section{Teoria}
-L'olografia è basata sulla registrazione di fase e ampiezza di un'onda elettromagnetica $a(x,y)= |a(x, y)|e^{i\phi(x,y)}$ su di un supporto che giace nel piano x-y, in modo da poter poi ricostruire l'immagine. Il supporto in questione è una lastra fotografica sensibile all'intensità incidente, quindi è necessaria un'onda di riferimento $A(x,y)= |A(x, y)|e^{i\psi(x,y)}$. Infatti l'interferenza tra il fascio di riferimento e il fascio diffuso dall'oggetto provoca un pattern d'interferenza che contiene tutta l'informazione su ampiezza e fase in quanto l'intensità incidente sulla lastra risulta essere:
-\begin{equation}
-\begin{aligned}
-I(x,y)=|A(x,y)+a(x,y)|^2=\\= |A(x, y)|^2+|a(x, y)|^2+|a|^2+aA^*+Aa^*
-\end{aligned}
-\end{equation}
-Assumendo che la trasmettività della lastra sia lineare con l'intensità incidente, $t=\gamma I$, si ha:
-\begin{equation}
-t(x,y)=t_{ref}+\gamma(|a|^2+aA^*+Aa^*)
-\end{equation}
-dove $t_{ref} = \gamma|A|^2$ è la trasmettività di background dovuta all'onda di riferimento. 
+L'olografia è basata sulla registrazione di fase e ampiezza di un'onda elettromagnetica $a(x,y)~=~|a(x, y)|e^{i\phi(x,y)}$ su di un supporto che giace nel piano $x-y$. A questo scopo utilizziamo una una lastra fotografica.
 
-\'E quindi possibile ricostruire l'immagine registrata utilizzando in trasmissione un'onda di ricostruzione $B(x,y)$, infatti il campo trasmesso è:
-\begin{equation}
+\'E necessaria un'onda $A(x,y)~=~|A(x, y)|e^{i\psi(x,y)}$ di riferimento, infatti l'interferenza tra il fascio di riferimento e il fascio diffuso dall'oggetto provoca un pattern d'interferenza che contiene tutta l'informazione su ampiezza e fase del campo elettromagnetico:
+\begin{equation*}
+\begin{aligned}
+I(x,y)=|A(x,y)+a(x,y)|^2=\\= |A|^2 +|a|^2+aA^*+Aa^*
+\end{aligned}
+\end{equation*}
+
+In fase di impressione la lastra fotografica si annerisce punto per punto in modo proporzionale all'intensità incidente $I$.
+Assumendo che la trasmittività della lastra sia lineare con l'intensità\footnote{In realtà, poichè la lastra si annerisce, verosimilmente è ($1-t$) ad essere proporzionale all'intensità incidente; in ogni caso, mutatis mutandis, il discorso rimane valido.} ($t=\gamma I$) si ha:
+\begin{equation*}
+t(x,y)=t_{ref}+\gamma(|a|^2+aA^*+Aa^*)
+\end{equation*}
+dove $t_{ref} = \gamma|A|^2$ è la trasmittività di background dovuta all'onda di riferimento. 
+
+Dopo che la lastra è stata impressionata e sviluppata, utilizzando un'onda di ricostruzione $B(x,y)$ si ottiene, per il campo trasmesso,
+\begin{equation*}
 \begin{aligned}
 E_{trasm}=Bt=Bt_{ref}+\gamma(B|a|^2+BaA^*+BAa^*)=\\=U_1+U_2+U_3+U_4
 \end{aligned}
-\end{equation}
+\end{equation*}
 
-Utilizzando come fascio di ricostruzione lo stesso fascio di luce usato per il riferimento e assumendo che $|A|^2$ sia costante su tutta la lastra, si hanno due termini lineari rispettivamente in $a$ e $a^*$ che contengono tutta l'informazione sull'oggetto in esame:
-\begin{equation}
+Se utilizziamo come fascio di ricostruzione lo stesso fascio di luce usato per il riferimento e assumendo che $|A|^2$ sia costante su tutta la lastra, si recuperano i termini lineari in $a$ e $a^*$, che contengono tutta l'informazione di fase e ampiezza:
+\begin{equation*}
 U_3=\gamma|A|^2a \qquad U_4=\gamma A^2a^*
-\end{equation}
-Se vogliamo quindi ricostruire e osservare l'immagine occorre separare spazialmente queste due componenti del campo trasmesso e per farlo si utilizza lo schema mostrato in Figura \ref{fig:schema} che riprende quello dell'ologramma di Leith-Uptanieks.
+\end{equation*}
+Per osservare nitidamente l'immagine occorre separare spazialmente queste due componenti del campo trasmesso e per farlo si utilizza lo schema mostrato in Figura \ref{fig:schema} che riprende quello dell'ologramma di Leith-Uptanieks.\footnote{In verità è difficile utilizzare come fascio di ricostruzione esattamente lo stesso $A(x,y)$ utilizzato per il riferimento, poichè basta un minimo movimento per far comparire uno sfasamento $B = A(x,y)e^{i\psi(x,y) + i\delta(x,y)}$ questo fa sì che compaiano anche dei termini $\gamma A^2 a$ e $\gamma |A|^2 a^*$. Il primo però non è importante perchè è un termine rapidamente oscillante, il secondo è quello che va a formare l'immagine reale.}
 
 \end{multicols}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{olografia_virtuale_reale.pdf}
+\includegraphics[width=0.6\textwidth]{olografia_virtuale_reale.pdf}
 \caption{Schema olografia di Leith-Uptanieks}
 \label{fig:schema}
 \end{figure}
@@ -76,18 +84,19 @@ Se vogliamo quindi ricostruire e osservare l'immagine occorre separare spazialme
 L'apparato a disposizione è riportato in Figura \ref{fig:apparato} ed è composto da:
 
 \begin{enumerate}
-\item Laser He-Ne ($\lambda$=633 nm) di potenza $\sim$15 mW e con una lunghezza di coerenza di $\sim$1 m.
+\item Laser He-Ne ($\lambda$=633 nm) di potenza $\sim$15 mW e con una lunghezza di coerenza di $\sim$30 cm.
 \item Shutter, azionabile dall'esterno, per oscurare completamente il fascio.
-\item Obbiettivo x20 e filtro spaziale (\emph{pin-hole}). Il primo trasforma quella che, date le distanze in gioco, può essere considerata un'onda piana in un'onda sferica per ottenere interferenza al finito. Il secondo è posizionato nel fuoco della lente divergente ed ha un diametro 12.5 $\mu$m per selezionare il modo TEM$_{00}$, grazie al quale si ha un'illuminazione uniforme. 
-\item Beam splitter che trasmette il 5\% del fascio come riferimento e ne riflette il 95\%, che viene poi indirizzato sull'oggetto.
+\item Obbiettivo x20 e filtro spaziale (\emph{pin-hole}). Il primo trasforma un'onda piana in un'onda sferica, il secondo è posizionato nel fuoco della lente divergente ed ha un diametro 12.5 $\mu$m; serve a selezionare il modo TEM$_{00}$, grazie al quale si ha un'illuminazione uniforme. 
+\item Beam splitter: trasmette il 5\% del fascio come riferimento e ne riflette il 95\%, che viene poi indirizzato sull'oggetto.
 \item Specchi per indirizzare i due fasci uno sulla lastra e uno sull'oggetto.
 \item Oggetto di cui vogliamo fare l'olografia; dipinto di bianco così da massimizzare la riflessione della luce su di esso.
 \item Supporto per la lastra fotografica.
-\item Rivelatore al silicio con una superficie attiva di 1 cm$^2$ montato su un supporto che permette di misurare l'intensità incidente su tutta la superficie della lastra. 
+\item Rivelatore al silicio con una superficie attiva di 1~cm$^2$ montato su un supporto che permette di misurare l'intensità incidente su tutta la superficie della lastra. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{rivelatore.pdf}
 \end{figure}
+\end{enumerate}
 Il fotodiodo restituisce una tensione che è possibile convertire in una potenza per cm$^2$ grazie alla curva di taratura presente in laboratorio:
 \begin{equation}
 P[\mu W] =  -0.16925 + 2.6592V_{mis}
@@ -95,15 +104,15 @@ P[\mu W] =  -0.16925 + 2.6592V_{mis}
 \end{equation}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.4\textwidth]{taratura.pdf}
+\includegraphics[width=0.5\textwidth]{taratura.pdf}
 \end{figure}
-\end{enumerate}
+
 
 Abbiamo inoltre a disposizione 4 lastre fotografiche ai sali d'argento; non esistono infatti dispositivi di acquisizione elettronici con la risoluzione necessaria a registrare l'interferenza di luce visibile.
 
 \section{Accorgimenti sperimentali}
 
-Come scritto, utilizziamo lo stesso fascio laser diviso in ampiezza come onda di riferimento e onda incidente sull'oggetto. \'E quindi necessario porre particolare attenzione al cammino ottico percorso dai due fasci; infatti la fase relativa fra il fascio proveniente dall'oggetto e quello di riferimento deve essere ben definita. Per questo la differenza di cammino tra i due fasci deve essere molto minore della lunghezza di coerenza del laser He-Ne. Si deve cioè avere:
+Come scritto, utilizziamo lo stesso fascio laser diviso in ampiezza come onda di riferimento e onda incidente sull'oggetto.\\ \'E necessario porre particolare attenzione al cammino ottico percorso dai due fasci; infatti la fase relativa fra il fascio proveniente dall'oggetto e quello di riferimento deve essere ben definita. Per questo la differenza di cammino tra i due fasci deve essere molto minore della lunghezza di coerenza del laser He-Ne. Si deve cioè avere:
 \begin{equation}
 A+B = C+D+E
 \label{eq:distanza}

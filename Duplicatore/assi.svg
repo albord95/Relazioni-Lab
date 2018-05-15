@@ -186,7 +186,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="297.18629"
+     inkscape:cx="180.76621"
      inkscape:cy="880.14823"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -204,7 +204,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -213,7 +213,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="opacity:0.391;fill:#aa0000;fill-opacity:1;paint-order:markers fill stroke;"
+       style="opacity:0.391;fill:#ff2a2a;fill-opacity:1;paint-order:markers fill stroke"
        id="path5795"
        cx="78.651947"
        cy="75.206551"

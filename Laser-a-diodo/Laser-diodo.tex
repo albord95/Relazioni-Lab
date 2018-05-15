@@ -5,23 +5,25 @@
 \usepackage[latin1]{inputenc}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[margin=2 cm]{geometry}
+\usepackage[margin=2.3 cm]{geometry}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{textcomp}
 \usepackage{caption}
 
 \author{Alberto Bordin, Giulio Cappelli}
-\title{Laser a diodo}
+\title{\vspace{-0.9cm}Laser a diodo}
 \date{7-8 novembre 2017}
 
 \begin{document}
 	\maketitle
 	
 \begin{abstract}
-	Misura della corrente di soglia di un diodo laser per varie temperature di operazione. \\
-	Misura della divergenza del fascio. \\
-	Misura della dipendenza della lunghezza d'onda dalla temperatura. \\
+	Misura della corrente di soglia di un diodo laser per diverse temperature di operazione.
+	
+	Misura della divergenza del fascio.
+	
+	Misura della dipendenza della lunghezza d'onda dalla temperatura.
 \end{abstract}
 
 \begin{multicols}{2}
@@ -37,17 +39,17 @@
 
 Il laser a diodo considerato può essere schematizzato come in Figura \ref{fig:giunzione}.
 
-\'E una giunzione p-n di GaAs al cui interno è presente un canale puro. Il drogaggio comporta uno shift delle bande con conseguente equalizzazione del livello di Fermi; applicando quindi una differenza di potenziale si ha l'inversione di popolazione che permette quindi l'emissione laser.
+\'E una giunzione $p-n$ di GaAs al cui interno è presente un canale puro. Il drogaggio comporta uno shift delle bande con conseguente equalizzazione del livello di Fermi; applicando una differenza di potenziale si ha l'inversione di popolazione che permette l'emissione laser.
 
 La presenza del canale di GaAs puro porta alcuni vantaggi:
 \begin{enumerate}
-\item Possiede un gap energetico minore, quindi aumenta la probabilità di ricombinazione elettrone-lacuna e aumenta la regione attiva
-\item Ha un indice di rifrazione maggiore delle componenti drogate quindi si comporta con una guida d'onda e viene dissipata meno energia
+\item Possiede un gap energetico minore, quindi aumenta la probabilità di ricombinazione elettrone-lacuna e aumenta la regione attiva.
+\item Ha un indice di rifrazione maggiore delle componenti drogate quindi si comporta come una guida d'onda.
 \end{enumerate}
 
-La geometria del sistema porta ad un allargamento non isotropo del fascio come mostrato in Figura \ref{fig:divergenza}; infatti il canale intrinseco è rettangolare con un lato più piccolo della lunghezza d'onda di emissione ($\lambda\sim$780 nm) comportando un allargamento per diffrazione.
+La geometria del sistema porta ad un allargamento non isotropo del fascio, come mostrato in Figura \ref{fig:divergenza}. Il canale intrinseco è rettangolare: il lato più piccolo (che è addirittura minore della lunghezza d'onda di emissione $\lambda\simeq780$ nm) comporta un maggiore allargamento per diffrazione.
 
-Il funzionamento di questo dispositivo è sensibile alla temperatura di operazione in quanto aumentando T si aumentano la interazioni coi fononi e la probabilità di ricombinazione termica; ci aspettiamo quindi un aumento di $I_{th}$ e di $\lambda$.
+Il funzionamento di questo dispositivo è sensibile alla temperatura: al crescere di T aumentano le interazioni coi fononi e la probabilità di ricombinazione termica; ci aspettiamo quindi un aumento della corrente di soglia $I_{th}$. Inoltre per T maggiori il gap si stringe, quindi $\lambda$ aumenta.
 
 \begin{figure}[H]
 \centering
@@ -58,19 +60,17 @@ Il funzionamento di questo dispositivo è sensibile alla temperatura di operazion
 
 \section{Apparato sperimentale}
 
-Per poter effettuare le varie misure abbiamo a disposizione:
+Abbiamo a disposizione:
 \begin{itemize}
 \item Un laser a diodo modello \texttt{HL7812G} prodotto dalla \texttt{Hitachi}.
 \item Un circuito di controllo in corrente del laser.
 \item Una cella peltier, controllata in corrente, che utilizziamo per variare la temperatura del laser.
 \item Un sensore ti temperatura \texttt{DIGIMASTER DM102}
 \item Un analizzatore di spettro \texttt{USB4000} della \texttt{Ocean Optics}.
-\item Una fibra ottica utilizzata per portare il segnale del laser al monocromatore.
 \item Un piccolo ventilatore montato in modo tale da evitare la formazione di gocce d'acqua all'interno del laser durante i processi di riscaldamento e/o raffreddamento del laser.
 \item Una lente utilizzata per focalizzare il laser nella misura della caratteristica P-I.
 \item Un supporto per il laser montato su un goniometro con una precisione di 0.5°.
-\item Un fotodiodo \texttt{PD300} della \texttt{Ophir}.
-\item Un altro fotodiodo di cui non sappiamo niente.
+\item Due fotodiodi (tra cui un \texttt{PD300} della \texttt{Ophir}).
 \item Un power meter \texttt{NOVA} della \texttt{Ophir}.
 \item Un rilevatore IR per poter osservare il fascio laser ed allinearlo.
 \end{itemize}
@@ -89,14 +89,13 @@ Sul datasheet sono riportate le seguenti caratteristiche:
 	$\theta_{//}$ [deg] & 7 & 11 & 18 \\
 	$\theta_{\perp}$ [deg] & 20 & 30 & 40 \\
 	\hline
-
 \end{tabular}
 \caption{Caratteristiche laser a diodo \texttt{HL7812G} misurate a T=25°C}
 \label{tab:datasheet}
 \end{table}
-dove I$_{th}$ è la corrente di soglia oltre la quale si è in regime laser, $\lambda_{p}$ è la lunghezza d'onda della luce in uscita dal laser e $\theta_{//}$ e $\theta_{\perp}$ sono gli angoli di divergenza del laser rispetto agli assi della giunzione (vedi Figura \ref{fig:divergenza}).
+\noindent dove I$_{th}$ è la corrente di soglia oltre la quale si è in regime laser, $\lambda_{p}$ è la lunghezza d'onda della luce in uscita dal laser e $\theta_{//}$ e $\theta_{\perp}$ sono gli angoli di divergenza del laser rispetto agli assi della giunzione (vedi Figura \ref{fig:divergenza}).
 
-Sono inoltre presenti sul datasheet i seguenti grafici:
+Sul datasheet sono riportati i seguenti grafici
 \begin{figure}[H]
 \centering
 \begin{minipage}[c]{0.24\textwidth}
@@ -112,19 +111,17 @@ Sono inoltre presenti sul datasheet i seguenti grafici:
 \label{fig:LambdavsT}
 \end{minipage}
 \end{figure}
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{IvsAng}
 \caption{}
 \label{fig:IvsAng}
 \end{figure}
-
-che mostrano le caratteristiche principali di dispositivi di questo tipo come la dipendenza della corrente di soglia dalla temperatura, l'astigmatismo e la dipendenza della lunghezza d'onda dalla temperatura.
+\noindent che mostrano le caratteristiche principali di dispositivi di questo tipo come la dipendenza della corrente di soglia dalla temperatura, l'astigmatismo e la dipendenza della lunghezza d'onda dalla temperatura.
 
 \subsection{Monocromatore}
 L'analizzatore di spettro è costituito da un monocromatore, ovvero un apparato in grado di sfruttare un reticolo di diffrazione (costituito da $\sim$1000 specchi $\forall$ mm) in riflessione per separare angolarmente le lunghezze d'onda della luce incidente. 
-Prendendo come riferimento la Figura \ref{fig:monocromatore} si nota la presenza di due specchi (4 e 6) che servono, rispettivamente, a collimare il fascio sul reticolo di diffrazione e a focalizzare il primo ordine dello spettro sull'array di fotodiodi (8) che rilevano l'intensità delle varie lunghezze d'onda che compongono la luce incidente.
+Prendendo come riferimento la Figura \ref{fig:monocromatore} si nota la presenza di due specchi (4 e 6) che servono, rispettivamente, a collimare il fascio sul reticolo di diffrazione (5) e a focalizzare il primo ordine dello spettro sull'array di fotodiodi (8). Questi rilevano l'intensità delle varie lunghezze d'onda che compongono la luce incidente.
 
 Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} mostrato in Figura \ref{fig:monocromatore}, a cui la luce laser viene portata tramite una fibra ottica.
 
@@ -139,14 +136,18 @@ Quello a nostra disposizione è un \texttt{USB4000} della \texttt{Ocean Optics} m
 Entrambi i fotodiodi a nostra disposizione sono al silicio in quanto la sua responsività in funzione della lunghezza d'onda incidente ha un massimo intorno ad 800 nm.
 
 I due fotodiodi hanno però una superficie attiva diversa, infatti il \texttt{PD300} della \texttt{Ophir} ha una superficie di 1 cm$^2$ mentre l'altro di 1 mm$^2$; per questo il primo lo utilizziamo per misurare la caratteristica P-I, mentre il secondo per valutare l'allargamento angolare.
+\end{multicols}
+\newpage
 
+\begin{multicols}{2}
 \section{Caratteristica P-I}
-Analizziamo la dipendenza della corrente di soglia del diodo laser dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T=12, 25, 45 °C.
+
+
+Analizziamo la dipendenza della corrente di soglia dalla temperatura misurando la caratteristica P-I in tre diverse condizioni: T = 12, 25, 45 °C.
 
 \subsection{Presa dati}
-Abbiamo misurato la potenza emessa dal diodo laser in funzione della corrente di alimentazione mantenendo la temperatura del diodo costante attraverso l'utilizzo della cella peltier.
-
-Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter NOVA RS232 come mostrato in Figura \ref{fig:I_soglia_schema}.
+Abbiamo misurato la potenza emessa dal diodo laser in funzione della corrente di alimentazione mantenendo la temperatura del diodo costante con la cella peltier.
+Il fascio è stato focalizzato sul fotodiodo attraverso una lente e per ogni valore della corrente abbiamo registrato il corrispondente valore della potenza leggendolo sul power meter, come mostrato in Figura \ref{fig:I_soglia_schema}.
 
 \begin{figure}[H]
 \centering
@@ -161,7 +162,7 @@ Per ogni valore della temperatura è stato impostato sul power meter il valore pr
 
 \begin{table}[H]
 \centering
-\begin{tabular}{c|c|c|c}
+\begin{tabular}{|c|c|c|c|}
 	\hline
 	T [°C] & 12 & 25 & 43 \\ 
 	$\lambda$ [nm] & 784 & 786 & 790 \\
@@ -172,32 +173,31 @@ Per ogni valore della temperatura è stato impostato sul power meter il valore pr
 
 
 \subsection{Analisi dati}
-Al fine di trovare il valore della corrente di $\textit{threshold}$ abbiamo eseguito un fit della parte lineare dei dati misurati.
+Per determinare il valore della corrente di soglia $I_{th}$ abbiamo eseguito un fit della parte lineare dei dati misurati.
 Sono stati considerati valori di P maggiori di 300 $\mu$W così da avere un andamento lineare ben definito.
 Sui valori della potenza è stato considerato un errore relativo del 5$\%$ come riportato sul datasheet.
 
-\end{multicols}
+I valori di $I_{th}$ ottenuti sono riportati in Figura \ref{fig:I_th} e sono stati ricavati trovando l'intercetta della retta fittata con l'asse delle ascisse. 
 
+Il comportamento della caratteristica P-I all'aumentare della temperatura è quello aspettato e mostrato in Figura \ref{fig:I_soglia}. I valori ottenuti della corrente di soglia sono in accordo con quanto riportato sul datasheet e in Tabella \ref{tab:datasheet}.
+\end{multicols}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{corrente_soglia}
+\includegraphics[width=0.91\textwidth]{corrente_soglia}
 \caption{}
 \label{fig:I_th}
 \end{figure}
 
-\begin{multicols}{2}
 
-I valori ottenuti di $I_{th}$ sono riportati in Figura \ref{fig:I_th} e sono stati ricavati trovando l'intercetta con l'asse delle ascisse una volta ottenuti tramite il fit lineare i valori di coefficiente angolare e intercetta con l'asse delle ordinate. 
-
-Il comportamento della caratteristica P-I all'aumentare della temperatura è quello aspettato e mostrato in Figura \ref{fig:I_soglia}. I valori ottenuti della corrente di soglia sono in accordo con quanto riportato sul datasheet e in Tabella \ref{tab:datasheet}.
 
 \section{Divergenza del fascio}
+\begin{multicols}{2}
 
-In questa seconda sezione valutiamo un'altra importante caratteristica di un diodo laser; i valori dell'allargamento angolare lungo i due assi della giunzione. Per farlo abbiamo misurato l'andamento della potenza emessa dal diodo laser in funzione dell'angolo di emissione.
+In questa sezione valutiamo i valori dell'allargamento angolare lungo i due assi della giunzione. Per farlo misuriamo l'andamento della potenza emessa dal diodo laser in funzione dell'angolo di emissione.
 
 \subsection{Presa dati}
 
-Per queste misure utilizziamo il fotodiodo, con una superficie attiva di 1 mm$^2$, collegato ad un multimetro, configurato come amperometro. I valori misurati sono stati letti sul monitor del pc attraverso il programma $\textit{DIGITAL MULTIMETER}$.
+Per queste misure utilizziamo il fotodiodo con una superficie attiva di 1 mm$^2$, collegato ad un multimetro configurato come amperometro. I valori misurati sono stati letti sul monitor del PC attraverso il programma $\textit{DIGITAL MULTIMETER}$.
 
 Le misure di allargamento angolare sono comunemente eseguite ad una distanza di 10 cm dal diodo laser, quindi per poter effettuare un confronto con quanto riportato sul datasheet ci siamo adeguati a questo standard.
 
@@ -210,11 +210,10 @@ Le misure di allargamento angolare sono comunemente eseguite ad una distanza di 
 
 Abbiamo fissato il laser su di un sostegno alla cui base è presente un goniometro con una risoluzione del mezzo grado e l'abbiamo posizionato in modo tale che l'allargamento angolare misurato fosse quello relativo ad uno degli assi dell'ellisse di emissione. Per fare ciò abbiamo sfruttato il polarizzatore e il power meter; infatti la luce emessa dal diodo laser è polarizzata, per circa il 90$\%$, lungo il semiasse minore dell'ellisse di emissione quindi ruotando il polarizzatore e cercando il massimo della potenza lo si riesce a trovare. Questo procedimento non ci ha soddisfatto, quindi abbiamo utilizzato il rivelatore IR osservando la forma del fascio e poi abbiamo controllato col polarizzatore di essere entro la sua precisione.
 
-Le misure sono state fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati ottenuti sono riportati nelle Tabelle \ref{tab:ang_per} e \ref{tab:ang_par} in appendice.
+Le misure sono state fatte a 23°C e con una corrente di controllo di 82.1 mA. I dati ottenuti sono riportati nelle Tabelle \ref{tab:ang_par} e \ref{tab:ang_per} in appendice.
 
 \subsection{Analisi dati}
-
-Per stimate i valori di $\theta_{\perp}$ e $\theta_{//}$ con una migliore precisione è stata fatta un'interpolazione dei punti intorno alla metà altezza. Questa è stata calcolata come la media dei valori di massimo e minimo: il vantaggio è che supponendo simmetriche le fluttuazioni intorno al vero massimo e al vero minimo queste si cancellano, lo svantaggio è che la misura è molto sensibile al valore del picco.
+Per stimate i valori di $\theta_{\perp}$ e $\theta_{//}$ con una migliore precisione è stata fatta un'interpolazione dei punti intorno alla metà altezza.
 
 I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con quanto riportato nel datasheet e in Tabella \ref{tab:datasheet}.
 
@@ -222,7 +221,7 @@ I valori ottenuti sono riportati in Figura \ref{fig:ang} e sono in accordo con q
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{apertura_angolare}
+\includegraphics[width=0.8\textwidth]{apertura_angolare}
 \caption{}
 \label{fig:ang}
 \end{figure}
@@ -235,9 +234,9 @@ In quest'ultima sezione studiamo l'andamento della lunghezza d'onda del laser a 
 
 \subsection{Presa dati}
 
-La temperatura del diodo laser è stata controllata utilizzando la cella peltier ed è stato esplorato l'intervallo da 12°C a 45°C così da evitare danni dovuti alla condensazione o al surriscaldamento del diodo. La lunghezza d'onda è stata invece misurata utilizzando il monocromatore a cui è stato portato il segnale attraverso una fibra ottica.
+La temperatura del diodo laser è stata controllata utilizzando la cella peltier ed è stato esplorato l'intervallo da 12°C a 45°C così da evitare danni dovuti alla condensazione dell'umidità o al surriscaldamento del diodo. La lunghezza d'onda è stata invece misurata utilizzando il monocromatore.
 Abbiamo una risoluzione di 1°C sulla temperatura e di 1 nm sulla lunghezza d'onda. 
-Abbiamo alimentato il laser poco sopra soglia $\sim$65 mA.
+Abbiamo alimentato il laser poco sopra soglia ($\sim$65 mA).
 
 Per permettere al laser di arrivare all'equilibrio termico con la cella abbiamo variato la temperatura molto lentamente e aspettato che il picco visibile sullo spettrometro fosse stabile prima di prendere ogni misura. 
 I valori ottenuti sono riportati in Tabella \ref{tab:lambdaT} in appendice.
@@ -257,7 +256,7 @@ I valori ottenuti sono riportati in Tabella \ref{tab:lambdaT} in appendice.
 
 \begin{multicols}{2}
 
-Come mostrato in Figura \ref{fig:lambdaT} si ha un andamento lineare di $\lambda(T)$ come aspettato, anche se i valori di coefficiente angolare e intercetta non sono compatibili con quanto mostrato in Figura \ref{fig:LambdavsT}. 
+Come mostrato in Figura \ref{fig:lambdaT} si ha un andamento lineare di $\lambda(T)$, come aspettato. Tuttavia i valori di coefficiente angolare e intercetta non sono compatibili con quanto mostrato in Figura \ref{fig:LambdavsT}. 
 
 L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spettrometro, non sono infatti misurabili variazioni di $\lambda$ al di sotto del nanometro.
 
@@ -270,6 +269,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
+	\hline
 	I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] &I($\Delta$I) [mA] & P [$\mu$W] \\
 	\hline
 	82.0(1)	&	6230	&	67.3(1)	&	2990	&	50.8(1)	&	64.1	&	43.2(1)	&	34.8	\\
@@ -292,6 +292,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
+	\hline
 	I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] &I($\Delta$I) [mA] & P [$\mu$W] \\
 	\hline
 81.9(1)	&	5180	&	72.1(1)	&	3090	&	60.5(1)	&	655	&	47.2(1)	&	38.2	\\
@@ -314,6 +315,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
+	\hline
 	I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] & I($\Delta$I) [mA] & P [$\mu$W] &I($\Delta$I) [mA] & P [$\mu$W] \\
 	\hline
 82.4(1)	&	3760	&	72.8(1)	&	1659	&	64.4(1)	&	128.5&	52.7(1)	&	40.8	\\
@@ -334,6 +336,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
+	\hline
 	$\theta_{//}$ [°]& I [$\mu$A] &$\theta_{//}$ [°]& I [$\mu$A] & $\theta_{//}$ [°]& I [$\mu$A] &$\theta_{//}$ [°]& I [$\mu$A] \\
 	\hline
 0.0(5)	&	4.30	&	11.0(5)	&	0.57	&	-3.5(5)	&	2.38	&	-1.5(5)	&	3.56	\\
@@ -358,6 +361,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|}
+	\hline
 	$\theta_{\perp}$ [°]& I [$\mu$A] &$\theta_{\perp}$ [°]& I [$\mu$A] & $\theta_{\perp}$ [°]& I [$\mu$A] &$\theta_{\perp}$ [°]& I [$\mu$A] \\
 	\hline
 -85.0(5)	&	0.02	&	-17.0(5)	&	1.73	&	-1.0(5)	&	4.27	&	14.0(5)	&	2.51	\\
@@ -385,6 +389,7 @@ L'andamento a scalini dei valori misurati è causato dalla risoluzione dello spet
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|}
+	\hline
 	T [°C] & $\lambda$ [nm] & T [°C] & $\lambda$ [nm] \\
 	\hline
 12	&	778	&	29	&	781	\\
