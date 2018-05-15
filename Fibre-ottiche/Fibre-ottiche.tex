@@ -24,10 +24,13 @@
 	\maketitle
 	
 	\begin{abstract}
-		 Misura apertura numerica NA e attenuazione di una fibra multimodo.\\
-		 Studio della propagazione del modo LP$_{01}$ e dei modi superiori in due diverse fibre SM.\\
-		 Misura dei battimenti e del beat length L$_p$ in una fibra a conservazione di polarizzazione.\\
-		 Studio dell'accoppiamento di una fibra con la lente di GRIN.
+		 Misura apertura numerica NA e attenuazione di una fibra multimodo.
+		 
+		 Studio della propagazione del modo LP$_{01}$ e dei modi superiori in due diverse fibre SM.
+		 
+		 Misura dei battimenti e del beat length L$_p$ in una fibra a conservazione di polarizzazione.
+		 
+		 Studio dell'accoppiamento di una fibra con una lente GRIN.
 	\end{abstract}
 
 \section{Teoria}
@@ -43,14 +46,14 @@ Come mostrato in Figura \ref{fig:struttura}, una fibra ottica è costituita da da
 	\label{fig:struttura}
 \end{figure}
 
-Il funzionamento delle fibre ottiche è basato sul fenomeno della riflessione totale infatti il $\emph{core}$, che è la regione in cui avviene la propagazione della radiazione elettromagnetica, presenta un indice di rifrazione $n_1$ minore di quello del $\emph{cladding}$ $n_2$.
+Il funzionamento delle fibre ottiche è basato sul fenomeno della riflessione totale infatti il $\emph{core}$, che è la regione in cui avviene la propagazione della radiazione elettromagnetica, presenta un indice di rifrazione $n_1$ maggiore di quello del $\emph{cladding}$ $n_2$.
 
 Il $\emph{coating}$ è invece una guaina di plastica protettiva che assorbe gli stress meccanici.
 
 \section{Apertura numerica}
 
 \subsection{Teoria}
-L'apertura numerica di una fibra ottica è definita a partire dall'angolo limite $\theta_{m}$ tale che può essere iniettata un'onda nella fibra in modo che si propaghi. 
+L'apertura numerica di una fibra ottica è definita a partire dall'angolo limite $\theta_{m}$ a cui si può un'onda nella fibra in modo che si propaghi. 
 
 \begin{figure}[H]
 	\centering
@@ -61,20 +64,20 @@ L'apertura numerica di una fibra ottica è definita a partire dall'angolo limite 
 
 Facendo riferimento alla Figura \ref{fig:fibra} si ha che, considerando l'indice di rifrazione dell'aria $n_0$ = 1, dalla legge di Snell si ottiene:
 \begin{equation}
-\text{sin}\theta_{m}=n_{1}\text{cos}\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
+\sin\theta_{m}=n_{1}\cos\theta_{c}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \end{equation}
-dove $\theta_{c}$ è l'angolo di incidenza sul cladding per cui si ha riflessione totale e quindi propagazione dell'onda all'interno della fibra.
+dove $\theta_{c}$ è l'angolo limite di incidenza sul cladding per cui si ha riflessione totale e quindi propagazione dell'onda all'interno della fibra.
 
 L'apertura numerica è quindi definita come:
 \begin{equation}
-NA=sin\theta_{m}=\sqrt{n_{1}^{2}-n_{2}^{2}}
+NA=\sin\theta_{m}=\sqrt{n_{1}^{2}-n_{2}^{2}}
 \end{equation}
 
 \subsection{Apparato sperimentale}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.52\textwidth]{apparato_NA}
-	\caption{Apparato sperimentale per la misura dell'apertura numerica NA.}
+	\caption{Apparato sperimentale per la misura dell'apertura numerica $NA$.}
 	\label{fig:apparato_NA}
 \end{figure}
 \begin{enumerate}
@@ -176,7 +179,7 @@ I risultati ottenuti sono mostrati in Figura \ref{fig:NA} e in Tabella \ref{tab:
 	\centering
 	\begin{tabular}{cc}
 		\hline
-		d [cm] & NA  \\
+		d [cm] & $NA$  \\
 		\hline
 		\hline
 		23.8  &  0.29(5)\\
@@ -187,7 +190,7 @@ I risultati ottenuti sono mostrati in Figura \ref{fig:NA} e in Tabella \ref{tab:
 	\label{tab:NA}
 \end{table}
 
-Facendo la media dei due valori ottenuti si ha $NA = 0.30 \pm 0.04$, valore in pieno accordo con quello dichiarato $NA_{atteso} = 0.29$.
+Facendo la media dei due valori ottenuti si ha $NA = 0.30 \pm 0.04$, valore in accordo con quello dichiarato $NA_{atteso} = 0.29$.
 
 \begin{figure}[H]
 \hspace{-1 cm}
@@ -349,14 +352,13 @@ Per studiare la propagazione dei modi della radiazione elettromagnetica all'inte
 \label{eq:H}
 \end{equation}
 dove $n$ è l'indice di rifrazione del mezzo. 
-
 Risolvendo l'equazione \ref{eq:H} troviamo come soluzioni le armoniche cilindriche (o funzioni di Bessel) $J_l$ e  $K_l$.
 
 Inoltre, per definizione, si ha \[(NA)^{2}k^{2}a^{2} \equiv V^{2} = costante\]
 
 dove $a$ è il raggio del $\emph{core}$.
 
-Si trova allora che il numero di modi permessi all'interno della fibra è uguale al numero di zeri delle funzioni di Bessel $J_{l\pm1}$ che sono minori di V. Quindi se il valore di V è minore del primo zero della funzione $J_0$ ($\sim$ 2.4), possiamo essere certi che all?interno della fibra si propaghi un solo modo.
+Si trova allora che il numero di modi permessi all'interno della fibra è uguale al numero di zeri delle funzioni di Bessel $J_{l\pm1}$ che sono minori di V. Quindi se il valore di V è minore del primo zero della funzione $J_0$ ($\sim$ 2.4), possiamo essere certi che all'interno della fibra si propaghi un solo modo.
 
 Dunque, affinché la fibra possa essere considerata SM, si deve avere 
 \begin{equation}
@@ -366,19 +368,18 @@ V = \frac{2\pi}{\lambda_{0}}\cdot NA\cdot a \le 2.405
 
 \subsection{Apparato sperimentale}
 
-L'apparato sperimentale per questa misura è praticamente equivalente a quello mostrato in Figura \ref{fig:apparato_NA}. con La fibra utilizzata è però una fibra a singolo modo F-SV (4,3/125/245) e sul power meter è stato attaccato uno schermo con una fenditura molto sottile.
+L'apparato sperimentale per questa misura è praticamente equivalente a quello mostrato in Figura \ref{fig:apparato_NA}. La fibra utilizzata è però una fibra a singolo modo F-SV (4,3/125/245). \\Sul power meter è stato attaccato uno schermo con una fenditura molto sottile.
 
 \subsection{Presa dati}
 
-Abbiamo spellato chimicamente due metri di fibra immergendola in una soluzione di diclorometano CL$_{2}$CH$_{2}$ per $\sim$10 minuti. In questo modo si ammorbidisce il $\emph{coating}$ che può quindi essere rimosso senza danneggiare la fibra.
+Abbiamo spellato chimicamente le estremità di due metri di fibra immergendola in una soluzione di diclorometano CL$_{2}$CH$_{2}$ per $\sim$10 minuti. In questo modo si ammorbidisce il $\emph{coating}$ che può quindi essere rimosso senza danneggiare la fibra.
 Dopo averla tagliata e posizionata sul lanciatore abbiamo iniettato il laser HeNe. 
  
 Perchè la fibra sia SM per la lunghezza d'onda della radiazione che si propaga al suo interno, deve essere vera l'equazione \ref{eq:V}.
-Nel nostro caso, leggendo sul datasheet,  si ha $NA = 0.11$ , $\lambda_0 = 633$ nm e $a \simeq 2$ $ \mu$m; quindi $V = 2.184$ e possiamo essere certi che la fibra propaghi solamente il modo LP$_{01}$.
+Nel nostro caso, leggendo sul datasheet,  si ha $NA = 0.11$ , $\lambda_0 = 633$ nm e $a \simeq 2$ $ \mu$m; quindi $V = 2.184$ e possiamo essere certi che nella fibra propaghi solamente il modo LP$_{01}$.
+Data la perdita della simmetria cilindrica, il modo, una volta uscito dalla fibra, deve essere considerato un TEM$_{00}$.
 
-Data la perdita della simmetria cilindrica, il modo, una volta uscito dalla fibra, deve essere considerato un TEM$_00$.
-
-Per verificare sperimentalmente che la fibra sia SM è dunque necessario ricostruire il profilo del modo TEM$_00$ che ci aspettiamo essere gaussiano.
+Per verificare sperimentalmente che la fibra sia SM è dunque necessario ricostruire il profilo del modo TEM$_{00}$ che ci aspettiamo essere gaussiano.
 Allora abbiamo montato l'uscita della fibra su di un supporto dotato di goniometro e abbiamo misurato con il power meter la potenza emessa in funzione dell'angolo.
 
 Abbiamo misurato che l'impatto della luce ambientale residua, una volta spente tutte le luci e chiusa la porta, era dell'ordine di 2 nW.
@@ -387,7 +388,8 @@ I valori ottenuti sono riportati in Tabella \ref{tab:LP0}.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{cc|cc}
+\begin{tabular}{|cc|cc|}
+	\hline
 	 $\theta$ [deg] & P [$\mu$W] &  $\theta$ [deg] & P [$\mu$W] \\
 	\hline
 178	&	0.005	&	194	&	50.1	\\
@@ -435,7 +437,7 @@ Queste scelte hanno portato ai risultati:
 
 che confermano l'ipotesi di profilo gaussiano. 
 
-I risultati del fit sono riportati, invece, in Figura~\ref{fig:LP0}.
+I risultati del fit sono riportati in Figura~\ref{fig:LP0}.
 
 \end{multicols}
 
@@ -597,7 +599,7 @@ Per questa misura l'apparato sperimentale era composto da quanto mostrato in Fig
 
 \subsection{Presa dati}
 Abbiamo spellato chimicamente la fibra alle estremità e al centro. 
-Dopo aver tagliato le due estremità, avendo cura di non rovinare la porzione spellata al centro, ne abbiamo una posta nel lanciatore e le abbiamo iniettato il laser HeNe. L'altra estremità è stata posta su di un supporto dotato di goniometro e la luce uscente da essa è stata proiettata sullo schermo bianco. Così abbiamo osservato l'ellisse emessa dalla fibra e attraverso il goniometro posto sul portafibra abbiamo fissato le posizioni degli assi (90° - 30°). A questo punto abbiamo scambiato le due estremità e abbiamo sistemato gli assi della fibra a 45° rispetto alla direzione di propagazione del fascio. 
+Dopo aver tagliato le due estremità, avendo cura di non rovinare la porzione spellata al centro, ne abbiamo posta una nel lanciatore e le abbiamo iniettato il laser HeNe. L'altra estremità è stata posta su di un supporto dotato di goniometro e la luce uscente da essa è stata proiettata sullo schermo bianco. Così abbiamo osservato l'ellisse emessa dalla fibra e attraverso il goniometro posto sul portafibra abbiamo fissato le posizioni degli assi. A questo punto abbiamo scambiato le due estremità e abbiamo sistemato gli assi della fibra a 45° rispetto alla direzione di propagazione del fascio. 
 
 Infine abbiamo posto il centro spellato della fibra sopra la carta millimetrata del miscroscopio e abbiamo variato l'allineamento fino a che non abbiamo visto i battimenti sullo schermo della televisione. L'immagine è stata salvata sul pc. \\Abbiamo modificato l'allineamento più volte ottenendo come risultati migliori quelli mostrati in Figura~\ref{fig:battimenti}.
 
@@ -618,12 +620,12 @@ Infine abbiamo posto il centro spellato della fibra sopra la carta millimetrata 
 	\includegraphics[width=\textwidth]{cap16}
 	\label{fig:battimenti_3}
 \end{minipage}
-	\caption{Battimenti fibra a conservazione di polarizzazione}
+	\caption{Battimenti fibra a conservazione di polarizzazione.}
 	\label{fig:battimenti}
 \end{figure}
 
-Contando il numero di massimi o minimi presenti in una determinata distanza è possibile determinare il valore di L$_p$. Per avere un risultato più preciso abbiamo sovrapposto un righello alla foto dei battimenti allineandolo con i quadretti della carta millimetrata come mostrato in Figura \ref{fig:battimenti}. Abbiamo quindi estratto le posizioni l dei minimi in funzione di un indice~$N$. \\
-I valori ottenuti sono riportati in Tabella \ref{tab:Npol}.
+Contando il numero di massimi o minimi presenti in una determinata distanza è possibile determinare il valore di $L_p$. Per avere un risultato più preciso abbiamo sovrapposto un righello alla foto dei battimenti allineandolo con i quadretti della carta millimetrata come mostrato in Figura \ref{fig:battimenti}. Abbiamo quindi estratto le posizioni $l$ dei minimi in funzione di un indice~$N$. \\
+I valori ottenuti per le 3 foto di Figura \ref{fig:battimenti} sono riportati in Tabella \ref{tab:Npol}.
 
 \begin{table}[H]
 \centering
@@ -647,37 +649,33 @@ I valori ottenuti sono riportati in Tabella \ref{tab:Npol}.
 14	&	14.85&	14.7	&		\\	
 	\hline
 \end{tabular}
-\caption{Posizioni dei minimi di luminosità estratte dalle immagini in Figura \ref{fig:battimenti}}
+\caption{Posizioni dei minimi di luminosità estratte dalle immagini in Figura \ref{fig:battimenti}.}
 \label{tab:Npol}
 \end{table}
 
 \subsection{Analisi dati}
 
-Abbiamo eseguito un fit lineare alle tre serie di dati riportati in Tabella \ref{tab:Npol}. \\
-Riportiamo i risultati in Figura~\ref{fig:lp}.
-
+Abbiamo fatto un fit lineare alle tre serie di dati in Tabella \ref{tab:Npol}. Riportiamo i risultati in Figura~\ref{fig:lp}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{lp}
+	\includegraphics[width=0.45\textwidth]{lp}
 	\caption{}
 	\label{fig:lp}
 \end{figure}
+Abbiamo mediato i tre risultati dei fit ottenendo \[\text{m}_{fit}^{medio} = 1.09(8)\; \text{mm}\].
 
-Per calcolare correttamente L$_p$ è necessario tenere a mente che i minimi, corrispondenti alla polarizzazione in ingresso, sono la metà di quelli presenti nell'immagine: due minimi successivi corrispondono a polarizzazioni lineari ruotate fra loro di 90°. 
+Per calcolare correttamente $L_p$ è necessario tenere a mente che due minimi successivi corrispondono a polarizzazioni lineari ruotate fra loro di 90°. 
+Il valore di L$_p$ si ottiene quindi moltiplicando per due m$_{fit}$. Si ricava quindi
+\[L_p^{misurato} = 2.18(16) \;\text{mm}\] che non è in accordo con quanto dichiarato sul datasheet della fibra utilizzata ($L_p^{atteso} \le$~2~mm).
 
-Il valore di L$_p$ si ottiene quindi moltiplicando per due m$_{fit}$.
-
-Abbiamo quindi mediato i tre risultati dei fit ottenendo \[\text{m}_{fit}^{medio} = 1.09(8)\; \text{mm}\].
-
-Da cui si ricava \[\text{L}_p^{misurato} = 2.18(16) \;\text{mm}\] che non è in accordo con quanto dichiarato sul datasheet della fibra utilizzata, infatti L$_p^{atteso} \le$~2~mm.
-
+\bigskip
 \section{Lente GRIN}
 
 \subsection{Teoria}
 Una lente GRIN (da GRadient-INdex) è un cilindro fatto di materiale rifrangente con indice di rifrazione variabile a seconda della distanza dall'asse.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{Grin-lens.png}
+	\includegraphics[width=0.35\textwidth]{Grin-lens.png}
 \end{figure}
 Una lente GRIN tagliata a $\lambda/4$ focalizza assi parassiali sulla superficie e viceversa. La lente GRIN a nostra disposizione è tagliata a 0.29$\lambda$ quindi focalizza onde sferiche ad una certa distanza dalla superficie.
 
