@@ -81,7 +81,7 @@ for pmax in range(p_i,p_f,step):
     subplot(altezza, larghezza, j)
     errorbar(power[indici_bassi], Vpp[indici_bassi], fmt='.k', yerr=dy[indici_bassi],xerr = dx[indici_bassi], markersize=4)
     xx = linspace(min(power[indici_bassi])-6, max(power[indici_bassi])+6, 2000)
-    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$] \t {} = {}% \n {} = {}/{} = {}'.format('$a_{fit}$', xe(par[0], err[0]), '$p_{value}$', p_value, '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof))
+    plot(xx, parabola(xx, *par), color='tab:red', label='{} = {} [mV/mW$^2$] \n {} = {}/{} = {} \n {} = {}%'.format('$a_{fit}$', xe(par[0], err[0]), '$\\frac{\chi^2}{dof}$', chisq1, dof, chidof, '$p_{value}$', p_value))
     xlim(min(power[indici_bassi])-0.5, 0.5+max(power[indici_bassi]))
     ylim(0, 0.5+max(Vpp[indici_bassi]))
     if j == 1:

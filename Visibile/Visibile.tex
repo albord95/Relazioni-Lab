@@ -11,7 +11,8 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{amsmath}
-\author{A. Bordin, G. Cappelli}
+\usepackage[bottom]{footmisc}
+\author{Alberto Bordin, Giulio Cappelli}
 \title{Visibile}
 \date{4-5 Dicembre 2017}
 \newcommand{\minitab}[2][l]{\begin{tabular}#1 #2\end{tabular}}
@@ -21,9 +22,11 @@
 	\maketitle
 	
 	\begin{abstract}
-	Verificare che in regime di bassa potenza di pompaggio la radiazione visibile segua un andamento di tipo quadratico.\\
-	Verificare che in regime di alta potenza di pompaggio la radiazione visibile segua un andamento di tipo lineare.\\
-	Misurare lo spettro di emissione del cristallo LiY F$_4$ drogato con ioni di Er$^{3+}$.
+	\noindent Verificare che in regime di bassa potenza di pompaggio la radiazione visibile segua un andamento quadratico.
+	
+		\noindent Verificare che in regime di alta potenza di pompaggio la radiazione visibile segua un andamento lineare.
+	
+		\noindent Misurare lo spettro di emissione del cristallo $\text{LiYF}_4$ drogato con ioni di Er$^{3+}$.
 	\end{abstract}
 	
 	
@@ -42,32 +45,32 @@ L'$\emph{up-conversion}$ è un meccanismo di $\emph{energy-transfer}$, cioè un ca
 \label{fig:livelli}
 \end{figure}
 
-I meccanismi $\emph{energy-transfer}$, come quello in esame, sono causati dalle interazioni di tipo $\emph{Van der Waals}$ (dipolo-dipolo, dipolo - quadrupolo, ecc..) fra gli ioni della terra rara. Questo effetto è quindi molto sensibile alla percentuale del drogaggio dato che le interazioni avvengono fra ioni vicini. 
+I meccanismi $\emph{energy-transfer}$, come quello in esame, sono causati dalle interazioni di tipo $\emph{Van der Waals}$ (dipolo-dipolo, dipolo-quadrupolo, ecc..) fra gli ioni della terra rara. Questo effetto è quindi molto sensibile alla percentuale del drogaggio dato che le interazioni avvengono fra ioni vicini. 
 
-Facendo riferimento alla Figura \ref{fig:livelli} eccitando la transizione dell'Er$^{3+}$ da |0$\rangle$ a |1$\rangle$ con un laser di pompa si ha, per $\emph{up-conversion}$, un decadimento al fondamentale |0$\rangle$ e la conseguente eccitazione del livello |3$\rangle$ per la conservazione dell'energia.  Quest'ultimo livello eccitato decade rapidamente nel livello |2$\rangle$ in modo non radiativo. A questo punto si ha che il decadimento per emissione spontanea dominante è |2$\rangle \longrightarrow$ |0$\rangle$ che corrispondente a $\lambda$=551 nm. In questo modo si riesce a convertire luce infrarossa in in luce visibile.
+Facciamo riferimento alla Figura \ref{fig:livelli}: eccitando la transizione dell'Er$^{3+}$ da |0$\rangle$ a |1$\rangle$ con un laser di pompa si ha, per $\emph{up-conversion}$, un decadimento al fondamentale |0$\rangle$ e la conseguente eccitazione del livello |3$\rangle$ per la conservazione dell'energia.  Quest'ultimo livello eccitato decade rapidamente nel livello |2$\rangle$ in modo non radiativo. A questo punto si ha che il decadimento per emissione spontanea dominante è |2$\rangle \longrightarrow$ |0$\rangle$ che corrispondente a $\lambda=551$ nm. In questo modo si riesce a convertire luce infrarossa in in luce visibile.
 
 Scrivendo le equazioni di rate per i livelli |1$\rangle$ e |2$\rangle$, in condizioni stazionarie, si ha:
 \begin{equation}
 \begin{cases} 0=\frac{dN_2}{dt}=\alpha N_1^2-\beta\frac{N_2}{\tau_2}-(1-\beta)\frac{N_2}{\tau_2} \\ \\ 0=\frac{dN_1}{dt}=P-\frac{N_1}{\tau_1}+\beta\frac{N_2}{\tau_2}-2\alpha N_1^2 \end{cases}
 \end{equation}
 
-dove $N_{i}$ e $\tau_{i}$ sono la popolazione e la vita media del livello |i$\rangle$, P è il pompaggio, $\beta$ è il branching ratio del decadimento |2$\rangle \longrightarrow$ |1$\rangle$ e  $\alpha$ è il coefficiente di up-conversion.
+dove $N_{i}$ e $\tau_{i}$ sono la popolazione e la vita media del livello |i$\rangle$, $P$ è il pompaggio, $\beta$ è il \textit{branching ratio} del decadimento |2$\rangle \longrightarrow$ |1$\rangle$ e  $\alpha$ è il coefficiente di up-conversion.
 
-Consideriamo ora due regimi in cui risolvere queste equazioni, cioè di basso e alto pompaggio.
+Consideriamo ora due regimi in cui risolvere queste equazioni: basso e alto pompaggio.
 
 Nel primo caso si ha che il livello |1$\rangle$ è poco popolato, cioè $\alpha N^2 << \frac{N_1}{\tau_1}$ e si ricava, nel limite per  $P \rightarrow 0$:
 \begin{equation}
 N_2 = \alpha\tau_2\tau_1^2P^2
-\label{eq:bassa}
+\label{eq:basso}
 \end{equation}
 
 Nel caso di alto pompaggio, invece si ha che il livello |1$\rangle$ è molto popolato e il fenomeno dell'up-conversion è dominante sull'emissione spontanea, cioè $\alpha N^2 >> \frac{N_1}{\tau_1}$ e si ricava:
 \begin{equation}
 N_2 = \frac{\tau_2}{\beta+2}P
-\label{eq:alta}
+\label{eq:alto}
 \end{equation}
 
-Assumendo che l'intensità della luce verde sia proporzionale ad $N_2$ abbiamo ci aspettiamo un andamento quadratico per bassa potenza di pompa e un andamento lineare nel regime di alta potenza di pompa.
+Assumendo che l'intensità della luce verde sia proporzionale ad $N_2$ ci aspettiamo un andamento quadratico per bassa potenza di pompa e un andamento lineare nel regime di alta potenza di pompa.
 \newpage
 \section{Apparato sperimentale}
 \end{multicols}
@@ -83,31 +86,34 @@ Assumendo che l'intensità della luce verde sia proporzionale ad $N_2$ abbiamo ci
 
 In quest'esperienza avevamo a disposizione:
 \begin{enumerate}
-\item Un laser a diodo con una lunghezza d'onda $\lambda$=975.9(2.9) nm e di potenza $\sim$1 W
+\item Un laser a diodo con una lunghezza d'onda $\lambda=975.9(2.9)$ nm e di potenza $\sim1$ W
 \item Un attenuatore variabile dotato di goniometro
 \item Due lenti convergenti
 \item Un cristallo di LiYF$_4$ drogato con Er$^{3+}$
 \item Un chopper ottico che permette di osservare il segnale come onda quadra per eliminare dalle misure qualsiasi tipo di background
 \item Un supporto per la fibra ottica per portare il segnale all'analizzatore di spettro
-\item Un rivelatore collegato all'oscilloscopio
-\item Un power meter al silicio
+\item Un rilevatore collegato all'oscilloscopio
+\item Un \textit{power meter} al silicio
 \end{enumerate}
 
 Come si può vedere in Figura \ref{fig:apparato} il fascio proveniente dal laser attraversa l'attenuatore e viene focalizzato sul cristallo che emette così luce verde in modo isotropo. Questo ci permette di rilevare la luce emessa dal cristallo a 90° rispetto alla direzione di propagazione del laser di pompa così da poterlo escludere dalle misure. 
 
-La luce emessa dal cristallo attraversa quindi il chopper ottico e viene focalizzata sul rilevatore collegato all'oscilloscopio dove leggiamo l'ampiezza picco-picco di un'onda quadra.
+La luce emessa dal cristallo attraversa quindi il chopper e viene focalizzata sul rilevatore collegato all'oscilloscopio dove leggiamo l'ampiezza picco-picco di un'onda quadra.
 
 \section{Taratura attenuatore}
 
 Per prima cosa eseguiamo la taratura dell'attenuatore variabile.
  
-Sull'attenuatore è montato un goniometro così da permetterci di registrare, attraverso il power meter, la potenza del fascio laser di pompaggio una volta attraversato l'attenuatore. Abbiamo registrato le misure variando l'angolo ogni volta di 2°.
+Sull'attenuatore è montato un goniometro che ci permette di registrare, attraverso il \textit{power meter}, la potenza del fascio laser di pompaggio una volta attraversato l'attenuatore. Abbiamo registrato le misure variando l'angolo a passi di 2°.
 
 I valori misurati sono riportati in Tabella \ref{tab:taratura} in Appendice.
 
-Così facendo abbiamo ottenuto una curva di conversione (Figura \ref{fig:taratura}) che ci permette, misurando l'angolo a cui `e posizionato il goniometro, di conoscere la potenza incidente sul cristallo. 
+Così facendo abbiamo ottenuto una curva di conversione (Figura \ref{fig:taratura}) che ci permette, misurando l'angolo a cui é posizionato il goniometro, di conoscere la potenza incidente sul cristallo. 
 
-Dato che il laser a nostra disposizione è nell'infrarosso, utilizziamo una cartina che rivela l'IR per allineare il laser nel power meter che abbiamo posto ad una distanza di $\sim$1 cm dall'attenuatore.
+Dato che il laser a nostra disposizione è nell'infrarosso, utilizziamo una cartina che rivela l'IR per allineare il laser nel \textit{power meter}, che abbiamo posto ad una distanza di $\sim1$ cm dall'attenuatore.
+
+\subsubsection*{Discussione degli errori}
+In Figura \ref{fig:taratura} abbiamo riportato l'errore di calibrazione, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico. Abbiamo provato a stimare l'errore statistico guardando le fluttuazioni della derivata del grafico della taratura: risultano essere dell'1-2\%, sono quindi confrontabili con l'errore di calibrazione del \textit{power meter} (3\%).
 
 \end{multicols}
 
@@ -118,12 +124,8 @@ Dato che il laser a nostra disposizione è nell'infrarosso, utilizziamo una carti
 \label{fig:taratura}
 \end{figure}
 
-\begin{multicols}{2}
-\subsubsection*{Discussione degli errori}
-In Figura \ref{fig:taratura} abbiamo riportato l'errore di calibrazione, che è un errore sistematico. Nelle sezioni successive talvolta è richiesto l'uso di un errore statistico. Abbiamo provato a stimare l'errore statistico guardando le fluttuazioni della derivata del grafico della taratura: risultano essere dell'1-2\%, sono quindi confrontabili con l'errore di calibrazione del \textit{power meter} (3\%).
-
-
 \section{Potenza emessa in funzione del pompaggio}
+\begin{multicols}{2}
 
 Una volta effettuata la taratura abbiamo misurato la tensione relativa alla luce emessa dal cristallo in funzione della potenza incidente. 
 
@@ -133,15 +135,14 @@ Per fare queste misure abbiamo letto sull'oscilloscopio, utilizzando i cursori, 
 
 Prima di registrare le misure ci siamo preoccupati di spegnere la luce ambientale in quanto si vedevano i battimenti con la 50 Hz. Abbiamo quindi utilizzato una pila per illuminare il goniometro presente sull'attenuatore; la luce proveniente dalla pila era irrilevante in quando produceva solamente un offset costante al segnale.
 
-Durante la presa dati abbiamo notato che, mentre il massimo restava costante, il minimo del segnale proveniente dal chopper si spostava a causa di effetti 1/f non trascurabili che portavano a variazioni anche del 10\%.
-
+Durante la presa dati abbiamo notato che, mentre il massimo restava costante, il minimo del segnale proveniente dal chopper si spostava a causa di effetti $\frac{1}{f}$ non trascurabili che portavano a variazioni anche del 10\%.
 I valori ottenuti sono riportati nella Tabella \ref{tab:primo} in Appendice e in Figura \ref{fig:primo}.
 
 \end{multicols}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{primo}
+\includegraphics[width=0.86\textwidth]{primo}
 \caption{Come errore sulla tensione è riportata la digitalizzazione dell'oscilloscopio, mentre sulla potenza è indicato il 3\% della calibrazione.}
 \label{fig:primo}
 \end{figure}
@@ -150,35 +151,26 @@ I valori ottenuti sono riportati nella Tabella \ref{tab:primo} in Appendice e in
 
 \section{Analisi dati}
 
-Facendo riferimento alla Figura \ref{fig:primo} non è possibile distinguere in modo preciso i due regimi di basso e alto pompaggio.
-Analizziamo quindi i dati per dare una stima degli intervalli in cui le equazioni \ref{eq:basso} e \ref{eq:alto} sono valide.
-
-Osservando invece la Figura \ref{fig:spettro} si notato molti picchi a diverse lunghezze d'onda. Cerchiamo quindi di identificare se alcuni di essi corrispondono a delle transizioni dell'$Er^{3+}$.
+Guardando la Figura \ref{fig:primo} non è possibile distinguere in modo preciso i due regimi di basso e alto pompaggio.
+Dunque analizziamo i dati nell'intento di dare una stima degli intervalli in cui le equazioni \ref{eq:basso} e \ref{eq:alto} sono valide.
 
 \subsection{Bassa potenza}
 
-Come discusso nella sezione di teoria in regime di bassa potenza di pompaggio ci aspettiamo, al limite per $P \rightarrow 0$, un'andamento quadratico. 
+Come discusso nella sezione di teoria, in regime di bassa potenza di pompaggio ci aspettiamo un'andamento quadratico.  Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione sia giustificata facendo dei fit e guardando i $\chi^2$.\\
+Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:primo} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$; per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
 
-Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata facendo dei fit e guardando i $\chi^2$.
-
-Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:primo} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$, per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
-
-In prima analisi abbiamo eseguito un fit con la funzione $y=ax^2$ variando il numero di dati considerati per il fit, partendo da $P_{max}$=5 mW fino a $P_{max}$=41 mW e aumentando ad ogni iterazione di 2 mW. 
-
-I risultati ottenuti sono riportati in Figura \ref{fig:potenza_alla2} in Appendice; mentre in Figura \ref{fig:potenza_alla2_esempio} è riportato il fit corrispondente a  $P_{max}$=13 mW come esempio.
-
+In prima analisi abbiamo fatto un fit con la funzione $y=ax^2$ variando il numero di dati considerati. Abbiamo eseguito 18 fit scegliendo diversi livelli di taglio per la potenza massima. Siamo partiti da $P_{max}=5$ mW e arrivati a $P_{max}=41$ mW a passi di 2 mW.\\
+I risultati ottenuti sono riportati in Figura \ref{fig:potenza_alla2} in Appendice; mentre in Figura \ref{fig:potenza_alla2_esempio} è riportato il fit corrispondente a  $P_{max}=13$ mW come esempio.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{potenza_alla2_esempio}
 \caption{Esempio fit $y=ax^2$ fino a P=13 mW}
 \label{fig:potenza_alla2_esempio}
 \end{figure}
+\noindent I valori di $\chi^2$ e \textit{p-value} ottenuti ci indicano una stima della potenza fino alla quale l'andamento quadratico è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_alla2} si deduce che l'approssimazione di bassa potenza è verificata fino a $\sim$30 mW.
 
-I valori di $\chi^2$ e $p_{value}$ ottenuti ci indicano una stima della potenza fino alla quale l'andamento quadratico è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_alla2} si deduce che l'approssimazione di bassa potenza è verificata fino a $\sim$30 mW.
-
-In seconda analisi abbiamo eseguito un fit con la funzione $y=ax^b$ con le stesse modalità precedenti.
-
-I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab} in Appendice; mentre in Figura \ref{fig:potenza_allab_esempio} è riportato il fit corrispondente a  $P_{max}$=13 mW come esempio.
+In seconda analisi abbiamo eseguito un fit con la funzione $y=ax^b$ con le stesse modalità precedenti.\\
+I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab} in Appendice, mentre in Figura \ref{fig:potenza_allab_esempio} è riportato il fit corrispondente a  $P_{max}$=13 mW come esempio.
 
 \begin{figure}[H]
 \centering
@@ -187,7 +179,7 @@ I risultati ottenuti sono riportati in Figura \ref{fig:potenza_allab} in Appendi
 \label{fig:potenza_allab_esempio}
 \end{figure}
 
-Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fit è in accordo, entro due sigma, con quello atteso finché $P_{max}$ è minore di $\sim$20/25 mW. 
+Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fit è in accordo, entro due sigma, con quello atteso finché $P_{max}$ è minore di $\sim$20-25 mW. \\
 
 \'E possibile comprendere in modo migliore l'intervallo in cui è valido il regime di basso pompaggio se si osservano i grafici in Figura \ref{fig:andamento_cut} e in Figura \ref{fig:residui}.
 
@@ -202,19 +194,17 @@ Come mostrato in Figura \ref{fig:potenza_allab} il valore di $b$ ottenuto dal fi
 \begin{minipage}[c]{0.45\textwidth}
 \centering
 \includegraphics[width=\textwidth]{residui.pdf}
-\caption{Residui normalizzati di $b_{fit}$}
+\caption{Residui normalizzati di $b_{fit}$. \\In rosso è evidenziata la fascia entro $2\sigma$.}
 \label{fig:residui}
 \end{minipage}
 \end{figure}
 
-In Figura \ref{fig:andamento_cut} è mostrato l'andamento dell'esponente b in funzione della potenza massima fino a cui è stato eseguito il corrispondente fit. I valori di $b_{fit}$ si discostano sempre più dal valore atteso all'aumentare della potenza come previsto dal fatto che l'equazione \ref{eq:bassa} è valida per $P \rightarrow 0$.
+In Figura \ref{fig:andamento_cut} è mostrato l'andamento dell'esponente $b$ in funzione della potenza massima fino a cui è stato eseguito il fit corrispondente: i valori di $b_{fit}$ si discostano sempre più dal valore atteso all'aumentare della potenza.
 
-Nel grafico in Figura \ref{fig:residui} sono invece mostrati i residui normalizzati $\frac{(b_{fit}-2)}{\Delta b_{fit}}$. 
-
-I valori ottenuti sono compatibili con zero, entro due sigma, fino ad una potenza di 23 mW. Oltre questo valore la legge quadratica non è più rispettata.
+In Figura \ref{fig:residui} sono mostrati i residui normalizzati $\frac{(b_{fit}-2)}{\Delta b_{fit}}$. I valori ottenuti sono compatibili con zero, entro due sigma, fino ad una potenza di 23 mW. Oltre questo valore la legge quadratica non è più rispettata.
 
 \subsubsection{Conclusioni}
-Solo pochi valori sono compatibili, entro l'errore, con il valore atteso b = 2; questo perchè, come già specificato, l'equazione \ref{eq:bassa} è vera solo al limite per $P \rightarrow 0$. \'E comunque possibile dare una stima dell'intervallo in cui l'approssimazione di bassa potenza è giustificata. Facendo quindi riferimento ai risultati riportati in precedenza è ragionevole considerare che il regime di bassa potenza sia valido fino a $\sim$20 mW.
+Solo pochi valori sono compatibili, entro l'errore, con il valore atteso $b = 2$; questo perchè l'equazione \ref{eq:basso} è vera solo nel limite $P \rightarrow 0$. \'E possibile dare una stima dell'intervallo in cui l'approssimazione di bassa potenza è giustificata: facendo riferimento ai risultati riportati in precedenza è ragionevole considerare che il regime di bassa potenza sia valido fino a $\sim$20 mW.
 
 \subsection{Alta potenza}
 
@@ -222,27 +212,31 @@ In regime di alta potenza di pompaggio ci aspettiamo una dipendenza lineare dell
 Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata.
 Per fare questo abbiamo eseguito un fit con la funzione $y=mx+q$ variando il numero di dati considerato partendo da $P_{min}$=40 mW e aumentando ad ogni iterazione di 40 mW. 
 
-I risultati ottenuti sono riportati in Figura \ref{fig:potenza_lineare}:
+I risultati sono riportati in Figura \ref{fig:potenza_lineare}.\\
+
+I valori di $\chi^2$ e $p_{value}$ ottenuti ci indicano una stima della potenza fino alla quale l'andamento lineare è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_lineare} si deduce che l'inizio del regime di alta potenza può essere considerato intorno a 200 mW.
 \end{multicols}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{potenza_lineare}
+\includegraphics[width=0.95\textwidth]{potenza_lineare}
 \caption{Fit lineare nella regione di alta potenza}
 \label{fig:potenza_lineare}
 \end{figure}
 
-\begin{multicols}{2}
 
-I valori di $\chi^2$ e $p_{value}$ ottenuti ci indicano una stima della potenza fino alla quale l'andamento lineare è compatibile coi dati sperimentali. Osservando i grafici in Figura \ref{fig:potenza_lineare} si deduce che l'inizio del regime di alta potenza può essere considerato intorno a 200 mW.
 
+
+
+\newpage
 \section{Spettro di emissione}
+\begin{multicols}{2}
 
 \subsection{Acquisizione spettro}
 
-Tramite una fibra ottica, abbiamo portato la luce emessa dal cristallo all'analizzatore di spettro e acquisito lo spettro della radiazione. 
+La luce emessa dal cristallo arriva all'analizzatore di spettro tramite una fibra ottica. 
 
-Per evitare la saturazione e quindi l'impossibilità di visualizzare il picco abbiamo attenuato il laser di pompa. Le misure sono state effettuate con un'integrazione sullo spettrometro di 500 ms e sono riportate in Figura \ref{fig:spettro}.
+Per evitare la saturazione del sensore dell'analizzatore e quindi l'impossibilità di visualizzare il picco di emissione abbiamo attenuato il laser di pompa. Le misure sono state effettuate con un'integrazione sullo spettrometro di 500 ms e sono riportate in Figura \ref{fig:spettro}.
 
 \begin{figure}[H]
 \centering
@@ -255,7 +249,7 @@ Abbiamo quindi misurato le lunghezze d'onda relative ai picchi visibili sullo sc
 
 \subsection{Analisi spettro}
 
-In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalentemente nel verde alla lunghezza d'onda di 551$\pm$1 nm, che è la lunghezza d'onda corrispondente alla transizione $^{4}S_{3/2} \rightarrow ^{4}I_{15/2}$. \'E inoltre presente anche il picco corrispondente alla transizione causata dal laser di pompa corrispondente a $\lambda$=976 nm.
+In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalentemente nel verde alla lunghezza d'onda di 551$\pm$1 nm, che è la lunghezza d'onda corrispondente alla transizione $^{4}S_{3/2} \rightarrow ^{4}I_{15/2}$. \'E presente anche il picco corrispondente alla transizione causata dal laser di pompa corrispondente a $\lambda$=976 nm.
 
 \begin{figure}[H]
 \centering
@@ -264,7 +258,7 @@ In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalen
 \label{fig:spettro_300}
 \end{figure}
 
-Però si notano anche altri picchi; quindi per evidenziarli abbiamo acquisito lo spettro una seconda volta attenuando meno il laser di pompa e impostando il tempo di integrazione a 300 ms ottenendo quanto mostrato in Figura \ref{fig:spettro_290}.
+Si notano anche altri picchi. Per evidenziarli abbiamo acquisito lo spettro una seconda volta attenuando meno il laser di pompa e impostando il tempo di integrazione a 300 ms. Il risultato è mostrato in Figura~\ref{fig:spettro_290}.
 
 \begin{figure}[H]
 \centering
@@ -274,8 +268,7 @@ Però si notano anche altri picchi; quindi per evidenziarli abbiamo acquisito lo 
 \end{figure}
 
 La presenza di questi picchi è probabilmente dovuta a fenomeni che abbiamo trascurato nello studiare l'up-conversion e che portano all'eccitazione di altri livelli.
-
-Abbiamo quindi cercato in letteratura trovando che alcune lunghezze d'onda evidenziate in Figura \ref{fig:spettro_290} possono essere associate a quelle relative alle transizioni dello ione Er$^{3+}$, come mostrato in Figura \ref{fig:erbio}.
+Abbiamo cercato in letteratura trovando che alcune lunghezze d'onda (evidenziate in Figura \ref{fig:spettro_290}) possono essere associate a quelle relative alle transizioni dello ione Er$^{3+}$, come mostrato in Figura \ref{fig:erbio}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{erbio}
@@ -292,6 +285,7 @@ Abbiamo quindi cercato in letteratura trovando che alcune lunghezze d'onda evide
 \begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|cc|cc|cc|}
+		\hline
 	$\theta$ [deg] & P [mW] & $\theta$ [deg] & P [mW] & $\theta$ [deg] & P [mW] & $\theta$ [deg]  & P [mW] & $\theta$ [deg]  & P [mW] \\
 	\hline
 240	&	462	&	166	&	941		&	92	&	4.72		&	20	&	21.77	&	308	&	116.1	\\
@@ -338,8 +332,9 @@ Abbiamo quindi cercato in letteratura trovando che alcune lunghezze d'onda evide
 \end{table}
 
 \begin{table}[H]
-\centering
+\hspace{-0.5cm}
 \begin{tabular}{|ccc|ccc|ccc|ccc|}
+		\hline
 $\theta$ [deg] & V$_{pp}$ [mV] & $\Delta$V$_{pp}$ & $\theta$ [deg] & V$_{pp}$ [mV] & $\Delta$V$_{pp}$ & $\theta$ [deg] & V$_{pp}$ [mV] & $\Delta$V$_{pp}$ & $\theta$ [deg]  & V$_{pp}$ [mV] & $\Delta$V$_{pp}$  \\
 	\hline
 240	&	500	&	20	&	322	&	66	&	2	&	12	&	14.8	&	0.8	&	60	&	2.3	&	0.2	\\
@@ -374,15 +369,15 @@ $\theta$ [deg] & V$_{pp}$ [mV] & $\Delta$V$_{pp}$ & $\theta$ [deg] & V$_{pp}$ [m
 \end{table}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{potenza_alla2}
+\hspace{-1.2cm}
+\includegraphics[width=1.15\textwidth]{potenza_alla2}
 \caption{}
 \label{fig:potenza_alla2}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{potenza_allab}
+\hspace{-1.2cm}
+\includegraphics[width=1.15\textwidth]{potenza_allab}
 \caption{}
 \label{fig:potenza_allab}
 \end{figure}
