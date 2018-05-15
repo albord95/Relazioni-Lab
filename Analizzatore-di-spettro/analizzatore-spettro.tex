@@ -99,7 +99,7 @@ Il secondo scopo di questa esperienza è misurare la finezza del Fabry-Pérot in d
 	\caption{Strumenti di controllo e oscilloscopio.}
 \end{figure}
 \begin{enumerate}
-	\item Laser HeNe ($\lambda = 633$ nm, $\Delta \nu_{nominale} = 435$ Hz)
+	\item Laser HeNe ($\lambda = 633$ nm, $\Delta \nu_{nominale} = 435$ MHz)
 	\item Specchi:\\
 	hanno lo scopo di diminuire l'accoppiamento tra laser e interferometro Fabry-Pérot, che influenza i modi del laser provocando risonanze indesiderate (è come se il laser vedesse anche una cavità più grande).
 	\item Fabry-Pérot ($FSR = 1.5$ GHz, $\mathcal{F}_{nominale} = 212$)
@@ -184,7 +184,7 @@ La media pesata delle 24 prese dati eseguite dà
 dove $\Delta\nu_{12}$ e $\Delta\nu_{23}$ sono definiti come nella didascalia di Figura \ref{fig:un_ordine.png}.
 La loro differenza è 
 \[\Delta\nu_{12}-\Delta\nu_{23} = 2.9 \pm 1.4 \textrm{ Hz}\footnote{La differenza riportata non è 3.0 ma 2.9 perché i calcoli sono stati eseguiti con più cifre di quelle mostrate. Lo script modi\_laser\_HeNe.py (nota \ref{ftn:link}) stampa anche le cifre aggiutive. La propagazione degli errori è gestita col pacchetto gvar di python.}\]
-ed è compatibile con 0 entro poco più di 2 sigma (p\_value = 3 \%). La differenza riscontrata è da imputarsi al solo errore sperimentale perché dal punto di vista teorico $|\Delta\nu_{12}-\Delta\nu_{23}| \sim 10^{-5}\Delta\nu_{12}$, che è trascurabile. Pertanto ha senso calcolare la media di $\Delta\nu_{12}$ e $\Delta\nu_{23}$: \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet ($\Delta\nu_{nominale}$ = 435 Hz).
+ed è compatibile con 0 entro poco più di 2 sigma (p\_value = 3 \%). La differenza riscontrata è da imputarsi al solo errore sperimentale perché dal punto di vista teorico $|\Delta\nu_{12}-\Delta\nu_{23}| \sim 10^{-5}\Delta\nu_{12}$, che è trascurabile. Pertanto ha senso calcolare la media di $\Delta\nu_{12}$ e $\Delta\nu_{23}$: \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet ($\Delta\nu_{nominale}$ = 435 MHz).
 
 \subsubsection{Discussione degli errori}
 
@@ -217,7 +217,7 @@ Per verificare che non ci fossero evidenti sistematiche tra i $\Delta\nu$ calcol
 Abbiamo ottenuto 
 \[\Delta\nu_{12} = 436.0 \pm 1.0 \textrm{ Hz} \]
 \[\Delta\nu_{23} = 433.0 \pm 1.0 \textrm{ Hz} \]
-la cui media è \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet del laser HeNe ($\Delta\nu_{nominale}$ = 435 Hz).\\
+la cui media è \[\Delta\nu_{medio} = 434.5 \pm 0.7 \textrm{ Hz}\] che è compatibile con quanto riportato nel datasheet del laser HeNe ($\Delta\nu_{nominale}$ = 435 MHz).\\
 Non sono state osservate incompatibilità né tra $\Delta\nu_{12}$ e $\Delta\nu_{23}$ né tra i $\Delta\nu$ con rampa in salita e con rampa in discesa.\\
 Gli errori statistici, discussi ampiamente nella sezione dedicata, seguono la distribuzione attesa.
 	
