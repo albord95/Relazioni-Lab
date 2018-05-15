@@ -93,7 +93,7 @@ Non è banale visualizzare la mutua posizione di asse ottico, direzione di propag
 	\centering
 	\def\svgwidth{0.48\textwidth}
 	\input{assi.pdf_tex}
-	\caption{Assi dentro al cristallo. $z$ è la direzione di propagazione. In rosso è indicata la polarizzazione della pompa, in verde quella della seconda armonica, entrambe giaciono nel piano $x$-$y$. In blu è indicato l'asse ottico del cristallo uniassiale: quello ad indice di rifrazione più basso ($n_e$). L'ellisse rossa (che giace nel piano $x$-$y$) rappresenta la luce non polarizzata (parzialmente, vedi dopo) della pompa: l'idea è che di tutta la luce incidente conta solo quella con polarizzazione ortogonale all'asse ottico, evidenziata dalla freccia rossa. Infatti data una polarizzazione dell'onda incidente sul campione la possiamo sempre scomporla nelle due componenti lungo l'asse ordinario (quello della freccia rossa, ortogonale all'asse ottico) e lungo l'asse straordinario (quello della freccia verde) tuttavia quest'ultima polarizzazione di pompa non sarà mai in grado di soddisfare la condizione di \textit{phase matching} perchè avente indice di rifrazione già troppo basso (vedi Figura \ref{fig:n}). Quindi conta solo\textsuperscript{4} la polarizzazione lungo l'asse ordinario, che corrisponde al primo punto blu di Figura \ref{fig:n}.}
+	\caption{Assi dentro al cristallo. $z$ è la direzione di propagazione. In rosso è indicata la polarizzazione della pompa, in verde quella della seconda armonica, entrambe giaciono nel piano $x$-$y$. In blu è indicato l'asse ottico del cristallo uniassiale: quello ad indice di rifrazione più basso ($n_e$). L'ellisse rossa (che giace nel piano $x$-$y$) rappresenta la luce non polarizzata (parzialmente, vedi dopo) della pompa: l'idea è che di tutta la luce incidente conta solo quella con polarizzazione ortogonale all'asse ottico, evidenziata dalla freccia rossa. Infatti data una polarizzazione dell'onda incidente sul campione possiamo sempre scomporla nelle due componenti lungo l'asse ordinario (quello della freccia rossa, ortogonale all'asse ottico) e lungo l'asse straordinario (quello della freccia verde). Quest'ultima polarizzazione di pompa non sarà mai in grado di soddisfare la condizione di \textit{phase matching} perchè ha indice di rifrazione già troppo basso (vedi Figura \ref{fig:n}). Quindi conta solo\textsuperscript{4} la polarizzazione lungo l'asse ordinario, che corrisponde al primo punto blu di Figura \ref{fig:n}.}
 	\label{fig:assi}
 \end{figure}
 
@@ -134,8 +134,7 @@ Non è banale visualizzare la mutua posizione di asse ottico, direzione di propag
 	\item Lenti
 	\item Campione di $\text{LiIO}_3$ seguito da un filtro che blocca l'IR.
 	\item Filtri polarizzatori
-	\item Chopper:\\
-	necessario alla rivelazione del segnale tramite oscilloscopio. Abbiamo l'accortezza di settarlo ad una frequenza non multipla di 50-60 Hz.
+	\item Chopper: necessario alla rivelazione del segnale tramite oscilloscopio. Abbiamo l'accortezza di settarlo ad una frequenza non multipla di 50-60 Hz.
 	\item Rilevatore collegato all'oscilloscopio.
 	\item \textit{Power meter}
 \end{enumerate}
@@ -169,21 +168,22 @@ In Figura \ref{fig:taratura} abbiamo riportato l'errore di calibrazione, che è u
 
 Il professore ci ha rivelato che un buon segnale all'oscilloscopio è di $\sim600$ $V_{pp}$ quindi abbiamo speso le prime ore disponibili ad allineare al meglio l'apparato nella ricerca di un buon segnale, trovando al massimo $\sim400$ $V_{pp}$. Infine il professore stesso ha provato ad allineare arrivando ad un segnale di $\sim500$ $V_{pp}$. Non capiamo perché sia stato impossibile fare di meglio.
 
-Secondo il modello della generazione di seconda armonica con la tecnica di \textit{phase matching} conta una sola polarizzazione del laser di pompa. Il suo angolo è fissato dalla posizione dell'asse straordinario nel cristallo birifrangente, quindi l'orientazione della pompa non conta soltanto se il laser di pompa ha una polarizzazione uniforme . Nel dubbio che non fosse così abbiamo misurato la potenza della pompa con il \textit{power meter} frapponendo tra laser e sensore un filtro polarizzatore. In effetti abbiamo riscontrato che il laser di pompa non ha una polarizzazione uniforme: abbiamo misurato un massimo di 284.5 mW a 29° del filtro polarizzatore e un minimo di 141.5 mW a 119°. Quindi l'intensità del segnale dipende dall'orientazione del laser di pompa. Tale fatto può spiegare il fatto che l'intensità del nostro segnale non sia ottimale, tuttavia per ricavare l'angolo ottimale serve l'analisi della sezione \ref{sec:pol}. Pertanto abbiamo deciso di accontentarci di un segnale non perfetto ed evitare di ruotare il laser (e quindi di dover riallineare da capo).
+Secondo il modello della generazione di seconda armonica con la tecnica di \textit{phase matching} conta una sola polarizzazione del laser di pompa. Il suo angolo è fissato dalla posizione dell'asse ottico nel cristallo birifrangente, quindi l'orientazione della luce laser uscente dalla fibra ottica non conta solo se la luce della pompa è non polarizzata. Nel dubbio che non fosse così abbiamo misurato la potenza con il \textit{power meter} frapponendo tra laser e sensore un filtro polarizzatore. In effetti abbiamo riscontrato che il laser di pompa non ha una polarizzazione uniforme: abbiamo misurato un massimo di 284.5 mW a 29° del filtro polarizzatore e un minimo di 141.5 mW a 119°. Quindi l'intensità del segnale dipende dall'orientazione del laser di pompa. Questo può spiegare il fatto che l'intensità del nostro segnale non sia ottimale, tuttavia per ricavare l'angolo migliore serve l'analisi della sezione~\ref{sec:pol}. Pertanto abbiamo deciso di accontentarci di un segnale non perfetto ed evitare di ruotare il laser (e quindi di dover riallineare da capo).
 
-Riportiamo i dati raccolti in appendice (Tabella \ref{tab:potenza}).
+Riportiamo i dati raccolti in appendice (Tabella~\ref{tab:potenza}).
 
 
 \subsection{Analisi dati}
 
-	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo fatto un fit con la funzione $y = ax^2$ ed eseguito il test del $\chi^2$. Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:potenza} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$, per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
+	In prima analisi per verificare la legge di potenza dell'intensità della seconda armonica abbiamo fatto un fit con la funzione $y = ax^2$ ed eseguito il test del $\chi^2$. Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:potenza} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per fit e test del $\chi^2$ va moltiplicato per $0.68 \cdot 0.5$; per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
 	Questa scelta dà
 	\begin{align*}
 	\frac{\chi^2}{dof} &= 0.12 \\
 	\textrm{p-value} &= 100\%
 	\end{align*}
 	che conferma l'ipotesi di legge quadratica.
-	Osserviamo che il $\chi^2$ è molto piccolo, ciò è probabilmente dovuto ad una sovrastima degli errori sulle $x$. Abbiamo provato a variare l'errore sulle $x$  tra 1 e 3\%, ottenendo sempre $\chi^2$ accettabili ($\textrm{p-value} \geq 5\%$)
+	Osserviamo che il $\chi^2$ è molto piccolo, ciò è probabilmente dovuto ad una sovrastima degli errori sulle $x$. \\
+	Abbiamo provato a variare l'errore sulle $x$  tra 1 e 3\%, ottenendo sempre $\chi^2$ accettabili ($\textrm{p-value} \geq 5\%$).
 \end{multicols}
 \begin{figure}[H]
 	\centering
@@ -192,7 +192,7 @@ Riportiamo i dati raccolti in appendice (Tabella \ref{tab:potenza}).
 	\label{fig:potenza_alla2}
 \end{figure}
 \begin{multicols}{2}
-	In seconda analisi abbiamo eseguito un fit con la funzione $y = ax^b$ (vedi Figura \ref{fig:potenza_allab}). La potenza fittata è
+	In seconda analisi abbiamo eseguito un fit con la funzione $y = ax^b$ (vedi Figura \ref{fig:potenza_allab}). La potenza fittata~è
 	\[b = 1.986(11)\]	
 	che è compatibile con 2.
 	
@@ -220,12 +220,12 @@ Le misure di intensità della seconda armonica generata in funzione della potenza
 \begin{multicols}{2}
 	
 \subsection{Presa dati}
-Il goniometro di precisione che abbiamo a disposizione si può girare normalmente oppure attraverso una vite sensibile ai primi, ma con una portata limitata: 5°. Dopo aver rilevato la portata delle vite di precisione giriamo il goniometro in modo da avere circa 2°30' prima e 2°30' dopo l'angolo a cui si ha il massimo di intensità del segnale della seconda armonica generata. In questo modo le misure che registriamo sono simmetriche intorno all'angolo di \textit{phase matching}.
+Il goniometro di precisione che abbiamo a disposizione si può girare normalmente oppure attraverso una vite sensibile ai primi, ma con una portata limitata a 5°. Giriamo il goniometro in modo da avere circa 2°30' prima e 2°30' dopo l'angolo a cui si ha il massimo di intensità del segnale della seconda armonica generata. In questo modo le misure che registriamo sono simmetriche intorno all'angolo di \textit{phase matching}.
 
-Riportiamo i dati raccolti in appendice (Tabella \ref{tab:PM}).
+Riportiamo i dati raccolti in appendice (Tabella~\ref{tab:PM}).
 
 \subsection{Analisi dati}
-Abbiamo eseguito un fit a tutti dati raccolti con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ (vedi Figura \ref{fig:sinc}, curva arancione) riscontrando una notevole discrepanza tra dati e fit. Il motivo sta nel fatto che il fit è pesantemente influenzato dalle code della campana. Infatti la curva teorica prevede che le code si annullino per certi valori di $\theta$ (vedi Figura \ref{fig:sinc_yariv}) ma questo non accade per i nostri dati.
+Abbiamo eseguito un fit a tutti dati raccolti con la funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$ (vedi Figura \ref{fig:sinc}, curva arancione) riscontrando una notevole discrepanza tra dati e fit. Il motivo sta nel fatto che il fit è pesantemente influenzato dalle code della campana; infatti la curva teorica prevede che le code si annullino per certi valori di $\theta$ (vedi Figura \ref{fig:sinc_yariv}) ma questo non accade per i nostri dati.
 Dunque abbiamo scelto di eseguire un fit senza le code della campana (vedi Figura \ref{fig:sinc}, curva verde) riscontrando un accordo visibilmente migliore.
 \end{multicols}
 
@@ -247,7 +247,7 @@ $\sigma_y = 0.68 \cdot 0.5$ per l'errore di digitalizzazione e tagliando le code
 Il test del $\chi^2$ non ha smentito l'ipotesi di una legge del tipo $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$, tuttavia per ottenere un accordo ragionevole con la teoria è stato necessario tagliare le code della campana. Purtroppo sono proprio le code di una distribuzione a campana che discriminano facilmente tra una legge e l'altra, quindi ci è venuto il sospetto che altre campane possano riprodurre bene i dati. In effetti è così: abbiamo fatto un fit dei dati (senza le code) con una campana gaussiana ottenendo un $\chi^2$ ancora migliore: $$\dfrac{\chi^2_{gaussiana}}{dof} = 1.32$$
 Infatti, come si nota in Figura \ref{fig:gaussiana}, la gaussiana sembra riprodurre i dati ancora meglio della funzione $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$. Ancor più nettamente se si considerano le code.\footnote{Ovviamente il fit gaussiano è stato eseguito nelle stesse condizioni del fit con $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$: errore $\sigma_y$ e taglio sotto 100 mV, quindi il fatto che l'estrapolazione della gaussiana riproduca bene i dati anche sulle code è abbastanza sorprendente.}
 
-Per verificare che questo comportamento non sia influenzato della scelta del livello di taglio delle code la stessa analisi è stata ripetuta variandone il valore tra 0 e 500 mV. Per qualunque livello di taglio superiore a 100 mV l'accordo tra dati a curve teoriche è accettabile (e via via migliore al crescere del livello) e la gaussiana mostra sempre un accordo (di poco) migliore rispetto alla curva $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.
+Per verificare che questo comportamento non sia influenzato della scelta del livello di taglio delle code la stessa analisi è stata ripetuta variandone il valore tra 0 e 500 mV. Per qualunque livello di taglio superiore a 100 mV l'accordo tra dati e curve teoriche è accettabile (e via via migliore al crescere del livello) e la gaussiana mostra sempre un accordo (di poco) migliore rispetto alla curva $y = \alpha\frac{\sin^2[\beta(\theta - \theta_m)]}{[\beta(\theta - \theta_m)]^2}$.
 \end{multicols}
 
 \begin{figure}[H]
@@ -285,11 +285,11 @@ Tuttavia se non si considerano le code non è possibile discriminare tra la funzi
 \subsection{Un polarizzatore}
 \label{sec:1pol}
 Lo scopo di questa misura è verificare che è solo una polarizzazione della luce di pompa a generare la seconda armonica.
-Abbiamo inserito un filtro polarizzatore\footnote{Il polarizzatore, tra i due a disposizione, dotato di un filtro attenuatore che previene il deterioramento dovuto alla potenza elevata del laser di pompa.} tra pompa e cristallo di $\text{LiIO}_3$.
-Abbiamo quindi studiato l'intensità della seconda armonica generata in funzione dell'angolo $\varphi$ a cui è ruotato il filtro polarizzatore. Ci aspettiamo che valga la legge di Malus per la potenza incidente e quindi che la potenza in uscita sia proporzionale a $cos^4(\varphi)$.
+Abbiamo inserito un filtro polarizzatore\footnote{Il polarizzatore, tra i due a disposizione, dotato di un filtro attenuatore che previene il deterioramento dovuto alla potenza elevata del laser di pompa.} tra pompa e cristallo di $\text{LiIO}_3$ e
+abbiamo studiato l'intensità della seconda armonica generata in funzione dell'angolo $\varphi$ a cui è ruotato il filtro polarizzatore. Ci aspettiamo che valga la legge di Malus per la potenza incidente e quindi che la potenza in uscita sia proporzionale a $cos^4(\varphi)$.
 
 \subsubsection{Presa dati}
-Come emerge dall'analisi della sezione \ref{sec:campana} sono le code di una distribuzione a campana a discriminare tra un andamento o un altro. Quindi al fine di verificare esplicitamente che la legge corretta sia un $cos^4(\varphi)$ non ci accontentiamo di prendere solamente i punti attorno al massimo di intensità ma cerchiamo di variare l'angolo $\varphi$ in modo da coprire più possibile di tutto l'angolo giro.
+Come emerge dall'analisi della sezione \ref{sec:campana} sono le code di una distribuzione a campana a discriminare tra un andamento o un altro. Quindi al fine di verificare esplicitamente che la legge corretta sia un $cos^4(\varphi)$ non ci accontentiamo di prendere solamente i punti attorno al massimo di intensità ma cerchiamo di variare l'angolo $\varphi$ in modo da coprire il più possibile di tutto l'angolo giro.
 
 Riportiamo i dati in appendice (Tabella \ref{tab:1pol}).
 
@@ -326,7 +326,7 @@ Lo scopo di questa misura è verificare che la polarizzazione della seconda armon
 \subsubsection{Presa dati}
 
 Lasciamo il primo polarizzatore tra pompa e cristallo all'angolo in cui si ha il massimo di intensità della seconda armonica generata e inseriamo un secondo filtro polarizzatore tra cristallo e rilevatore.
-Prendiamo i dati allo stesso modo della sezione \ref{sec:1pol}, di nuovo con l'accortezza di coprire più possibile di tutto l'angolo giro.
+Prendiamo i dati allo stesso modo della sezione \ref{sec:1pol}, di nuovo con l'accortezza di coprire il più possibile di tutto l'angolo giro.
 
 \subsubsection{Analisi dati}
 
