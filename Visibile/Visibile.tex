@@ -86,12 +86,11 @@ Assumendo che l'intensità della luce verde sia proporzionale ad $N_2$ ci aspetti
 
 In quest'esperienza avevamo a disposizione:
 \begin{enumerate}
-\item Un laser a diodo con una lunghezza d'onda $\lambda=975.9(2.9)$ nm e di potenza $\sim1$ W
+\item Un laser a diodo con una lunghezza d'onda $\lambda~=~975.9(2.9)$ nm e di potenza $\sim1$ W
 \item Un attenuatore variabile dotato di goniometro
 \item Due lenti convergenti
 \item Un cristallo di LiYF$_4$ drogato con Er$^{3+}$
 \item Un chopper ottico che permette di osservare il segnale come onda quadra per eliminare dalle misure qualsiasi tipo di background
-\item Un supporto per la fibra ottica per portare il segnale all'analizzatore di spettro
 \item Un rilevatore collegato all'oscilloscopio
 \item Un \textit{power meter} al silicio
 \end{enumerate}
@@ -156,8 +155,8 @@ Dunque analizziamo i dati nell'intento di dare una stima degli intervalli in cui
 
 \subsection{Bassa potenza}
 
-Come discusso nella sezione di teoria, in regime di bassa potenza di pompaggio ci aspettiamo un'andamento quadratico.  Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione sia giustificata facendo dei fit e guardando i $\chi^2$.\\
-Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:primo} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per il fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$; per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
+Come discusso nella sezione di teoria, in regime di bassa potenza di pompaggio ci aspettiamo un'andamento quadratico.  Abbiamo quindi cercato di verificare in che intervallo quest'approssimazione è giustificata facendo dei fit e guardando i $\chi^2$.\\
+Ovviamente il $\chi^2$ dipende dalla stima degli errori\footnote{In presenza di errori sulle $x$ il $\chi^2$ viene calcolato così: $\chi^2 = \sum\limits_{i} \dfrac{(y_i - f(x_i))^2}{\sigma_y^2} + \dfrac{(x - x_i)^2}{\sigma_x^2}$}: l'errore di misura indicato in Tabella \ref{tab:primo} è un errore di digitalizzazione (è pari ad una tacca dell'oscilloscopio) allora per ottenere la corretta sigma da usare per fit e test del $\chi^2$ bisogna moltiplicarlo per $0.68 \cdot 0.5$; per l'errore sulle $x$ abbiamo usato l'errore di calibrazione del \textit{power meter}.
 
 In prima analisi abbiamo fatto un fit con la funzione $y=ax^2$ variando il numero di dati considerati. Abbiamo eseguito 18 fit scegliendo diversi livelli di taglio per la potenza massima. Siamo partiti da $P_{max}=5$ mW e arrivati a $P_{max}=41$ mW a passi di 2 mW.\\
 I risultati ottenuti sono riportati in Figura \ref{fig:potenza_alla2} in Appendice; mentre in Figura \ref{fig:potenza_alla2_esempio} è riportato il fit corrispondente a  $P_{max}=13$ mW come esempio.
@@ -204,7 +203,8 @@ In Figura \ref{fig:andamento_cut} è mostrato l'andamento dell'esponente $b$ in f
 In Figura \ref{fig:residui} sono mostrati i residui normalizzati $\frac{(b_{fit}-2)}{\Delta b_{fit}}$. I valori ottenuti sono compatibili con zero, entro due sigma, fino ad una potenza di 23 mW. Oltre questo valore la legge quadratica non è più rispettata.
 
 \subsubsection{Conclusioni}
-Solo pochi valori sono compatibili, entro l'errore, con il valore atteso $b = 2$; questo perchè l'equazione \ref{eq:basso} è vera solo nel limite $P \rightarrow 0$. \'E possibile dare una stima dell'intervallo in cui l'approssimazione di bassa potenza è giustificata: facendo riferimento ai risultati riportati in precedenza è ragionevole considerare che il regime di bassa potenza sia valido fino a $\sim$20 mW.
+Solo pochi valori sono compatibili, entro l'errore, con il valore atteso $b = 2$; questo perchè l'equazione \ref{eq:basso} è vera solo nel limite $P \rightarrow 0$.\\
+ \'E possibile dare una stima dell'intervallo in cui l'approssimazione di bassa potenza è giustificata: facendo riferimento ai risultati riportati in precedenza è ragionevole considerare che questo regime sia valido fino a $\sim$20 mW.
 
 \subsection{Alta potenza}
 
@@ -249,7 +249,7 @@ Abbiamo quindi misurato le lunghezze d'onda relative ai picchi visibili sullo sc
 
 \subsection{Analisi spettro}
 
-In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalentemente nel verde alla lunghezza d'onda di 551$\pm$1 nm, che è la lunghezza d'onda corrispondente alla transizione $^{4}S_{3/2} \rightarrow ^{4}I_{15/2}$. \'E presente anche il picco corrispondente alla transizione causata dal laser di pompa corrispondente a $\lambda$=976 nm.
+In Figura \ref{fig:spettro_300} possiamo notare che il cristallo emette prevalentemente nel verde alla lunghezza d'onda di 551$\pm$1 nm, che è la lunghezza d'onda corrispondente alla transizione $^{4}S_{3/2} \rightarrow ^{4}I_{15/2}$. \'E presente anche il picco corrispondente alla transizione causata dal laser di pompa corrispondente a $\lambda=976\pm1$ nm.
 
 \begin{figure}[H]
 \centering
@@ -267,7 +267,7 @@ Si notano anche altri picchi. Per evidenziarli abbiamo acquisito lo spettro una 
 \label{fig:spettro_290}
 \end{figure}
 
-La presenza di questi picchi è probabilmente dovuta a fenomeni che abbiamo trascurato nello studiare l'up-conversion e che portano all'eccitazione di altri livelli.
+La presenza di questi picchi è probabilmente dovuta a fenomeni che non abbiamo considerato nello studiare l'up-conversion.\\
 Abbiamo cercato in letteratura trovando che alcune lunghezze d'onda (evidenziate in Figura \ref{fig:spettro_290}) possono essere associate a quelle relative alle transizioni dello ione Er$^{3+}$, come mostrato in Figura \ref{fig:erbio}.
 \begin{figure}[H]
 \centering
