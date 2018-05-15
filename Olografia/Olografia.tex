@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{amsmath}
 \usepackage{mathtools}
+\usepackage{ amssymb }
 \author{Alberto Bordin, Giulio Cappelli}
 \title{Olografia}
 \date{13-17 Novembre 2017}
@@ -87,7 +88,7 @@ L'apparato a disposizione è riportato in Figura \ref{fig:apparato} ed è composto
 \item Laser He-Ne ($\lambda$=633 nm) di potenza $\sim$15 mW e con una lunghezza di coerenza di $\sim$30 cm.
 \item Shutter, azionabile dall'esterno, per oscurare completamente il fascio.
 \item Obbiettivo x20 e filtro spaziale (\emph{pin-hole}). Il primo trasforma un'onda piana in un'onda sferica, il secondo è posizionato nel fuoco della lente divergente ed ha un diametro 12.5 $\mu$m; serve a selezionare il modo TEM$_{00}$, grazie al quale si ha un'illuminazione uniforme. 
-\item Beam splitter: trasmette il 5\% del fascio come riferimento e ne riflette il 95\%, che viene poi indirizzato sull'oggetto.
+\item $\emph{Beam splitter}$: trasmette il 5\% del fascio come riferimento e ne riflette il 95\%, che viene poi indirizzato sull'oggetto.
 \item Specchi per indirizzare i due fasci uno sulla lastra e uno sull'oggetto.
 \item Oggetto di cui vogliamo fare l'olografia; dipinto di bianco così da massimizzare la riflessione della luce su di esso.
 \item Supporto per la lastra fotografica.
@@ -111,12 +112,15 @@ P[\mu W] =  -0.16925 + 2.6592V_{mis}
 Abbiamo inoltre a disposizione 4 lastre fotografiche ai sali d'argento; non esistono infatti dispositivi di acquisizione elettronici con la risoluzione necessaria a registrare l'interferenza di luce visibile.
 
 \section{Accorgimenti sperimentali}
+\label{sec:accorgimenti}
 
 Come scritto, utilizziamo lo stesso fascio laser diviso in ampiezza come onda di riferimento e onda incidente sull'oggetto.\\ \'E necessario porre particolare attenzione al cammino ottico percorso dai due fasci; infatti la fase relativa fra il fascio proveniente dall'oggetto e quello di riferimento deve essere ben definita. Per questo la differenza di cammino tra i due fasci deve essere molto minore della lunghezza di coerenza del laser He-Ne. Si deve cioè avere:
 \begin{equation}
-A+B = C+D+E
+\text{diff} := |A+B - (C+D+E)| \lesssim 1 \text{ cm}
 \label{eq:distanza}
 \end{equation}
+
+Affinché la luce riflessa dagli oggetti illumini bene la lastra fotografica è opportuno verificare che l'altezza degli oggetti sia uguale a quella della lastra.
 
 \'E inoltre necessario calcolare il corretto tempo di esposizione della lastra. Per farlo serve conoscere la densità superficiale di energia necessaria per un annerimento ottimale che il professore ci ha detto essere 50~$\frac{\mu J}{cm^2}$.
 
@@ -171,12 +175,12 @@ Come primo oggetto abbiamo scelto un soldatino dotato di una lancia.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 	\hline
-	A & B & C & D & E \\
+	A & B & C & D & E & diff \\
 	\hline
 	\hline
-	  60.0 & 92.5 & 78.5 & 38.0 & 36.0  \\
+	  60.0 & 92.5 & 78.5 & 38.0 & 36.0 & 0 \\
 	\hline
 \end{tabular}
 \caption*{Distanze in cm con un errore di 0.5 cm}
@@ -245,7 +249,7 @@ Abbiamo così ottenuto un tempo di esposizione\\ t = 13 s che ha portato all'olog
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{soldatino}
-\caption{}
+\caption{Ologramma soldatino. Il pallino che si vede oltre la lancia è il $\emph{beam splitter}$ anche se questo è molto lontano dalla lastra (vedi sezione Approfondimenti).}
 \label{fig:soldatino}
 \end{figure}
 
@@ -258,16 +262,16 @@ Per la seconda lastra abbiamo scelto tre oggetti diversi: un canguro, un soldato
 
 \begin{table}[H]
 \centering
-\begin{tabular}{cccccc}
+\begin{tabular}{ccccccc}
 	\hline
-	 Oggetto & A & B & C & D & E \\
+	 Oggetto & A & B & C & D & E & diff\\
 	\hline
 	\hline
-	Soldato & 62.5& 89.5& 77.5&34.5 & 39.0\\
+	Soldato & 62.5& 89.5& 77.5&34.5 & 39.0 & 1\\
 	\hline
-	Canguro & - &- &- & 38.5&35.5 \\
+	Canguro & - &- &- & 38.5&35.5 & 0.5\\
 	\hline
-	Pantera & -& -& -&50.0 & 46.0\\
+	Pantera & -& -& -&50.0 & 46.0 & 21.5\\
 \end{tabular}
 \caption*{Distanze in cm con un errore di 0.5 cm}
 \end{table}
@@ -335,7 +339,7 @@ Abbiamo così ottenuto un tempo di esposizione \\t = 12 s che ha portato all'olog
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{caccia}
-\caption{}
+\caption{Ologramma caccia. La pantera rosa è più sfocata rispetto al canguro e al soldato perché è molto più distante dalla lastra (vedi sezione Approfondimenti).}
 \label{fig:caccia}
 \end{figure}
 
@@ -350,12 +354,12 @@ Il primo oggetto scelto è un cubo dotato di un martelletto che può sbatterci sop
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 	\hline
-	A & B & C & D & E \\
+	A & B & C & D & E & diff\\
 	\hline
 	\hline
-	  62.5 & 89.5 & 78.0 & 39.0 & 35.0  \\
+	  62.5 & 89.5 & 78.0 & 39.0 & 35.0 & 0 \\
 	\hline
 \end{tabular}
 \caption*{Distanze in cm con un errore di 0.5 cm}
@@ -437,12 +441,12 @@ Abbiamo utilizzato l'ultima lastra a nostra disposizione per effettuare l'ologra
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ccccc}
+\begin{tabular}{cccccc}
 	\hline
-	A & B & C & D & E \\
+	A & B & C & D & E & diff \\
 	\hline
 	\hline
-	  63.0 & 87.5 & 69.0 & 36.5 & 44.0  \\
+	  63.0 & 87.5 & 69.0 & 36.5 & 44.0 & 1 \\
 	\hline
 \end{tabular}
 \caption*{Distanze in cm con un errore di 0.5 cm}
@@ -510,15 +514,15 @@ Abbiamo così ottenuto un tempo di esposizione \\t = 11.7 s che ha portato all'ol
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{altoparlante}
+\includegraphics[width=0.95\textwidth]{altoparlante}
 \caption{}
 \label{fig:altoparlante}
 \end{figure}
 
 \newpage
-\begin{multicols}{2}
 
 \section{Lampada spettrale}
+\begin{multicols}{2}
 
 Una lampada spettrale è in grado di emettere luce a diverse lunghezze d'onda $\lambda_i$ nel visibile. L'interferenza fra la luce di ogni $\lambda_i$ e il pattern d'interferenza impressionato sulla lastra genera un'immagine traslata diversamente al variare di $\lambda_i$. Le immagini relative alle diverse lunghezze d'onda vengono quindi separate come mostrato in Figura \ref{fig:spettro}.
 
@@ -530,6 +534,34 @@ Una lampada spettrale è in grado di emettere luce a diverse lunghezze d'onda $\l
 \caption{}
 \label{fig:spettro}
 \end{figure}
+
+\bigskip
+\bigskip
+\bigskip
+
+\section{Approfondimenti}
+
+\begin{multicols}{2}
+Una volta fatto l'ologramma del soldatino (vedi Figura \ref{fig:soldatino}) abbiamo notato il $\emph{beam splitter}$ sullo sfondo. Questo, come si può vedere in Figura \ref{fig:apparato}, è ad una distanza dalla lastra che viola l'equazione \ref{eq:distanza}. \\
+Abbiamo allora deciso di fare l'ologramma di un oggetto posto ad una distanza dalla lastra tale che la differenza di cammino ottico fra il fascio di riferimento e il fascio oggetto fosse maggiore di 1 cm. 
+Il risultato di questa decisione è l'ologramma della caccia (vedi Figura \ref{fig:caccia}) in cui la pantera rosa è molto più lontana dalla lastra rispetto agli altri oggetti. Nonostante una differenza di cammino ottico fra i due fasci di 21.5~cm abbiamo ottenuto un ottimo risultato; si riescono infatti a vedere anche i dettagli del viso della pantera, come mostrato in Figura \ref{fig:pantera_rosa}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{beam_splitter}
+\caption{Foto dell'ologramma del $\emph{beam splitter}$ sopra il quale si notano anche due ordini di diffrazione.}
+\label{fig:beam_splitter}
+\end{figure}
+
+\end{multicols}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{pantera_rosa}
+\caption{Foto dell'ologramma della pantera rosa}
+\label{fig:pantera_rosa}
+\end{figure}
+
+
 
 	
 \end{document}
