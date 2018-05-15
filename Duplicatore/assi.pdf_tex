@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{595.27559055bp}%
+    \setlength{\unitlength}{227.81677978bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,15 +48,15 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.41428571)%
+  \begin{picture}(1,1.09407994)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{assi.pdf}}%
-    \put(0.44322205,1.18972508){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.31435986,1.30325713){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x$}}}%
-    \put(0.15662651,0.91513378){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y$}}}%
-    \put(0.48244084,1.02204154){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z$}}}%
-    \put(0.38826011,1.07104096){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\theta_m$}}}%
-    \put(0.30010771,0.93336766){\color[rgb]{0,0,0}\rotatebox{72.930131}{\makebox(0,0)[lb]{\smash{pompa}}}}%
-    \put(0.21905462,1.21674662){\color[rgb]{0,0,0}\rotatebox{-68.651181}{\makebox(0,0)[lb]{\smash{seconda armonica}}}}%
-    \put(0.40014987,1.12285111){\color[rgb]{0,0,0}\rotatebox{50.490351}{\makebox(0,0)[lb]{\smash{asse ottico ($n_e$)}}}}%
+    \put(0.76321667,0.72662592){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.42650525,1.02328037){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x$}}}%
+    \put(0.01435468,0.00913049){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y$}}}%
+    \put(0.86569372,0.28847594){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z$}}}%
+    \put(0.61960345,0.41650936){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\theta_m$}}}%
+    \put(0.38926498,0.05677486){\color[rgb]{0,0,0}\rotatebox{72.930131}{\makebox(0,0)[lb]{\smash{pompa}}}}%
+    \put(0.1774767,0.79723205){\color[rgb]{0,0,0}\rotatebox{-68.651181}{\makebox(0,0)[lb]{\smash{seconda armonica}}}}%
+    \put(0.65067091,0.55188708){\color[rgb]{0,0,0}\rotatebox{50.490351}{\makebox(0,0)[lb]{\smash{asse ottico ($n_e$)}}}}%
   \end{picture}%
 \endgroup%
